@@ -1,0 +1,71 @@
+===== extracted roots present? =====
+  /mnt/wd_black/DS Libraries  (19G, 3 libs)
+  /mnt/btrfs_disk/DS Libraries  (102G, 397 libs)
+
+===== 1) DS presets present (.dspreset / .dslibrary) — KEEP =====
+  /mnt/wd_black/DS Libraries:  .dspreset=16  .dslibrary=0
+  /mnt/btrfs_disk/DS Libraries:  .dspreset=862  .dslibrary=52
+
+===== 2) OTHER-ENGINE patch files by extension (candidates to remove) =====
+--- /mnt/wd_black/DS Libraries ---
+    .nki                4
+    .nkc                4
+    .nkr                4
+    .sfz                2
+--- /mnt/btrfs_disk/DS Libraries ---
+    .nki               64
+    .nkc               32
+    .nkr               36
+    .exs               33
+    .adg                4
+    .sfz               36
+    .logicx             1
+
+===== 3) engine-named SUBFOLDERS (candidates to remove wholesale) =====
+--- /mnt/wd_black/DS Libraries ---
+--- /mnt/btrfs_disk/DS Libraries ---
+    /mnt/btrfs_disk/DS Libraries/Antz Decent Sampler 1.0 2/Antz Decent Sampler 1.0/SFZ
+    /mnt/btrfs_disk/DS Libraries/Antz Decent Sampler 1.0 2/__MACOSX/Antz Decent Sampler 1.0/SFZ
+    /mnt/btrfs_disk/DS Libraries/Synthphony 003/Synthphony 003/Kontakt
+    /mnt/btrfs_disk/DS Libraries/Synthphony S004 Motion/Synthphony S004 Motion/Kontakt
+    /mnt/btrfs_disk/DS Libraries/Synthphony S005 Complex/Synthphony S005 Complex/Kontakt
+
+===== 4) sanity: do any .dspreset reference samples OUTSIDE their own lib folder? =====
+    (if yes, pruning must be extra careful; usually DS refs are relative & local)
+    sample refs in: Autumn Piano (Multi).dspreset
+        path="samples/AUTUMN PIANO DRY.wav"
+        path="samples/AUTUMN PIANO DRY.wav"
+        path="samples/AUTUMN PIANO DRY.wav"
+        path="samples/AUTUMN PIANO DRY.wav"
+        path="samples/AUTUMN PIANO DRY.wav"
+    sample refs in: Autumn Piano.dspreset
+        path="samples/AUTUMN PIANO DRY.wav"
+        path="samples/AUTUMN PIANO DRY.wav"
+        path="samples/AUTUMN PIANO DRY.wav"
+        path="samples/AUTUMN PIANO DRY.wav"
+        path="samples/AUTUMN PIANO DRY.wav"
+    sample refs in: 01_Festive Celeste.dspreset
+        path="Resources/Images/Columns.png"
+        path="Resources/Images/Columns.png"
+        path="Resources/Images/IR Text.png"
+        path="Samples/Celeste_G#5_1_30_CloseRR04.wav"
+        path="Samples/Celeste_G5_1_30_CloseRR04.wav"
+    sample refs in: Flutes & Ebows.dspreset
+        path="Samples/EBOW LESS FUNDAMENTAL.wav"
+        path="Samples/NFlute Choir P A3.wav"
+        path="Samples/NFlute Choir P B3.wav"
+        path="Samples/NFlute Choir P C4.wav"
+        path="Samples/NFlute Choir P D4.wav"
+    sample refs in: EBOW LESS FUNDAMENTAL FAST ATT.dspreset
+        path="Samples/EBOW LESS FUNDAMENTAL.wav"
+    sample refs in: NFlute Choir.dspreset
+        path="Samples/NFlute Choir P A3.wav"
+        path="Samples/NFlute Choir P B3.wav"
+        path="Samples/NFlute Choir P C4.wav"
+        path="Samples/NFlute Choir P D4.wav"
+        path="Samples/NFlute Choir P E3.wav"
+
+READ-ONLY. From this we build a precise prune script:
+  - delete ONLY the other-engine patch files (section 2) + engine subfolders (section 3)
+  - NEVER touch .wav/.flac/.ogg/.aif or any Samples folder
+  - keep every .dspreset/.dslibrary

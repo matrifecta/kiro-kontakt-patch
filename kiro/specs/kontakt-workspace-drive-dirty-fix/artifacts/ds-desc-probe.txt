@@ -1,0 +1,356 @@
+===== (a) DSLibraryInfo.xml files (bundle-level metadata) — show contents =====
+--- /home/phnx/.config/DecentSampler/Sample Libraries/VT + DS - Interlaced Free Edition.dsbundle/DSLibraryInfo.xml ---
+   <?xml version="1.0" encoding="UTF-8"?>
+   
+   <DecentSamplerLibraryInfo name="VT + DS - Interlaced Free Edition" productId="860693" version="1.0.2"/>
+
+--- /home/phnx/.config/DecentSampler/Sample Libraries/DS + VT - altstrings Free Edition.dsbundle/DSLibraryInfo.xml ---
+   <?xml version="1.0" encoding="UTF-8"?>
+   
+   <DecentSamplerLibraryInfo name="DS + VT // alt.strings Free Edition" productId="1097553"
+                             version="1.0.0"/>
+
+--- /home/phnx/.config/DecentSampler/Sample Libraries/ZauberwindsSoloFloete_v1.dsbundle/DSLibraryInfo.xml ---
+   <?xml version="1.0" encoding="UTF-8"?>
+   
+   <DecentSamplerLibraryInfo name="Zauberwinds Solo Fl&#246;te" productId="2445124" version="1.0.0"/>
+
+--- /mnt/btrfs_disk/DS Libraries/12 String Acoustic/12 String Acoustic/DSLibraryInfo.xml ---
+   <?xml version="1.0" encoding="UTF-8"?>
+   
+   <DecentSamplerLibraryInfo name="12 String Acoustic"/>
+
+--- /mnt/btrfs_disk/DS Libraries/Accordion/Accordion.dsbundle/DSLibraryInfo.xml ---
+   <?xml version="1.0" encoding="UTF-8"?>
+   
+   <DecentSamplerLibraryInfo name="Hohner Accordion"/>
+
+
+===== (b) readme / info / txt files near libraries =====
+--- /mnt/btrfs_disk/DS Libraries/1450796_MGSteelStringHarmonics_MikeGeorgiades_DS/MG Steel String Harmonics (DS)/Resources/README.txt ---
+   {\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf600
+   {\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+   {\colortbl;\red255\green255\blue255;}
+   {\*\expandedcolortbl;;}
+   \paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+   \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+   
+   \f0\fs24 \cf0 Kontakt 5.8 Instrument: MG Steel String Harmonics\
+   \
+   By: Mike Georgiades\
+   \
+   The Story:\
+
+--- /mnt/btrfs_disk/DS Libraries/1452835_NFOAlternativeChamberStringsLongs_MarcoIannello/NFO Alternative Chamber Strings/Readme.txt ---
+   Story
+   -----
+   In the middle of April 2021, I had booked a 3 hour slot part of a shared recording session offered by Manchester based Northern Film Orchestra, in order to record a few ambient, textural chamber strings cues for a short film I had been scoring.
+   As the players were so incredibly brilliant, the recordings were wrapped up halfway through the session, and I had previously asked Jack Hughes, director of the NFO, whether I could capture a few samples of the chamber strings ensemble, with the objective of making a sample library. Jack had happily agreed to that , so we went ahead and started sampling both long and short notes, starting from the lowest C0 and going up in 5ths to F6.The long samples were recorded twice, whereas the short ones were recorded four times. I had time to record only a single dynamic layer, which I decided to be mezzoforte.
+   In the end, I was sent about 3 gigabytes of samples, and I decided to use the Close, Stereo Pair, Outriggers, and Room ones, therefore, for this reason, the library features four mic positions.
+   Also, I obtained a few IR samples from my fellow peer Dora Kmezic, who recorded them at "The Friary" in Liverpool, formerly a church known as St. Mary of the Angels and now home of the Royal Liverpool Philharmonic Orchestra and Choir, and decided to include them as a reverb for the library.
+   This bundle includes a Longs patch, as well as two Drone patches. There will be more bundles released in the future.
+   These samples are intended to be used more as a sound design tool, rather than a regular strings library, so feel free to mangle and destroy them to your heart's content!
+   
+   Usage
+   -----
+   Requires Kontakt 5.8.1+/Decent Sampler 1.1.3+
+
+--- /mnt/btrfs_disk/DS Libraries/1781 - Ganer Square Piano/1781 - Ganer Square Piano/Readme.txt ---
+   DATE: 28-11-2025,
+   
+   Hi everyone!
+   
+   I am glad to release the two 18th-century British pianos - The 1796 Broadwood Baby grand and the 1781 Ganer square piano virtual libraries for decent sampler via Pianobook, developed for my Postgraduate (taught) Project. The samples were recorded inside the anechoic chamber at ISVR, University of Southampton, United Kingdom, where the Professor, musician and composer David Owen Norris contributed to the recordings, which were later used for physics-based modelling and comparisons. It is a collaborative project between the Institute of Sound and Vibration Research and the University of Southampton's Music Department.
+   
+   Check out the official link here: https://www.southampton.ac.uk/research/projects/echoes-of-the-past-advanced-sound-synthesis-of-early-pianos
+   
+   There are three variations for Broadwood (pedals):
+   	> No Pedals (F0 - key switches),
+   	> with Una Corda Pedal (G0),
+   	> with Sustain Pedal (A0)
+
+--- /mnt/btrfs_disk/DS Libraries/1796 - Broadwood Piano/1796 - Broadwood Piano/Readme.txt ---
+   DATE: 28-11-2025,
+   
+   Hi everyone!
+   
+   I am glad to release the two 18th-century British pianos - The 1796 Broadwood Baby grand and the 1781 Ganer square piano virtual libraries for decent sampler via Pianobook, developed for my Postgraduate (taught) Project. The samples were recorded inside the anechoic chamber at ISVR, University of Southampton, United Kingdom, where the Professor, musician and composer David Owen Norris contributed to the recordings, which were later used for physics-based modelling and comparisons. It is a collaborative project between the Institute of Sound and Vibration Research and the University of Southampton's Music Department.
+   
+   Check out the official link here: https://www.southampton.ac.uk/research/projects/echoes-of-the-past-advanced-sound-synthesis-of-early-pianos
+   
+   There are three variations for Broadwood (pedals):
+   	> No Pedals (F0 - key switches),
+   	> with Una Corda Pedal (G0),
+   	> with Sustain Pedal (A0)
+
+--- /mnt/btrfs_disk/DS Libraries/1950s Archer L-1X Crystal Mic Choir/1950s Archer L-1X Crystal Mic Choir/ReadMe.rtf ---
+   {\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Calibri;}}
+   {\colortbl ;\red0\green0\blue255;}
+   {\*\generator Riched20 10.0.19041}\viewkind4\uc1 
+   \pard\sa200\sl276\slmult1\b\f0\fs28\lang9 Hello, and Thank You for Downloading My 1950s Archer L-1X Crystal Mic Choir Sample Library!\b0\fs22\par
+   A while ago, when at an antique store, I stumbled upon this old Crystal Mic from the 1950s. Remarkably it works great. I plan to make a few instruments with this, but to start off I thought, why not make an old fashioned choir sound. I recorded myself singing a few notes (poorly I might add) and arranged them to creat this VST. It's silly but fun and sounds kinda cool in a lofi way. Hopefully you all find some use for this!\line\line\b\fs36 FAQ:\b0\fs22\par
+   \b Q. How do I use it? \line\b0\i A. First, you'll need the FREE Decent Sampler plugin here (Windows, Mac, and Linux!):\par
+   {\i0{\field{\*\fldinst{HYPERLINK https://www.decentsamples.com/product/decent-sampler-plugin/ }}{\fldrslt{https://www.decentsamples.com/product/decent-sampler-plugin/\ul0\cf0}}}}\i0\f0\fs22\par
+   \i Once you have it installed open Decent Sampler and simply drag the '.dslibrary' file on to the interface and it will work it's magic! \par
+   If you want to keep your libraries in a specific location, make sure the '.dspreset' file is in that directory \b BEFORE \b0 importing!\par
+   \b\i0 Q. Do I have to credit you?\b0\line\i A. Nope, no credits required.\i0\par
+   \b Q. Can I sell these and/or sell modified versions of them?\line\b0\i A. Use some common sense. No.\i0\par
+   \b Q. How do I thank you? \b0\line\i A. While no credit is required, feel free to give me a follow on my socials, and tell me how you used the pack!\i0\par
+
+--- /mnt/btrfs_disk/DS Libraries/1984 Elec. Bass Vantage X-99B 1.0 Lite/1984 Elec. Bass Vantage X-99B 1.0 Lite/Resources/README.txt ---
+   # 1984 Elec. Bass Vantage X-99B - Lite - Version: [1.0]
+   
+   Date: 2025-03-21
+   Created by: Lysbleu
+   Profile: https://www.pianobook.co.uk/profile/lysbleu
+   
+   ---------------------------------------------------------------------------------------------------
+   
+   Description: 
+   
+   1984 « Matsumoku » Vantage bass guitar Model X-99B.
+   24 frets, with active pickups 
+
+--- /mnt/btrfs_disk/DS Libraries/3dPrintedOcarina_0.0.0/README.txt ---
+   # [Grandma's Beachhouse Piano] Version: [0.0.0]
+   
+   Date: 27 Aug 2025
+   By: Jack Brough
+   Profile: https://www.pianobook.co.uk/profile/opiture/
+   
+   ## Included formats
+   - Decent Sampler
+   
+   ## Release notes
+   -Created first release alpha
+   
+
+--- /mnt/btrfs_disk/DS Libraries/4833_ShiveringWaves_fred-poirier_20220127-021013/Shivering Waves (DS)/Resources/readme.txt ---
+   ---------------
+   Shivering Waves
+   ---------------
+   
+   The story:
+   
+   A few months ago, I created a few samples with my beloved ASAT guitar by playing some harmonics and messing with the volume knob to create a slow attacks and releases, in order to make some sound waves. I then over processed some of these samples, using Valhalla Supermassive and the wonderful Cassette plugin by Wavesfactory.
+   
+   One sample in particular reacted very well to this treatment, so I put it in a Sampler all over the key range, and I really enjoyed the result, so I decided to share it with the Pianobook community.
+   
+   I made it into a DecentSampler instrument, with a second layer of the sample, this time with Eventide Quadravox plugin and a large stereo reverb to have a lush and wide sound. Each layer has independent volume/pan/attack/release controllers, for maximum flexibility.
+   
+
+
+===== (c) description-ish attributes/tags INSIDE .dspreset XML =====
+--- which attribute/tag names appear that could hold a description? ---
+--- Flutes & Ebows.dspreset ---
+   name="1 samples"
+   tags="MIC_EBOW,NFlute"
+   name="P"
+   tags="MIC_FLUTE,NFlute"
+--- EBOW LESS FUNDAMENTAL FAST ATT.dspreset ---
+   name="1 samples"
+   name="main"
+--- NFlute Choir.dspreset ---
+   name="P"
+   name="F"
+   name="main"
+--- EBOW LESS FUNDAMENTAL.dspreset ---
+   name="1 samples"
+   name="main"
+--- Native Flute.dspreset ---
+   name="P"
+   name="F"
+   name="main"
+--- Winter Piano.dspreset ---
+   name="main"
+   name="Group #2"
+--- 12 String Acoustic.dspreset ---
+   Name="attack"
+   Name="decay"
+   Name="sustain"
+   Name="release"
+--- Claustrophobic Piano (KU100).dspreset ---
+   name="KU100 F notes_without_pedal"
+   name="KU100 F notes_with_pedal"
+   name="KU100 release_triggers"
+   name="KU100 MF notes_without_pedal"
+--- Claustrophobic Piano (M149).dspreset ---
+   name="M149 F notes_without_pedal"
+   name="M149 F notes_with_pedal"
+   name="M149 release_triggers"
+   name="M149 MF notes_without_pedal"
+--- Claustrophobic Piano (MIX456).dspreset ---
+   name="MIX456 F notes_without_pedal"
+   name="MIX456 F notes_with_pedal"
+   name="MIX456 release_triggers"
+   name="MIX456 MF notes_without_pedal"
+--- 12 Oscillator Doom Drone.dspreset ---
+   name="main"
+   name="Group 1"
+--- The Cool Piano.dspreset ---
+   name="Pedals F notes_without_pedal"
+   tags="MIC_Pedals,NOTES"
+   name="Pedals F notes_with_pedal"
+   tags="MIC_Pedals,NOTES"
+--- MG Steel String Harmonics.dspreset ---
+   name="main"
+   name="RR1"
+   name="RR2"
+   name="RR3"
+--- NFO Chamber Strings Longs.dspreset ---
+   name="main"
+   Name="Close"
+   Name="Stereo Pair"
+   Name="Outriggers"
+--- NFO Chamber Strings Low Drone.dspreset ---
+   name="main"
+   Name="Close"
+   Name="Stereo Pair"
+   Name="Outriggers"
+--- NFO Chamber Strings Lower Drone.dspreset ---
+   name="main"
+   Name="Close"
+   Name="Stereo Pair"
+   Name="Outriggers"
+--- The Gaffer.dspreset ---
+   name="m149 F notes_without_pedal"
+   tags="MIC_m149,NOTES"
+   name="m149 F notes_with_pedal"
+   tags="MIC_m149,NOTES"
+--- 1781 Ganer Square.dspreset ---
+   name="No Damp No Buff (key 24) and No Damp with Buff (key 26)"
+   name="Treble Damp No Buff (key 28) and Treble Damp with Buff (key 29)"
+   name="Bass Damp No Buff (key 31) and Bass Damp with Buff (key 33)"
+   name="All Damp No Buff (key 35) and All Damp with Buff (key 36)"
+--- 1796 Broadwood.dspreset ---
+   name="Basic/Default"
+   name="Una Corda"
+   name="Sustained"
+   name="Keyboard Range - 1796 Model"
+--- 1930s Wurlitzer Pizzicato.dspreset ---
+   name="main"
+--- 1950s Archer L-1X Crystal Mic Choir.dspreset ---
+   name="main"
+   tags="notes"
+--- Both_Single_coils.dspreset ---
+   name="main"
+--- Palm muted Schimmel Beta.dspreset ---
+   name="RR1"
+   name="RR2"
+   name="RR3"
+   name="main"
+--- Palm Muted Schimmel.dspreset ---
+   name="RR1"
+   name="RR2"
+   name="RR3"
+   name="main"
+--- Palm muted schimmel beta tested ok.dspreset ---
+   name="RR1"
+   name="RR2"
+   name="RR3"
+   name="main"
+
+===== (d) do .dspreset files carry a <ui ...> title or top <DecentSampler ...> attrs? =====
+--- Flutes & Ebows.dspreset : first 15 lines ---
+   <?xml version="1.0" encoding="UTF-8"?>
+   <!-- DS file for Kontakt 6 instrument EBOW & FLUTE -->
+   <DecentSampler pluginVersion="1">
+     <groups>
+       <group name="1 samples" volume="4.831874370575dB" tuning="0.0" ampVelTrack="1" tags="MIC_EBOW,NFlute">
+         <sample path="Samples/EBOW LESS FUNDAMENTAL.wav" volume="0.0dB" tuning="0.00" rootNote="60" start="0" end="1848868" loNote="0" hiNote="119" loVel="1" hiVel="127" loopEnabled="true" loopStart="160956" loopEnd="1848867" loopCrossfade="75000" />
+       </group>
+       <group name="P" volume="6.1036558151245dB" tuning="0.0" ampVelTrack="1" tags="MIC_FLUTE,NFlute">
+         <sample path="Samples/NFlute Choir P A3.wav" volume="0.0dB" tuning="-0.17" rootNote="69" start="0" end="744000" loNote="68" hiNote="69" loVel="1" hiVel="127" loopEnabled="true" loopStart="129415" loopEnd="735239" loopCrossfade="50000" />
+         <sample path="Samples/NFlute Choir P B3.wav" volume="0.0dB" tuning="0.11" rootNote="71" start="0" end="648000" loNote="70" hiNote="71" loVel="1" hiVel="127" loopEnabled="true" loopStart="113065" loopEnd="647999" loopCrossfade="50000" />
+         <sample path="Samples/NFlute Choir P C4.wav" volume="0.0dB" tuning="-0.49" rootNote="72" start="0" end="708000" loNote="72" hiNote="72" loVel="1" hiVel="127" loopEnabled="true" loopStart="105274" loopEnd="707999" loopCrossfade="50000" />
+         <sample path="Samples/NFlute Choir P D4.wav" volume="0.0dB" tuning="-0.47" rootNote="74" start="0" end="708000" loNote="73" hiNote="74" loVel="1" hiVel="127" loopEnabled="true" loopStart="114946" loopEnd="707999" loopCrossfade="50000" />
+         <sample path="Samples/NFlute Choir P E3.wav" volume="0.0dB" tuning="0.36" rootNote="64" start="0" end="1113577" loNote="0" hiNote="64" loVel="1" hiVel="127" loopEnabled="true" loopStart="87446" loopEnd="1113576" loopCrossfade="50000" />
+         <sample path="Samples/NFlute Choir P E4.wav" volume="0.0dB" tuning="-0.34" rootNote="76" start="0" end="840000" loNote="75" hiNote="127" loVel="1" hiVel="127" loopEnabled="true" loopStart="131509" loopEnd="839999" loopCrossfade="50000" />
+         <sample path="Samples/NFlute Choir P G3.wav" volume="0.0dB" tuning="-0.27" rootNote="67" start="0" end="720000" loNote="65" hiNote="67" loVel="1" hiVel="127" loopEnabled="true" loopStart="79885" loopEnd="719999" loopCrossfade="50000" />
+
+--- EBOW LESS FUNDAMENTAL FAST ATT.dspreset : first 15 lines ---
+   <?xml version="1.0" encoding="UTF-8"?>
+   <!-- DS file for Kontakt 6 instrument EBOW LESS FUNDAMENTAL FAST ATT -->
+   <DecentSampler pluginVersion="1">
+     <groups>
+       <group name="1 samples" volume="4.831874370575dB" tuning="0.0" ampVelTrack="1">
+         <sample path="Samples/EBOW LESS FUNDAMENTAL.wav" volume="0.0dB" tuning="0.00" rootNote="60" start="0" end="1848868" loNote="0" hiNote="119" loVel="1" hiVel="127" loopEnabled="true" loopStart="160956" loopEnd="1848867" loopCrossfade="75000" />
+       </group>
+     </groups>
+       <ui bgImage="Images/bg_fast-attack.jpg" width="812" height="375" layoutMode="relative" bgColor="FF000000"
+         bgMode="top_left">
+       <tab name="main">
+       
+           <labeled-knob x="75" y="80" label="volume (cc 11)" type="float" minValue="0" maxValue="1" value="1" textColor="FFFFFFFF"
+           textSize="16" width="120" height="120" trackForegroundColor="FFFFFFFF" trackBackgroundColor="80808080">
+           <binding type="amp" level="instrument" position="0" parameter="AMP_VOLUME"/>
+
+--- NFlute Choir.dspreset : first 15 lines ---
+   <?xml version="1.0" encoding="UTF-8"?>
+   <!-- DS file for Kontakt 6 instrument NFlute Choir -->
+   <DecentSampler pluginVersion="1">
+     <groups>
+       <group name="P" volume="6.1036558151245dB" tuning="0.0" ampVelTrack="1" attack="0.9" release="1">
+         <sample path="Samples/NFlute Choir P A3.wav" volume="0.0dB" tuning="-0.17" rootNote="69" start="0" end="744000" loNote="68" hiNote="69" loVel="1" hiVel="127" loopEnabled="true" loopStart="129415" loopEnd="735239" loopCrossfade="50000" />
+         <sample path="Samples/NFlute Choir P B3.wav" volume="0.0dB" tuning="0.11" rootNote="71" start="0" end="648000" loNote="70" hiNote="71" loVel="1" hiVel="127" loopEnabled="true" loopStart="113065" loopEnd="647999" loopCrossfade="50000" />
+         <sample path="Samples/NFlute Choir P C4.wav" volume="0.0dB" tuning="-0.49" rootNote="72" start="0" end="708000" loNote="72" hiNote="72" loVel="1" hiVel="127" loopEnabled="true" loopStart="105274" loopEnd="707999" loopCrossfade="50000" />
+         <sample path="Samples/NFlute Choir P D4.wav" volume="0.0dB" tuning="-0.47" rootNote="74" start="0" end="708000" loNote="73" hiNote="74" loVel="1" hiVel="127" loopEnabled="true" loopStart="114946" loopEnd="707999" loopCrossfade="50000" />
+         <sample path="Samples/NFlute Choir P E3.wav" volume="0.0dB" tuning="0.36" rootNote="64" start="0" end="1113577" loNote="0" hiNote="64" loVel="1" hiVel="127" loopEnabled="true" loopStart="87446" loopEnd="1113576" loopCrossfade="50000" />
+         <sample path="Samples/NFlute Choir P E4.wav" volume="0.0dB" tuning="-0.34" rootNote="76" start="0" end="840000" loNote="75" hiNote="127" loVel="1" hiVel="127" loopEnabled="true" loopStart="131509" loopEnd="839999" loopCrossfade="50000" />
+         <sample path="Samples/NFlute Choir P G3.wav" volume="0.0dB" tuning="-0.27" rootNote="67" start="0" end="720000" loNote="65" hiNote="67" loVel="1" hiVel="127" loopEnabled="true" loopStart="79885" loopEnd="719999" loopCrossfade="50000" />
+       </group>
+       <group name="F" volume="8.3870697021484dB" tuning="0.0" ampVelTrack="1" attack="0.9" release="1">
+         <sample path="Samples/NFlute Choir F A3.wav" volume="0.0dB" tuning="-0.58" rootNote="69" start="0" end="648000" loNote="68" hiNote="69" loVel="1" hiVel="127" loopEnabled="true" loopStart="73933" loopEnd="647999" loopCrossfade="49900" />
+
+--- EBOW LESS FUNDAMENTAL.dspreset : first 15 lines ---
+   <?xml version="1.0" encoding="UTF-8"?>
+   <!-- DS file for Kontakt 6 instrument EBOW LESS FUNDAMENTAL -->
+   <DecentSampler pluginVersion="1">
+     <groups>
+       <group name="1 samples" volume="4.831874370575dB" tuning="0.0" ampVelTrack="1">
+         <sample path="Samples/EBOW LESS FUNDAMENTAL.wav" volume="0.0dB" tuning="0.00" rootNote="60" start="0" end="1848868" loNote="0" hiNote="119" loVel="1" hiVel="127" loopEnabled="true" loopStart="160956" loopEnd="1848867" loopCrossfade="75000" />
+       </group>
+     </groups>
+     <ui bgImage="Images/bg_ebow.jpg" width="812" height="375" layoutMode="relative" bgColor="FF000000"
+         bgMode="top_left">
+       <tab name="main">
+       
+           <labeled-knob x="75" y="80" label="volume (cc 11)" type="float" minValue="0" maxValue="1" value="1" textColor="FFFFFFFF"
+           textSize="16" width="120" height="120" trackForegroundColor="FFFFFFFF" trackBackgroundColor="80808080">
+           <binding type="amp" level="instrument" position="0" parameter="AMP_VOLUME"/>
+
+--- Native Flute.dspreset : first 15 lines ---
+   <?xml version="1.0" encoding="UTF-8"?>
+   <!-- DS file for Kontakt 6 instrument Native American Flute -->
+   <DecentSampler pluginVersion="1">
+     <groups volume="12dB">
+       <group name="P" volume="-18.001617431641dB" tuning="0.0" ampVelTrack="1">
+         <sample path="Samples/NFlute P A3.wav" volume="0.0dB" tuning="0.00" rootNote="69" start="0" end="1269737" loNote="68" hiNote="69" loVel="1" hiVel="127" loopEnabled="true" loopStart="0" loopEnd="1269736" loopCrossfade="1000" />
+         <sample path="Samples/NFlute P B3.wav" volume="0.0dB" tuning="0.00" rootNote="71" start="0" end="1018868" loNote="70" hiNote="71" loVel="1" hiVel="127" loopEnabled="true" loopStart="0" loopEnd="1018867" loopCrossfade="1000" />
+         <sample path="Samples/NFlute P C4.wav" volume="0.0dB" tuning="0.00" rootNote="72" start="0" end="1209008" loNote="72" hiNote="72" loVel="1" hiVel="127" loopEnabled="true" loopStart="0" loopEnd="1209007" loopCrossfade="1000" />
+         <sample path="Samples/NFlute P D4.wav" volume="0.0dB" tuning="0.00" rootNote="74" start="0" end="1133838" loNote="73" hiNote="74" loVel="1" hiVel="127" loopEnabled="true" loopStart="0" loopEnd="1133837" loopCrossfade="1000" />
+         <sample path="Samples/NFlute P E3.wav" volume="0.0dB" tuning="0.00" rootNote="64" start="0" end="2306189" loNote="0" hiNote="64" loVel="1" hiVel="127" loopEnabled="true" loopStart="0" loopEnd="2306188" loopCrossfade="1000" />
+         <sample path="Samples/NFlute P E4.wav" volume="0.0dB" tuning="0.00" rootNote="76" start="0" end="914658" loNote="75" hiNote="127" loVel="1" hiVel="127" loopEnabled="true" loopStart="0" loopEnd="914657" loopCrossfade="1000" />
+         <sample path="Samples/NFlute P G3.wav" volume="0.0dB" tuning="0.00" rootNote="67" start="0" end="1724252" loNote="65" hiNote="67" loVel="1" hiVel="127" loopEnabled="true" loopStart="0" loopEnd="1724251" loopCrossfade="1000" />
+       </group>
+       <group name="F" volume="-18.001617431641dB" tuning="0.0" ampVelTrack="1">
+         <sample path="Samples/NFlute F A3.wav" volume="0.0dB" tuning="0.00" rootNote="69" start="0" end="1138763" loNote="68" hiNote="69" loVel="1" hiVel="127" loopEnabled="true" loopStart="0" loopEnd="1138762" loopCrossfade="1000" />
+
+--- Winter Piano.dspreset : first 15 lines ---
+   <?xml version="1.0" encoding="UTF-8"?>
+   <DecentSampler>
+     <ui bgImage="Resources/bg_winterpiano.png" width="812" height="375" layoutMode="relative" bgColor="FF000000"
+         bgMode="top_left">
+       <tab name="main">
+       
+         	<labeled-knob x="75" y="80" label="volume (cc11)" type="float" minValue="0.0" maxValue="1" value="1" textColor="FFFFFFFF"
+         	textSize="16" width="120" height="120" trackForegroundColor="E63D99F4" trackBackgroundColor="80808080">
+           <binding type="amp" level="instrument" position="0" parameter="AMP_VOLUME"/>
+   		</labeled-knob>
+       
+         	<labeled-knob x="211" y="80" label="tone (MW)" type="float" minValue="60" maxValue="22000" value="22000" textColor="FFFFFFFF"
+         	textSize="16" width="120" height="120" trackForegroundColor="E63D99F4" trackBackgroundColor="80808080">
+           <binding type="effect" level="instrument" position="0" parameter="FX_FILTER_FREQUENCY"/>
+   		</labeled-knob>
+
+(done — report at /home/phnx/KIRO/.kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/ds-desc-probe.txt)

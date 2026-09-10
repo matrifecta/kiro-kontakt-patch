@@ -1,0 +1,41 @@
+Kontakt failed-lookup analysis
+log:   /home/phnx/kontakt_load.log
+date:  2026-09-01T20:49:31+02:00
+-----------------------------------------
+bucket                  count
+-------------------- --------
+db_sidecar               3716
+resource_image           2797
+resource_dist_db          737
+controller_probe          420
+library_content            43
+other                    2547
+-------------------- --------
+TOTAL_failed            10260
+
+Top 25 most-probed missing paths:
+   1499 \\??\\D:\\VST Install\\Kontakt Portable\\UserData\\NI Resources\\database\\pal\\categories.db-wal
+   1499 \\??\\D:\\VST Install\\Kontakt Portable\\UserData\\NI Resources\\database\\pal\\categories.db-journal
+    508 \\??\\D:\\VST Install\\Kontakt Portable\\UserData\\Shared\\Resources\\image\\default
+    508 \\??\\D:\\VST Install\\Kontakt Portable\\UserData\\NI Resources\\image\\default
+    210 \\??\\J:\\
+    210 \\??\\E:\\
+    184 \\??\\D:\\VST Install\\Kontakt Portable\\UserData\\Shared\\Resources\\dist_database\\default
+    184 \\??\\D:\\VST Install\\Kontakt Portable\\UserData\\NI Resources\\dist_database\\default
+    184 \\??\\D:\\VST Install\\Kontakt Portable\\UserData
+    148 \\??\\D:\\VST Install\\Kontakt Portable\\UserData\\NI Resources\\_DatabaseResources\\shortname\\shortname.db-wal
+    148 \\??\\D:\\VST Install\\Kontakt Portable\\UserData\\NI Resources\\_DatabaseResources\\shortname\\shortname.db-journal
+    148 \\??\\D:\\VST Install\\Kontakt Portable\\UserData\\NI Resources\\_DatabaseResources\\color\\color.db-wal
+    148 \\??\\D:\\VST Install\\Kontakt Portable\\UserData\\NI Resources\\_DatabaseResources\\color\\color.db-journal
+     68 \\??\\Z:\\mnt\\workspace\\VST Install\\Kontakt Vst-i Folders\\Not a Piano
+     63 \\??\\D:\\VST Install\\Kontakt Portable\\UserData\\Service Center\\pal.db-wal
+     63 \\??\\D:\\VST Install\\Kontakt Portable\\UserData\\Service Center\\pal.db-journal
+     20 \\??\\Z:\\mnt\\workspace\\VST Install\\Kontakt Vst-i\\Drumforge.I.Ultimate.KONTAKT-SYNTHiC4TE\\712A0CC5-0CBC-4E67-9058-A7300152C52D_info.nkx
+     19 \\??\\D:\\VST Install\\Kontakt Portable\\UserData\\Shared\\Resources\\image\\world percussion 20_64b7632c9a2dfe8dac5046daf37bd1a4
+     19 \\??\\D:\\VST Install\\Kontakt Portable\\UserData\\Shared\\Resources\\image\\ultimate pro oriental strings
+     19 \\??\\D:\\VST Install\\Kontakt Portable\\UserData\\Shared\\Resources\\image\\tablas
+     19 \\??\\D:\\VST Install\\Kontakt Portable\\UserData\\Shared\\Resources\\image\\ewql ra
+     19 \\??\\D:\\VST Install\\Kontakt Portable\\UserData\\Shared\\Resources\\image\\ewql colossus
+     18 \\??\\D:\\VST Install\\Kontakt Portable\\UserData\\Shared\\Resources\\dist_database\\world percussion 20_64b7632c9a2dfe8dac5046daf37bd1a4
+     18 \\??\\D:\\VST Install\\Kontakt Portable\\UserData\\Shared\\Resources\\dist_database\\ultimate pro oriental strings
+     18 \\??\\D:\\VST Install\\Kontakt Portable\\UserData\\Shared\\Resources\\dist_database\\tablas

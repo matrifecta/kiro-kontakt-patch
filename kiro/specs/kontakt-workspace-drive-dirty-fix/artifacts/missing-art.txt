@@ -1,0 +1,15 @@
+NO-IMAGE: Air Piano Mics   [/mnt/btrfs_disk/DS Libraries/851_v2_AirPianoClean_ChristianHenson_DecentSampler/Air Piano (DS)/Presets that don't work/Air Piano Mics.dspreset]
+NO-IMAGE: Air Piano   [/mnt/btrfs_disk/DS Libraries/851_v2_AirPianoClean_ChristianHenson_DecentSampler/Air Piano (DS)/Presets that don't work/Air Piano.dspreset]
+NO-IMAGE: Dynamic Overtone Guitar   [/mnt/btrfs_disk/DS Libraries/Dynamic Overtone Guitar/Dynamic Overtone Guitar.dspreset]
+NO-IMAGE: PAMAHA NO RELEASE SAMPLES   [/mnt/btrfs_disk/DS Libraries/PAMAHA/PAMAHA/EXTRA/PAMAHA NO RELEASE SAMPLES.dspreset]
+NO-IMAGE: PAMAHA SOFTER NO RELEASE SAMPLES   [/mnt/btrfs_disk/DS Libraries/PAMAHA/PAMAHA/EXTRA/PAMAHA SOFTER NO RELEASE SAMPLES.dspreset]
+NO-IMAGE: TheDiArchtop   [/mnt/btrfs_disk/DS Libraries/TheDiArchtop/TheDiArchtop/TheDiArchtop.dspreset]
+
+===== image formats present across all DS libraries (extension histogram) =====
+   1457 .png
+    240 .jpg
+      6 .jpeg
+      1 .bmp
+
+(NO-IMAGE lines above = libraries with genuinely no raster image in any format)
+report saved: /home/phnx/KIRO/.kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/missing-art.txt

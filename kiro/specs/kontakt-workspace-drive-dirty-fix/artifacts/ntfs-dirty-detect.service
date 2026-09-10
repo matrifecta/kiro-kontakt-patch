@@ -1,0 +1,20 @@
+[Unit]
+Description=Detect NTFS Workspace dirty flag at boot (before mount)
+Documentation=file:///usr/local/sbin/ntfs-dirty-detect.sh
+DefaultDependencies=no
+After=local-fs-pre.target
+# CRITICAL: read the flag BEFORE ntfs3 mounts the volume, otherwise ntfsinfo
+# cannot open it and the "arrived dirty?" evidence is lost.
+Before=mnt-workspace.mount local-fs.target
+# The mount can be pulled in via more than one path (nofail), which triggered
+# this unit twice. RefuseManualStart/once-per-boot is handled by the script's
+# guard; keep the unit itself simple.
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/ntfs-dirty-detect.sh
+# Never block boot on this detector.
+TimeoutStartSec=15
+
+[Install]
+WantedBy=local-fs.target

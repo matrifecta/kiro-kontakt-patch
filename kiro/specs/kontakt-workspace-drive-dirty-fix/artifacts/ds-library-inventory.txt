@@ -1,0 +1,1391 @@
+generated: sre 09 sep 2026 19:06:32 CEST
+############################################################
+# DECENTSAMPLER LIBRARY INVENTORY
+############################################################
+
+### HOME (DS default library folder — shows in BROWSE / SAMPLE STORE installed)
+### root: /home/phnx/.config/DecentSampler/Sample Libraries
+--- .dsbundle libraries here (name = what shows in the browser) ---
+   DS + VT - altstrings Free Edition            
+      path: /home/phnx/.config/DecentSampler/Sample Libraries/DS + VT - altstrings Free Edition.dsbundle
+   VT + DS - Interlaced Free Edition            
+      path: /home/phnx/.config/DecentSampler/Sample Libraries/VT + DS - Interlaced Free Edition.dsbundle
+   ZauberwindsSoloFloete_v1                     
+      path: /home/phnx/.config/DecentSampler/Sample Libraries/ZauberwindsSoloFloete_v1.dsbundle
+--- standalone .dspreset files not inside a .dsbundle (also loadable) ---
+
+### BTRFS DISK  (FILE BROWSER -> 'btrfs' root)
+### root: /mnt/btrfs_disk/DS Libraries
+--- .dsbundle libraries here (name = what shows in the browser) ---
+   Accordion                                    
+      path: /mnt/btrfs_disk/DS Libraries/Accordion/Accordion.dsbundle
+   Alto-Recorder                                
+      path: /mnt/btrfs_disk/DS Libraries/Alto-Recorder V1.1/Alto-Recorder.dsbundle
+   Chloe's Spinet                               
+      path: /mnt/btrfs_disk/DS Libraries/Chloe's Spinet/Chloe's Spinet.dsbundle
+   Clavinova Warm Pad                           
+      path: /mnt/btrfs_disk/DS Libraries/Clavinova Warm Pad/Clavinova Warm Pad.dsbundle
+   CR Seventy Eight                             
+      path: /mnt/btrfs_disk/DS Libraries/CR Seventy Eight v1.0.4 Decent Sampler/CR Seventy Eight.dsbundle
+   Familiy Ensemble                             
+      path: /mnt/btrfs_disk/DS Libraries/Familiy Ensemble v1.0/Familiy Ensemble.dsbundle
+   Felt & Fog [Free]                            
+      path: /mnt/btrfs_disk/DS Libraries/Felt_&_Fog_Free_Edition/Felt & Fog [Free].dsbundle
+   IrishTinWhistle                              
+      path: /mnt/btrfs_disk/DS Libraries/IrishTinWhistle/IrishTinWhistle.dsbundle
+   Jew`s Harp F#                                
+      path: /mnt/btrfs_disk/DS Libraries/Jews Harp/Jews Harp/Jew`s Harp F#.dsbundle
+   Kalimba (G Pygmy)                            
+      path: /mnt/btrfs_disk/DS Libraries/Kalimba (G Pygmy)/Kalimba (G Pygmy).dsbundle
+   Kitchen Drum Kit                             
+      path: /mnt/btrfs_disk/DS Libraries/Kitchen Drum KIt/Kitchen Drum KIt/Kitchen Drum Kit.dsbundle
+   Pipe Drum                                    
+      path: /mnt/btrfs_disk/DS Libraries/Pipe Drum v2.0 251102/Pipe Drum für Pianobook v2 251102/Pipe Drum.dsbundle
+   Souvenir Tunisian Drum                       
+      path: /mnt/btrfs_disk/DS Libraries/Souvenir Tunisian Drum v1.2/Souvenir Tunisian Drum.dsbundle
+   Three Strings Domra                          
+      path: /mnt/btrfs_disk/DS Libraries/Three Strings Domra/Three Strings Domra.dsbundle
+   Tongue_Bottle_Glass                          
+      path: /mnt/btrfs_disk/DS Libraries/Tongue_Bottle_Glass/Tongue_Bottle_Glass.dsbundle
+   Cat Toy Drums Free                           
+      path: /mnt/btrfs_disk/DS Libraries/TS Cat Toy Drums Free Edition [Decent Sampler]/TS Cat Toy Drums Free Edition [Decent Sampler]/Cat Toy Drums Free.dsbundle
+--- standalone .dspreset files not inside a .dsbundle (also loadable) ---
+   EBOW LESS FUNDAMENTAL                        
+      path: /mnt/btrfs_disk/DS Libraries/1065349_NativeFluteOriginal_ChristianHenson_DecentSampler/Native Flute  (DS)/EBOW LESS FUNDAMENTAL.dspreset
+   EBOW LESS FUNDAMENTAL FAST ATT               
+      path: /mnt/btrfs_disk/DS Libraries/1065349_NativeFluteOriginal_ChristianHenson_DecentSampler/Native Flute  (DS)/EBOW LESS FUNDAMENTAL FAST ATT.dspreset
+   Flutes & Ebows                               
+      path: /mnt/btrfs_disk/DS Libraries/1065349_NativeFluteOriginal_ChristianHenson_DecentSampler/Native Flute  (DS)/Flutes & Ebows.dspreset
+   Native Flute                                 
+      path: /mnt/btrfs_disk/DS Libraries/1065349_NativeFluteOriginal_ChristianHenson_DecentSampler/Native Flute  (DS)/Native Flute.dspreset
+   NFlute Choir                                 
+      path: /mnt/btrfs_disk/DS Libraries/1065349_NativeFluteOriginal_ChristianHenson_DecentSampler/Native Flute  (DS)/NFlute Choir.dspreset
+   Winter Piano                                 
+      path: /mnt/btrfs_disk/DS Libraries/1217_v4_WinterPianoNR_ChristianHenson_DecentSampler/Winter Piano (DS)/Winter Piano.dspreset
+   12 String Acoustic                           
+      path: /mnt/btrfs_disk/DS Libraries/12 String Acoustic/12 String Acoustic/12 String Acoustic.dspreset
+   Claustrophobic Piano (KU100)                 
+      path: /mnt/btrfs_disk/DS Libraries/1417838_ClaustrophobicPianoV2_ChristianHenson/Claustrophobic Piano (KU100).dspreset
+   Claustrophobic Piano (M149)                  
+      path: /mnt/btrfs_disk/DS Libraries/1417838_ClaustrophobicPianoV2_ChristianHenson/Claustrophobic Piano (M149).dspreset
+   Claustrophobic Piano (MIX456)                
+      path: /mnt/btrfs_disk/DS Libraries/1417838_ClaustrophobicPianoV2_ChristianHenson/Claustrophobic Piano (MIX456).dspreset
+   12 Oscillator Doom Drone                     
+      path: /mnt/btrfs_disk/DS Libraries/1445258_12OscillatorDoomDrone_ChristianHenson_DS/12 Oscillator Doom Drone (DS)/12 Oscillator Doom Drone.dspreset
+   The Cool Piano                               
+      path: /mnt/btrfs_disk/DS Libraries/1445643_TheCoolPiano_ChristianHenson/The Cool Piano.dspreset
+   MG Steel String Harmonics                    
+      path: /mnt/btrfs_disk/DS Libraries/1450796_MGSteelStringHarmonics_MikeGeorgiades_DS/MG Steel String Harmonics (DS)/MG Steel String Harmonics.dspreset
+   NFO Chamber Strings Longs                    
+      path: /mnt/btrfs_disk/DS Libraries/1452835_NFOAlternativeChamberStringsLongs_MarcoIannello/NFO Alternative Chamber Strings/NFO Chamber Strings Longs.dspreset
+   NFO Chamber Strings Low Drone                
+      path: /mnt/btrfs_disk/DS Libraries/1452835_NFOAlternativeChamberStringsLongs_MarcoIannello/NFO Alternative Chamber Strings/NFO Chamber Strings Low Drone.dspreset
+   NFO Chamber Strings Lower Drone              
+      path: /mnt/btrfs_disk/DS Libraries/1452835_NFOAlternativeChamberStringsLongs_MarcoIannello/NFO Alternative Chamber Strings/NFO Chamber Strings Lower Drone.dspreset
+   The Gaffer                                   
+      path: /mnt/btrfs_disk/DS Libraries/1453143_TheGaffer_ChristianHenson/The Gaffer.dspreset
+   1781 Ganer Square                            
+      path: /mnt/btrfs_disk/DS Libraries/1781 - Ganer Square Piano/1781 - Ganer Square Piano/1781 Ganer Square.dspreset
+   1796 Broadwood                               
+      path: /mnt/btrfs_disk/DS Libraries/1796 - Broadwood Piano/1796 - Broadwood Piano/1796 Broadwood.dspreset
+   1930s Wurlitzer Pizzicato                    
+      path: /mnt/btrfs_disk/DS Libraries/1930s Wurlitzer Upright/1930s Wurlitzer Pizzicato.dspreset
+   1950s Archer L-1X Crystal Mic Choir          
+      path: /mnt/btrfs_disk/DS Libraries/1950s Archer L-1X Crystal Mic Choir/1950s Archer L-1X Crystal Mic Choir/1950s Archer L-1X Crystal Mic Choir/1950s Archer L-1X Crystal Mic Choir.dspreset
+   Both_Single_coils                            
+      path: /mnt/btrfs_disk/DS Libraries/1984 Elec. Bass Vantage X-99B 1.0 Lite/1984 Elec. Bass Vantage X-99B 1.0 Lite/Both_Single_coils.dspreset
+   Palm muted Schimmel Beta                     
+      path: /mnt/btrfs_disk/DS Libraries/205404_PalmMutedSchimmel_ChristianHenson_DecentSampler/Palm muted schimmel (DS)/Palm muted Schimmel Beta.dspreset
+   Palm muted schimmel beta tested ok           
+      path: /mnt/btrfs_disk/DS Libraries/205404_PalmMutedSchimmel_ChristianHenson_DecentSampler/Palm muted schimmel (DS)/Palm muted schimmel beta tested ok.dspreset
+   Palm Muted Schimmel                          
+      path: /mnt/btrfs_disk/DS Libraries/205404_PalmMutedSchimmel_ChristianHenson_DecentSampler/Palm muted schimmel (DS)/Palm Muted Schimmel.dspreset
+   Pitched Electric Celeste                     
+      path: /mnt/btrfs_disk/DS Libraries/3485_PitchedElectricCeleste_christian-henson_20220303-060600/Pitched Electric Celeste (DS)/Pitched Electric Celeste.dspreset
+   Summer Felt -80                              
+      path: /mnt/btrfs_disk/DS Libraries/381243_TheSummerPiano_ChristianHenson_DecentSampler/Summer Piano  (DS)/Summer Felt -80.dspreset
+   Summer Felt Tight Response                   
+      path: /mnt/btrfs_disk/DS Libraries/381243_TheSummerPiano_ChristianHenson_DecentSampler/Summer Piano  (DS)/Summer Felt Tight Response.dspreset
+   Summer Felt -80                              
+      path: /mnt/btrfs_disk/DS Libraries/381249_SummerFelt_ChristianHenson_DecentSampler/Summer Felt  (DS)/Summer Felt -80.dspreset
+   Summer Felt Tight Response                   
+      path: /mnt/btrfs_disk/DS Libraries/381249_SummerFelt_ChristianHenson_DecentSampler/Summer Felt  (DS)/Summer Felt Tight Response.dspreset
+   The Hebridean Knight                         
+      path: /mnt/btrfs_disk/DS Libraries/381264_TheHebrideanKnight_ChristianHenson_DecentSampler/The Hebridean Knight  (DS)/The Hebridean Knight.dspreset
+   Steinway Grand                               
+      path: /mnt/btrfs_disk/DS Libraries/3832_Steinway_JonMeyer_DecentSampler/Steinway Grand  (DS)/Steinway Grand.dspreset
+   Frozen Glock                                 
+      path: /mnt/btrfs_disk/DS Libraries/3881_FrozenGlock_dan-keen_DS/Frozen Glock (DS)/Frozen Glock.dspreset
+   3dPrintedOcarina                             
+      path: /mnt/btrfs_disk/DS Libraries/3dPrintedOcarina_0.0.0/3dPrintedOcarina.dspreset
+   40 voices                                    
+      path: /mnt/btrfs_disk/DS Libraries/40 voices/40 voices.dspreset
+   Electric Sparkles                            
+      path: /mnt/btrfs_disk/DS Libraries/4390_ElectricSparkles_ChristianHenson_20211220-182300/Electric Sparkles.dspreset
+   Shivering Keys                               
+      path: /mnt/btrfs_disk/DS Libraries/4833_ShiveringWaves_fred-poirier_20220127-021013/Shivering Waves (DS)/Shivering Keys.dspreset
+   Shivering Waves                              
+      path: /mnt/btrfs_disk/DS Libraries/4833_ShiveringWaves_fred-poirier_20220127-021013/Shivering Waves (DS)/Shivering Waves.dspreset
+   Flannel Piano                                
+      path: /mnt/btrfs_disk/DS Libraries/486995_FlannelPiano_ChristianHenson_DecentSampler/Flannel Piano (DS)/Flannel Piano.dspreset
+   Warty Dulcitone Doctored                     
+      path: /mnt/btrfs_disk/DS Libraries/4877_WartyDulcitone_christianhenson_20220131-150308/Warty Dulcitone Doctored.dspreset
+   Warty Dulcitone                              
+      path: /mnt/btrfs_disk/DS Libraries/4877_WartyDulcitone_christianhenson_20220131-150308/Warty Dulcitone.dspreset
+   Posh CR-78 CV                                
+      path: /mnt/btrfs_disk/DS Libraries/5544_PoshCR78_christianhenson_20220322-090000/Posh CR-78 CV.dspreset
+   Posh CR-78 Dry                               
+      path: /mnt/btrfs_disk/DS Libraries/5544_PoshCR78_christianhenson_20220322-090000/Posh CR-78 Dry.dspreset
+   Posh CR-78 OS                                
+      path: /mnt/btrfs_disk/DS Libraries/5544_PoshCR78_christianhenson_20220322-090000/Posh CR-78 OS.dspreset
+   60 Clock Ticks                               
+      path: /mnt/btrfs_disk/DS Libraries/60 Clock Ticks (DS)/60 Clock Ticks.dspreset
+   Tunnel Bodhran                               
+      path: /mnt/btrfs_disk/DS Libraries/626458_TunnelBodhran_ChristianHenson_DecentSampler/Tunnel Bodhran  (DS)/Tunnel Bodhran.dspreset
+   Family Grand (Binaural)                      
+      path: /mnt/btrfs_disk/DS Libraries/657490_FamilyGrandV3_ChristianHenson/Family Grand (Binaural).dspreset
+   Family Grand                                 
+      path: /mnt/btrfs_disk/DS Libraries/657490_FamilyGrandV3_ChristianHenson/Family Grand.dspreset
+   Family Grand (Stereo)                        
+      path: /mnt/btrfs_disk/DS Libraries/657490_FamilyGrandV3_ChristianHenson/Family Grand (Stereo).dspreset
+   Systems Grand                                
+      path: /mnt/btrfs_disk/DS Libraries/67047_SystemsGrand_ChristianHenson_DecentSampler/System's Grand  (DS)/Systems Grand.dspreset
+   80's Module                                  
+      path: /mnt/btrfs_disk/DS Libraries/80's Module/80's Module.dspreset
+   Spring Piano                                 
+      path: /mnt/btrfs_disk/DS Libraries/850_v6_SpringPiano_ChristianHenson_DecentSampler/Spring Piano (DS)/Spring Piano.dspreset
+   Air Piano All mixes                          
+      path: /mnt/btrfs_disk/DS Libraries/851_v2_AirPianoClean_ChristianHenson_DecentSampler/Air Piano (DS)/Air Piano All mixes.dspreset
+   Air Piano Alt Mix                            
+      path: /mnt/btrfs_disk/DS Libraries/851_v2_AirPianoClean_ChristianHenson_DecentSampler/Air Piano (DS)/Air Piano Alt Mix.dspreset
+   Air Piano Ambient Sustains                   
+      path: /mnt/btrfs_disk/DS Libraries/851_v2_AirPianoClean_ChristianHenson_DecentSampler/Air Piano (DS)/Air Piano Ambient Sustains.dspreset
+   Air Piano Back Cond                          
+      path: /mnt/btrfs_disk/DS Libraries/851_v2_AirPianoClean_ChristianHenson_DecentSampler/Air Piano (DS)/Air Piano Back Cond.dspreset
+   Air Piano Big Mix                            
+      path: /mnt/btrfs_disk/DS Libraries/851_v2_AirPianoClean_ChristianHenson_DecentSampler/Air Piano (DS)/Air Piano Big Mix.dspreset
+   Air Piano Boundary Sustains                  
+      path: /mnt/btrfs_disk/DS Libraries/851_v2_AirPianoClean_ChristianHenson_DecentSampler/Air Piano (DS)/Air Piano Boundary Sustains.dspreset
+   Air Piano Close Mics                         
+      path: /mnt/btrfs_disk/DS Libraries/851_v2_AirPianoClean_ChristianHenson_DecentSampler/Air Piano (DS)/Air Piano Close Mics.dspreset
+   Air Piano Close Ribon Sustains               
+      path: /mnt/btrfs_disk/DS Libraries/851_v2_AirPianoClean_ChristianHenson_DecentSampler/Air Piano (DS)/Air Piano Close Ribon Sustains.dspreset
+   Air Piano Fron Cond                          
+      path: /mnt/btrfs_disk/DS Libraries/851_v2_AirPianoClean_ChristianHenson_DecentSampler/Air Piano (DS)/Air Piano Fron Cond.dspreset
+   Air Piano Gallery                            
+      path: /mnt/btrfs_disk/DS Libraries/851_v2_AirPianoClean_ChristianHenson_DecentSampler/Air Piano (DS)/Air Piano Gallery.dspreset
+   Air Piano Ribbon                             
+      path: /mnt/btrfs_disk/DS Libraries/851_v2_AirPianoClean_ChristianHenson_DecentSampler/Air Piano (DS)/Air Piano Ribbon.dspreset
+   Air Piano Stereo Ribbon                      
+      path: /mnt/btrfs_disk/DS Libraries/851_v2_AirPianoClean_ChristianHenson_DecentSampler/Air Piano (DS)/Air Piano Stereo Ribbon.dspreset
+   Air Piano Tight Mix                          
+      path: /mnt/btrfs_disk/DS Libraries/851_v2_AirPianoClean_ChristianHenson_DecentSampler/Air Piano (DS)/Air Piano Tight Mix.dspreset
+   Air Piano Tight Ribbon Mix                   
+      path: /mnt/btrfs_disk/DS Libraries/851_v2_AirPianoClean_ChristianHenson_DecentSampler/Air Piano (DS)/Air Piano Tight Ribbon Mix.dspreset
+   Air Piano Tree                               
+      path: /mnt/btrfs_disk/DS Libraries/851_v2_AirPianoClean_ChristianHenson_DecentSampler/Air Piano (DS)/Air Piano Tree.dspreset
+   Air Piano                                    
+      path: /mnt/btrfs_disk/DS Libraries/851_v2_AirPianoClean_ChristianHenson_DecentSampler/Air Piano (DS)/Presets that don't work/Air Piano.dspreset
+   Air Piano Mics                               
+      path: /mnt/btrfs_disk/DS Libraries/851_v2_AirPianoClean_ChristianHenson_DecentSampler/Air Piano (DS)/Presets that don't work/Air Piano Mics.dspreset
+   9000ft ambient fake stereo                   
+      path: /mnt/btrfs_disk/DS Libraries/855_v2_The9000ftPiano_ChristianHenson_DecentSampler/9000ft piano (DS)/9000ft ambient fake stereo.dspreset
+   9000ft piano 414s                            
+      path: /mnt/btrfs_disk/DS Libraries/855_v2_The9000ftPiano_ChristianHenson_DecentSampler/9000ft piano (DS)/9000ft piano 414s.dspreset
+   9000ft piano ambient                         
+      path: /mnt/btrfs_disk/DS Libraries/855_v2_The9000ftPiano_ChristianHenson_DecentSampler/9000ft piano (DS)/9000ft piano ambient.dspreset
+   9000ft piano Coles                           
+      path: /mnt/btrfs_disk/DS Libraries/855_v2_The9000ftPiano_ChristianHenson_DecentSampler/9000ft piano (DS)/9000ft piano Coles.dspreset
+   9000ft piano                                 
+      path: /mnt/btrfs_disk/DS Libraries/855_v2_The9000ftPiano_ChristianHenson_DecentSampler/9000ft piano (DS)/9000ft piano.dspreset
+   9000ft piano fake stereo                     
+      path: /mnt/btrfs_disk/DS Libraries/855_v2_The9000ftPiano_ChristianHenson_DecentSampler/9000ft piano (DS)/9000ft piano fake stereo.dspreset
+   Tracked Piano                                
+      path: /mnt/btrfs_disk/DS Libraries/856_TrackedPiano_ChristianHenson_DecentSampler/Tracked Piano (DS)/Tracked Piano.dspreset
+   Tracked Piano - Take 2                       
+      path: /mnt/btrfs_disk/DS Libraries/856_TrackedPiano_ChristianHenson_DecentSampler/Tracked Piano (DS)/Tracked Piano - Take 2.dspreset
+   Tracked Piano - Velocity                     
+      path: /mnt/btrfs_disk/DS Libraries/856_TrackedPiano_ChristianHenson_DecentSampler/Tracked Piano (DS)/Tracked Piano - Velocity.dspreset
+   Max's Bentley                                
+      path: /mnt/btrfs_disk/DS Libraries/857_v2_MaxsBentley_ChristianHenson_DecentSampler/Max's Bentley (DS)/Max's Bentley.dspreset
+   Tape Delay Experiment                        
+      path: /mnt/btrfs_disk/DS Libraries/858_CHTapeDelayExperiment_ChristianHenson_DecentSampler/Tape Delay Experiment (DS)/Tape Delay Experiment.dspreset
+   Ice Choir - Ice Pack 01                      
+      path: /mnt/btrfs_disk/DS Libraries/872_v6_IceChoir_ChristianHenson_DecentSampler/Ice Choir (DS)/Ice Choir - Ice Pack 01.dspreset
+   Ice Choir - Ice Pack 02                      
+      path: /mnt/btrfs_disk/DS Libraries/872_v6_IceChoir_ChristianHenson_DecentSampler/Ice Choir (DS)/Ice Choir - Ice Pack 02.dspreset
+   Ice Choir - Ice Pack 03                      
+      path: /mnt/btrfs_disk/DS Libraries/872_v6_IceChoir_ChristianHenson_DecentSampler/Ice Choir (DS)/Ice Choir - Ice Pack 03.dspreset
+   Ice Choir - Ice Pack 04                      
+      path: /mnt/btrfs_disk/DS Libraries/872_v6_IceChoir_ChristianHenson_DecentSampler/Ice Choir (DS)/Ice Choir - Ice Pack 04.dspreset
+   Ice Choir - Ice Pack 05                      
+      path: /mnt/btrfs_disk/DS Libraries/872_v6_IceChoir_ChristianHenson_DecentSampler/Ice Choir (DS)/Ice Choir - Ice Pack 05.dspreset
+   Ice Choir - Ice Pack 06                      
+      path: /mnt/btrfs_disk/DS Libraries/872_v6_IceChoir_ChristianHenson_DecentSampler/Ice Choir (DS)/Ice Choir - Ice Pack 06.dspreset
+   Ice Choir - Ice Pack 07                      
+      path: /mnt/btrfs_disk/DS Libraries/872_v6_IceChoir_ChristianHenson_DecentSampler/Ice Choir (DS)/Ice Choir - Ice Pack 07.dspreset
+   Ice Choir - Ice Pack 08                      
+      path: /mnt/btrfs_disk/DS Libraries/872_v6_IceChoir_ChristianHenson_DecentSampler/Ice Choir (DS)/Ice Choir - Ice Pack 08.dspreset
+   Ice Choir - Ice Pack 09                      
+      path: /mnt/btrfs_disk/DS Libraries/872_v6_IceChoir_ChristianHenson_DecentSampler/Ice Choir (DS)/Ice Choir - Ice Pack 09.dspreset
+   Ice Choir - Ice Pack 10                      
+      path: /mnt/btrfs_disk/DS Libraries/872_v6_IceChoir_ChristianHenson_DecentSampler/Ice Choir (DS)/Ice Choir - Ice Pack 10.dspreset
+   Ice Choir - Ice Pack Birds                   
+      path: /mnt/btrfs_disk/DS Libraries/872_v6_IceChoir_ChristianHenson_DecentSampler/Ice Choir (DS)/Ice Choir - Ice Pack Birds.dspreset
+   Ice Choir - Ice Pack MW1                     
+      path: /mnt/btrfs_disk/DS Libraries/872_v6_IceChoir_ChristianHenson_DecentSampler/Ice Choir (DS)/Ice Choir - Ice Pack MW1.dspreset
+   Ice Choir - Ice Pack MW2                     
+      path: /mnt/btrfs_disk/DS Libraries/872_v6_IceChoir_ChristianHenson_DecentSampler/Ice Choir (DS)/Ice Choir - Ice Pack MW2.dspreset
+   Ice Choir - Ice Pack MW3                     
+      path: /mnt/btrfs_disk/DS Libraries/872_v6_IceChoir_ChristianHenson_DecentSampler/Ice Choir (DS)/Ice Choir - Ice Pack MW3.dspreset
+   Ice Choir - Ice Pack MW4                     
+      path: /mnt/btrfs_disk/DS Libraries/872_v6_IceChoir_ChristianHenson_DecentSampler/Ice Choir (DS)/Ice Choir - Ice Pack MW4.dspreset
+   LaMelodiosa                                  
+      path: /mnt/btrfs_disk/DS Libraries/Accordion-LaMelodiosa/LaMelodiosa.dspreset
+   Two-Piece Boroque Soprano Recorder           
+      path: /mnt/btrfs_disk/DS Libraries/A Childs Memory/A Childs Memory/Two-Piece Boroque Soprano Recorder/Two-Piece Boroque Soprano Recorder.dspreset
+   Two-Piece Boroque Soprano Recorder Staccato  
+      path: /mnt/btrfs_disk/DS Libraries/A Childs Memory/A Childs Memory/Two-Piece Boroque Soprano Recorder/Two-Piece Boroque Soprano Recorder Staccato.dspreset
+   Acoustic Cassette Drums                      
+      path: /mnt/btrfs_disk/DS Libraries/Acoustic Cassette Drums (DS)/Acoustic Cassette Drums (DS)/Acoustic Cassette Drums.dspreset
+   Aeon Guitar                                  
+      path: /mnt/btrfs_disk/DS Libraries/Aeon Guitar (DS)/Aeon Guitar (DS)/Aeon Guitar.dspreset
+   African Xylophone                            
+      path: /mnt/btrfs_disk/DS Libraries/AfriXilo/African Xylophone.dspreset
+   Afterglow Demo                               
+      path: /mnt/btrfs_disk/DS Libraries/Afterglow Demo (DS)/Afterglow Demo (DS)/Afterglow Demo.dspreset
+   Albi's Sound Toolbox                         
+      path: /mnt/btrfs_disk/DS Libraries/Albi's Sound Toolbox (DS)/Albi's Sound Toolbox (DS)/Albi's Sound Toolbox.dspreset
+   00 - Aleatory Strings                        
+      path: /mnt/btrfs_disk/DS Libraries/Aleatory V1_3/Aleatory V1_3/00 - Aleatory Strings.dspreset
+   amazonia                                     
+      path: /mnt/btrfs_disk/DS Libraries/Amazonia 1.1/Amazonia 1.1/amazonia.dspreset
+   Amazon Kalimba                               
+      path: /mnt/btrfs_disk/DS Libraries/Amazon Kalimba DCSampler Preset/Amazon Kalimba DCSampler Preset/Amazon Kalimba.dspreset
+   ampco                                        
+      path: /mnt/btrfs_disk/DS Libraries/ampco-v1-dspreset/AMPCO V1/ampco.dspreset
+   Amsterdam Metro                              
+      path: /mnt/btrfs_disk/DS Libraries/Amsterdam Metro/Amsterdam Metro/Amsterdam Metro.dspreset
+   Metro Dark Piano Loop                        
+      path: /mnt/btrfs_disk/DS Libraries/Amsterdam Metro/Amsterdam Metro/Metro Dark Piano Loop.dspreset
+   Metro New Sunday GTR Loop                    
+      path: /mnt/btrfs_disk/DS Libraries/Amsterdam Metro/Amsterdam Metro/Metro New Sunday GTR Loop.dspreset
+   Metro Pingpong Strings                       
+      path: /mnt/btrfs_disk/DS Libraries/Amsterdam Metro/Amsterdam Metro/Metro Pingpong Strings.dspreset
+   Ancient Harp                                 
+      path: /mnt/btrfs_disk/DS Libraries/Ancient Harp/Ancient Harp/Ancient Harp.dspreset
+   Antique Harmonium                            
+      path: /mnt/btrfs_disk/DS Libraries/Antique Harmonium (DS)/Antique Harmonium (DS)/Antique Harmonium.dspreset
+   Antique Harmonium Swells                     
+      path: /mnt/btrfs_disk/DS Libraries/Antique Harmonium (DS)/Antique Harmonium (DS)/Antique Harmonium Swells.dspreset
+   Fields Of Ash                                
+      path: /mnt/btrfs_disk/DS Libraries/Antz Decent Sampler 1.0 2/Antz Decent Sampler 1.0/Fields Of Ash.dspreset
+   Garden Tape                                  
+      path: /mnt/btrfs_disk/DS Libraries/Antz Decent Sampler 1.0 2/Antz Decent Sampler 1.0/Garden Tape.dspreset
+   Grainy Memory                                
+      path: /mnt/btrfs_disk/DS Libraries/Antz Decent Sampler 1.0 2/Antz Decent Sampler 1.0/Grainy Memory.dspreset
+   Great Western Pains                          
+      path: /mnt/btrfs_disk/DS Libraries/Antz Decent Sampler 1.0 2/Antz Decent Sampler 1.0/Great Western Pains.dspreset
+   Lynch Airconditioner                         
+      path: /mnt/btrfs_disk/DS Libraries/Antz Decent Sampler 1.0 2/Antz Decent Sampler 1.0/Lynch Airconditioner.dspreset
+   Neon Erosion                                 
+      path: /mnt/btrfs_disk/DS Libraries/Antz Decent Sampler 1.0 2/Antz Decent Sampler 1.0/Neon Erosion.dspreset
+   Pacific North West                           
+      path: /mnt/btrfs_disk/DS Libraries/Antz Decent Sampler 1.0 2/Antz Decent Sampler 1.0/Pacific North West.dspreset
+   Rip Chord                                    
+      path: /mnt/btrfs_disk/DS Libraries/Antz Decent Sampler 1.0 2/Antz Decent Sampler 1.0/Rip Chord.dspreset
+   Space Mirage                                 
+      path: /mnt/btrfs_disk/DS Libraries/Antz Decent Sampler 1.0 2/Antz Decent Sampler 1.0/Space Mirage.dspreset
+   The Backroom                                 
+      path: /mnt/btrfs_disk/DS Libraries/Antz Decent Sampler 1.0 2/Antz Decent Sampler 1.0/The Backroom.dspreset
+   Archive Found Strings 001                    
+      path: /mnt/btrfs_disk/DS Libraries/Archive Found Strings 001 DS/Archive Found Strings 001 DS/Archive Found Strings 001.dspreset
+   Bottles                                      
+      path: /mnt/btrfs_disk/DS Libraries/arnBottles/Bottles.dspreset
+   lofi-chorus                                  
+      path: /mnt/btrfs_disk/DS Libraries/arnLofiChorus/lofi-chorus.dspreset
+   Singing Bowl Leather Mallet                  
+      path: /mnt/btrfs_disk/DS Libraries/A Singing Bowl From New Hampshire/Singing Bowl/Singing Bowl/Singing Bowl Leather Mallet.dspreset
+   Singing Bowl Metal Mallet                    
+      path: /mnt/btrfs_disk/DS Libraries/A Singing Bowl From New Hampshire/Singing Bowl/Singing Bowl/Singing Bowl Metal Mallet.dspreset
+   Singing Bowl Wooden Mallet                   
+      path: /mnt/btrfs_disk/DS Libraries/A Singing Bowl From New Hampshire/Singing Bowl/Singing Bowl/Singing Bowl Wooden Mallet.dspreset
+   JawHarp Key Mapped                           
+      path: /mnt/btrfs_disk/DS Libraries/Austrian Jaw Harp/Austrian Jaw Harp/JawHarp/JawHarp Key Mapped.dspreset
+   JawHarp Percussion                           
+      path: /mnt/btrfs_disk/DS Libraries/Austrian Jaw Harp/Austrian Jaw Harp/JawHarp/JawHarp Percussion.dspreset
+   Authentic Sleigh Bells and One Fake Bell     
+      path: /mnt/btrfs_disk/DS Libraries/Authentic Sleigh Bells and One Fake Bell/Authentic Sleigh Bells and One Fake Bell/Authentic Sleigh Bells and One Fake Bell/Authentic Sleigh Bells and One Fake Bell.dspreset
+   AutomotiveJunk                               
+      path: /mnt/btrfs_disk/DS Libraries/Automotive Junk/Automotive Junk/AutomotiveJunk.dspreset
+   Baby Grand Piano                             
+      path: /mnt/btrfs_disk/DS Libraries/Baby Grand Piano/Baby Grand Piano.dspreset
+   Bandola Realista                             
+      path: /mnt/btrfs_disk/DS Libraries/Bandola_Andina_Colombiana/Bandola_Andina_Colombiana/Bandola Realista.dspreset
+   Bandola Swarm                                
+      path: /mnt/btrfs_disk/DS Libraries/Bandola_Andina_Colombiana/Bandola_Andina_Colombiana/Bandola Swarm.dspreset
+   Bass_Dean_5                                  
+      path: /mnt/btrfs_disk/DS Libraries/Bass_Dean_5/Bass_Dean_5/Bass_Dean_5.dspreset
+   Bass_fingers_sus                             
+      path: /mnt/btrfs_disk/DS Libraries/BassForge_Demo/BassForge_Demo/Bass_fingers_sus.dspreset
+   Bass_picked_sus                              
+      path: /mnt/btrfs_disk/DS Libraries/BassForge_Demo/BassForge_Demo/Bass_picked_sus.dspreset
+   Bass_synth_03                                
+      path: /mnt/btrfs_disk/DS Libraries/BassForge_Demo/BassForge_Demo/Bass_synth_03.dspreset
+   Bass_synth_06                                
+      path: /mnt/btrfs_disk/DS Libraries/BassForge_Demo/BassForge_Demo/Bass_synth_06.dspreset
+   Bass Trombone                                
+      path: /mnt/btrfs_disk/DS Libraries/Bass Tromb one two/Bass Tromb one two/Bass Trombone.dspreset
+   Bass Trombone Efect I                        
+      path: /mnt/btrfs_disk/DS Libraries/Bass Tromb one two/Bass Tromb one two/Bass Trombone Efect I.dspreset
+   Bass Trombone Efect II                       
+      path: /mnt/btrfs_disk/DS Libraries/Bass Tromb one two/Bass Tromb one two/Bass Trombone Efect II.dspreset
+   Bass TromboneEfect III                       
+      path: /mnt/btrfs_disk/DS Libraries/Bass Tromb one two/Bass Tromb one two/Bass TromboneEfect III.dspreset
+   Beyond the Strings                           
+      path: /mnt/btrfs_disk/DS Libraries/Beyond the Strings (DS)/Beyond the Strings.dspreset
+   Bilhorn Reed v2                              
+      path: /mnt/btrfs_disk/DS Libraries/Bilhorn Reed V2/Bilhorn Reed V2 (DS)/Bilhorn Reed v2.dspreset
+   Bioshock Kalimba                             
+      path: /mnt/btrfs_disk/DS Libraries/Bioshock Kalimba/Bioshock Kalimba/Bioshock Kalimba/Bioshock Kalimba.dspreset
+   Bioshock Kalimba - Synth                     
+      path: /mnt/btrfs_disk/DS Libraries/Bioshock Kalimba/Bioshock Kalimba/Bioshock Kalimba/Bioshock Kalimba - Synth.dspreset
+   Blackbird - 01 Untuned                       
+      path: /mnt/btrfs_disk/DS Libraries/Blackbird for Pianobook 250818/Blackbird for Pianobook 250818/Blackbird - 01 Untuned.dspreset
+   Blackbird - 02 Tuned                         
+      path: /mnt/btrfs_disk/DS Libraries/Blackbird for Pianobook 250818/Blackbird for Pianobook 250818/Blackbird - 02 Tuned.dspreset
+   black_hole                                   
+      path: /mnt/btrfs_disk/DS Libraries/Black Hole Synth/Black Hole Synth/black_hole.dspreset
+   Blended Keys - E Devey                       
+      path: /mnt/btrfs_disk/DS Libraries/Blended Keys - E Devey/Blended Keys - E Devey/Blended Keys - E Devey.dspreset
+   Blown Feedback                               
+      path: /mnt/btrfs_disk/DS Libraries/Blown Feedback (DS)/Blown Feedback (DS)/Blown Feedback.dspreset
+   Bombo_de_Guancho                             
+      path: /mnt/btrfs_disk/DS Libraries/Bombo_de_Guancho_(Decent_Sampler)/Bombo_de_Guancho_(Decent_Sampler)/Bombo_de_Guancho.dspreset
+   1-Bosque-Pluck-Steps                         
+      path: /mnt/btrfs_disk/DS Libraries/Bosque(v1.0)/Bosque/1-Bosque-Pluck-Steps.dspreset
+   2-Bosque-Crispy-Steps                        
+      path: /mnt/btrfs_disk/DS Libraries/Bosque(v1.0)/Bosque/2-Bosque-Crispy-Steps.dspreset
+   3-CSE-Humming                                
+      path: /mnt/btrfs_disk/DS Libraries/Bosque(v1.0)/Bosque/3-CSE-Humming.dspreset
+   4-CSE-Humming-Sat                            
+      path: /mnt/btrfs_disk/DS Libraries/Bosque(v1.0)/Bosque/4-CSE-Humming-Sat.dspreset
+   Bottle-O-Phone                               
+      path: /mnt/btrfs_disk/DS Libraries/Bottle-O-Phone_Decent_Sampler-1.0/Bottle-O-Phone.dspreset
+   Broken Cassette Piano                        
+      path: /mnt/btrfs_disk/DS Libraries/Broken Cassette Piano (v1.1.1)/Broken Cassette Piano.dspreset
+   Bruno_Drums                                  
+      path: /mnt/btrfs_disk/DS Libraries/Bruno_Drums_(Decent_Sampler)/Bruno_Drums_(Decent_Sampler)/Bruno_Drums.dspreset
+   Takoda Lite                                  
+      path: /mnt/btrfs_disk/DS Libraries/BurdigalaAudio-Takoda-Lite/Takoda - LITE/Takoda Lite.dspreset
+   Casioclone                                   
+      path: /mnt/btrfs_disk/DS Libraries/Casioclone/Casioclone 19-02-23/Casioclone.dspreset
+   Cello Drone                                  
+      path: /mnt/btrfs_disk/DS Libraries/Cello Drone/Cello Drone/Cello Drone.dspreset
+   Charlie's Baritone Uke                       
+      path: /mnt/btrfs_disk/DS Libraries/Charlie's Baritone Uke/Charlie's Baritone Uke/Charlie's Baritone Uke.dspreset
+   CH Foogered Piano                            
+      path: /mnt/btrfs_disk/DS Libraries/CH Foogered Piano DS/CH Foogered Piano DS/CH Foogered Piano.dspreset
+   CH Grumpy Strings                            
+      path: /mnt/btrfs_disk/DS Libraries/CH Grumpy Strings DS/CH Grumpy Strings.dspreset
+   Hand Dryer Bass                              
+      path: /mnt/btrfs_disk/DS Libraries/CH Hand Dryer Bass DS/Hand Dryer Bass.dspreset
+   Chimes                                       
+      path: /mnt/btrfs_disk/DS Libraries/Chimes/Chimes.dspreset
+   Chinese bells                                
+      path: /mnt/btrfs_disk/DS Libraries/Chinese door bells/Chinese bells.dspreset
+   ChingKluay full                              
+      path: /mnt/btrfs_disk/DS Libraries/ChingKluay DS v1.0.0/ChingKluay DS v1.0.0/ChingKluay full.dspreset
+   ChingKluay MS4-Triangle                      
+      path: /mnt/btrfs_disk/DS Libraries/ChingKluay DS v1.0.0/ChingKluay DS v1.0.0/ChingKluay MS4-Triangle.dspreset
+   ChingKluay MS4-Woodblock                     
+      path: /mnt/btrfs_disk/DS Libraries/ChingKluay DS v1.0.0/ChingKluay DS v1.0.0/ChingKluay MS4-Woodblock.dspreset
+   CH Octodrums                                 
+      path: /mnt/btrfs_disk/DS Libraries/CH Octodrums DS/CH Octodrums.dspreset
+   Choir of the Fallen                          
+      path: /mnt/btrfs_disk/DS Libraries/Choir of the Fallen (DS)/Choir of the Fallen.dspreset
+   christmasperc                                
+      path: /mnt/btrfs_disk/DS Libraries/Christmas Perc/Christmas Perc/christmasperc.dspreset
+   Chromatic Flatboard Kalimba                  
+      path: /mnt/btrfs_disk/DS Libraries/Chromatic Flatboard Kalimba/Chromatic Flatboard Kalimba/Chromatic Flatboard Kalimba.dspreset
+   Cinematic Granular Synth                     
+      path: /mnt/btrfs_disk/DS Libraries/Cinematic Granular Synthesizer/Cinematic Granular Synthesizer/Cinematic Granular Synth.dspreset
+   Classic Slide Whistle                        
+      path: /mnt/btrfs_disk/DS Libraries/Classic Slide Whistle/Classic Slide Whistle/Classic Slide Whistle/Classic Slide Whistle.dspreset
+   Clave Frog (& Friends)                       
+      path: /mnt/btrfs_disk/DS Libraries/Clave Frog (& Friends)/Clave Frog (& Friends)/Clave Frog (& Friends).dspreset
+   Contact Mic Piano                            
+      path: /mnt/btrfs_disk/DS Libraries/Contact Mic Piano v2/Contact Mic Piano/Contact Mic Piano.dspreset
+   Coro Di Cicale                               
+      path: /mnt/btrfs_disk/DS Libraries/Coro Di Cicale/Coro Di Cicale/Coro Di Cicale.dspreset
+   cp10-piano-2                                 
+      path: /mnt/btrfs_disk/DS Libraries/cp10-piano/cp10-piano-2.dspreset
+   C Pop01                                      
+      path: /mnt/btrfs_disk/DS Libraries/C Pops/C Pop01.dspreset
+   C Pop02                                      
+      path: /mnt/btrfs_disk/DS Libraries/C Pops/C Pop02.dspreset
+   C Pop03                                      
+      path: /mnt/btrfs_disk/DS Libraries/C Pops/C Pop03.dspreset
+   C Pop04                                      
+      path: /mnt/btrfs_disk/DS Libraries/C Pops/C Pop04.dspreset
+   C Pop05                                      
+      path: /mnt/btrfs_disk/DS Libraries/C Pops/C Pop05.dspreset
+   C Pop06                                      
+      path: /mnt/btrfs_disk/DS Libraries/C Pops/C Pop06.dspreset
+   C Pop07                                      
+      path: /mnt/btrfs_disk/DS Libraries/C Pops/C Pop07.dspreset
+   Crafter 6 steel strings                      
+      path: /mnt/btrfs_disk/DS Libraries/Crafter 6 steel strings (DC)/Crafter 6 steel strings/Crafter 6 steel strings.dspreset
+   Creaker                                      
+      path: /mnt/btrfs_disk/DS Libraries/Creaker.v1.0/Creaker.dspreset
+   cryptid80                                    
+      path: /mnt/btrfs_disk/DS Libraries/cryptid80/cryptid80/cryptid80.dspreset
+   Cupboard Castoffs                            
+      path: /mnt/btrfs_disk/DS Libraries/Cupboard Castoffs/Cupboard Castoffs/Cupboard Castoffs.dspreset
+   curly-electric-piano                         
+      path: /mnt/btrfs_disk/DS Libraries/curly - electric piano/curly - electric piano/curly-electric-piano.dspreset
+   Cymbalum                                     
+      path: /mnt/btrfs_disk/DS Libraries/Cymbalum_Decent_Sampler-1.0/Cymbalum.dspreset
+   DacrMicrosynth                               
+      path: /mnt/btrfs_disk/DS Libraries/DacrMicrosynth/DacrMicrosynth/DacrMicrosynth.dspreset
+   preset-bass-1                                
+      path: /mnt/btrfs_disk/DS Libraries/DacrMicrosynth/DacrMicrosynth/preset-bass-1.dspreset
+   preset-bass-2                                
+      path: /mnt/btrfs_disk/DS Libraries/DacrMicrosynth/DacrMicrosynth/preset-bass-2.dspreset
+   preset-dirty-organ                           
+      path: /mnt/btrfs_disk/DS Libraries/DacrMicrosynth/DacrMicrosynth/preset-dirty-organ.dspreset
+   preset-pluck                                 
+      path: /mnt/btrfs_disk/DS Libraries/DacrMicrosynth/DacrMicrosynth/preset-pluck.dspreset
+   preset-pulse-lead                            
+      path: /mnt/btrfs_disk/DS Libraries/DacrMicrosynth/DacrMicrosynth/preset-pulse-lead.dspreset
+   preset-string-pad-1                          
+      path: /mnt/btrfs_disk/DS Libraries/DacrMicrosynth/DacrMicrosynth/preset-string-pad-1.dspreset
+   preset-string-pad-2                          
+      path: /mnt/btrfs_disk/DS Libraries/DacrMicrosynth/DacrMicrosynth/preset-string-pad-2.dspreset
+   DacrShaker                                   
+      path: /mnt/btrfs_disk/DS Libraries/DacrShaker/DacrShaker/DacrShaker.dspreset
+   Dark Drums                                   
+      path: /mnt/btrfs_disk/DS Libraries/Dark Drums (DS)/Dark Drums (DS)/Dark Drums.dspreset
+   DBass                                        
+      path: /mnt/btrfs_disk/DS Libraries/DBass/DBass/DBass.dspreset
+   Cello, Harp & Buzzer                         
+      path: /mnt/btrfs_disk/DS Libraries/Dead Line/Dead Line/Cello, Harp & Buzzer.dspreset
+   Triple Felt Piano                            
+      path: /mnt/btrfs_disk/DS Libraries/Dead Line/Dead Line/Triple Felt Piano.dspreset
+   Decent_Oboe_                                 
+      path: /mnt/btrfs_disk/DS Libraries/Decent_Oboe/Decent_Oboe/Decent_Oboe_.dspreset
+   Decent_Oboe_Etherial_Staccatos               
+      path: /mnt/btrfs_disk/DS Libraries/Decent_Oboe/Decent_Oboe/Decent_Oboe_Etherial_Staccatos.dspreset
+   Decent_Oboe_Hammond                          
+      path: /mnt/btrfs_disk/DS Libraries/Decent_Oboe/Decent_Oboe/Decent_Oboe_Hammond.dspreset
+   Decent_Oboe_Legato                           
+      path: /mnt/btrfs_disk/DS Libraries/Decent_Oboe/Decent_Oboe/Decent_Oboe_Legato.dspreset
+   DecenTron -8 Choir                           
+      path: /mnt/btrfs_disk/DS Libraries/DecenTron 1.0.0/DecenTron 1.0.0/DecenTron -8 Choir.dspreset
+   DecenTron -Bassoon                           
+      path: /mnt/btrfs_disk/DS Libraries/DecenTron 1.0.0/DecenTron 1.0.0/DecenTron -Bassoon.dspreset
+   DecenTron - Cello                            
+      path: /mnt/btrfs_disk/DS Libraries/DecenTron 1.0.0/DecenTron 1.0.0/DecenTron - Cello.dspreset
+   DecenTron -Church Organ                      
+      path: /mnt/btrfs_disk/DS Libraries/DecenTron 1.0.0/DecenTron 1.0.0/DecenTron -Church Organ.dspreset
+   DecenTron -CombinedChoir                     
+      path: /mnt/btrfs_disk/DS Libraries/DecenTron 1.0.0/DecenTron 1.0.0/DecenTron -CombinedChoir.dspreset
+   DecenTron -GC3Brass                          
+      path: /mnt/btrfs_disk/DS Libraries/DecenTron 1.0.0/DecenTron 1.0.0/DecenTron -GC3Brass.dspreset
+   DecenTron - Italian Accordion                
+      path: /mnt/btrfs_disk/DS Libraries/DecenTron 1.0.0/DecenTron 1.0.0/DecenTron - Italian Accordion.dspreset
+   DecenTron -M300A                             
+      path: /mnt/btrfs_disk/DS Libraries/DecenTron 1.0.0/DecenTron 1.0.0/DecenTron -M300A.dspreset
+   DecenTron -M300B                             
+      path: /mnt/btrfs_disk/DS Libraries/DecenTron 1.0.0/DecenTron 1.0.0/DecenTron -M300B.dspreset
+   DecenTron -Mixed Brass B                     
+      path: /mnt/btrfs_disk/DS Libraries/DecenTron 1.0.0/DecenTron 1.0.0/DecenTron -Mixed Brass B.dspreset
+   DecenTron -MkIIBrass                         
+      path: /mnt/btrfs_disk/DS Libraries/DecenTron 1.0.0/DecenTron 1.0.0/DecenTron -MkIIBrass.dspreset
+   DecenTron -MkII Combined Brass               
+      path: /mnt/btrfs_disk/DS Libraries/DecenTron 1.0.0/DecenTron 1.0.0/DecenTron -MkII Combined Brass.dspreset
+   DecenTron -MkIIFlute                         
+      path: /mnt/btrfs_disk/DS Libraries/DecenTron 1.0.0/DecenTron 1.0.0/DecenTron -MkIIFlute.dspreset
+   DecenTron - MKII Violins                     
+      path: /mnt/btrfs_disk/DS Libraries/DecenTron 1.0.0/DecenTron 1.0.0/DecenTron - MKII Violins.dspreset
+   DecenTron -Orchestra                         
+      path: /mnt/btrfs_disk/DS Libraries/DecenTron 1.0.0/DecenTron 1.0.0/DecenTron -Orchestra.dspreset
+   DecenTron - String Session                   
+      path: /mnt/btrfs_disk/DS Libraries/DecenTron 1.0.0/DecenTron 1.0.0/DecenTron - String Session.dspreset
+   DecenTron -StringSession                     
+      path: /mnt/btrfs_disk/DS Libraries/DecenTron 1.0.0/DecenTron 1.0.0/DecenTron -StringSession.dspreset
+   DecenTron - Tenor & Alto Sax                 
+      path: /mnt/btrfs_disk/DS Libraries/DecenTron 1.0.0/DecenTron 1.0.0/DecenTron - Tenor & Alto Sax.dspreset
+   DecenTron - Tenor Sax                        
+      path: /mnt/btrfs_disk/DS Libraries/DecenTron 1.0.0/DecenTron 1.0.0/DecenTron - Tenor Sax.dspreset
+   DecenTron - Trombone                         
+      path: /mnt/btrfs_disk/DS Libraries/DecenTron 1.0.0/DecenTron 1.0.0/DecenTron - Trombone.dspreset
+   DecenTron - Trombone & Trumpet               
+      path: /mnt/btrfs_disk/DS Libraries/DecenTron 1.0.0/DecenTron 1.0.0/DecenTron - Trombone & Trumpet.dspreset
+   DecenTron - Trumpet                          
+      path: /mnt/btrfs_disk/DS Libraries/DecenTron 1.0.0/DecenTron 1.0.0/DecenTron - Trumpet.dspreset
+   DecenTron - Vibes                            
+      path: /mnt/btrfs_disk/DS Libraries/DecenTron 1.0.0/DecenTron 1.0.0/DecenTron - Vibes.dspreset
+   DecenTron - Woodwind2                        
+      path: /mnt/btrfs_disk/DS Libraries/DecenTron 1.0.0/DecenTron 1.0.0/DecenTron - Woodwind2.dspreset
+   Delta_FREE                                   
+      path: /mnt/btrfs_disk/DS Libraries/Delta_v1/Delta v1/Delta_FREE.dspreset
+   Destinys Agent - Zitherone                   
+      path: /mnt/btrfs_disk/DS Libraries/Destinys Agent - Zitherone [DS]/Destinys Agent - Zitherone [DS]/Destinys Agent - Zitherone.dspreset
+   DFAM Hard Sync Bass                          
+      path: /mnt/btrfs_disk/DS Libraries/DFAM Hard Sync Bass/DFAM Hard Sync Bass/DFAM Hard Sync Bass/DFAM Hard Sync Bass.dspreset
+   DFAM Moving Back Alarm Lead                  
+      path: /mnt/btrfs_disk/DS Libraries/DFAM Moving Back Alarm Lead/DFAM Moving Back Alarm Lead/DFAM Moving Back Alarm Lead/DFAM Moving Back Alarm Lead.dspreset
+   Dictaphone Clarinet                          
+      path: /mnt/btrfs_disk/DS Libraries/Dictaphone Orchestra/Dictaphone Orchestra/Dictaphone Clarinet.dspreset
+   Dictaphone Kalimba                           
+      path: /mnt/btrfs_disk/DS Libraries/Dictaphone Orchestra/Dictaphone Orchestra/Dictaphone Kalimba.dspreset
+   Dictaphone Rajao                             
+      path: /mnt/btrfs_disk/DS Libraries/Dictaphone Orchestra/Dictaphone Orchestra/Dictaphone Rajao.dspreset
+   Dictaphone Toy Piano                         
+      path: /mnt/btrfs_disk/DS Libraries/Dictaphone Orchestra/Dictaphone Orchestra/Dictaphone Toy Piano.dspreset
+   Dictaphone Trumpet                           
+      path: /mnt/btrfs_disk/DS Libraries/Dictaphone Orchestra/Dictaphone Orchestra/Dictaphone Trumpet.dspreset
+   Dictaphone Violin Bows                       
+      path: /mnt/btrfs_disk/DS Libraries/Dictaphone Orchestra/Dictaphone Orchestra/Dictaphone Violin Bows.dspreset
+   Dictaphone Violin Plucks                     
+      path: /mnt/btrfs_disk/DS Libraries/Dictaphone Orchestra/Dictaphone Orchestra/Dictaphone Violin Plucks.dspreset
+   Dima Koltsov - Some Pads and Stuff           
+      path: /mnt/btrfs_disk/DS Libraries/Dima Koltsov - Some Pads and Stuff/Dima Koltsov - Some Pads and Stuff/Dima Koltsov - Some Pads and Stuff.dspreset
+   Kelly Watch                                  
+      path: /mnt/btrfs_disk/DS Libraries/Divine Errors Part 1 Demo/Divine Errors Part 1 Demo.dslibrary/Kelly Watch.dspreset
+   Space Guitars                                
+      path: /mnt/btrfs_disk/DS Libraries/Divine Errors Part 1 Demo/Divine Errors Part 1 Demo.dslibrary/Space Guitars.dspreset
+   Tomita Fantasy                               
+      path: /mnt/btrfs_disk/DS Libraries/Divine Errors Part 1 Demo/Divine Errors Part 1 Demo.dslibrary/Tomita Fantasy.dspreset
+   Tumble Weeds                                 
+      path: /mnt/btrfs_disk/DS Libraries/Divine Errors Part 1 Demo/Divine Errors Part 1 Demo.dslibrary/Tumble Weeds.dspreset
+   Dobro Slide                                  
+      path: /mnt/btrfs_disk/DS Libraries/Dobro Slide/Dobro Slide/Dobro Slide.dspreset
+   Bright-Organ_Cathedral                       
+      path: /mnt/btrfs_disk/DS Libraries/Drone_Organ_v2_(Decent_Sampler)/Drone_Organ_v2_(Decent_Sampler)/Bright-Organ_Cathedral.dspreset
+   Bright-Organ                                 
+      path: /mnt/btrfs_disk/DS Libraries/Drone_Organ_v2_(Decent_Sampler)/Drone_Organ_v2_(Decent_Sampler)/Bright-Organ.dspreset
+   Bright_St                                    
+      path: /mnt/btrfs_disk/DS Libraries/Drone_Organ_v2_(Decent_Sampler)/Drone_Organ_v2_(Decent_Sampler)/Bright_St.dspreset
+   Dark_Mono                                    
+      path: /mnt/btrfs_disk/DS Libraries/Drone_Organ_v2_(Decent_Sampler)/Drone_Organ_v2_(Decent_Sampler)/Dark_Mono.dspreset
+   Dark_St                                      
+      path: /mnt/btrfs_disk/DS Libraries/Drone_Organ_v2_(Decent_Sampler)/Drone_Organ_v2_(Decent_Sampler)/Dark_St.dspreset
+   Fuzz_Mono                                    
+      path: /mnt/btrfs_disk/DS Libraries/Drone_Organ_v2_(Decent_Sampler)/Drone_Organ_v2_(Decent_Sampler)/Fuzz_Mono.dspreset
+   Fuzz_St                                      
+      path: /mnt/btrfs_disk/DS Libraries/Drone_Organ_v2_(Decent_Sampler)/Drone_Organ_v2_(Decent_Sampler)/Fuzz_St.dspreset
+   Growl                                        
+      path: /mnt/btrfs_disk/DS Libraries/Drone_Organ_v2_(Decent_Sampler)/Drone_Organ_v2_(Decent_Sampler)/Growl .dspreset
+   Snoring _Mono                                
+      path: /mnt/btrfs_disk/DS Libraries/Drone_Organ_v2_(Decent_Sampler)/Drone_Organ_v2_(Decent_Sampler)/Snoring _Mono.dspreset
+   Snoring _St                                  
+      path: /mnt/btrfs_disk/DS Libraries/Drone_Organ_v2_(Decent_Sampler)/Drone_Organ_v2_(Decent_Sampler)/Snoring _St.dspreset
+   Sore_throat                                  
+      path: /mnt/btrfs_disk/DS Libraries/Drone_Organ_v2_(Decent_Sampler)/Drone_Organ_v2_(Decent_Sampler)/Sore_throat.dspreset
+   Thin                                         
+      path: /mnt/btrfs_disk/DS Libraries/Drone_Organ_v2_(Decent_Sampler)/Drone_Organ_v2_(Decent_Sampler)/Thin.dspreset
+   clockworks                                   
+      path: /mnt/btrfs_disk/DS Libraries/dspreset-Clockworks-V1/Clockwork V1/clockworks.dspreset
+   Duduk                                        
+      path: /mnt/btrfs_disk/DS Libraries/Duduk/Duduk/Duduk/Duduk.dspreset
+   Dynamic Overtone Guitar                      
+      path: /mnt/btrfs_disk/DS Libraries/Dynamic Overtone Guitar/Dynamic Overtone Guitar.dspreset
+   Electric Piano Bass Distorted                
+      path: /mnt/btrfs_disk/DS Libraries/E Bass Studio Stomps DS/E Bass Studio Stomps DS/Electric Piano Bass Distorted.dspreset
+   ejim piano                                   
+      path: /mnt/btrfs_disk/DS Libraries/EjIm Piano v0.2.1/EjIm Piano v0.2.1/ejim piano.dspreset
+   Electric Mandolin                            
+      path: /mnt/btrfs_disk/DS Libraries/Electric Mandolin (DS)/Electric Mandolin (DS)/Electric Mandolin.dspreset
+   Electro Acoustic Piano                       
+      path: /mnt/btrfs_disk/DS Libraries/Electro Acoustic Piano (DS)/Electro Acoustic Piano (DS)/Electro Acoustic Piano.dspreset
+   Elements                                     
+      path: /mnt/btrfs_disk/DS Libraries/elements/elements/Elements.dspreset
+   Atmospheric1                                 
+      path: /mnt/btrfs_disk/DS Libraries/Emerald Resonances/Emerald Resonances/Atmospheric1.dspreset
+   Atmospheric2                                 
+      path: /mnt/btrfs_disk/DS Libraries/Emerald Resonances/Emerald Resonances/Atmospheric2.dspreset
+   Atmospheric3                                 
+      path: /mnt/btrfs_disk/DS Libraries/Emerald Resonances/Emerald Resonances/Atmospheric3.dspreset
+   Atmospheric4                                 
+      path: /mnt/btrfs_disk/DS Libraries/Emerald Resonances/Emerald Resonances/Atmospheric4.dspreset
+   EmeraldResonances_Default                    
+      path: /mnt/btrfs_disk/DS Libraries/Emerald Resonances/Emerald Resonances/EmeraldResonances_Default.dspreset
+   OriginalPiano                                
+      path: /mnt/btrfs_disk/DS Libraries/Emerald Resonances/Emerald Resonances/OriginalPiano.dspreset
+   PianoRain                                    
+      path: /mnt/btrfs_disk/DS Libraries/Emerald Resonances/Emerald Resonances/PianoRain.dspreset
+   ProcessedAmbience2                           
+      path: /mnt/btrfs_disk/DS Libraries/Emerald Resonances/Emerald Resonances/ProcessedAmbience2.dspreset
+   ProcessedAmbience                            
+      path: /mnt/btrfs_disk/DS Libraries/Emerald Resonances/Emerald Resonances/ProcessedAmbience.dspreset
+   SinisterAtmospheres                          
+      path: /mnt/btrfs_disk/DS Libraries/Emerald Resonances/Emerald Resonances/SinisterAtmospheres.dspreset
+   StrangeAtmospheres                           
+      path: /mnt/btrfs_disk/DS Libraries/Emerald Resonances/Emerald Resonances/StrangeAtmospheres.dspreset
+   Unstable2                                    
+      path: /mnt/btrfs_disk/DS Libraries/Emerald Resonances/Emerald Resonances/Unstable2.dspreset
+   Unstable                                     
+      path: /mnt/btrfs_disk/DS Libraries/Emerald Resonances/Emerald Resonances/Unstable.dspreset
+   Erhu                                         
+      path: /mnt/btrfs_disk/DS Libraries/Erhu/Erhu/Erhu.dspreset
+   Fable & Clare                                
+      path: /mnt/btrfs_disk/DS Libraries/Fable & Clare1/Fable & Clare/Fable & Clare/Fable & Clare.dspreset
+   Fable & Clare(Electric Piano)                
+      path: /mnt/btrfs_disk/DS Libraries/Fable & Clare1/Fable & Clare/Fable & Clare/Fable & Clare(Electric Piano).dspreset
+   Fable & Clare(Pads)                          
+      path: /mnt/btrfs_disk/DS Libraries/Fable & Clare1/Fable & Clare/Fable & Clare/Fable & Clare(Pads).dspreset
+   Fable & Clare(Synth Bass)                    
+      path: /mnt/btrfs_disk/DS Libraries/Fable & Clare1/Fable & Clare/Fable & Clare/Fable & Clare(Synth Bass).dspreset
+   Fable & Clare(Tape Piano)                    
+      path: /mnt/btrfs_disk/DS Libraries/Fable & Clare1/Fable & Clare/Fable & Clare/Fable & Clare(Tape Piano).dspreset
+   Fallout Organ                                
+      path: /mnt/btrfs_disk/DS Libraries/Fallout_Organ/Fallout_Organ/Fallout Organ.dspreset
+   Florence Upright                             
+      path: /mnt/btrfs_disk/DS Libraries/Florence Upright/Florence Upright/Florence Upright.dspreset
+   Flute Organ                                  
+      path: /mnt/btrfs_disk/DS Libraries/FluteOrgan(1.1)/Flute Organ.dspreset
+   Flutina                                      
+      path: /mnt/btrfs_disk/DS Libraries/Flutina/Flutina.dspreset
+   FM-Little-Module                             
+      path: /mnt/btrfs_disk/DS Libraries/FM-Little-Module/FM-Little-Module.dspreset
+   Forest                                       
+      path: /mnt/btrfs_disk/DS Libraries/Forest (DS)/Forest (DS)/Forest.dspreset
+   Forest melodica                              
+      path: /mnt/btrfs_disk/DS Libraries/Forest melodica/Forest melodica/Forest melodica.dspreset
+   Galician Gaita                               
+      path: /mnt/btrfs_disk/DS Libraries/Forgotten Bagpipes/Forgotten Bagpipes/Galician Gaita Bagpipe/Galician Gaita.dspreset
+   Galician Gaita With Drone Controller         
+      path: /mnt/btrfs_disk/DS Libraries/Forgotten Bagpipes/Forgotten Bagpipes/Galician Gaita Bagpipe/Galician Gaita With Drone Controller.dspreset
+   Pibau Cyrn                                   
+      path: /mnt/btrfs_disk/DS Libraries/Forgotten Bagpipes/Forgotten Bagpipes/Pibau Cyrn Bagpipe/Pibau Cyrn.dspreset
+   Pibau Cyrn With Drone Controller             
+      path: /mnt/btrfs_disk/DS Libraries/Forgotten Bagpipes/Forgotten Bagpipes/Pibau Cyrn Bagpipe/Pibau Cyrn With Drone Controller.dspreset
+   FreshGuitarV2                                
+      path: /mnt/btrfs_disk/DS Libraries/Fresh GuitarV2/FreshGuitarV2.dspreset
+   Fullbore Synth Monophonic                    
+      path: /mnt/btrfs_disk/DS Libraries/Fullbore Synth (DS)/Fullbore Synth Monophonic.dspreset
+   Fullbore Synth Polyphonic                    
+      path: /mnt/btrfs_disk/DS Libraries/Fullbore Synth (DS)/Fullbore Synth Polyphonic.dspreset
+   G3Grand                                      
+      path: /mnt/btrfs_disk/DS Libraries/G3Grand(DS)/G3Grand.dspreset
+   G3Grand_Synth                                
+      path: /mnt/btrfs_disk/DS Libraries/G3Grand(DS)/G3Grand_Synth.dspreset
+   G3Grand_UnaCorda                             
+      path: /mnt/btrfs_disk/DS Libraries/G3Grand(DS)/G3Grand_UnaCorda.dspreset
+   Gaita_Do                                     
+      path: /mnt/btrfs_disk/DS Libraries/Gaita_Do/Gaita_Do/Gaita_Do.dspreset
+   Gankogui                                     
+      path: /mnt/btrfs_disk/DS Libraries/Gankogui_Decent_Sampler-1.0/Gankogui.dspreset
+   Garage Sale Kit                              
+      path: /mnt/btrfs_disk/DS Libraries/Garage Sale Kit/Garage Sale Kit/Garage Sale Kit.dspreset
+   Garland Music Box Marimba                    
+      path: /mnt/btrfs_disk/DS Libraries/Garland Music Box Marimba (DS)/Garland Music Box (DS)/Garland Music Box Marimba.dspreset
+   Babblings                                    
+      path: /mnt/btrfs_disk/DS Libraries/Garv_Babblings_Sampler/Garv_Babblings_Sampler/Babblings.dspreset
+   GEMJumbo61R6 -Bass&Drums                     
+      path: /mnt/btrfs_disk/DS Libraries/GEM-Jumbo61/GEMJumbo61R6 -Bass&Drums.dspreset
+   GEMJumbo61R6                                 
+      path: /mnt/btrfs_disk/DS Libraries/GEM-Jumbo61/GEMJumbo61R6.dspreset
+   George Yazbek - Daydream                     
+      path: /mnt/btrfs_disk/DS Libraries/George Yazbek - Daydream/George Yazbek - Daydream/George Yazbek - Daydream.dspreset
+   George Yazbek - The Gift                     
+      path: /mnt/btrfs_disk/DS Libraries/George Yazbek - The Gift/George Yazbek - The Gift/George Yazbek - The Gift.dspreset
+   George Yazbek - The yoyo                     
+      path: /mnt/btrfs_disk/DS Libraries/George Yazbek - The yoyo/George Yazbek - The yoyo/George Yazbek - The yoyo.dspreset
+   GjallarHorn                                  
+      path: /mnt/btrfs_disk/DS Libraries/GjallarHorn/GjallarHorn/Gjallarhorn/GjallarHorn.dspreset
+   GjallarHorn-Vibrato-Ish                      
+      path: /mnt/btrfs_disk/DS Libraries/GjallarHorn/GjallarHorn/Gjallarhorn - Vibrato-ish/GjallarHorn-Vibrato-Ish.dspreset
+   GjallarHorn-WeirdBursts                      
+      path: /mnt/btrfs_disk/DS Libraries/GjallarHorn/GjallarHorn/Gjallarhorn - WeirdDisonantBursts/GjallarHorn-WeirdBursts.dspreset
+   GjallarHorn-WhiteNoise                       
+      path: /mnt/btrfs_disk/DS Libraries/GjallarHorn/GjallarHorn/Gjallarhorn - Whitenoise/GjallarHorn-WhiteNoise.dspreset
+   Glockenglass                                 
+      path: /mnt/btrfs_disk/DS Libraries/Glockenglass/Glockenglass/Glockenglass.dspreset
+   GoodTimesKeyboard                            
+      path: /mnt/btrfs_disk/DS Libraries/GoodTimes Keyboard/GoodTimes Keyboard/GoodTimesKeyboard.dspreset
+   grandmas-beachhouse-piano                    
+      path: /mnt/btrfs_disk/DS Libraries/grandmas-beachhouse-piano/grandmas-beachhouse-piano.dspreset
+   Grandmas Piano                               
+      path: /mnt/btrfs_disk/DS Libraries/Grandmas Piano/Grandmas Piano.dspreset
+   GrandpasPiano                                
+      path: /mnt/btrfs_disk/DS Libraries/Grandpas Piano (DS)/Grandpas Piano (DS)/GrandpasPiano.dspreset
+   Greenwood Drums                              
+      path: /mnt/btrfs_disk/DS Libraries/Greenwood Drums/Greenwood Drums/Greenwood Drums.dspreset
+   GretschCatalinaAsh-hh                        
+      path: /mnt/btrfs_disk/DS Libraries/Gretsch Catalina Ash - Decent Sampler/Gretsch Catalina Ash - Decent Sampler/GretschCatalinaAsh-hh.dspreset
+   Guitar Percussion and Noises                 
+      path: /mnt/btrfs_disk/DS Libraries/Guitar percussion and noises/Guitar Percussion and Noises.dspreset
+   Guitar Percussions                           
+      path: /mnt/btrfs_disk/DS Libraries/Guitar Precussion 1.1/Guitar Percussions.dspreset
+   1 Gusli Perepyolochka - Dry                  
+      path: /mnt/btrfs_disk/DS Libraries/Gusli Perepyolochka/Gusli Perepyolochka/1 Gusli Perepyolochka - Dry.dspreset
+   2 Gusli Perepyolochka - Space                
+      path: /mnt/btrfs_disk/DS Libraries/Gusli Perepyolochka/Gusli Perepyolochka/2 Gusli Perepyolochka - Space.dspreset
+   3 Gusli Perepyolochka - Old                  
+      path: /mnt/btrfs_disk/DS Libraries/Gusli Perepyolochka/Gusli Perepyolochka/3 Gusli Perepyolochka - Old.dspreset
+   4 Gusli Perepyolochka - Extra Notes          
+      path: /mnt/btrfs_disk/DS Libraries/Gusli Perepyolochka/Gusli Perepyolochka/4 Gusli Perepyolochka - Extra Notes.dspreset
+   5 Gusli Perepyolochka - Dead Notes           
+      path: /mnt/btrfs_disk/DS Libraries/Gusli Perepyolochka/Gusli Perepyolochka/5 Gusli Perepyolochka - Dead Notes.dspreset
+   Harmonica Americana                          
+      path: /mnt/btrfs_disk/DS Libraries/Harmonica Americana/Harmonica Americana/Harmonica Americana/Harmonica Americana.dspreset
+   Harmonica Longs                              
+      path: /mnt/btrfs_disk/DS Libraries/Harmonica/Harmonica Longs.dspreset
+   Harmonica Normal                             
+      path: /mnt/btrfs_disk/DS Libraries/Harmonica/Harmonica Normal.dspreset
+   Harmonica Shorts                             
+      path: /mnt/btrfs_disk/DS Libraries/Harmonica/Harmonica Shorts.dspreset
+   harmonic constellations(COSMOSpreset)        
+      path: /mnt/btrfs_disk/DS Libraries/harmonic constellations /harmonic constellations /harmonic constellations(COSMOSpreset).dspreset
+   harmonic constellations                      
+      path: /mnt/btrfs_disk/DS Libraries/harmonic constellations /harmonic constellations /harmonic constellations.dspreset
+   harmonic constellations(LEOpreset)           
+      path: /mnt/btrfs_disk/DS Libraries/harmonic constellations /harmonic constellations /harmonic constellations(LEOpreset).dspreset
+   harmonic constellations(ORIONpreset)         
+      path: /mnt/btrfs_disk/DS Libraries/harmonic constellations /harmonic constellations /harmonic constellations(ORIONpreset).dspreset
+   harmonic constellations(URSApreset)          
+      path: /mnt/btrfs_disk/DS Libraries/harmonic constellations /harmonic constellations /harmonic constellations(URSApreset).dspreset
+   Harpsimachord                                
+      path: /mnt/btrfs_disk/DS Libraries/Harpsimachord/Harpsimachord.dspreset
+   healingBOWL                                  
+      path: /mnt/btrfs_disk/DS Libraries/healingBOWL/healingBOWL/healingBOWL.dspreset
+   Heaven and Hell                              
+      path: /mnt/btrfs_disk/DS Libraries/Heaven and Hell 002/Heaven and Hell/Heaven and Hell.dspreset
+   Hellscape Synth                              
+      path: /mnt/btrfs_disk/DS Libraries/Hellscape Synth/Hellscape Synth/Hellscape Synth.dspreset
+   Helsinki1967                                 
+      path: /mnt/btrfs_disk/DS Libraries/Helsinkii1967 DecentSampler v.1.411/Helsinki1967.dspreset
+   Helsinki1967 Multi Out                       
+      path: /mnt/btrfs_disk/DS Libraries/Helsinkii1967 DecentSampler v.1.411/Helsinki1967 Multi Out.dspreset
+   Helsinki1967 Multi Out NOPEDAL               
+      path: /mnt/btrfs_disk/DS Libraries/Helsinkii1967 DecentSampler v.1.411/Helsinki1967 Multi Out NOPEDAL.dspreset
+   Helsinki1967 NOPEDAL                         
+      path: /mnt/btrfs_disk/DS Libraries/Helsinkii1967 DecentSampler v.1.411/Helsinki1967 NOPEDAL.dspreset
+   Hohner Melodica                              
+      path: /mnt/btrfs_disk/DS Libraries/Hohner Melodica/Hohner Melodica/Hohner Melodica.dspreset
+   Homemade Ceramic Udo                         
+      path: /mnt/btrfs_disk/DS Libraries/Homemade Ceramic Udo/Homemade Ceramic Udo/Homemade Ceramic Udo/Homemade Ceramic Udo.dspreset
+   Homemade Oscillator and Speaker Circuit      
+      path: /mnt/btrfs_disk/DS Libraries/Homemade Oscillator and Speaker Circuit/Homemade Oscillator and Speaker Circuit/Homemade Oscillator and Speaker Circuit/Homemade Oscillator and Speaker Circuit.dspreset
+   HomePercussions                              
+      path: /mnt/btrfs_disk/DS Libraries/HomePercussions/HomePercussions.dspreset
+   jawPhArpD                                    
+      path: /mnt/btrfs_disk/DS Libraries/HomePercussions/jawPhArpD.dspreset
+   PADnana                                      
+      path: /mnt/btrfs_disk/DS Libraries/HomePercussions/PADnana.dspreset
+   Hurdy Gurdy                                  
+      path: /mnt/btrfs_disk/DS Libraries/Hurdy Gurdy/Hurdy Gurdy/Hurdy Gurdy.dspreset
+   Inanimate Glitches                           
+      path: /mnt/btrfs_disk/DS Libraries/Inanimate Glitches/Inanimate Glitches/Inanimate Glitches.dspreset
+   Indonesian Didgeridoo                        
+      path: /mnt/btrfs_disk/DS Libraries/Indonesian Didgeridoo/Indonesian Didgeridoo/Indonesian Didgeridoo/Indonesian Didgeridoo.dspreset
+   Italian Typewriter                           
+      path: /mnt/btrfs_disk/DS Libraries/Italian Typewriter (DS)1.0/Italian Typewriter (DS)/Italian Typewriter.dspreset
+   Jon's Cajons                                 
+      path: /mnt/btrfs_disk/DS Libraries/Jon's Cajons v1.0/Jon's Cajons.dspreset
+   Jouhikko                                     
+      path: /mnt/btrfs_disk/DS Libraries/Jouhikko-TheFinnishBowedLyre/Jouhikko.dspreset
+   Junost 21 | First In The Universe            
+      path: /mnt/btrfs_disk/DS Libraries/Junost 21 _ Soviet Virtual Synth FREE (DS_EXS)/Junost 21 | Soviet Virtual Synth FREE (DS:EXS)/Junost 21 | First In The Universe/Junost 21 | First In The Universe.dspreset
+   Junost 21 | Icicles                          
+      path: /mnt/btrfs_disk/DS Libraries/Junost 21 _ Soviet Virtual Synth FREE (DS_EXS)/Junost 21 | Soviet Virtual Synth FREE (DS:EXS)/Junost 21 | Icicles/Junost 21 | Icicles.dspreset
+   Junost 21 | Red Dawn                         
+      path: /mnt/btrfs_disk/DS Libraries/Junost 21 _ Soviet Virtual Synth FREE (DS_EXS)/Junost 21 | Soviet Virtual Synth FREE (DS:EXS)/Junost 21 | Red Dawn/Junost 21 | Red Dawn.dspreset
+   JP-6 Unison Strings Choir Strings            
+      path: /mnt/btrfs_disk/DS Libraries/Jupiter-6 Unison Strings/Jupiter-6 Unison Strings/JP-6 Unison Strings Choir Strings.dspreset
+   JP-6 Unison Strings Default                  
+      path: /mnt/btrfs_disk/DS Libraries/Jupiter-6 Unison Strings/Jupiter-6 Unison Strings/JP-6 Unison Strings Default.dspreset
+   JP-6 Unison Strings Mr X                     
+      path: /mnt/btrfs_disk/DS Libraries/Jupiter-6 Unison Strings/Jupiter-6 Unison Strings/JP-6 Unison Strings Mr X.dspreset
+   JP-6 Unison Strings Thin and Phasey          
+      path: /mnt/btrfs_disk/DS Libraries/Jupiter-6 Unison Strings/Jupiter-6 Unison Strings/JP-6 Unison Strings Thin and Phasey.dspreset
+   Kalimba_Chromatic                            
+      path: /mnt/btrfs_disk/DS Libraries/Kalimba_by_Lasiurus/Kalimba_by_Lasiurus/Kalimba_Chromatic.dspreset
+   Kalimba_CMajor                               
+      path: /mnt/btrfs_disk/DS Libraries/Kalimba_by_Lasiurus/Kalimba_by_Lasiurus/Kalimba_CMajor.dspreset
+   Kalimba Experiments                          
+      path: /mnt/btrfs_disk/DS Libraries/Kalimba Experiments/Kalimba Experiment/Kalimba Experiments.dspreset
+   Kalimba Swarm                                
+      path: /mnt/btrfs_disk/DS Libraries/Kalimba Swarm/Kalimba Swarm/Kalimba Swarm.dspreset
+   JPKantele                                    
+      path: /mnt/btrfs_disk/DS Libraries/Kantele-TheFinnishZither/JPKantele.dspreset
+   Kazoo                                        
+      path: /mnt/btrfs_disk/DS Libraries/Kazoo/Kazoo/Kazoo.dspreset
+   Kosmosky Tongue Drum                         
+      path: /mnt/btrfs_disk/DS Libraries/Kosmosky Tongue Drum(v1.0)/Kosmosky Tongue Drum(v1.0)/Kosmosky Tongue Drum.dspreset
+   K Percussion                                 
+      path: /mnt/btrfs_disk/DS Libraries/K Percussion/K Percussion.dspreset
+   open                                         
+      path: /mnt/btrfs_disk/DS Libraries/lapsteel-articulations/open.dspreset
+   slide-down                                   
+      path: /mnt/btrfs_disk/DS Libraries/lapsteel-articulations/slide-down.dspreset
+   slide-up                                     
+      path: /mnt/btrfs_disk/DS Libraries/lapsteel-articulations/slide-up.dspreset
+   Legacy Knight                                
+      path: /mnt/btrfs_disk/DS Libraries/Legacy Knight Piano v1.0/Legacy Knight Piano v1.0/Legacy Knight 1.0 (DS)/Legacy Knight.dspreset
+   Leolani Ukulele                              
+      path: /mnt/btrfs_disk/DS Libraries/Leolani Ukulele/Leolani Ukulele/Leolani Ukulele.dspreset
+   Lil Bro's Drum Guitar                        
+      path: /mnt/btrfs_disk/DS Libraries/Lil Bro's Drum Guitar/Lil Bro's Drum Guitar.dspreset
+   Little Black EP                              
+      path: /mnt/btrfs_disk/DS Libraries/Little Black EP/Little Black EP.dspreset
+   Green Organ Keyboard - TUNED                 
+      path: /mnt/btrfs_disk/DS Libraries/Little Grreen Reed Organ/Green Organ Keyboard - TUNED.dspreset
+   Green Organ Keyboard - UNTUNED               
+      path: /mnt/btrfs_disk/DS Libraries/Little Grreen Reed Organ/Green Organ Keyboard - UNTUNED.dspreset
+   Lofi AI Drum Pi                              
+      path: /mnt/btrfs_disk/DS Libraries/Lofi AI Drum Pi/Lofi AI Drum Pi/Lofi AI Drum Pi.dspreset
+   Lofi Dreams                                  
+      path: /mnt/btrfs_disk/DS Libraries/Lofi Dreams/Lofi Dreams/Lofi Dreams.dspreset
+   LØ - Fragile Violins - Free                 
+      path: /mnt/btrfs_disk/DS Libraries/LØ - Fragile Violins Free/LØ - Fragile Violins Free/LØ - Fragile Violins - Free.dspreset
+   Low Whistle                                  
+      path: /mnt/btrfs_disk/DS Libraries/Low Whistle/Low Whistle/Low Whistle.dspreset
+   luapselREVGUITAR                             
+      path: /mnt/btrfs_disk/DS Libraries/luapselREVGUITAR/luapselREVGUITAR/luapselREVGUITAR.dspreset
+   LWR_SG_Deep-Pad                              
+      path: /mnt/btrfs_disk/DS Libraries/LWR Swallow Guitar/LWR Swallow Guitar/LWR_SG_Deep-Pad.dspreset
+   LWR_SG_Dry                                   
+      path: /mnt/btrfs_disk/DS Libraries/LWR Swallow Guitar/LWR Swallow Guitar/LWR_SG_Dry.dspreset
+   LWR_SG_Lush                                  
+      path: /mnt/btrfs_disk/DS Libraries/LWR Swallow Guitar/LWR Swallow Guitar/LWR_SG_Lush.dspreset
+   LWR_SG_Pluck                                 
+      path: /mnt/btrfs_disk/DS Libraries/LWR Swallow Guitar/LWR Swallow Guitar/LWR_SG_Pluck.dspreset
+   Maracas                                      
+      path: /mnt/btrfs_disk/DS Libraries/Maracas_by_Estudios Ivcame/Maracas.dspreset
+   Massive Pad                                  
+      path: /mnt/btrfs_disk/DS Libraries/Massive Pad/Massive Pad/Massive Pad.dspreset
+   MBAnalogueDrums                              
+      path: /mnt/btrfs_disk/DS Libraries/MB Analogue Drums/MB Analogue Drums/MB Analogue Drums Decent Sampler/MBAnalogueDrums.dspreset
+   Melody Maker                                 
+      path: /mnt/btrfs_disk/DS Libraries/Melody Maker/Melody Maker/Melody Maker.dspreset
+   Guitarron                                    
+      path: /mnt/btrfs_disk/DS Libraries/Mexican Guitarron/Guitarron.dspreset
+   MicroGuitar                                  
+      path: /mnt/btrfs_disk/DS Libraries/MicroGuitar/MicroGuitar.dspreset
+   Milk Factory Glockenspiel_DS                 
+      path: /mnt/btrfs_disk/DS Libraries/Milk Factory - jd cheetham/Milk Factory - jd cheetham/Milk Factory Glockenspiel_DS.dspreset
+   Milk Factory Percussion_DS                   
+      path: /mnt/btrfs_disk/DS Libraries/Milk Factory - jd cheetham/Milk Factory - jd cheetham/Milk Factory Percussion_DS.dspreset
+   Milk Factory Recorder_DS                     
+      path: /mnt/btrfs_disk/DS Libraries/Milk Factory - jd cheetham/Milk Factory - jd cheetham/Milk Factory Recorder_DS.dspreset
+   Milk Factory Ukulele_DS                      
+      path: /mnt/btrfs_disk/DS Libraries/Milk Factory - jd cheetham/Milk Factory - jd cheetham/Milk Factory Ukulele_DS.dspreset
+   MiniAfricanDrum                              
+      path: /mnt/btrfs_disk/DS Libraries/Mini African Drum/Mini African Drum/MiniAfricanDrum.dspreset
+   Mini Drum Lone Singer                        
+      path: /mnt/btrfs_disk/DS Libraries/Mini Drum Lone Singer (DS)/Mini Drum Lone Singer (DS)/Mini Drum Lone Singer.dspreset
+   Mini Drum Magic Ladder                       
+      path: /mnt/btrfs_disk/DS Libraries/Mini Drum Magic Ladder (DS)/Mini Drum Magic Ladder (DS)/Mini Drum Magic Ladder.dspreset
+   Mini Kalimba                                 
+      path: /mnt/btrfs_disk/DS Libraries/Mini Kalimba v1.1/Mini Kalimba v1.1/Mini Kalimba.dspreset
+   Mixing Bowl                                  
+      path: /mnt/btrfs_disk/DS Libraries/Mixing Bowl DS/Mixing Bowl.dspreset
+   Modern Acoustic Guitar                       
+      path: /mnt/btrfs_disk/DS Libraries/Modern Acoustic Guitar V2/Modern Acoustic Guitar V2/Modern Acoustic Guitar.dspreset
+   an trygh eth genev                           
+      path: /mnt/btrfs_disk/DS Libraries/Mordros Final/Mordros Final/an trygh eth genev.dspreset
+   drog ew genam                                
+      path: /mnt/btrfs_disk/DS Libraries/Mordros Final/Mordros Final/drog ew genam.dspreset
+   ma pedn droag thebm                          
+      path: /mnt/btrfs_disk/DS Libraries/Mordros Final/Mordros Final/ma pedn droag thebm.dspreset
+   nowedh gwres ew gene'vy                      
+      path: /mnt/btrfs_disk/DS Libraries/Mordros Final/Mordros Final/nowedh gwres ew gene'vy.dspreset
+   nyns yw usys genev                           
+      path: /mnt/btrfs_disk/DS Libraries/Mordros Final/Mordros Final/nyns yw usys genev.dspreset
+   Solo Violin                                  
+      path: /mnt/btrfs_disk/DS Libraries/MORE Violin Experiments v1.1/MORE Violin Experiments/Solo Violin.dspreset
+   Violin Ensemble                              
+      path: /mnt/btrfs_disk/DS Libraries/MORE Violin Experiments v1.1/MORE Violin Experiments/Violin Ensemble.dspreset
+   DS MorphoLute All Instr. Wet FX              
+      path: /mnt/btrfs_disk/DS Libraries/MorphoLute_by_Magisk/MorphoLute_by_Magisk/DS MorphoLute All Instr. Wet FX.dspreset
+   DS MorphoLute Bouzouki Dly Chor Sat          
+      path: /mnt/btrfs_disk/DS Libraries/MorphoLute_by_Magisk/MorphoLute_by_Magisk/DS MorphoLute Bouzouki Dly Chor Sat.dspreset
+   DS MorphoLute                                
+      path: /mnt/btrfs_disk/DS Libraries/MorphoLute_by_Magisk/MorphoLute_by_Magisk/DS MorphoLute.dspreset
+   DS MorphoLute Epi Dly Chor Sat               
+      path: /mnt/btrfs_disk/DS Libraries/MorphoLute_by_Magisk/MorphoLute_by_Magisk/DS MorphoLute Epi Dly Chor Sat.dspreset
+   DS MorphoLute Harmonics Echo Pad             
+      path: /mnt/btrfs_disk/DS Libraries/MorphoLute_by_Magisk/MorphoLute_by_Magisk/DS MorphoLute Harmonics Echo Pad.dspreset
+   DS MorphoLute Water Glass Rev Dly            
+      path: /mnt/btrfs_disk/DS Libraries/MorphoLute_by_Magisk/MorphoLute_by_Magisk/DS MorphoLute Water Glass Rev Dly.dspreset
+   DS MorphoLute Yamaha Dly Rev                 
+      path: /mnt/btrfs_disk/DS Libraries/MorphoLute_by_Magisk/MorphoLute_by_Magisk/DS MorphoLute Yamaha Dly Rev.dspreset
+   MS20 Plus                                    
+      path: /mnt/btrfs_disk/DS Libraries/MS20 Plus/MS20 Plus.dspreset
+   Mum's Upright                                
+      path: /mnt/btrfs_disk/DS Libraries/Mum's Upright/Mum's Upright/Mum's Upright.dspreset
+   Murky Roads                                  
+      path: /mnt/btrfs_disk/DS Libraries/Murky Roads (DS)/Murky Roads (DS)/Murky Roads.dspreset
+   my_cheap_bass                                
+      path: /mnt/btrfs_disk/DS Libraries/my_cheap_bass/my_cheap_bass/my_cheap_bass.dspreset
+   Duduk                                        
+      path: /mnt/btrfs_disk/DS Libraries/MyDuduk/Duduk.dspreset
+   Nick's LP Studio                             
+      path: /mnt/btrfs_disk/DS Libraries/Nicks-LP-Studio/Nick's LP Studio/Nick's LP Studio.dspreset
+   Drum_BART                                    
+      path: /mnt/btrfs_disk/DS Libraries/Noise Drums/Noise Drums/Drum_BART.dspreset
+   Drum_HVAC                                    
+      path: /mnt/btrfs_disk/DS Libraries/Noise Drums/Noise Drums/Drum_HVAC.dspreset
+   Drum_PinkNoise                               
+      path: /mnt/btrfs_disk/DS Libraries/Noise Drums/Noise Drums/Drum_PinkNoise.dspreset
+   Drum_WhiteNoise                              
+      path: /mnt/btrfs_disk/DS Libraries/Noise Drums/Noise Drums/Drum_WhiteNoise.dspreset
+   NT Agnostic Drone v1                         
+      path: /mnt/btrfs_disk/DS Libraries/NT Agnostic Drone/NT Agnostic Drone/NT Angnostic Drone v1 (ds)/NT Agnostic Drone v1.dspreset
+   NT Angelic Dramatic v2                       
+      path: /mnt/btrfs_disk/DS Libraries/NT Angelic Dramatic v2/NT Angelic Dramatic v2/NT Angelic Dramatic v2 (ds)/NT Angelic Dramatic v2.dspreset
+   NT bionic brass and winds                    
+      path: /mnt/btrfs_disk/DS Libraries/NT Bionic Brass and Winds/NT Bionic Brass and Winds/NT Bionic Brass and Winds/NT bionic brass and winds.dspreset
+   NTS-2 Dirty Bass                             
+      path: /mnt/btrfs_disk/DS Libraries/NTS-2 An Oscilloscope Turned Synth/NTS-2 An Oscilloscope Turned Synth/NTS-2 An Oscilloscope Turned Synth/NTS-2 Dirty Bass.dspreset
+   NTS-2 Keys                                   
+      path: /mnt/btrfs_disk/DS Libraries/NTS-2 An Oscilloscope Turned Synth/NTS-2 An Oscilloscope Turned Synth/NTS-2 An Oscilloscope Turned Synth/NTS-2 Keys.dspreset
+   NT Subharmonic Memory Unit v1                
+      path: /mnt/btrfs_disk/DS Libraries/NT Subharmonic Memory Unit v1/NT Subharmonic Memory Unit v1/NT Subharmonic Memory Unit v1.dspreset
+   NT Odyssea v3                                
+      path: /mnt/btrfs_disk/DS Libraries/odyssea v3/odyssea v3/NT Odyssea v3.dspreset
+   Glaciar Mesmerize                            
+      path: /mnt/btrfs_disk/DS Libraries/Öld Jokul - Glaciar Pad/Glaciar Mesmerize Pad/Glaciar Mesmerize.dspreset
+   OMS-1 Gretsch Feedback                       
+      path: /mnt/btrfs_disk/DS Libraries/OMS-1 Gretsch Feedback/OMS-1 Gretsch Feedback/OMS-1 Gretsch Feedback.dspreset
+   Only drums                                   
+      path: /mnt/btrfs_disk/DS Libraries/Only drums/Only drums/Decent Sampler/Only drums.dspreset
+   OOTG Piano                                   
+      path: /mnt/btrfs_disk/DS Libraries/OOTG Piano DS/OOTG Piano.dspreset
+   Optical Fibre Breaths                        
+      path: /mnt/btrfs_disk/DS Libraries/Optical Fibre/Optical Fibre/Optical Fibre Breaths.dspreset
+   Optical Fibre                                
+      path: /mnt/btrfs_disk/DS Libraries/Optical Fibre/Optical Fibre/Optical Fibre.dspreset
+   01- Orange Soda Calliope                     
+      path: /mnt/btrfs_disk/DS Libraries/Orange Soda Super Flute/Orange Soda Super Flute/01- Orange Soda Calliope.dspreset
+   02-Orange Soda Super Flute                   
+      path: /mnt/btrfs_disk/DS Libraries/Orange Soda Super Flute/Orange Soda Super Flute/02-Orange Soda Super Flute.dspreset
+   Organ Grinder                                
+      path: /mnt/btrfs_disk/DS Libraries/Organ grinder/Organ Grinder.dspreset
+   Organ of the Damned                          
+      path: /mnt/btrfs_disk/DS Libraries/Organ of the Damned (DS)/Organ of the Damned (DS)/Organ of the Damned.dspreset
+   Orgel Unterhaus                              
+      path: /mnt/btrfs_disk/DS Libraries/Orgel Unterhaus 2.1/Orgel Unterhaus/Orgel Unterhaus.dspreset
+   Otto                                         
+      path: /mnt/btrfs_disk/DS Libraries/Otto/Otto/Otto.dspreset
+   Palm Mutes Bridge Pickup                     
+      path: /mnt/btrfs_disk/DS Libraries/Palm Mutes/Palm Mutes/Palm Mutes Bridge Pickup.dspreset
+   Palm Mutes Neck Pickup                       
+      path: /mnt/btrfs_disk/DS Libraries/Palm Mutes/Palm Mutes/Palm Mutes Neck Pickup.dspreset
+   PAMAHA NO RELEASE SAMPLES                    
+      path: /mnt/btrfs_disk/DS Libraries/PAMAHA/PAMAHA/EXTRA/PAMAHA NO RELEASE SAMPLES.dspreset
+   PAMAHA SOFTER NO RELEASE SAMPLES             
+      path: /mnt/btrfs_disk/DS Libraries/PAMAHA/PAMAHA/EXTRA/PAMAHA SOFTER NO RELEASE SAMPLES.dspreset
+   PAMAHA                                       
+      path: /mnt/btrfs_disk/DS Libraries/PAMAHA/PAMAHA/PAMAHA.dspreset
+   PAMAHA SOFTER                                
+      path: /mnt/btrfs_disk/DS Libraries/PAMAHA/PAMAHA/PAMAHA SOFTER.dspreset
+   Paters Piano                                 
+      path: /mnt/btrfs_disk/DS Libraries/Paters Piano/Paters Piano/Paters Piano.dspreset
+   Birdy Kalimba                                
+      path: /mnt/btrfs_disk/DS Libraries/Paweł Lewicki - Birdy Kalimba (DS)/Birdy Kalimba (DS)/Birdy Kalimba.dspreset
+   PD Big Brother                               
+      path: /mnt/btrfs_disk/DS Libraries/PD_Big_Brother/PD Big Brother.dspreset
+   Pencil Guitar V2                             
+      path: /mnt/btrfs_disk/DS Libraries/PencilGuitar-V2/PencilGuitar-V2/Pencil Guitar V2.dspreset
+   Phobos Canvas- The Band Resonant Trio (Essential Edition)
+      path: /mnt/btrfs_disk/DS Libraries/Phobos - Canvas [ESSENTIAL EDITION] (0.8.9)/Phobos - Canvas/Phobos Canvas- The Band Resonant Trio (Essential Edition).dspreset
+   Piano Percussions Kits A&B                   
+      path: /mnt/btrfs_disk/DS Libraries/Piano Percussions_v1.0/Piano Percussions Kits_[DecentSampler]/Piano Percussions Kits A&B.dspreset
+   Plasma Kalimba                               
+      path: /mnt/btrfs_disk/DS Libraries/Plasma Drive Kalimba/Plasma Drive Kalimba/Plasma Kalimba/Plasma Kalimba.dspreset
+   Playwatch                                    
+      path: /mnt/btrfs_disk/DS Libraries/Playwatch/Playwatch/Playwatch.dspreset
+   Polaroid CL635                               
+      path: /mnt/btrfs_disk/DS Libraries/Polaroid CL635 (DS)/Polaroid CL635 (DS)/Polaroid CL635.dspreset
+   Pop                                          
+      path: /mnt/btrfs_disk/DS Libraries/pop/Pop.dspreset
+   Prehispanic flute v3                         
+      path: /mnt/btrfs_disk/DS Libraries/prehispanic flute v3/Prehispanic flute v3.dspreset
+   purplehero                                   
+      path: /mnt/btrfs_disk/DS Libraries/purplehero/purplehero/purplehero.dspreset
+   Rain Choir V1.1                              
+      path: /mnt/btrfs_disk/DS Libraries/Rain Choir V1.1 (1)/Rain Choir V1.1.dspreset
+   Rain Choir V1.1                              
+      path: /mnt/btrfs_disk/DS Libraries/Rain Choir V1.1/Rain Choir V1.1.dspreset
+   Granular Pad                                 
+      path: /mnt/btrfs_disk/DS Libraries/Raw Violin/Raw Violin/Granular Pad.dspreset
+   Harmonic Pad                                 
+      path: /mnt/btrfs_disk/DS Libraries/Raw Violin/Raw Violin/Harmonic Pad.dspreset
+   Pad                                          
+      path: /mnt/btrfs_disk/DS Libraries/Raw Violin/Raw Violin/Pad.dspreset
+   Raw Violin                                   
+      path: /mnt/btrfs_disk/DS Libraries/Raw Violin/Raw Violin/Raw Violin.dspreset
+   Red Tape Bass                                
+      path: /mnt/btrfs_disk/DS Libraries/RedTape Z2/RedTape/Red Tape - Bass/Red Tape - Bass/Red Tape Bass.dspreset
+   Red Tape Drums                               
+      path: /mnt/btrfs_disk/DS Libraries/RedTape Z2/RedTape/Red Tape - Drums/Red Tape - Drums/Red Tape Drums.dspreset
+   Red Tape Guitar                              
+      path: /mnt/btrfs_disk/DS Libraries/RedTape Z2/RedTape/Red Tape - Guitar/Red Tape - Guitar/Red Tape Guitar.dspreset
+   Red Tape Piano                               
+      path: /mnt/btrfs_disk/DS Libraries/RedTape Z2/RedTape/Red Tape - Piano/Red Tape - Piano/Red Tape Piano.dspreset
+   Reluctant Autoharp                           
+      path: /mnt/btrfs_disk/DS Libraries/Reluctant Autoharp (DS)/Reluctant Autoharp (DS)/Reluctant Autoharp/Reluctant Autoharp.dspreset
+   Resonator                                    
+      path: /mnt/btrfs_disk/DS Libraries/Resonator/Resonator/Resonator.dspreset
+   Reverb Tail Pad                              
+      path: /mnt/btrfs_disk/DS Libraries/Reverb Tail Pad/Reverb Tail Pad/Reverb Tail Pad.dspreset
+   RGBwaves                                     
+      path: /mnt/btrfs_disk/DS Libraries/RGBwaves/RGBwaves.dspreset
+   RJS Classic Electric (DS)                    
+      path: /mnt/btrfs_disk/DS Libraries/RJS Classic Electric v1_1/RJS Classic Electric v1_1/RJS Classic Electric (DS)/RJS Classic Electric (DS).dspreset
+   RJS Classic Electric (DS) Monophonic         
+      path: /mnt/btrfs_disk/DS Libraries/RJS Classic Electric v1_1/RJS Classic Electric v1_1/RJS Classic Electric (DS)/RJS Classic Electric (DS) Monophonic.dspreset
+   RJS Guitar Chords (DS)                       
+      path: /mnt/btrfs_disk/DS Libraries/RJS Classic Electric v1_1/RJS Classic Electric v1_1/RJS Classic Electric (DS)/RJS Guitar Chords (DS).dspreset
+   RJS LoFi Nylon (DS)                          
+      path: /mnt/btrfs_disk/DS Libraries/RJS LoFi Nylon v1_1/RJS LoFi Nylon v1_1/RJS LoFi Nylon (DS)/RJS LoFi Nylon (DS).dspreset
+   RJS LoFi Nylon (DS) Monophonic               
+      path: /mnt/btrfs_disk/DS Libraries/RJS LoFi Nylon v1_1/RJS LoFi Nylon v1_1/RJS LoFi Nylon (DS)/RJS LoFi Nylon (DS) Monophonic.dspreset
+   RJS Vocal Pads                               
+      path: /mnt/btrfs_disk/DS Libraries/RJS Vocal Pads v1_1/RJS Vocal Pads/RJS Vocal Pads.dspreset
+   Roaring Saxophone                            
+      path: /mnt/btrfs_disk/DS Libraries/Roaring Saxophone (DS)/Roaring Saxophone (DS)/Roaring Saxophone.dspreset
+   Cortina_Virtuoso                             
+      path: /mnt/btrfs_disk/DS Libraries/Rosedale_Cortina_Virtuoso/Cortina_Virtuoso.dspreset
+   RRDrums(v1_1)                                
+      path: /mnt/btrfs_disk/DS Libraries/R.R. Drums1/R.R. Drums/R.R. Drums/RRDrums(v1_1).dspreset
+   Rubber Bass                                  
+      path: /mnt/btrfs_disk/DS Libraries/Rubber Bass/Rubber Bass/Rubber Bass.dspreset
+   Dante                                        
+      path: /mnt/btrfs_disk/DS Libraries/Santa Croce/Santa Croce/Dante.dspreset
+   Galileo                                      
+      path: /mnt/btrfs_disk/DS Libraries/Santa Croce/Santa Croce/Galileo.dspreset
+   Michelangelo                                 
+      path: /mnt/btrfs_disk/DS Libraries/Santa Croce/Santa Croce/Michelangelo.dspreset
+   udu                                          
+      path: /mnt/btrfs_disk/DS Libraries/Schlagwerk_U78_Side_Skin_Udu/udu.dspreset
+   Seaside_Drum_Machine                         
+      path: /mnt/btrfs_disk/DS Libraries/Seaside Transistor Organ (DS)/Seaside Transistor Organ (DS)/Seaside_Drum_Machine.dspreset
+   Seaside_Transistor_Organ                     
+      path: /mnt/btrfs_disk/DS Libraries/Seaside Transistor Organ (DS)/Seaside Transistor Organ (DS)/Seaside_Transistor_Organ.dspreset
+   Sewers Water Organ                           
+      path: /mnt/btrfs_disk/DS Libraries/Sewers 1.0.2/Sewers/Sewers Water Organ.dspreset
+   Shimmered Affinity Swells                    
+      path: /mnt/btrfs_disk/DS Libraries/Shimmered Affinity Swells/Shimmered Affinity Swells.dspreset
+   01 Piano                                     
+      path: /mnt/btrfs_disk/DS Libraries/Shoal Audio - SEK-922/Shoal Audio - SEK-922/01 Piano.dspreset
+   02 E-Guitar                                  
+      path: /mnt/btrfs_disk/DS Libraries/Shoal Audio - SEK-922/Shoal Audio - SEK-922/02 E-Guitar.dspreset
+   03 Harpsichord                               
+      path: /mnt/btrfs_disk/DS Libraries/Shoal Audio - SEK-922/Shoal Audio - SEK-922/03 Harpsichord.dspreset
+   04 Musicbox                                  
+      path: /mnt/btrfs_disk/DS Libraries/Shoal Audio - SEK-922/Shoal Audio - SEK-922/04 Musicbox.dspreset
+   05 Clarinet                                  
+      path: /mnt/btrfs_disk/DS Libraries/Shoal Audio - SEK-922/Shoal Audio - SEK-922/05 Clarinet.dspreset
+   06 Oboe                                      
+      path: /mnt/btrfs_disk/DS Libraries/Shoal Audio - SEK-922/Shoal Audio - SEK-922/06 Oboe.dspreset
+   07 Violin                                    
+      path: /mnt/btrfs_disk/DS Libraries/Shoal Audio - SEK-922/Shoal Audio - SEK-922/07 Violin.dspreset
+   Shoal Audio - Tongue Drum                    
+      path: /mnt/btrfs_disk/DS Libraries/Shoal Audio - Tongue Drum (1.1)/Shoal Audio - Tongue Drum (1.1)/Shoal Audio - Tongue Drum.dspreset
+   Shopping Cart Harness                        
+      path: /mnt/btrfs_disk/DS Libraries/Shopping Cart/Shopping Cart/Shopping Cart Harness.dspreset
+   Shopping Cart Percussion                     
+      path: /mnt/btrfs_disk/DS Libraries/Shopping Cart/Shopping Cart/Shopping Cart Percussion.dspreset
+   Shopping Cart Rolling                        
+      path: /mnt/btrfs_disk/DS Libraries/Shopping Cart/Shopping Cart/Shopping Cart Rolling.dspreset
+   Sketchy Klaviphon                            
+      path: /mnt/btrfs_disk/DS Libraries/Sketchy Klaviphon/Sketchy Klaviphon/Sketchy Klaviphon.dspreset
+   SL-20231105-01 - Singing Bowl                
+      path: /mnt/btrfs_disk/DS Libraries/SL-20231105-01 - Singing Bowl/SL-20231105-01 - Singing Bowl.dspreset
+   Log Drum                                     
+      path: /mnt/btrfs_disk/DS Libraries/Slit Log Drum/Slit Log Drum/Slit Log Drum/Log Drum.dspreset
+   Snaps n Claps                                
+      path: /mnt/btrfs_disk/DS Libraries/Snaps n Claps[DS]/Snaps n Claps[DS]/Snaps n Claps.dspreset
+   01-Deep Space Religion                       
+      path: /mnt/btrfs_disk/DS Libraries/Solar Winds/Solar Winds Decentsampler/01-Deep Space Religion.dspreset
+   02- Jupiter                                  
+      path: /mnt/btrfs_disk/DS Libraries/Solar Winds/Solar Winds Decentsampler/02- Jupiter.dspreset
+   03- Beneath Jupiter                          
+      path: /mnt/btrfs_disk/DS Libraries/Solar Winds/Solar Winds Decentsampler/03- Beneath Jupiter.dspreset
+   04- Overlord Horn                            
+      path: /mnt/btrfs_disk/DS Libraries/Solar Winds/Solar Winds Decentsampler/04- Overlord Horn.dspreset
+   05-Solar Winds                               
+      path: /mnt/btrfs_disk/DS Libraries/Solar Winds/Solar Winds Decentsampler/05-Solar Winds.dspreset
+   Solitary Choir                               
+      path: /mnt/btrfs_disk/DS Libraries/Solitary Choir (DS)/Solitary Choir (DS)/Solitary Choir.dspreset
+   Sonus Lucis - Cymbalon                       
+      path: /mnt/btrfs_disk/DS Libraries/Sonus Lucis - Cymbalon [DS]/Sonus Lucis - Cymbalon.dspreset
+   Stacked It - E Devey                         
+      path: /mnt/btrfs_disk/DS Libraries/Stacked It - E Devey/Stacked It - E Devey/Stacked It - E Devey.dspreset
+   Stratford Tony Organ                         
+      path: /mnt/btrfs_disk/DS Libraries/Stratford Tony Organ/Stratford Tony Organ/Stratford Tony Organ (DS)/Stratford Tony Organ.dspreset
+   Strat Attack                                 
+      path: /mnt/btrfs_disk/DS Libraries/Stratmosphere v1.1/Stratmosphere v1.1/Strat Attack.dspreset
+   Strat                                        
+      path: /mnt/btrfs_disk/DS Libraries/Stratmosphere v1.1/Stratmosphere v1.1/Strat.dspreset
+   Stratmos                                     
+      path: /mnt/btrfs_disk/DS Libraries/Stratmosphere v1.1/Stratmosphere v1.1/Stratmos.dspreset
+   Stratmosphere                                
+      path: /mnt/btrfs_disk/DS Libraries/Stratmosphere v1.1/Stratmosphere v1.1/Stratmosphere.dspreset
+   Stratmosphere Rising                         
+      path: /mnt/btrfs_disk/DS Libraries/Stratmosphere v1.1/Stratmosphere v1.1/Stratmosphere Rising.dspreset
+   Stratmospheric                               
+      path: /mnt/btrfs_disk/DS Libraries/Stratmosphere v1.1/Stratmosphere v1.1/Stratmospheric.dspreset
+   Stratmospheric Edge                          
+      path: /mnt/btrfs_disk/DS Libraries/Stratmosphere v1.1/Stratmosphere v1.1/Stratmospheric Edge.dspreset
+   Stratmospheric Galaxy                        
+      path: /mnt/btrfs_disk/DS Libraries/Stratmosphere v1.1/Stratmosphere v1.1/Stratmospheric Galaxy.dspreset
+   Stratmospheric Space                         
+      path: /mnt/btrfs_disk/DS Libraries/Stratmosphere v1.1/Stratmosphere v1.1/Stratmospheric Space.dspreset
+   Stratmos Space                               
+      path: /mnt/btrfs_disk/DS Libraries/Stratmosphere v1.1/Stratmosphere v1.1/Stratmos Space.dspreset
+   Sweet Pads 1                                 
+      path: /mnt/btrfs_disk/DS Libraries/Studio Doctor_Sweet_pads/Sweet Pads 1.dspreset
+   Sweet Pads 2                                 
+      path: /mnt/btrfs_disk/DS Libraries/Studio Doctor_Sweet_pads/Sweet Pads 2.dspreset
+   Summer Challenge _26 - bass clarinet long    
+      path: /mnt/btrfs_disk/DS Libraries/Summer Challenge '26 DS EH/Summer Challenge '26 DS EH/Summer Challenge _26 - bass clarinet long.dspreset
+   Summer Challenge _26 - bass clarinet short   
+      path: /mnt/btrfs_disk/DS Libraries/Summer Challenge '26 DS EH/Summer Challenge '26 DS EH/Summer Challenge _26 - bass clarinet short.dspreset
+   Summer Challenge _26 - bass                  
+      path: /mnt/btrfs_disk/DS Libraries/Summer Challenge '26 DS EH/Summer Challenge '26 DS EH/Summer Challenge _26 - bass.dspreset
+   Summer Challenge _26 - clarinet              
+      path: /mnt/btrfs_disk/DS Libraries/Summer Challenge '26 DS EH/Summer Challenge '26 DS EH/Summer Challenge _26 - clarinet.dspreset
+   Summer Challenge _26 - clarinet short        
+      path: /mnt/btrfs_disk/DS Libraries/Summer Challenge '26 DS EH/Summer Challenge '26 DS EH/Summer Challenge _26 - clarinet short.dspreset
+   Summer Challenge _26 - drums                 
+      path: /mnt/btrfs_disk/DS Libraries/Summer Challenge '26 DS EH/Summer Challenge '26 DS EH/Summer Challenge _26 - drums.dspreset
+   Summer Challenge _26 - french horn           
+      path: /mnt/btrfs_disk/DS Libraries/Summer Challenge '26 DS EH/Summer Challenge '26 DS EH/Summer Challenge _26 - french horn.dspreset
+   Summer Challenge _26 - piano                 
+      path: /mnt/btrfs_disk/DS Libraries/Summer Challenge '26 DS EH/Summer Challenge '26 DS EH/Summer Challenge _26 - piano.dspreset
+   Summer Challenge _26 - strings long          
+      path: /mnt/btrfs_disk/DS Libraries/Summer Challenge '26 DS EH/Summer Challenge '26 DS EH/Summer Challenge _26 - strings long.dspreset
+   Summer Challenge _26 - strings pizz          
+      path: /mnt/btrfs_disk/DS Libraries/Summer Challenge '26 DS EH/Summer Challenge '26 DS EH/Summer Challenge _26 - strings pizz.dspreset
+   Summer Challenge _26 - strings short         
+      path: /mnt/btrfs_disk/DS Libraries/Summer Challenge '26 DS EH/Summer Challenge '26 DS EH/Summer Challenge _26 - strings short.dspreset
+   syntheticstrings                             
+      path: /mnt/btrfs_disk/DS Libraries/syntheticstrings/syntheticstrings/syntheticstrings.dspreset
+   Synth of Desire                              
+      path: /mnt/btrfs_disk/DS Libraries/Synth of Desire/Synth of Desire/Synth of Desire.dspreset
+   Synthphony 3 - Keys                          
+      path: /mnt/btrfs_disk/DS Libraries/Synthphony 003/Synthphony 003/Decent Sampler/Synthphony 3 - Keys.dspreset
+   Synthphony 3 - Pads                          
+      path: /mnt/btrfs_disk/DS Libraries/Synthphony 003/Synthphony 003/Decent Sampler/Synthphony 3 - Pads.dspreset
+   Synthphony S4 Motion                         
+      path: /mnt/btrfs_disk/DS Libraries/Synthphony S004 Motion/Synthphony S004 Motion/Decent Sampler/Synthphony S4 Motion.dspreset
+   Synthphony S5 Complex                        
+      path: /mnt/btrfs_disk/DS Libraries/Synthphony S005 Complex/Synthphony S005 Complex/Decent Sampler/Synthphony S5 Complex.dspreset
+   Talman-Bass                                  
+      path: /mnt/btrfs_disk/DS Libraries/Talman Bass/Talman-Bass.dspreset
+   Tea from HELL                                
+      path: /mnt/btrfs_disk/DS Libraries/Tea from HELL (DS)/Tea from HELL.dspreset
+   Bjorgan Main LR                              
+      path: /mnt/btrfs_disk/DS Libraries/The Bjorgan/The Bjorgan/Main LR/Bjorgan Main LR.dspreset
+   Bjorgan Surround Back                        
+      path: /mnt/btrfs_disk/DS Libraries/The Bjorgan/The Bjorgan/Surround Back LR/Bjorgan Surround Back.dspreset
+   Bjorgan Surround Front                       
+      path: /mnt/btrfs_disk/DS Libraries/The Bjorgan/The Bjorgan/Surround Front LR/Bjorgan Surround Front.dspreset
+   The Claustrophobic Toy Piano DS              
+      path: /mnt/btrfs_disk/DS Libraries/The-Claustrophobic-Toy-Piano/The Claustrophobic Toy Piano DS.dspreset
+   TheDiArchtop                                 
+      path: /mnt/btrfs_disk/DS Libraries/TheDiArchtop/TheDiArchtop/TheDiArchtop.dspreset
+   The Forest Flute                             
+      path: /mnt/btrfs_disk/DS Libraries/The Forest Flute/The Forest Flute.dspreset
+   Hanago                                       
+      path: /mnt/btrfs_disk/DS Libraries/The Kickstarter Risk - Hanago/The Kickstarter Risk - Hanago/Hanago/Hanago.dspreset
+   THE PAD                                      
+      path: /mnt/btrfs_disk/DS Libraries/The Pad - kulek records/THE PAD.dspreset
+   The Spellsinger                              
+      path: /mnt/btrfs_disk/DS Libraries/The Spellsinger/The Spellsinger/The Spellsinger (DS)/The Spellsinger.dspreset
+   Ethereal Fountain                            
+      path: /mnt/btrfs_disk/DS Libraries/the_stranger-ethereal_fountain-v1/Ethereal Fountain V1/Ethereal Fountain.dspreset
+   D-MOD                                        
+      path: /mnt/btrfs_disk/DS Libraries/The Superstar - Complete Edition/The Superstar - Complete Edition/D-MOD/D-MOD.dspreset
+   Stairway to Heaven                           
+      path: /mnt/btrfs_disk/DS Libraries/The Superstar - Complete Edition/The Superstar - Complete Edition/Stairway to Heaven/Stairway to Heaven.dspreset
+   Superstar                                    
+      path: /mnt/btrfs_disk/DS Libraries/The Superstar - Complete Edition/The Superstar - Complete Edition/Superstar/Superstar.dspreset
+   The Terracotta Ball                          
+      path: /mnt/btrfs_disk/DS Libraries/The Terracotta Ball/The Terracotta Ball/The Terracotta Ball.dspreset
+   The-Viking-Log-Lyre                          
+      path: /mnt/btrfs_disk/DS Libraries/The-Viking-Log-Lyre/The-Viking-Log-Lyre.dspreset
+   The-Viking-Log-Lyre-Punished                 
+      path: /mnt/btrfs_disk/DS Libraries/The-Viking-Log-Lyre/The-Viking-Log-Lyre-Punished.dspreset
+   The Vintage Japanese Mandolin                
+      path: /mnt/btrfs_disk/DS Libraries/The Vintage Japanese Mandolin/The Vintage Japanese Mandolin/The Vintage Japanese Mandolin/The Vintage Japanese Mandolin.dspreset
+   ThorsBrother                                 
+      path: /mnt/btrfs_disk/DS Libraries/ThorsBrother/ThorsBrother/ThorsBrother.dspreset
+   Thru Zero E-Piano                            
+      path: /mnt/btrfs_disk/DS Libraries/Thru Zero E-Piano/Thru Zero E-Piano/Thru Zero E-Piano.dspreset
+   Thunder                                      
+      path: /mnt/btrfs_disk/DS Libraries/Thunder (DS)/Thunder (DS)/Thunder.dspreset
+   Additional Glasspads                         
+      path: /mnt/btrfs_disk/DS Libraries/Thunder & Wine/Thunder & Wine/Additional Glasspads.dspreset
+   Thunder & Wine                               
+      path: /mnt/btrfs_disk/DS Libraries/Thunder & Wine/Thunder & Wine/Thunder & Wine.dspreset
+   Tin Can Drums                                
+      path: /mnt/btrfs_disk/DS Libraries/Tin Can Drums/Tin Can Drums/Tin Can Drums/Tin Can Drums.dspreset
+   Tones From The Deep                          
+      path: /mnt/btrfs_disk/DS Libraries/Tones From The Deep/Tones From The Deep/Tones From The Deep.dspreset
+   Toy Accordion                                
+      path: /mnt/btrfs_disk/DS Libraries/Toy Accordion (DS)/Toy Accordion (DS)/Toy Accordion.dspreset
+   Toy Xylophone                                
+      path: /mnt/btrfs_disk/DS Libraries/Toy Xylophone (DS)/Toy Xylophone (DS)/Toy Xylophone.dspreset
+   Trash Drums                                  
+      path: /mnt/btrfs_disk/DS Libraries/Trash Drums/Trash Drums/Trash Drums.dspreset
+   Tribal percussion                            
+      path: /mnt/btrfs_disk/DS Libraries/Tribal Percussion (DS)/Tribal Percussion (DS)/Tribal percussion.dspreset
+   TripleBox                                    
+      path: /mnt/btrfs_disk/DS Libraries/TripleBox/TripleBox.dspreset
+   Tubular-Bells                                
+      path: /mnt/btrfs_disk/DS Libraries/Tubular-bells_Decent_Sampler/Tubular-Bells.dspreset
+   tuned gongs                                  
+      path: /mnt/btrfs_disk/DS Libraries/Tuned_Gongs/tuned gongs.dspreset
+   UkeSwarm                                     
+      path: /mnt/btrfs_disk/DS Libraries/Uke Swarm/Uke Swarm/UkeSwarm.dspreset
+   Ukulele of Doom                              
+      path: /mnt/btrfs_disk/DS Libraries/Ukulele of Doom (DS)/Ukulele of Doom (DS)/Ukulele of Doom.dspreset
+   UnknownHomePianoPannedSE                     
+      path: /mnt/btrfs_disk/DS Libraries/UnknownHomePianoSE/UnknownHomePianoSE/UnknownHomePianoPannedSE.dspreset
+   UnknownHomePianoSE                           
+      path: /mnt/btrfs_disk/DS Libraries/UnknownHomePianoSE/UnknownHomePianoSE/UnknownHomePianoSE.dspreset
+   V-0002 Glitched Washed Pad                   
+      path: /mnt/btrfs_disk/DS Libraries/V-0002 Glitched Washed Pad/V-0002 Glitched Washed Pad/V-0002 Glitched Washed Pad/V-0002 Glitched Washed Pad.dspreset
+   V-0003 Glitched Washed Pad                   
+      path: /mnt/btrfs_disk/DS Libraries/V-0003 Glitched Washed Pad/V-0003 Glitched Washed Pad/V-0003 Glitched Washed Pad/V-0003 Glitched Washed Pad.dspreset
+   V-0004 Glitched Washed Pad                   
+      path: /mnt/btrfs_disk/DS Libraries/V-0004 Glitched Washed Pad/V-0004 Glitched Washed Pad/V-0004 Glitched Washed Pad/V-0004 Glitched Washed Pad.dspreset
+   Vinyl Player                                 
+      path: /mnt/btrfs_disk/DS Libraries/Vinyl Player (DS)/Vinyl Player (DS)/Vinyl Player.dspreset
+   Violin Experiments                           
+      path: /mnt/btrfs_disk/DS Libraries/Violin Experiments v1_2/Violin Experiments v1_2/Violin Experiments.dspreset
+   Voodoo Drum's of Jakmel                      
+      path: /mnt/btrfs_disk/DS Libraries/Voodoo Drum's of Jakmel/Voodoo Drum's of Jakmel/Voodoo Drum's of Jakmel/Voodoo Drum's of Jakmel.dspreset
+   Analofilog Percussion                        
+      path: /mnt/btrfs_disk/DS Libraries/VSSVolcaFluteLoFiSamples/Analofilog Percussion/Analofilog Percussion.dspreset
+   Dance Supersaw                               
+      path: /mnt/btrfs_disk/DS Libraries/VSSVolcaFluteLoFiSamples/Dance Supersaw/Dance Supersaw.dspreset
+   Kittens from Space                           
+      path: /mnt/btrfs_disk/DS Libraries/VSSVolcaFluteLoFiSamples/Kittens from Space/Kittens from Space.dspreset
+   Lofi Lead                                    
+      path: /mnt/btrfs_disk/DS Libraries/VSSVolcaFluteLoFiSamples/Lofi Lead/Lofi Lead.dspreset
+   Lofi Navajo Flute                            
+      path: /mnt/btrfs_disk/DS Libraries/VSSVolcaFluteLoFiSamples/Lofi Navajo Flute/Lofi Navajo Flute.dspreset
+   Lofi Navajo House Stabs                      
+      path: /mnt/btrfs_disk/DS Libraries/VSSVolcaFluteLoFiSamples/Lofi Navajo House Stabs/Lofi Navajo House Stabs.dspreset
+   Saw Harp                                     
+      path: /mnt/btrfs_disk/DS Libraries/VSSVolcaFluteLoFiSamples/Saw Harp/Saw Harp.dspreset
+   Super Genesis Strings                        
+      path: /mnt/btrfs_disk/DS Libraries/VSSVolcaFluteLoFiSamples/Super Genesis Strings/Super Genesis Strings.dspreset
+   True Galactic Harp                           
+      path: /mnt/btrfs_disk/DS Libraries/VSSVolcaFluteLoFiSamples/True Galactic Harp/True Galactic Harp.dspreset
+   Yours Truly Choral Fifths                    
+      path: /mnt/btrfs_disk/DS Libraries/VSSVolcaFluteLoFiSamples/Yours Truly Choral Fifths/Yours Truly Choral Fifths.dspreset
+   Nasty Waterfall                              
+      path: /mnt/btrfs_disk/DS Libraries/Waterfall/Waterfall/Nasty Waterfall.dspreset
+   Waterfall                                    
+      path: /mnt/btrfs_disk/DS Libraries/Waterfall/Waterfall/Waterfall.dspreset
+   Wet Spanish Thumb                            
+      path: /mnt/btrfs_disk/DS Libraries/Wet Spanish Thumb/Wet Spanish Thumb/Wet Spanish Thumb.dspreset
+   wiedergesichtwurli                           
+      path: /mnt/btrfs_disk/DS Libraries/wiedergesichts-wurli/wiedergesichtwurli.dspreset
+   Wild Percussion                              
+      path: /mnt/btrfs_disk/DS Libraries/Wild Percussion (DS)/Wild Percussion (DS)/Wild Percussion.dspreset
+   Wind Chimes                                  
+      path: /mnt/btrfs_disk/DS Libraries/Wind Chimes/Wind Chimes/Wind Chimes.dspreset
+   voice                                        
+      path: /mnt/btrfs_disk/DS Libraries/Women 4 syllables Choir/voice/voice.dspreset
+   Choir of St. Nepomucen                       
+      path: /mnt/btrfs_disk/DS Libraries/Wooden Church of St. Nepomucen Free Edition (DS_EXS)/Wooden Church of St. Nepomucen Free Edition (DS:EXS)/2. Choir of St. Nepomucen (DS:EXS)/Choir of St. Nepomucen.dspreset
+   Keys of St. Nepomucen                        
+      path: /mnt/btrfs_disk/DS Libraries/Wooden Church of St. Nepomucen Free Edition (DS_EXS)/Wooden Church of St. Nepomucen Free Edition (DS:EXS)/3. Keys of St. Nepomucen (DS:EXS)/Keys of St. Nepomucen.dspreset
+   Water of St. Nepomucen                       
+      path: /mnt/btrfs_disk/DS Libraries/Wooden Church of St. Nepomucen Free Edition (DS_EXS)/Wooden Church of St. Nepomucen Free Edition (DS:EXS)/4. Water of St. Nepomucen (DS:EXS)/Water of St. Nepomucen.dspreset
+   Wooden Flute(v1_1)                           
+      path: /mnt/btrfs_disk/DS Libraries/Wooden Flute1/Wooden Flute/Wooden Flute/Wooden Flute(v1_1).dspreset
+   WBB                                          
+      path: /mnt/btrfs_disk/DS Libraries/World's Biggest Braaam (DS)/World's Biggest Braaam (DS)/WBB.dspreset
+   YE C55                                       
+      path: /mnt/btrfs_disk/DS Libraries/YE_C55/YE C55.dspreset
+   YE C55 Vibrato                               
+      path: /mnt/btrfs_disk/DS Libraries/YE_C55/YE C55 Vibrato.dspreset
+   Yellow Bass Keyboard                         
+      path: /mnt/btrfs_disk/DS Libraries/Yellow Bass Keyboard/Yellow Bass Keyboard/Yellow Bass Keyboard.dspreset
+   1-Yogurt                                     
+      path: /mnt/btrfs_disk/DS Libraries/Yogurt(DS)/Yogurt(DS)/1-Yogurt.dspreset
+   2-Crushed Nut                                
+      path: /mnt/btrfs_disk/DS Libraries/Yogurt(DS)/Yogurt(DS)/2-Crushed Nut.dspreset
+   3-Cosmic Cherry                              
+      path: /mnt/btrfs_disk/DS Libraries/Yogurt(DS)/Yogurt(DS)/3-Cosmic Cherry.dspreset
+   4-Peach Pad                                  
+      path: /mnt/btrfs_disk/DS Libraries/Yogurt(DS)/Yogurt(DS)/4-Peach Pad.dspreset
+   5-Cyborg Berry                               
+      path: /mnt/btrfs_disk/DS Libraries/Yogurt(DS)/Yogurt(DS)/5-Cyborg Berry.dspreset
+   6-Abyss Apple                                
+      path: /mnt/btrfs_disk/DS Libraries/Yogurt(DS)/Yogurt(DS)/6-Abyss Apple.dspreset
+
+### any OTHER .dsbundle on /mnt/btrfs_disk outside 'DS Libraries' ---
+   /mnt/btrfs_disk/_kiro_nonds_trash_20260907_170214/Felt_&_Fog_Free_Edition/Felt & Fog [Free].dsbundle
+   /mnt/btrfs_disk/_kiro_nonds_trash_20260907_170214/Felt_&_Fog_Free_Edition/__MACOSX/._Felt & Fog [Free].dsbundle
+   /mnt/btrfs_disk/_kiro_nonds_trash_20260907_170214/Felt_&_Fog_Free_Edition/__MACOSX/Felt & Fog [Free].dsbundle
+   /mnt/btrfs_disk/_kiro_nonds_trash_20260907_170214/Kitchen Drum KIt/Kitchen Drum KIt/Kitchen Drum Kit.dsbundle
+   /mnt/btrfs_disk/_kiro_nonds_trash_20260907_170214/Tongue_Bottle_Glass/__MACOSX/._Tongue_Bottle_Glass.dsbundle
+   /mnt/btrfs_disk/_kiro_nonds_trash_20260907_170214/Tongue_Bottle_Glass/__MACOSX/Tongue_Bottle_Glass.dsbundle
+   /mnt/btrfs_disk/_kiro_nonds_trash_20260907_170214/Tongue_Bottle_Glass/Tongue_Bottle_Glass.dsbundle
+
+### WD_BLACK  (FILE BROWSER -> 'wd_black' root)
+### root: /mnt/wd_black
+--- .dsbundle libraries here (name = what shows in the browser) ---
+--- standalone .dspreset files not inside a .dsbundle (also loadable) ---
+   Autumn Piano                                 
+      path: /mnt/wd_black/DS Libraries/564663_AutumnPianoBundle_ChristianHenson/Autumn Piano.dspreset
+   Autumn Piano (Multi)                         
+      path: /mnt/wd_black/DS Libraries/564663_AutumnPianoBundle_ChristianHenson/Autumn Piano (Multi).dspreset
+   01_Festive Celeste                           
+      path: /mnt/wd_black/DS Libraries/Festive Celeste/01_Festive Celeste.dspreset
+   02_The Perfect Celeste                       
+      path: /mnt/wd_black/DS Libraries/Festive Celeste/02_The Perfect Celeste.dspreset
+   03_Nuclear Reactor Celeste                   
+      path: /mnt/wd_black/DS Libraries/Festive Celeste/03_Nuclear Reactor Celeste.dspreset
+   04_Celeste Over the Airwaves                 
+      path: /mnt/wd_black/DS Libraries/Festive Celeste/04_Celeste Over the Airwaves.dspreset
+   05_Intimate Celeste                          
+      path: /mnt/wd_black/DS Libraries/Festive Celeste/05_Intimate Celeste.dspreset
+   06_The Perfect Chimes                        
+      path: /mnt/wd_black/DS Libraries/Festive Celeste/06_The Perfect Chimes.dspreset
+   07_Orchestral Chimes                         
+      path: /mnt/wd_black/DS Libraries/Festive Celeste/07_Orchestral Chimes.dspreset
+   08_Can You Hear The Chimes?                  
+      path: /mnt/wd_black/DS Libraries/Festive Celeste/08_Can You Hear The Chimes?.dspreset
+   09_Chimes With A Glow                        
+      path: /mnt/wd_black/DS Libraries/Festive Celeste/09_Chimes With A Glow.dspreset
+   10_Chimelesta                                
+      path: /mnt/wd_black/DS Libraries/Festive Celeste/10_Chimelesta.dspreset
+   ENSEMBLE                                     
+      path: /mnt/wd_black/DS Libraries/IMPACTOS HYBRID PERCUSSION/IMPACTOS HYBRID PERCUSSION/ENSEMBLE.dspreset
+   LOOPS&ENDS                                   
+      path: /mnt/wd_black/DS Libraries/IMPACTOS HYBRID PERCUSSION/IMPACTOS HYBRID PERCUSSION/LOOPS&ENDS.dspreset
+   SINGLE HITS                                  
+      path: /mnt/wd_black/DS Libraries/IMPACTOS HYBRID PERCUSSION/IMPACTOS HYBRID PERCUSSION/SINGLE HITS.dspreset
+   ._01_Festive Celeste                         
+      path: /mnt/wd_black/_kiro_nonds_trash_20260907_170214/Festive Celeste/__MACOSX/._01_Festive Celeste.dspreset
+
+### also checking workspace / storage / win_system for any .dsbundle ---
+   /mnt/workspace : 0 .dsbundle found
+   /mnt/storage : 0 .dsbundle found
+   /mnt/win_system : 0 .dsbundle found
+
+############################################################
+# SUMMARY COUNTS
+############################################################
+   /home/phnx/.config/DecentSampler/Sample Libraries 3 bundles
+   /mnt/btrfs_disk/DS Libraries                  16 bundles
+   /mnt/wd_black                                 0 bundles
+   /mnt/workspace                                0 bundles
+   /mnt/storage                                  0 bundles
+
+FULL REPORT SAVED TO: /home/phnx/KIRO/.kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/ds-library-inventory.txt
+(no need to paste — just tell me it finished and I'll read the file)

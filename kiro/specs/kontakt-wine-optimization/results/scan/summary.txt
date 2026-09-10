@@ -1,0 +1,9 @@
+Kontakt content scan  2026-09-02T05:17:02
+roots: ['/mnt/workspace', '/mnt/storage', '/mnt/wd_black']
+
+player       35
+custom       37
+presets      0
+incomplete   13
+excluded     850
+empty        3

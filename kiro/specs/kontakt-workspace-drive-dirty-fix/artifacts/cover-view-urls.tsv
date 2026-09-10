@@ -1,0 +1,14 @@
+# cover-view-urls.tsv — for DS libraries with NO on-disk cover: show a clickable "[view artwork]"
+# link (opens the image/page in a browser) instead of embedding (rights-safe fallback).
+# Format (TAB-separated):  <exact entry name><TAB><https URL to the cover image or its Pianobook page>
+# Lines starting with # are ignored. Used ONLY when the library has no on-disk cover and no covers-manual override.
+#
+# Most of the 43 blank libraries are free Pianobook packs; their page is https://www.pianobook.co.uk/packs/<slug>/
+# Fill any you want a link for, e.g.:
+# Dynamic Overtone Guitar	https://www.pianobook.co.uk/packs/dynamic-overtone-guitar/
+# TheDiArchtop	https://www.pianobook.co.uk/packs/thediarchtop/
+# Duduk	https://www.pianobook.co.uk/packs/duduk/
+# Kazoo	https://www.pianobook.co.uk/packs/kazoo/
+#
+# (Prefer dropping a real image into covers-manual/ + cover-overrides.tsv for an embedded thumbnail;
+#  use this file only where you just want a link out to the artwork.)

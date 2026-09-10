@@ -1,0 +1,22 @@
+[Unit]
+Description=Cleanly unmount ntfs3 volumes before shutdown/hibernate (write-quiesce gate)
+Documentation=file:///usr/local/sbin/ntfs3-clean-unmount.sh
+DefaultDependencies=no
+# Order this teardown BEFORE the mounts are torn down and before power state changes.
+Before=umount.target shutdown.target reboot.target halt.target
+Before=systemd-hibernate.service systemd-suspend-then-hibernate.service
+# Make sure the filesystems are still up while we are "active" at boot.
+After=local-fs.target
+Conflicts=reboot.target shutdown.target halt.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+# Nothing to do on the way UP; the real work runs on the way DOWN via ExecStop.
+ExecStart=/bin/true
+ExecStop=/usr/local/sbin/ntfs3-clean-unmount.sh
+# Give the quiesce loop room to finish (3 mounts x 20s worst case + margin).
+TimeoutStopSec=90
+
+[Install]
+WantedBy=multi-user.target

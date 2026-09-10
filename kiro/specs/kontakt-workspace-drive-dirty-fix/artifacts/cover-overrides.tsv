@@ -1,0 +1,14 @@
+# cover-overrides.tsv  —  manual cover art for entries that have no image on disk.
+# Format (TAB-separated):   <exact entry name><TAB><absolute path to an image file>
+# The builder uses these ONLY when a library has no on-disk cover. Survives rebuilds.
+# Lines starting with # are ignored.
+#
+# --- PAMAHA EXTRA presets: reuse the main PAMAHA library cover (edit path if the main cover differs) ---
+PAMAHA NO RELEASE SAMPLES	/mnt/btrfs_disk/DS Libraries/PAMAHA/PAMAHA/RESOURCES/Pamaha Cover.png
+PAMAHA SOFTER NO RELEASE SAMPLES	/mnt/btrfs_disk/DS Libraries/PAMAHA/PAMAHA/RESOURCES/Pamaha Cover.png
+#
+# --- Guitars with no on-disk art. Save a cover into covers-manual/ then set the path below. ---
+# Dynamic Overtone Guitar  (cover: https://www.pianobook.co.uk/packs/dynamic-overtone-guitar/ )
+# Dynamic Overtone Guitar	/home/phnx/KIRO/.kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/covers-manual/dynamic-overtone-guitar.png
+# TheDiArchtop  (cover: https://www.pianobook.co.uk/packs/thediarchtop/ )
+# TheDiArchtop	/home/phnx/KIRO/.kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/covers-manual/thediarchtop.png

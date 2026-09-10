@@ -1,0 +1,21 @@
+[Unit]
+Description=Alert if /mnt/workspace is not mounted after boot (dirty-bit early warning)
+Documentation=man:mountpoint(1)
+# Wait until AFTER the Workspace mount unit has been processed. Because the
+# fstab entry uses 'nofail', /mnt/workspace is not part of local-fs.target's
+# strict ordering, so ordering on local-fs.target alone fires too early (the
+# check raced ahead of the mount). Order + want the mount unit explicitly, and
+# only run once the multi-user boot has settled.
+After=mnt-workspace.mount local-fs.target
+Wants=mnt-workspace.mount
+After=multi-user.target
+
+[Service]
+Type=oneshot
+# If /mnt/workspace is missing, log a loud error to the journal instead of the
+# failure being silently swallowed by the fstab 'nofail' option. Boot still
+# proceeds (nofail avoids a hang); this just makes a missing drive VISIBLE.
+ExecStart=/bin/sh -c 'if mountpoint -q /mnt/workspace; then echo "/mnt/workspace mounted OK" | systemd-cat -t workspace-check -p info; else echo "ALERT: /mnt/workspace NOT mounted after boot (dirty bit? run: dmesg | grep ntfs3). Kontakt will not launch." | systemd-cat -t workspace-check -p err; exit 1; fi'
+
+[Install]
+WantedBy=multi-user.target

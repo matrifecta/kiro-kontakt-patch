@@ -1,0 +1,13 @@
+# yabridge VST3 config — reduce Kontakt's editor/event-loop refresh rate to stop
+# the GUI repaint spin (one Reaper core pinned ~55% with zero disk I/O) caused by
+# Kontakt's heavy browser being repainted at the default 60 fps through the bridge.
+#
+# Install location: ~/.vst3/yabridge/yabridge.toml
+# The [key] must match the bundle folder name in ~/.vst3/yabridge/.
+#
+# frame_rate = rate at which Win32 events are handled AND the editor GUI refresh
+# rate. Default 60. Lowering to 30 (or 24) roughly halves the repaint CPU cost.
+# Start at 30; if the browser still pins a core, drop to 24 or 20.
+
+["Kontakt 8 Portable.vst3"]
+frame_rate = 30

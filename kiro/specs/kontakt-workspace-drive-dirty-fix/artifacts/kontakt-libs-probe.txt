@@ -1,0 +1,102 @@
+===== (a) copy DB to /tmp (78MB read via cp) =====
+  copied: 75M
+
+===== (b) k_content_path schema + sample rows =====
+  k_content_path columns: ['id', 'path', 'content_type', 'alias', 'state', 'scanned_at', 'product_id', 'product_version', 'updated_at', 'created_at', 'visible', 'upid', 'monitored', 'product_version_s']
+  tables: ['k_content_path', 'k_sound_info', 'k_sound_info_category', 'k_sound_info_mode', 'k_bank_chain', 'f_sound_info_data', 'f_sound_info_idx', 'f_sound_info_docsize', 'f_sound_info_config', 'p_sound_info_Instrument_1', 'p_sound_info_Instrument_2', 'p_sound_info_Combined_1', 'p_sound_info_Combined_2', 'p_sound_info_Tool_1', 'p_sound_info_Tool_2', 'p_sound_info_Leap_1', 'p_sound_info_Leap_2', 'p_sound_info_Loop_1', 'p_sound_info_Loop_2', 'p_sound_info_Oneshot_1', 'p_sound_info_Oneshot_2', 'f_sound_info']
+
+  --- sample k_content_path rows (path, content_type, any name-ish col) ---
+    {'id': 5, 'path': 'Z:\\mnt\\btrfs_disk\\Kontakt Libraries\\Player\\Amati Viola Library', 'content_type': 2, 'alias': 'Amati Viola'}
+    {'id': 6, 'path': 'Z:\\mnt\\btrfs_disk\\Kontakt Libraries\\Player\\Balinese Gamelan Library', 'content_type': 2, 'alias': 'Balinese Gamelan'}
+    {'id': 7, 'path': 'Z:\\mnt\\wd_black\\Kontakt Libraries\\Player\\Best Service - The Orchestra Complete', 'content_type': 2, 'alias': 'The Orchestra Complete'}
+    {'id': 8, 'path': 'Z:\\mnt\\btrfs_disk\\Kontakt Libraries\\Player\\Butch Vig Drums Library', 'content_type': 2, 'alias': 'Butch Vig Drums'}
+    {'id': 9, 'path': 'Z:\\mnt\\btrfs_disk\\Kontakt Libraries\\Player\\Cloud Supply Library', 'content_type': 2, 'alias': 'Cloud Supply'}
+    {'id': 11, 'path': 'Z:\\mnt\\btrfs_disk\\Kontakt Libraries\\Custom\\Drumforge.I.Ultimate.KONTAKT-SYNTHiC4TE', 'content_type': 2, 'alias': 'Kontakt'}
+    {'id': 14, 'path': 'Z:\\mnt\\btrfs_disk\\Kontakt Libraries\\Player\\East Asia Library', 'content_type': 2, 'alias': 'East Asia'}
+    {'id': 16, 'path': 'Z:\\mnt\\btrfs_disk\\Kontakt Libraries\\Player\\Ethereal Earth Library', 'content_type': 2, 'alias': 'Ethereal Earth'}
+    {'id': 17, 'path': 'Z:\\mnt\\wd_black\\Kontakt Libraries\\Player\\Evolution Series - World Percussion v2.0 Close Front Mics', 'content_type': 2, 'alias': 'World Percussion 2.0'}
+    {'id': 19, 'path': 'Z:\\mnt\\btrfs_disk\\Kontakt Libraries\\Player\\GroveBass', 'content_type': 2, 'alias': 'GroveBass'}
+    {'id': 20, 'path': 'Z:\\mnt\\btrfs_disk\\Kontakt Libraries\\Player\\Guarneri Violin Library', 'content_type': 2, 'alias': 'Guarneri Violin'}
+    {'id': 21, 'path': 'Z:\\mnt\\btrfs_disk\\Kontakt Libraries\\Player\\Hybrid Keys Library', 'content_type': 2, 'alias': 'Hybrid Keys'}
+    {'id': 24, 'path': 'Z:\\mnt\\btrfs_disk\\Kontakt Libraries\\Player\\Middle East Library', 'content_type': 2, 'alias': 'Middle East'}
+    {'id': 25, 'path': 'Z:\\mnt\\wd_black\\Kontakt Libraries\\Player\\Mysteria Library', 'content_type': 2, 'alias': 'Mysteria'}
+    {'id': 26, 'path': 'Z:\\mnt\\btrfs_disk\\Kontakt Libraries\\Player\\Oriental Sounds - Ultimate Pro Oriental Strings Arabic Turkish Indian', 'content_type': 2, 'alias': 'Ultimate Pro Oriental Strings'}
+    {'id': 27, 'path': 'Z:\\mnt\\wd_black\\Kontakt Libraries\\Player\\Output Analog Strings KONTAKT', 'content_type': 2, 'alias': 'ANALOG STRINGS'}
+    {'id': 28, 'path': 'Z:\\mnt\\btrfs_disk\\Kontakt Libraries\\Player\\Output Exhale', 'content_type': 2, 'alias': 'EXHALE'}
+    {'id': 29, 'path': 'Z:\\mnt\\btrfs_disk\\Kontakt Libraries\\Player\\Pharlight Library', 'content_type': 2, 'alias': 'Pharlight'}
+    {'id': 30, 'path': 'Z:\\mnt\\btrfs_disk\\Kontakt Libraries\\Player\\Piano Colors Library', 'content_type': 2, 'alias': 'Piano Colors'}
+    {'id': 31, 'path': 'Z:\\mnt\\btrfs_disk\\Kontakt Libraries\\Player\\Play Series Selection Library', 'content_type': 2, 'alias': 'Play Series Selection'}
+    {'id': 32, 'path': 'Z:\\mnt\\wd_black\\Kontakt Libraries\\Player\\Red Room Audio - Palette Symphonic Sketchpad', 'content_type': 2, 'alias': 'Palette'}
+    {'id': 34, 'path': 'Z:\\mnt\\btrfs_disk\\Kontakt Libraries\\Player\\Session Guitarist - Electric Vintage Library', 'content_type': 2, 'alias': 'Session Guitarist - Electric Vintage'}
+    {'id': 35, 'path': 'Z:\\mnt\\btrfs_disk\\Kontakt Libraries\\Player\\Session Guitarist - Picked Acoustic Library', 'content_type': 2, 'alias': 'Session Guitarist - Picked Acoustic'}
+    {'id': 37, 'path': 'Z:\\mnt\\btrfs_disk\\Kontakt Libraries\\Player\\Soul Sessions Library', 'content_type': 2, 'alias': 'Soul Sessions'}
+    {'id': 38, 'path': 'Z:\\mnt\\btrfs_disk\\Kontakt Libraries\\Player\\Soundiron - Tablas', 'content_type': 2, 'alias': 'Tablas'}
+
+===== (c) NI Resources/image/<name>/ banner dirs (art source) =====
+   5Elements   [artwork+logo]   /mnt/workspace/VST Install/Kontakt Portable/UserData/NI Resources/image/5Elements
+   Acoustic Drums   [artwork]   /mnt/workspace/VST Install/Kontakt Portable/UserData/NI Resources/image/Acoustic Drums
+   Alpha Organ   [artwork+logo]   /mnt/workspace/VST Install/Kontakt Portable/UserData/NI Resources/image/Alpha Organ
+   Amati Viola   [artwork+logo]   /mnt/workspace/VST Install/Kontakt Portable/UserData/NI Resources/image/Amati Viola
+   ANALOG STRINGS   [artwork+logo]   /mnt/workspace/VST Install/Kontakt Portable/UserData/NI Resources/image/ANALOG STRINGS
+   Anthology Strings   [artwork+logo]   /mnt/workspace/VST Install/Kontakt Portable/UserData/NI Resources/image/Anthology Strings
+   Audio Imperia - Sinfonia Drums   [artwork+logo]   /mnt/workspace/VST Install/Kontakt Portable/UserData/NI Resources/image/Audio Imperia - Sinfonia Drums
+   Balinese Gamelan   [artwork+logo]   /mnt/workspace/VST Install/Kontakt Portable/UserData/NI Resources/image/Balinese Gamelan
+   Bowls   [artwork+logo]   /mnt/workspace/VST Install/Kontakt Portable/UserData/NI Resources/image/Bowls
+   Butch Vig Drums   [artwork+logo]   /mnt/workspace/VST Install/Kontakt Portable/UserData/NI Resources/image/Butch Vig Drums
+   Celtic Instruments   [artwork+logo]   /mnt/workspace/VST Install/Kontakt Portable/UserData/NI Resources/image/Celtic Instruments
+   Chords   [artwork+logo]   /mnt/workspace/VST Install/Kontakt Portable/UserData/NI Resources/image/Chords
+   Cinebrass   [artwork]   /mnt/workspace/VST Install/Kontakt Portable/UserData/NI Resources/image/Cinebrass
+   Cloud Supply   [artwork+logo]   /mnt/workspace/VST Install/Kontakt Portable/UserData/NI Resources/image/Cloud Supply
+   Conflux   [artwork+logo]   /mnt/workspace/VST Install/Kontakt Portable/UserData/NI Resources/image/Conflux
+   Cuba   [artwork+logo]   /mnt/workspace/VST Install/Kontakt Portable/UserData/NI Resources/image/Cuba
+   Damage   [artwork]   /mnt/workspace/VST Install/Kontakt Portable/UserData/NI Resources/image/Damage
+   Deep Pool   [artwork+logo]   /mnt/workspace/VST Install/Kontakt Portable/UserData/NI Resources/image/Deep Pool
+   Hybrid Keys   [artwork+logo]   /mnt/workspace/VST Install/Kontakt Portable/UserData/NI Resources/image/Hybrid Keys
+   Hybrid Tools 4   [artwork+logo]   /mnt/workspace/VST Install/Kontakt Portable/UserData/NI Resources/image/Hybrid Tools 4
+   Iconic Violin   [artwork+logo]   /mnt/workspace/VST Install/Kontakt Portable/UserData/NI Resources/image/Iconic Violin
+   India   [artwork+logo]   /mnt/workspace/VST Install/Kontakt Portable/UserData/NI Resources/image/India
+   Keyscape - 13   [artwork+logo]   /mnt/workspace/VST Install/Kontakt Portable/UserData/NI Resources/image/Keyscape - 13
+   Kithara   [artwork+logo]   /mnt/workspace/VST Install/Kontakt Portable/UserData/NI Resources/image/Kithara
+   Kontakt   [artwork+logo]   /mnt/workspace/VST Install/Kontakt Portable/UserData/NI Resources/image/Kontakt
+   Acoustic   []   /mnt/workspace/VST Install/Kontakt Portable/UserData/NI Resources/image/Kontakt/Acoustic
+   Band   []   /mnt/workspace/VST Install/Kontakt Portable/UserData/NI Resources/image/Kontakt/Band
+   Beats   []   /mnt/workspace/VST Install/Kontakt Portable/UserData/NI Resources/image/Kontakt/Beats
+   Choir   []   /mnt/workspace/VST Install/Kontakt Portable/UserData/NI Resources/image/Kontakt/Choir
+   Kontakt Factory Library   [artwork+logo]   /mnt/workspace/VST Install/Kontakt Portable/UserData/NI Resources/image/Kontakt Factory Library
+   Kontakt Factory Library 2   [artwork+logo]   /mnt/workspace/VST Install/Kontakt Portable/UserData/NI Resources/image/Kontakt Factory Library 2
+   Kontakt Factory Selection 2   [artwork+logo]   /mnt/workspace/VST Install/Kontakt Portable/UserData/NI Resources/image/Kontakt Factory Selection 2
+   Orchestral   []   /mnt/workspace/VST Install/Kontakt Portable/UserData/NI Resources/image/Kontakt/Orchestral
+   Synth   []   /mnt/workspace/VST Install/Kontakt Portable/UserData/NI Resources/image/Kontakt/Synth
+   Urban Beats   []   /mnt/workspace/VST Install/Kontakt Portable/UserData/NI Resources/image/Kontakt/Urban Beats
+   Vintage   []   /mnt/workspace/VST Install/Kontakt Portable/UserData/NI Resources/image/Kontakt/Vintage
+   World   []   /mnt/workspace/VST Install/Kontakt Portable/UserData/NI Resources/image/Kontakt/World
+   Kora   [artwork+logo]   /mnt/workspace/VST Install/Kontakt Portable/UserData/NI Resources/image/Kora
+   LA Scoring Strings   [artwork]   /mnt/workspace/VST Install/Kontakt Portable/UserData/NI Resources/image/LA Scoring Strings
+   Lo-Fi Vibes   [artwork+logo]   /mnt/workspace/VST Install/Kontakt Portable/UserData/NI Resources/image/Lo-Fi Vibes
+   Majestica Professional   [artwork+logo]   /mnt/workspace/VST Install/Kontakt Portable/UserData/NI Resources/image/Majestica Professional
+   Mass   [artwork+logo]   /mnt/workspace/VST Install/Kontakt Portable/UserData/NI Resources/image/Mass
+   MELODIES   [artwork+logo]   /mnt/workspace/VST Install/Kontakt Portable/UserData/NI Resources/image/MELODIES
+   Middle East   [artwork+logo]   /mnt/workspace/VST Install/Kontakt Portable/UserData/NI Resources/image/Middle East
+   Mysteria   [artwork+logo]   /mnt/workspace/VST Install/Kontakt Portable/UserData/NI Resources/image/Mysteria
+   Orchestral Brass Classic   [artwork]   /mnt/workspace/VST Install/Kontakt Portable/UserData/NI Resources/image/Orchestral Brass Classic
+   Orchestral String Runs   [artwork]   /mnt/workspace/VST Install/Kontakt Portable/UserData/NI Resources/image/Orchestral String Runs
+   Palette   [artwork+logo]   /mnt/workspace/VST Install/Kontakt Portable/UserData/NI Resources/image/Palette
+   Pharlight   [artwork+logo]   /mnt/workspace/VST Install/Kontakt Portable/UserData/NI Resources/image/Pharlight
+   Phrases   [artwork+logo]   /mnt/workspace/VST Install/Kontakt Portable/UserData/NI Resources/image/Phrases
+   Piano Colors   [artwork+logo]   /mnt/workspace/VST Install/Kontakt Portable/UserData/NI Resources/image/Piano Colors
+   Piano Uno   [artwork+logo]   /mnt/workspace/VST Install/Kontakt Portable/UserData/NI Resources/image/Piano Uno
+   Play Series Selection   [artwork+logo]   /mnt/workspace/VST Install/Kontakt Portable/UserData/NI Resources/image/Play Series Selection
+   PlugInGuru MegaMagic Bells Winds   [artwork+logo]   /mnt/workspace/VST Install/Kontakt Portable/UserData/NI Resources/image/PlugInGuru MegaMagic Bells Winds
+   Session Guitarist - Electric Sunburst Deluxe   [artwork+logo]   /mnt/workspace/VST Install/Kontakt Portable/UserData/NI Resources/image/Session Guitarist - Electric Sunburst Deluxe
+   Session Guitarist - Electric Vintage   [artwork+logo]   /mnt/workspace/VST Install/Kontakt Portable/UserData/NI Resources/image/Session Guitarist - Electric Vintage
+   Session Guitarist - Picked Acoustic   [artwork+logo]   /mnt/workspace/VST Install/Kontakt Portable/UserData/NI Resources/image/Session Guitarist - Picked Acoustic
+   Session Keys Electric R   [artwork+logo]   /mnt/workspace/VST Install/Kontakt Portable/UserData/NI Resources/image/Session Keys Electric R
+   Sonic Mechanics - Classic Guitar Licks   [artwork+logo]   /mnt/workspace/VST Install/Kontakt Portable/UserData/NI Resources/image/Sonic Mechanics - Classic Guitar Licks
+   Sonic Mechanics - EDM Energy Drums   [artwork+logo]   /mnt/workspace/VST Install/Kontakt Portable/UserData/NI Resources/image/Sonic Mechanics - EDM Energy Drums
+
+===== (d) counts =====
+  k_content_path rows: 74
+    content_type 1 -> 1
+    content_type 2 -> 46
+    content_type 3 -> 27
+(done — report: /home/phnx/KIRO/.kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/kontakt-libs-probe.txt)

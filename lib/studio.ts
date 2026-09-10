@@ -139,13 +139,14 @@ L:/M:  controllers, not content`,
   },
   {
     title: "Create ~/Cursor Projects on CachyOS",
-    body: `cd /path/to/studio-hub
+    body: `cd ~/kiro-kontakt-patch
 bash tools/bootstrap-cursor-projects.sh
 
 # Result:
 # ~/Cursor Projects/created-in-cursor/studio-hub
 # ~/Cursor Projects/imported-and-modified/<kiro specs>
-# ~/Cursor Projects/kiro-backdrop.sqlite   # frozen Kiro record`,
+# ~/Cursor Projects/kiro-backdrop.sqlite
+# ~/Cursor Projects/grok-index.json`,
   },
   {
     title: "Rebuild catalogs on CachyOS",
@@ -158,6 +159,7 @@ bash tools/bootstrap-cursor-projects.sh
 
 export const nav = [
   { href: "/", label: "Studio" },
+  { href: "/index", label: "Index" },
   { href: "/kontakt", label: "Kontakt" },
   { href: "/decent-sampler", label: "DecentSampler" },
   { href: "/maps", label: "Maps" },

@@ -29,8 +29,8 @@ ln -sfn "$ROOT/kiro/scripts/touchosc_midi_bridge.py" \
 ln -sfn "$ROOT/kiro/scripts" "$IMPORTED/_scripts"
 
 install -m 0644 "$ROOT/data/kiro-backdrop.sqlite" "$BACKDROP"
-# Frozen copy of the JSON map next to the DB (read-only backdrop).
 install -m 0644 "$ROOT/data/maps.json" "$HOME_MAP/kiro-backdrop.json"
+install -m 0644 "$ROOT/data/grok-index.json" "$HOME_MAP/grok-index.json"
 
 cat > "$HOME_MAP/README.txt" <<EOF
 Cursor Projects
@@ -45,9 +45,8 @@ imported-and-modified/
   Kiro projects, linked to the working copies in the repo.
   Edit those files to change the living state.
 
-kiro-backdrop.sqlite / kiro-backdrop.json
-  Frozen record of what Kiro already achieved, plus filesystem
-  paths cited in that work. Do not treat this DB as the working tree.
+kiro-backdrop.sqlite / kiro-backdrop.json / grok-index.json
+  Frozen Kiro record plus the Grok state index. Do not treat these as the working tree.
 
 On CachyOS this should live at /home/phnx/Cursor Projects.
 EOF

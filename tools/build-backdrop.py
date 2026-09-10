@@ -321,6 +321,19 @@ def write_sqlite(db_path: Path, projects: list[dict], refs: list[dict]) -> None:
                 (ref["path"], file),
             )
     con.commit()
+    grok_path = DATA / "grok-index.json"
+    if grok_path.exists():
+        grok = json.loads(grok_path.read_text())
+        cur.execute(
+            "CREATE TABLE grok_index (key TEXT PRIMARY KEY, value TEXT NOT NULL)"
+        )
+        cur.execute(
+            "INSERT INTO grok_index VALUES ('frozen_at', ?)", (grok["frozen_at"],)
+        )
+        cur.execute(
+            "INSERT INTO grok_index VALUES ('payload', ?)", (json.dumps(grok),)
+        )
+        con.commit()
     con.close()
 
 

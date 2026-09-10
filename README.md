@@ -52,7 +52,11 @@ pip install -r requirements-midi.txt   # python-osc, python-rtmidi
 
 Live things this Cloud session cannot see: `/mnt/workspace`, `/mnt/storage`, `/mnt/wd_black`, `/mnt/btrfs_disk`, `~/.wine`, `komplete.db3`, systemd units.
 
-## Cursor vs Kiro access
+## Grok index
+
+Frozen at `data/grok-index.json` and in `kiro-backdrop.sqlite` table `grok_index`. Hub route: `/index`.
+
+Composer next: HTML catalogs, catalog builders, `komplete.db3` / DecentSampler XML on CachyOS. Claude after that.
 
 This Cloud Agent does **not** get a Kiro-style “approve lookup” prompt for `/home/phnx` or the web. It only sees this workspace unless you upload files. On local Cursor Desktop, the agent can read the folder you opened as the project; extra MCP servers may ask for auth. It will not silently mount CachyOS drives from here.
 

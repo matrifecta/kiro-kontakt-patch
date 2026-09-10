@@ -1,0 +1,208 @@
+{
+  "frozen_at": "2026-09-10T10:15:00Z",
+  "frozen_by": "grok",
+  "purpose": "General index of all project state before Composer inspects HTML/web/hypertext and before Claude implements.",
+  "layout": {
+    "cachyos_clone": "~/kiro-kontakt-patch",
+    "cursor_projects": "~/Cursor Projects",
+    "created": "~/Cursor Projects/created-in-cursor/studio-hub -> ~/kiro-kontakt-patch",
+    "imported": "~/Cursor Projects/imported-and-modified/* -> kiro/specs and scripts",
+    "backdrop": "~/Cursor Projects/kiro-backdrop.sqlite",
+    "original_kiro": "~/KIRO (untouched original tree)"
+  },
+  "pipeline": [
+    {
+      "agent": "grok",
+      "status": "done",
+      "job": "Freeze this index. Do not edit catalogs or live machine state."
+    },
+    {
+      "agent": "composer",
+      "status": "next",
+      "job": "Inspect HTML/web/hypertext surfaces and anything in the library databases that stores markup."
+    },
+    {
+      "agent": "claude-sonnet-5",
+      "status": "queued",
+      "job": "Implement improvements from Composer’s list and catch misses."
+    }
+  ],
+  "confirmed_endpoints": [
+    {
+      "name": "Kontakt standalone",
+      "state": "working",
+      "detail": "WineASIO @128 via launch_kontakt_wineasio.sh, graph 128 @ 44.1 kHz, JACK node.latency 128/44100."
+    },
+    {
+      "name": "Reaper + yabridge Kontakt",
+      "state": "working",
+      "detail": "Native PipeWire/JACK @128, jack_rtprio=88. Do not mix with a forced standalone quantum."
+    },
+    {
+      "name": "Workspace volume",
+      "state": "working",
+      "detail": "/mnt/workspace UUID B82064122063D642 via ntfs-3g, not ntfs3."
+    }
+  ],
+  "open_items": [
+    "One Reaper project: Zauberwinds doubled DecentSampler path (project-local).",
+    "EWQL RA SNPID A02 vs A05 — content-side, skip or re-acquire.",
+    "Portable HTML catalogs are a 10 Sep 2026 snapshot; rebuild on CachyOS to refresh."
+  ],
+  "projects": [
+    {
+      "slug": "studio-hub",
+      "name": "Studio Hub",
+      "map": "created-in-cursor",
+      "origin": "cursor",
+      "kiro_claimed": null,
+      "archive_cohesion": "complete",
+      "living_copy": "~/Cursor Projects/created-in-cursor/studio-hub",
+      "backdrop": "This index + kiro-backdrop.sqlite",
+      "in_repo": ["app/", "public/catalogs/", "data/", "kiro/", "tools/"],
+      "not_in_repo": [],
+      "next_agent": "composer",
+      "composer_why": "Hosts the two portable HTML catalogs in iframes; Next.js is the other hypertext surface.",
+      "can_start": true
+    },
+    {
+      "slug": "kontakt-workspace",
+      "name": "Kontakt workspace",
+      "map": "imported-and-modified",
+      "origin": "kiro",
+      "kiro_claimed": "confirmed",
+      "archive_cohesion": "complete",
+      "living_copy": "~/Cursor Projects/imported-and-modified/kontakt-workspace-drive-dirty-fix",
+      "backdrop": "kiro-backdrop.sqlite row kontakt-workspace",
+      "in_repo": ["bugfix.md", "design.md", "tasks.md", "artifacts/ (scripts, systemd units, catalog builders)"],
+      "not_in_repo": [
+        "/mnt/workspace/.../komplete.db3",
+        "LibrariesCache/",
+        "NI Resources/image",
+        "desktop KONTAKT-CATALOG.html (file:// thumbs)"
+      ],
+      "next_agent": "composer",
+      "composer_why": "Catalog HTML + builders; komplete.db3 on CachyOS may store paths/XML-like fields.",
+      "can_start": true
+    },
+    {
+      "slug": "kontakt-wine",
+      "name": "Wine optimization",
+      "map": "imported-and-modified",
+      "origin": "kiro",
+      "kiro_claimed": "applied",
+      "archive_cohesion": "complete",
+      "living_copy": "~/Cursor Projects/imported-and-modified/kontakt-wine-optimization",
+      "backdrop": "kiro-backdrop.sqlite row kontakt-wine",
+      "in_repo": ["requirements.md", "design.md", "tasks.md", "kontakt_scan.py", "scan/*.tsv"],
+      "not_in_repo": ["~/.wine/dosdevices", "live mount roots"],
+      "next_agent": "claude-sonnet-5",
+      "composer_why": "No HTML of its own. Composer can skip unless scan TSVs reference hypertext.",
+      "can_start": true
+    },
+    {
+      "slug": "usb-audio",
+      "name": "USB audio resume",
+      "map": "imported-and-modified",
+      "origin": "kiro",
+      "kiro_claimed": "specified",
+      "archive_cohesion": "spec-only",
+      "living_copy": "~/Cursor Projects/imported-and-modified/usb-audio-resume",
+      "backdrop": "kiro-backdrop.sqlite row usb-audio",
+      "in_repo": ["requirements.md", "design.md", "tasks.md (unchecked)"],
+      "not_in_repo": ["usb-audio-resume.sh", "usb-audio-resume.service", "/etc/usb-audio-resume.conf"],
+      "next_agent": "claude-sonnet-5",
+      "composer_why": "No HTML. Implementation is Claude’s job from the spec.",
+      "can_start": true
+    },
+    {
+      "slug": "turing-wake",
+      "name": "Turing wake recovery",
+      "map": "imported-and-modified",
+      "origin": "kiro",
+      "kiro_claimed": "specified",
+      "archive_cohesion": "spec-only",
+      "living_copy": "~/Cursor Projects/imported-and-modified/turing-wake-recovery",
+      "backdrop": "kiro-backdrop.sqlite row turing-wake",
+      "in_repo": ["requirements.md"],
+      "not_in_repo": ["design.md", "tasks.md", "wake service", "config.yaml COM_PORT maps"],
+      "next_agent": "claude-sonnet-5",
+      "composer_why": "No HTML. Blocked on missing spec or a live Turing dump.",
+      "can_start": false
+    },
+    {
+      "slug": "turing-installer",
+      "name": "Turing installer",
+      "map": "imported-and-modified",
+      "origin": "kiro",
+      "kiro_claimed": "specified",
+      "archive_cohesion": "partial",
+      "living_copy": "~/Cursor Projects/imported-and-modified/turing-installer-pid-theme-fix",
+      "backdrop": "kiro-backdrop.sqlite row turing-installer",
+      "in_repo": ["bugfix.md", "design.md", "kiro/scripts/install_turing.sh"],
+      "not_in_repo": ["live Podman containers", "per-screen config.yaml"],
+      "next_agent": "claude-sonnet-5",
+      "composer_why": "No HTML. Confirm installer vs live screens before re-run.",
+      "can_start": true
+    },
+    {
+      "slug": "touchosc-bridge",
+      "name": "TouchOSC MIDI bridge",
+      "map": "imported-and-modified",
+      "origin": "kiro",
+      "kiro_claimed": null,
+      "archive_cohesion": "partial",
+      "living_copy": "~/Cursor Projects/imported-and-modified/touchosc-midi-bridge",
+      "backdrop": "kiro-backdrop.sqlite row touchosc-bridge",
+      "in_repo": ["kiro/scripts/touchosc_midi_bridge.py"],
+      "not_in_repo": ["TouchOSC layout file", "qpwgraph patch"],
+      "next_agent": "claude-sonnet-5",
+      "composer_why": "No HTML. OSC/MIDI only.",
+      "can_start": true
+    }
+  ],
+  "composer_targets": [
+    {
+      "path": "public/catalogs/KONTAKT-CATALOG-portable.html",
+      "kind": "html",
+      "note": "46 libraries, banners embedded, keyword JS. Snapshot 10 Sep 2026 01:09 CEST."
+    },
+    {
+      "path": "public/catalogs/DS-CATALOG-portable.html",
+      "kind": "html",
+      "note": "366 libraries, covers embedded, patch groups. Snapshot 10 Sep 2026 01:09 CEST."
+    },
+    {
+      "path": "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/build-kontakt-catalog-html.sh",
+      "kind": "html-generator",
+      "note": "Reads komplete.db3 on CachyOS. Desktop HTML not in this repo."
+    },
+    {
+      "path": "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/build-ds-catalog-html.sh",
+      "kind": "html-generator",
+      "note": "Walks ~/.config/DecentSampler, /mnt/btrfs_disk/DS Libraries, /mnt/wd_black/DS Libraries."
+    },
+    {
+      "path": "app/**/*.tsx",
+      "kind": "hypertext-app",
+      "note": "Studio Hub routes; iframes the portable catalogs."
+    },
+    {
+      "path": "/mnt/workspace/VST Install/Kontakt Portable/UserData/Kontakt 8/komplete.db3",
+      "kind": "sqlite-on-cachyos",
+      "note": "Composer should check whether rows store HTML/XML/SNPID markup. Not in git."
+    },
+    {
+      "path": "~/.config/DecentSampler/",
+      "kind": "xml-on-cachyos",
+      "note": "DecentSampler.xml / catalog / SampleLibrary.db mentioned in Kiro notes. Not in git."
+    }
+  ],
+  "do_not_touch_this_pass": [
+    "public/catalogs/*.html content",
+    "komplete.db3",
+    "/etc/fstab",
+    "Wine prefix",
+    "~/KIRO original tree"
+  ]
+}

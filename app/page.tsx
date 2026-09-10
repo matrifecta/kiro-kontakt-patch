@@ -24,14 +24,19 @@ export default function HomePage() {
           Kontakt 8, DecentSampler, and the machine that has to stay quiet at 128.
         </h1>
         <p className="max-w-2xl text-sm leading-relaxed text-muted-foreground md:text-base">
-          This hub keeps two maps under{" "}
+          Grok freeze of all project state is done. Composer inspects HTML and
+          hypertext next; Claude implements after that. Two maps live under{" "}
           <code className="rounded bg-muted px-1 py-0.5 text-xs">
             ~/Cursor Projects
           </code>
-          : new Cursor work, and Kiro imports you can modify. The SQLite
-          backdrop is the frozen Kiro record so later edits do not overwrite
-          what already worked.
+          .
         </p>
+        <Link
+          href="/index"
+          className="inline-flex items-center gap-1 text-sm text-primary hover:underline"
+        >
+          Open the Grok index <ArrowRight className="size-3.5" />
+        </Link>
       </section>
 
       <section className="grid gap-3 sm:grid-cols-3">

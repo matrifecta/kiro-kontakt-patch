@@ -90,14 +90,18 @@ emit_img(){ # src -> embedded base64 <img> in BOTH modes (few images; guarantees
   local src="$1" name="$2"
   # desktop: sharper x160 q82 ; portable: smaller x110 q70
   local h q; if [ "$MODE" = portable ]; then h=110; q=70; else h=160; q=82; fi
-  local b64=""
+  local b64="" mime="image/jpeg"
   if [ "$HAVE_MAGICK" -eq 1 ]; then
     local s="$THUMBS/.m_$N.jpg"
-    { magick "$src" -resize x$h -quality $q "$s" 2>/dev/null || convert "$src" -resize x$h -quality $q "$s" 2>/dev/null; }
+    { magick "$src" -background white -flatten -resize x$h -quality $q "$s" 2>/dev/null || \
+      convert "$src" -background white -flatten -resize x$h -quality $q "$s" 2>/dev/null; }
     [ -f "$s" ] && b64=$(base64 -w0 "$s") && rm -f "$s"
   fi
-  [ -z "$b64" ] && b64=$(base64 -w0 "$src" 2>/dev/null)
-  printf '  <img class="cover" src="data:image/jpeg;base64,%s" alt="%s">\n' "$b64" "$(e "$name")"
+  if [ -z "$b64" ]; then
+    b64=$(base64 -w0 "$src" 2>/dev/null)
+    mime=$(file --mime-type -b "$src" 2>/dev/null); [ -z "$mime" ] && mime="image/png"
+  fi
+  printf '  <img class="cover" src="data:%s;base64,%s" alt="%s">\n' "$mime" "$b64" "$(e "$name")"
 }
 
 # ---- nested collapsible patch listing for a library ----------------------------

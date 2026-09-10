@@ -27,13 +27,19 @@ VIEWURLS="$ART_DIR/cover-view-urls.tsv"
 view_url(){ [ -f "$VIEWURLS" ] || return 0; local want="$1" n u
   while IFS=$'\t' read -r n u; do case "$n" in \#*) continue;; esac; [ "$n" = "$want" ] || continue; [ -n "$u" ] && { printf '%s' "$u"; return 0; }; done < "$VIEWURLS"; }
 
-# find primary cover image in a library dir (reject UI widgets)
-primary_image(){ local d="$1" all p
+# return cover image candidates in priority order; caller iterates until emit_cover succeeds.
+# tier1=named cover/bg/artwork, tier2=Images/Resources dirs (largest first), tier3=rest (largest first).
+# Extra exclusions: sprite|filmstrip|_anim catch UI animation strips missed by name alone.
+primary_images(){ local d="$1" all
   all=$(find "$d" -maxdepth 3 -type f \( -iname '*.png' -o -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.gif' -o -iname '*.bmp' -o -iname '*.webp' \) 2>/dev/null \
-        | grep -viE '/__MACOSX/|/\._' | grep -viE 'knob|dial|fader|slider|button|hover|switch|led|arrow')
-  p=$(printf '%s\n' "$all" | grep -iE 'background|cover|artwork|(^|/)bg[_.-]|_bg\.' | head -1)
-  [ -z "$p" ] && p=$(printf '%s\n' "$all" | grep -iE '/(Images|Image|Resources|Samples)/' | head -1)
-  [ -z "$p" ] && p=$(printf '%s\n' "$all" | head -1); printf '%s' "$p"; }
+        | grep -viE '/__MACOSX/|/\._' | grep -viE 'knob|dial|fader|slider|button|hover|switch|led|arrow|sprite|filmstrip|_anim')
+  printf '%s\n' "$all" | grep -iE 'background|cover|artwork|(^|/)bg[_.-]|_bg\.'
+  printf '%s\n' "$all" | grep -iE '/(Images|Image|Resources|Samples)/' | while IFS= read -r f; do
+    printf '%s\t%s\n' "$(stat -c%s "$f" 2>/dev/null||echo 0)" "$f"; done | sort -rn | cut -f2-
+  printf '%s\n' "$all" | grep -viE '/(Images|Image|Resources|Samples)/' | \
+    grep -viE 'background|cover|artwork|(^|/)bg[_.-]|_bg\.' | while IFS= read -r f; do
+    printf '%s\t%s\n' "$(stat -c%s "$f" 2>/dev/null||echo 0)" "$f"; done | sort -rn | cut -f2-
+}
 
 desc_for(){ local d="$1" rf raw txt
   rf=$(find "$d" -maxdepth 2 -type f \( -iname 'readme*' -o -iname 'read me*' -o -iname '*description*' -o -iname 'about*' -o -iname 'info*.txt' \) 2>/dev/null | grep -viE '/__MACOSX/|/\._' | head -1)
@@ -67,24 +73,29 @@ op-1 volca arp emu fairlight ppg synclavier hammond leslie optigan chamberlin"
 classify_desc(){ local d; d=$(printf '%s' "${1:-}" | tr 'A-Z' 'a-z'); local o=""
   for k in $GEAR; do case "$d" in *"$k"*) o="$o $k";; esac; done; printf '%s' "${o# }"; }
 
-# returns 0 and prints an <img> if the source is a USABLE image (min width/height); returns 1 if degenerate
-# (e.g. 1px lines, unreadable) so the caller can fall back to "no artwork".
+# returns 0 and prints an <img> if the source is a USABLE image; returns 1 if degenerate so the
+# caller can try the next candidate. Rejects: <16px dims, sprite strips (h>w*5), unreadable.
+# Flattens alpha to white before JPEG conversion; uses correct MIME type if fallback is needed.
 emit_cover(){ local src="$1" name="$2"
-  # reject degenerate images: need both dims >= 16px
   if [ "$HAVE_MAGICK" -eq 1 ]; then
     local dim w ht; dim=$(magick identify -format '%w %h' "$src"[0] 2>/dev/null || identify -format '%w %h' "$src"[0] 2>/dev/null)
     w=${dim%% *}; ht=${dim##* }
     case "$w$ht" in ''|*[!0-9]*) return 1;; esac   # couldn't read dims -> unusable
     [ "$w" -ge 16 ] 2>/dev/null && [ "$ht" -ge 16 ] 2>/dev/null || return 1
+    [ "$ht" -gt $((w * 5)) ] 2>/dev/null && return 1   # sprite / filmstrip: would render as vertical line
   fi
   local h q; if [ "$MODE" = portable ]; then h=110; q=70; else h=160; q=85; fi
-  local b64=""
+  local b64="" mime="image/jpeg"
   if [ "$HAVE_MAGICK" -eq 1 ]; then local s="$THUMBS/.m_$N.jpg"
-    { magick "$src" -resize x$h -quality $q "$s" 2>/dev/null || convert "$src" -resize x$h -quality $q "$s" 2>/dev/null; }
+    { magick "$src" -background white -flatten -resize x$h -quality $q "$s" 2>/dev/null || \
+      convert "$src" -background white -flatten -resize x$h -quality $q "$s" 2>/dev/null; }
     [ -f "$s" ] && b64=$(base64 -w0 "$s") && rm -f "$s"; fi
-  [ -z "$b64" ] && b64=$(base64 -w0 "$src" 2>/dev/null)
+  if [ -z "$b64" ]; then
+    b64=$(base64 -w0 "$src" 2>/dev/null)
+    mime=$(file --mime-type -b "$src" 2>/dev/null); [ -z "$mime" ] && mime="image/png"
+  fi
   [ -z "$b64" ] && return 1
-  printf '  <img class="cover" src="data:image/jpeg;base64,%s" alt="%s">\n' "$b64" "$(e "$name")"
+  printf '  <img class="cover" src="data:%s;base64,%s" alt="%s">\n' "$mime" "$b64" "$(e "$name")"
   return 0; }
 
 # list patches (.dspreset) under a library dir, grouped by their immediate subfolder relative to the lib dir
@@ -117,10 +128,13 @@ entry(){ local name="$1" libdir="$2" openp="$3"
     printf '<div class="entry" id="%s" data-kw="%s" data-gear="%s">\n' "$id" "$(e "$allkw")" "$(e "$gkw")"
     printf '  <h3>%s</h3>\n' "$(e "$name")"
     [ -n "$d" ] && printf '  <p class="desc">%s</p>\n' "$(e "$d")"
-    local prim shown=0; prim=$(primary_image "$libdir"); [ -z "$prim" ] && prim=$(override_cover "$name")
-    if [ -n "$prim" ] && [ -f "$prim" ]; then
-      if emit_cover "$prim" "$name"; then shown=1; fi   # emit_cover fails (returns 1) on degenerate images
-    fi
+    local shown=0
+    # iterate candidates: manual override first, then auto-detected (deduped); stop on first usable image
+    while IFS= read -r prim; do
+      [ -z "$prim" ] && continue; [ -f "$prim" ] || continue
+      emit_cover "$prim" "$name" && { shown=1; break; }
+    done < <({ oc=$(override_cover "$name"); [ -n "$oc" ] && printf '%s\n' "$oc"
+               primary_images "$libdir"; } | awk '!seen[$0]++')
     if [ "$shown" -eq 0 ]; then
       local vu; vu=$(view_url "$name")
       if [ -z "$vu" ]; then

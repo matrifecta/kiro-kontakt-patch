@@ -56,7 +56,9 @@ rm -f "$DBTMP"
 
 KEYWORDS="piano keys organ strings violin viola cello guitar bass harp choir vocal voice \
 flute reed brass horn drums drum percussion bells gamelan tabla kalimba \
-synth pad ambient cinematic orchestral world lofi analog"
+synth pad ambient cinematic orchestral world lofi analog \
+ethereal string orchestra guitarist tablas soul vintage hybrid \
+stradivari amati guarneri"
 classify(){ local w; w=$(printf '%s' "${1:-}" | tr 'A-Z' 'a-z' | tr -c 'a-z0-9' ' '); local o=""
   for k in $KEYWORDS; do case " $w " in *" $k "*) o="$o $k";; esac; done; printf '%s' "${o# }"; }
 

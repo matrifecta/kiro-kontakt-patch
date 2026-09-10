@@ -61,7 +61,12 @@ KEYWORDS="piano keys organ harmonium celeste harpsichord clavinova wurlitzer cho
 strings violin cello viola domra guitar bass bassoon harp mandolin lute \
 flute recorder ocarina whistle woodwind reed clarinet oboe \
 drum percussion kalimba bell glock chimes bodhran tabla xylophone marimba \
-synth pad drone ambient texture noise fx bowed"
+synth pad drone ambient texture noise fx bowed \
+accordion saxophone harmonica melodica bagpipe didgeridoo flutina \
+ukulele autoharp lapsteel dobro hurdy lyre erhu kantele gusli bandola guitarron jaw \
+tongue bowl cajon djembe udu clave \
+fm granular glitch lofi vintage cinematic orchestral ethereal atmospheric hybrid \
+gretsch"
 classify(){ local w; w=$(printf '%s' "${1:-}" | tr 'A-Z' 'a-z' | tr -c 'a-z0-9' ' '); local o=""
   for k in $KEYWORDS; do case " $w " in *" $k "*) o="$o $k";; esac; done; printf '%s' "${o# }"; }
 
@@ -69,7 +74,8 @@ classify(){ local w; w=$(printf '%s' "${1:-}" | tr 'A-Z' 'a-z' | tr -c 'a-z0-9' 
 # tokens use lowercase; multi-char models kept as single tokens.
 GEAR="808 909 707 606 727 cr-78 cr78 tr-808 tr-909 linndrum juno jupiter moog minimoog \
 mellotron rhodes wurlitzer prophet oberheim korg roland yamaha dx7 casio sh-101 ms-20 \
-op-1 volca arp emu fairlight ppg synclavier hammond leslie optigan chamberlin"
+op-1 volca arp emu fairlight ppg synclavier hammond leslie optigan chamberlin \
+steinway broadwood ensoniq dfam ibanez casiotone digitech tx81z selmer"
 classify_desc(){ local d; d=$(printf '%s' "${1:-}" | tr 'A-Z' 'a-z'); local o=""
   for k in $GEAR; do case "$d" in *"$k"*) o="$o $k";; esac; done; printf '%s' "${o# }"; }
 
@@ -120,8 +126,8 @@ emit_patches(){ local libdir="$1"
 entry(){ local name="$1" libdir="$2" openp="$3"
   N=$((N+1)); local id="item-$N"
   local d; d=$(desc_for "$libdir")
-  local kw; kw=$(classify "$name")
-  local gkw; gkw=$(classify_desc "$d")        # gear terms from description
+  local kw; kw=$(classify "$name $d")   # name + desc both feed instrument tags
+  local gkw; gkw=$(classify_desc "$d")  # desc feeds gear/brand tags (purple)
   local allkw; allkw=$(printf '%s %s' "$kw" "$gkw" | sed 's/^ //;s/ $//')
   printf '<li data-kw="%s"><a href="#%s">%s</a></li>\n' "$(e "$allkw")" "$id" "$(e "$name")" >> "$IDX"
   {

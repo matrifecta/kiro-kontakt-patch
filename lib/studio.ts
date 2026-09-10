@@ -138,6 +138,16 @@ L:/M:  controllers, not content`,
   --out /tmp/kontakt-scan`,
   },
   {
+    title: "Create ~/Cursor Projects on CachyOS",
+    body: `cd /path/to/studio-hub
+bash tools/bootstrap-cursor-projects.sh
+
+# Result:
+# ~/Cursor Projects/created-in-cursor/studio-hub
+# ~/Cursor Projects/imported-and-modified/<kiro specs>
+# ~/Cursor Projects/kiro-backdrop.sqlite   # frozen Kiro record`,
+  },
+  {
     title: "Rebuild catalogs on CachyOS",
     body: `cd kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts
 ./build-kontakt-catalog-html.sh both
@@ -150,7 +160,7 @@ export const nav = [
   { href: "/", label: "Studio" },
   { href: "/kontakt", label: "Kontakt" },
   { href: "/decent-sampler", label: "DecentSampler" },
-  { href: "/map", label: "Kiro map" },
+  { href: "/maps", label: "Maps" },
   { href: "/runbook", label: "Runbook" },
 ]
 

@@ -9,7 +9,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { dsLibraries, kontaktLibraries } from "@/lib/libraries"
+import { kontaktLibraries } from "@/lib/libraries"
+import { createdProjects, importedProjects } from "@/lib/maps"
 import { endpoints, openItems, projects, statusLabel } from "@/lib/studio"
 
 export default function HomePage() {
@@ -23,25 +24,32 @@ export default function HomePage() {
           Kontakt 8, DecentSampler, and the machine that has to stay quiet at 128.
         </h1>
         <p className="max-w-2xl text-sm leading-relaxed text-muted-foreground md:text-base">
-          This hub is the map of the Kiro work on your Plasma box: the portable
-          library catalogs, the five specs, and the confirmed audio endpoints.
-          It does not talk to Wine from here — it keeps the working picture in
-          one place so the next change does not undo the last one.
+          This hub keeps two maps under{" "}
+          <code className="rounded bg-muted px-1 py-0.5 text-xs">
+            ~/Cursor Projects
+          </code>
+          : new Cursor work, and Kiro imports you can modify. The SQLite
+          backdrop is the frozen Kiro record so later edits do not overwrite
+          what already worked.
         </p>
       </section>
 
       <section className="grid gap-3 sm:grid-cols-3">
         <Stat
+          label="Created in Cursor"
+          value={String(createdProjects.length)}
+          href="/maps"
+        />
+        <Stat
+          label="Imported from Kiro"
+          value={String(importedProjects.length)}
+          href="/maps"
+        />
+        <Stat
           label="Kontakt libraries"
           value={String(kontaktLibraries.length)}
           href="/kontakt"
         />
-        <Stat
-          label="DecentSampler libraries"
-          value={String(dsLibraries.length)}
-          href="/decent-sampler"
-        />
-        <Stat label="Kiro projects" value={String(projects.length)} href="/map" />
       </section>
 
       <section className="grid gap-4 lg:grid-cols-2">
@@ -93,13 +101,13 @@ export default function HomePage() {
       <section className="flex flex-col gap-3">
         <div className="flex items-end justify-between gap-3">
           <h2 className="font-heading text-lg">Kiro map</h2>
-          <Link href="/map" className="text-sm text-primary hover:underline">
-            Full map
+          <Link href="/maps" className="text-sm text-primary hover:underline">
+            Open both maps
           </Link>
         </div>
         <div className="grid gap-3 md:grid-cols-2">
           {projects.map((project) => (
-            <Link key={project.slug} href="/map" className="block">
+            <Link key={project.slug} href="/maps" className="block">
               <Card className="h-full transition-colors hover:bg-accent/40">
                 <CardHeader>
                   <div className="flex items-start justify-between gap-2">

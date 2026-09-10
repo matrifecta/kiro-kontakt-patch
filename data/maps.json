@@ -1,0 +1,2363 @@
+{
+  "home_root": "~/Cursor Projects",
+  "maps": [
+    {
+      "id": "created-in-cursor",
+      "title": "Created in Cursor",
+      "blurb": "Projects that start here. Studio Hub is the first."
+    },
+    {
+      "id": "imported-and-modified",
+      "title": "Imported and modified",
+      "blurb": "Kiro work, editable. The SQLite file is the frozen backdrop \u2014 do not treat it as the working tree."
+    }
+  ],
+  "projects": [
+    {
+      "slug": "studio-hub",
+      "name": "Studio Hub",
+      "map": "created-in-cursor",
+      "origin": "cursor",
+      "cohesion": "complete",
+      "kiro_folder": null,
+      "working_relpath": "created-in-cursor/studio-hub",
+      "summary": "This Cursor project: catalogs, two maps, runbook, Kiro backdrop DB.",
+      "missing": [],
+      "can_start": true,
+      "start_note": "Already running. Next work lands here or as a sibling under created-in-cursor/."
+    },
+    {
+      "slug": "kontakt-workspace",
+      "name": "Kontakt workspace",
+      "map": "imported-and-modified",
+      "origin": "kiro",
+      "cohesion": "complete",
+      "kiro_folder": "kontakt-workspace-drive-dirty-fix",
+      "working_relpath": "imported-and-modified/kontakt-workspace-drive-dirty-fix",
+      "summary": "Specs, 180+ artifacts, catalogs, launchers. Live disks and komplete.db3 stay on CachyOS.",
+      "missing": [
+        "/mnt/workspace (komplete.db3, Kontakt Portable, NI Resources)",
+        "/mnt/wd_black and /mnt/btrfs_disk library trees",
+        "Live systemd units and /etc/fstab",
+        "~/.wine prefix"
+      ],
+      "can_start": true,
+      "start_note": "Yes \u2014 continue from artifacts + catalogs. Machine-side verify still needs the CachyOS mounts."
+    },
+    {
+      "slug": "kontakt-wine",
+      "name": "Wine optimization",
+      "map": "imported-and-modified",
+      "origin": "kiro",
+      "cohesion": "complete",
+      "kiro_folder": "kontakt-wine-optimization",
+      "working_relpath": "imported-and-modified/kontakt-wine-optimization",
+      "summary": "Requirements, design, scanner, and prior scan TSVs.",
+      "missing": [
+        "Live NTFS roots to re-scan",
+        "Wine dosdevices on this VM"
+      ],
+      "can_start": true,
+      "start_note": "Yes \u2014 scanner is stdlib Python. Re-run it on CachyOS against the three mounts."
+    },
+    {
+      "slug": "usb-audio",
+      "name": "USB audio resume",
+      "map": "imported-and-modified",
+      "origin": "kiro",
+      "cohesion": "spec-only",
+      "kiro_folder": "usb-audio-resume",
+      "working_relpath": "imported-and-modified/usb-audio-resume",
+      "summary": "Full spec. Tasks are unchecked. No hook script shipped in the archive.",
+      "missing": [
+        "usb-audio-resume.sh",
+        "usb-audio-resume.service",
+        "/etc/usb-audio-resume.conf (USB_ID of the SSL interface)"
+      ],
+      "can_start": true,
+      "start_note": "Start from the spec, not from existing code. Implementation is still to write."
+    },
+    {
+      "slug": "turing-wake",
+      "name": "Turing wake recovery",
+      "map": "imported-and-modified",
+      "origin": "kiro",
+      "cohesion": "spec-only",
+      "kiro_folder": "turing-wake-recovery",
+      "working_relpath": "imported-and-modified/turing-wake-recovery",
+      "summary": "Requirements only \u2014 no design, tasks, or recovery service in the archive.",
+      "missing": [
+        "design.md / tasks.md",
+        "Wake recovery service + config",
+        "Container COM_PORT mappings"
+      ],
+      "can_start": false,
+      "start_note": "Not enough to implement blindly. Need the missing spec files or a live Turing install dump."
+    },
+    {
+      "slug": "turing-installer",
+      "name": "Turing installer",
+      "map": "imported-and-modified",
+      "origin": "kiro",
+      "cohesion": "partial",
+      "kiro_folder": "turing-installer-pid-theme-fix",
+      "working_relpath": "imported-and-modified/turing-installer-pid-theme-fix",
+      "summary": "Bugfix + design plus install_turing.sh in kiro/scripts.",
+      "missing": [
+        "Live Podman containers and screen config.yaml files"
+      ],
+      "can_start": true,
+      "start_note": "Yes \u2014 installer script is here. Confirm against the machine before re-running it."
+    },
+    {
+      "slug": "touchosc-bridge",
+      "name": "TouchOSC MIDI bridge",
+      "map": "imported-and-modified",
+      "origin": "kiro",
+      "cohesion": "partial",
+      "kiro_folder": null,
+      "working_relpath": "imported-and-modified/touchosc-midi-bridge",
+      "summary": "Standalone script in the KIRO root. Not a Kiro spec folder.",
+      "missing": [
+        "python-osc",
+        "python-rtmidi",
+        "qpwgraph MIDI route on CachyOS"
+      ],
+      "can_start": true,
+      "start_note": "Needs python-osc + python-rtmidi. Script is otherwise self-contained."
+    }
+  ],
+  "canonical_roots": [
+    {
+      "path": "/home/phnx/KIRO",
+      "role": "Original Kiro tree on CachyOS",
+      "on_this_machine": false
+    },
+    {
+      "path": "~/Cursor Projects",
+      "role": "Cursor root map (created + imported)",
+      "on_this_machine": true
+    },
+    {
+      "path": "/mnt/workspace",
+      "role": "Kontakt Portable, komplete.db3, NI Resources",
+      "on_this_machine": false
+    },
+    {
+      "path": "/mnt/storage",
+      "role": "Second NTFS content drive (E:)",
+      "on_this_machine": false
+    },
+    {
+      "path": "/mnt/wd_black",
+      "role": "Heavy libraries, DS Libraries, known-good snapshots",
+      "on_this_machine": false
+    },
+    {
+      "path": "/mnt/btrfs_disk",
+      "role": "Light Kontakt + most DecentSampler libraries",
+      "on_this_machine": false
+    },
+    {
+      "path": "/mnt/win_system",
+      "role": "Windows system partition (ntfs-3g)",
+      "on_this_machine": false
+    },
+    {
+      "path": "~/.wine",
+      "role": "Shared Wine prefix (standalone + yabridge)",
+      "on_this_machine": false
+    },
+    {
+      "path": "~/.vst3/yabridge",
+      "role": "Kontakt 8 Portable .so bridge",
+      "on_this_machine": false
+    },
+    {
+      "path": "~/.config/DecentSampler/Sample Libraries",
+      "role": "SAMPLE STORE DecentSampler bundles",
+      "on_this_machine": false
+    },
+    {
+      "path": "~/.config/pipewire",
+      "role": "Quantum / JACK latency drop-ins",
+      "on_this_machine": false
+    },
+    {
+      "path": "/etc/fstab",
+      "role": "ntfs-3g mounts for workspace/storage/wd_black",
+      "on_this_machine": false
+    },
+    {
+      "path": "/etc/usb-audio-resume.conf",
+      "role": "Planned USB audio hook config (not written yet)",
+      "on_this_machine": false
+    },
+    {
+      "path": "/usr/local/sbin",
+      "role": "ntfs unmount / dirty-detect helpers",
+      "on_this_machine": false
+    }
+  ],
+  "filesystem_refs": [
+    {
+      "path": "/mnt/workspace",
+      "count": 110,
+      "files": [
+        "kiro/scripts/kontakt_scan.py",
+        "kiro/scripts/launch_kontakt_lowlatency.sh",
+        "kiro/scripts/launch_kontakt_wineasio.sh",
+        "kiro/specs/kontakt-wine-optimization/design.md",
+        "kiro/specs/kontakt-wine-optimization/requirements.md",
+        "kiro/specs/kontakt-wine-optimization/results/README.md",
+        "kiro/specs/kontakt-wine-optimization/results/RESTORE.md",
+        "kiro/specs/kontakt-wine-optimization/results/cleanup-report.md",
+        "kiro/specs/kontakt-wine-optimization/results/import-candidates.md",
+        "kiro/specs/kontakt-wine-optimization/results/progress-notes.md",
+        "kiro/specs/kontakt-wine-optimization/tasks.md",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/INSTALL.md"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/wd_black",
+      "count": 32,
+      "files": [
+        "kiro/scripts/kontakt_scan.py",
+        "kiro/specs/kontakt-wine-optimization/design.md",
+        "kiro/specs/kontakt-wine-optimization/requirements.md",
+        "kiro/specs/kontakt-wine-optimization/results/cleanup-report.md",
+        "kiro/specs/kontakt-wine-optimization/results/import-candidates.md",
+        "kiro/specs/kontakt-wine-optimization/results/progress-notes.md",
+        "kiro/specs/kontakt-wine-optimization/tasks.md",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/INSTALL.md",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/analyze-decentsampler-libs.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/backup-known-good-state.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/backup-lofi-piano-folders.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/find-tile-artwork.sh"
+      ],
+      "kind": "wd-black-ntfs"
+    },
+    {
+      "path": "/mnt/workspace/VST Install/Kontakt Portable/UserData/Kontakt 8",
+      "count": 27,
+      "files": [
+        "kiro/specs/kontakt-wine-optimization/requirements.md",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/apply-tile-merge.py",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/db-classify-nonz.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/db-converge-hide-nonz.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/db-delete-all-df.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/db-finalize-zonly.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/db-hide-duplicate-typerows.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/db-integrity.py",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/db-purge-orphan-soundinfo.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/db-purge-orphans.py",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/db-reindex-purge.py",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/db-repoint-factory-content.py"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/workspace/VST Install/Kontakt Portable/UserData/NI Resources/image",
+      "count": 25,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/build-kontakt-catalog-html.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/compare-tile-images.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/compare-working-vs-blank-tiledir.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/deep-nks-probe.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/fix-getgood-tiledir.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/fix-pluginguru-final.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/fix-pluginguru-nkiname.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/fix-pluginguru-tiledir.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/inspect-tile-subfolders.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/make-tile-hy2rogen.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/make-tile-proof.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/make-tiles-batch.sh"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/etc/localtime",
+      "count": 20,
+      "files": [
+        "kiro/scripts/install_turing.sh",
+        "kiro/scripts/install_turing_original.sh"
+      ],
+      "kind": "system-config"
+    },
+    {
+      "path": "/mnt/btrfs_disk/DS Libraries",
+      "count": 20,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/build-ds-catalog-html.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/build-ds-catalog.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/extract-decentsampler-libs.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/fix-two-failed-archives.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/list-ds-libraries.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-ds-descriptions.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-ds-layout.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-ds-lib-art.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-missing-art.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-nonds-content.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/prune-nonds.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/setup-ds-symlinks.sh"
+      ],
+      "kind": "btrfs-libraries"
+    },
+    {
+      "path": "/mnt/workspace/VST Install/Kontakt Portable/UserData/Kontakt 8/komplete.db3",
+      "count": 20,
+      "files": [
+        "kiro/specs/kontakt-wine-optimization/results/RESTORE.md",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/build-kontakt-catalog-html.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/confirm-single-pg-row.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/db-converge-z-only.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/db-final-df-cleanup.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/delete-stale-pg-soundinfo.py",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/find-stale-pg-everywhere.py",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/fix-df-paths.py",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/fix-pluginguru-final.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-df-paths.py",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-kontakt-libs.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-pg-duplicate.sh"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/workspace/VST Install/Kontakt Portable/UserData",
+      "count": 19,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/check-db-wal-and-state.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/check-reg-and-tiles-state.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/confirm-single-pg-row.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/db-rebuild.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/db-repoint-fastdrives.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/db-restore-from-backup.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/db-restore-surgical.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/db-restore-tiles-repoint-only.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/inspect-kontakt-settings.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-browser-cache-pg.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-browser-index.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-cache-validation.sh"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/storage",
+      "count": 18,
+      "files": [
+        "kiro/scripts/kontakt_scan.py",
+        "kiro/specs/kontakt-wine-optimization/design.md",
+        "kiro/specs/kontakt-wine-optimization/requirements.md",
+        "kiro/specs/kontakt-wine-optimization/results/cleanup-report.md",
+        "kiro/specs/kontakt-wine-optimization/results/import-candidates.md",
+        "kiro/specs/kontakt-wine-optimization/results/progress-notes.md",
+        "kiro/specs/kontakt-wine-optimization/tasks.md",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/INSTALL.md",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/find-tile-artwork.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/fstab-ntfs3g-conversion.md",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/ntfs3-clean-unmount.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/tasks.md"
+      ],
+      "kind": "storage-ntfs"
+    },
+    {
+      "path": "~/.wine",
+      "count": 17,
+      "files": [
+        "kiro/specs/kontakt-wine-optimization/design.md",
+        "kiro/specs/kontakt-wine-optimization/requirements.md",
+        "kiro/specs/kontakt-wine-optimization/results/progress-notes.md",
+        "kiro/specs/kontakt-wine-optimization/tasks.md",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/check-reg-and-tiles-state.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-prefix-snapshot.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/design.md",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/tasks.md"
+      ],
+      "kind": "wine-prefix"
+    },
+    {
+      "path": "/mnt/wd_black/DS Libraries",
+      "count": 15,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/build-ds-catalog-html.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/build-ds-catalog.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/extract-decentsampler-libs.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/fix-two-failed-archives.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-ds-descriptions.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-ds-layout.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-ds-lib-art.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-missing-art.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-nonds-content.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/prune-nonds.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/setup-ds-symlinks.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/verify-prune-targets.sh"
+      ],
+      "kind": "wd-black-ntfs"
+    },
+    {
+      "path": "/etc/fstab",
+      "count": 11,
+      "files": [
+        "kiro/specs/kontakt-wine-optimization/results/README.md",
+        "kiro/specs/kontakt-wine-optimization/results/progress-notes.md",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/backup-known-good-state.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/fstab-ntfs3g-conversion.md",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/tasks.md"
+      ],
+      "kind": "system-config"
+    },
+    {
+      "path": "/usr/local/sbin/ntfs3-clean-unmount.sh",
+      "count": 10,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/INSTALL.md",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/backup-known-good-state.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/ntfs3-clean-unmount.service",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/ntfs3-clean-unmount.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/design.md",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/tasks.md"
+      ],
+      "kind": "installed-helper"
+    },
+    {
+      "path": "/etc/usb-audio-resume.conf",
+      "count": 9,
+      "files": [
+        "kiro/specs/usb-audio-resume/design.md",
+        "kiro/specs/usb-audio-resume/requirements.md",
+        "kiro/specs/usb-audio-resume/tasks.md"
+      ],
+      "kind": "system-config"
+    },
+    {
+      "path": "/mnt/btrfs_disk",
+      "count": 9,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/analyze-decentsampler-libs.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/backup-known-good-state.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/find-tile-artwork.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-df-paths.py",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/relocate-batch2-light-sdd1.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/reorg-player-custom.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/tasks.md"
+      ],
+      "kind": "btrfs-libraries"
+    },
+    {
+      "path": "/mnt/btrfs_disk/Kontakt Libraries/Custom",
+      "count": 8,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/make-tiles-batch.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-blank-nicnt-vs-niimage.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-custom-cover-convention.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-nki-name-vs-working.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-remaining-blanks.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/relocate-two-uniques.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/rename-pluginguru-folder.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/revert-pluginguru-rename.sh"
+      ],
+      "kind": "btrfs-libraries"
+    },
+    {
+      "path": "~/.wine/dosdevices",
+      "count": 8,
+      "files": [
+        "kiro/specs/kontakt-wine-optimization/design.md",
+        "kiro/specs/kontakt-wine-optimization/requirements.md",
+        "kiro/specs/kontakt-wine-optimization/results/README.md",
+        "kiro/specs/kontakt-wine-optimization/results/RESTORE.md",
+        "kiro/specs/kontakt-wine-optimization/tasks.md"
+      ],
+      "kind": "wine-prefix"
+    },
+    {
+      "path": "/mnt/win_system",
+      "count": 7,
+      "files": [
+        "kiro/specs/kontakt-wine-optimization/design.md",
+        "kiro/specs/kontakt-wine-optimization/requirements.md",
+        "kiro/specs/kontakt-wine-optimization/results/README.md",
+        "kiro/specs/kontakt-wine-optimization/results/RESTORE.md",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/find-tile-artwork.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-df-paths.py"
+      ],
+      "kind": "windows-system"
+    },
+    {
+      "path": "/mnt/workspace/VST Install/Kontakt Portable",
+      "count": 7,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/backup-known-good-state.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/check-live-paresources.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/find-kontakt-install-config.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-kontakt-install-path.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-kontakt-libs.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-vst3plugin-file.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/quick-wine-state-check.sh"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/workspace/VST Install/Kontakt Portable/UserData/Kontakt 8/LibrariesCache",
+      "count": 7,
+      "files": [
+        "kiro/specs/kontakt-wine-optimization/results/progress-notes.md",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/check-snpid-cache-direct.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/diff-tiles-vs-knowngood.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/map-cache-sources.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/map-cache-to-library.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/map-snpid-cache.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/map-snpid-cache2.sh"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/etc/systemd/system/",
+      "count": 6,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/backup-known-good-state.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/design.md",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/tasks.md",
+        "kiro/specs/usb-audio-resume/tasks.md"
+      ],
+      "kind": "system-config"
+    },
+    {
+      "path": "/usr/local/bin/turing-usb-reset",
+      "count": 6,
+      "files": [
+        "kiro/scripts/install_turing.sh",
+        "kiro/specs/turing-wake-recovery/requirements.md"
+      ],
+      "kind": "installed-helper"
+    },
+    {
+      "path": "/etc/fstab.bak_20260901",
+      "count": 5,
+      "files": [
+        "kiro/specs/kontakt-wine-optimization/results/README.md",
+        "kiro/specs/kontakt-wine-optimization/results/progress-notes.md",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/design.md"
+      ],
+      "kind": "system-config"
+    },
+    {
+      "path": "/home/phnx/Prejemi/Yabridge_Windows",
+      "count": 5,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/check-yabridge-windows-contents.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/list-yw-plugins.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-loaded-vst3-origin.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-yabridge-repoint.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/tasks.md"
+      ],
+      "kind": "cachyos-home"
+    },
+    {
+      "path": "/mnt/btrfs_disk/Kontakt Libraries",
+      "count": 5,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/db-classify-nonz.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/db-finalize-zonly.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/db-repoint-fastdrives.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/db-restore-tiles-repoint-only.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/scan-library-artwork.sh"
+      ],
+      "kind": "btrfs-libraries"
+    },
+    {
+      "path": "/mnt/btrfs_disk/Kontakt Libraries/Custom/PlugInGuru.MegaMagic.Bells.Winds.KONTAKT",
+      "count": 5,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/deep-nks-probe.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-pluginguru-deep.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-pluginguru-key.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-remaining-blanks.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/rename-pluginguru-folder.sh"
+      ],
+      "kind": "btrfs-libraries"
+    },
+    {
+      "path": "/mnt/wd_black/Kontakt Libraries",
+      "count": 5,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/db-classify-nonz.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/db-finalize-zonly.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/db-repoint-fastdrives.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/db-restore-tiles-repoint-only.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/scan-library-artwork.sh"
+      ],
+      "kind": "wd-black-ntfs"
+    },
+    {
+      "path": "/mnt/workspace/VST Install/Kontakt Portable/Kontakt 8/Content/Tools",
+      "count": 5,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/check-tools-patches.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/inspect-nkt-headers.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/remove-tools-chords-phrases.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/restore-tools-nkt.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/verify-tools-state.sh"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/usr/local/sbin/",
+      "count": 5,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/ntfs3-clean-unmount.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/design.md",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/tasks.md"
+      ],
+      "kind": "installed-helper"
+    },
+    {
+      "path": "/usr/local/sbin/ntfs-dirty-detect.sh",
+      "count": 5,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/INSTALL.md",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/backup-known-good-state.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/ntfs-dirty-detect.service",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/ntfs-dirty-detect.sh"
+      ],
+      "kind": "installed-helper"
+    },
+    {
+      "path": "/etc/os-release",
+      "count": 4,
+      "files": [
+        "kiro/scripts/install_turing.sh",
+        "kiro/scripts/install_turing_original.sh"
+      ],
+      "kind": "system-config"
+    },
+    {
+      "path": "/etc/systemd/system/turing-display-sleep.service",
+      "count": 4,
+      "files": [
+        "kiro/scripts/install_turing.sh"
+      ],
+      "kind": "system-config"
+    },
+    {
+      "path": "/etc/udev/rules.d/99-turing.rules",
+      "count": 4,
+      "files": [
+        "kiro/scripts/install_turing.sh",
+        "kiro/scripts/install_turing_original.sh"
+      ],
+      "kind": "system-config"
+    },
+    {
+      "path": "/mnt/btrfs_disk/Kontakt Libraries/Custom/PlugInGuru.MegaMagic.Bells.Winds.KONTAKT/MegaMagic Artwork.jpg",
+      "count": 4,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/fix-pluginguru-final.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/fix-pluginguru-nkiname.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/fix-pluginguru-tiledir.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/make-tiles-batch.sh"
+      ],
+      "kind": "btrfs-libraries"
+    },
+    {
+      "path": "/mnt/wd_black/Kontakt Libraries/Custom",
+      "count": 4,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/make-tiles-batch.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-blank-nicnt-vs-niimage.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-custom-cover-convention.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-remaining-blanks.sh"
+      ],
+      "kind": "wd-black-ntfs"
+    },
+    {
+      "path": "/mnt/wd_black/kontakt-known-good-20260907_123950/kontakt_userdata/komplete.db3",
+      "count": 4,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/check-db-wal-and-state.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/diff-db-content.py",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/diff-db-content2.py",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/restore-komplete-db-tiles.sh"
+      ],
+      "kind": "wd-black-ntfs"
+    },
+    {
+      "path": "/mnt/workspace/Free VST-s/Pianobook/Decent Sampler",
+      "count": 4,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/analyze-decentsampler-libs.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/extract-decentsampler-libs.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/fix-two-failed-archives.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/tasks.md"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/workspace/VST Install/Kontakt Portable/UserData/komplete.db3",
+      "count": 4,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/diff-db-content.py",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/diff-db-content2.py",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/inspect-db-tile-fields.py",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/read-db-robust.sh"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/usr/local/bin",
+      "count": 4,
+      "files": [
+        "kiro/scripts/install_turing.sh",
+        "kiro/scripts/install_turing_original.sh"
+      ],
+      "kind": "installed-helper"
+    },
+    {
+      "path": "/usr/local/bin/usb-audio-resume.sh",
+      "count": 4,
+      "files": [
+        "kiro/specs/usb-audio-resume/design.md",
+        "kiro/specs/usb-audio-resume/tasks.md"
+      ],
+      "kind": "installed-helper"
+    },
+    {
+      "path": "~/.config/DecentSampler/Sample",
+      "count": 4,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-ds-doubled-path.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/tasks.md"
+      ],
+      "kind": "decent-sampler"
+    },
+    {
+      "path": "~/.vst3/yabridge",
+      "count": 4,
+      "files": [
+        "kiro/specs/kontakt-wine-optimization/results/progress-notes.md",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/check-yabridge-windows-contents.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-loaded-vst3-origin.sh"
+      ],
+      "kind": "wine-prefix"
+    },
+    {
+      "path": "~/.vst3/yabridge/Kontakt",
+      "count": 4,
+      "files": [
+        "kiro/specs/kontakt-wine-optimization/results/progress-notes.md",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/tasks.md"
+      ],
+      "kind": "wine-prefix"
+    },
+    {
+      "path": "~/.vst3/yabridge/yabridge.toml",
+      "count": 4,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/yabridge.toml",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/tasks.md"
+      ],
+      "kind": "wine-prefix"
+    },
+    {
+      "path": "~/.wine/dosdevices/f",
+      "count": 4,
+      "files": [
+        "kiro/specs/kontakt-wine-optimization/results/progress-notes.md",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/tasks.md"
+      ],
+      "kind": "wine-prefix"
+    },
+    {
+      "path": "/etc/sudoers.d/turing-usb",
+      "count": 3,
+      "files": [
+        "kiro/scripts/install_turing.sh"
+      ],
+      "kind": "system-config"
+    },
+    {
+      "path": "/home/phnx/KIRO/.kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts",
+      "count": 3,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/build-ds-catalog-html.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/build-ds-catalog.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/build-kontakt-catalog-html.sh"
+      ],
+      "kind": "cachyos-home"
+    },
+    {
+      "path": "/home/phnx/Slike/Missing",
+      "count": 3,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/install-guitar-covers.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/list-staged-web-art.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/make-tiles-web.sh"
+      ],
+      "kind": "cachyos-home"
+    },
+    {
+      "path": "/mnt/btrfs_disk/Kontakt Libraries/Player",
+      "count": 3,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-blank-nicnt-vs-niimage.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-custom-cover-convention.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-remaining-blanks.sh"
+      ],
+      "kind": "btrfs-libraries"
+    },
+    {
+      "path": "/mnt/wd_black/Kontakt VST-i",
+      "count": 3,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/relocate-batch0-duplicates.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/relocate-batch1-heavy-wdblack.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/relocate-batch2-light-sdd1.sh"
+      ],
+      "kind": "wd-black-ntfs"
+    },
+    {
+      "path": "/mnt/wd_black/TIXATI DL",
+      "count": 3,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/relocate-batch0-duplicates.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/relocate-batch1-heavy-wdblack.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/relocate-batch2-light-sdd1.sh"
+      ],
+      "kind": "wd-black-ntfs"
+    },
+    {
+      "path": "/mnt/wd_black/kontakt-known-good-20260907_123950",
+      "count": 3,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/diff-tiles-vs-knowngood.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-prefix-snapshot.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/tasks.md"
+      ],
+      "kind": "wd-black-ntfs"
+    },
+    {
+      "path": "/mnt/workspace/BACKUP/Kontakt 8/Content/Tools",
+      "count": 3,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/check-tools-patches.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/inspect-nkt-headers.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/restore-tools-nkt.sh"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/workspace/VST Install/Kontakt Portable/Kontakt 8/x64",
+      "count": 3,
+      "files": [
+        "kiro/scripts/launch_kontakt_lowlatency.sh",
+        "kiro/scripts/launch_kontakt_wineasio.sh",
+        "kiro/specs/kontakt-wine-optimization/results/README.md"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/workspace/VST Install/Kontakt Portable/Kontakt 8/x64/VST3/Kontakt 8 Portable.vst3",
+      "count": 3,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-yabridge-repoint.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/tasks.md"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/workspace/VST Install/Kontakt Portable/UserData/Settings.cfg",
+      "count": 3,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/map-snpid-cache.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/map-snpid-cache2.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/read-db-robust.sh"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/workspace/VST Install/Kontakt Vst-i",
+      "count": 3,
+      "files": [
+        "kiro/scripts/kontakt_scan.py",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/relocate-batch1-heavy-wdblack.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/relocate-batch2-light-sdd1.sh"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "~/.config/pipewire/pipewire.conf.d/10-lowlatency.conf",
+      "count": 3,
+      "files": [
+        "kiro/specs/kontakt-wine-optimization/design.md",
+        "kiro/specs/kontakt-wine-optimization/results/README.md",
+        "kiro/specs/kontakt-wine-optimization/tasks.md"
+      ],
+      "kind": "pipewire"
+    },
+    {
+      "path": "~/.vst3/yabridge/",
+      "count": 3,
+      "files": [
+        "kiro/specs/kontakt-wine-optimization/results/progress-notes.md",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/yabridge.toml"
+      ],
+      "kind": "wine-prefix"
+    },
+    {
+      "path": "~/.wine/dosdevices.bak_20260901",
+      "count": 3,
+      "files": [
+        "kiro/specs/kontakt-wine-optimization/results/README.md",
+        "kiro/specs/kontakt-wine-optimization/results/RESTORE.md",
+        "kiro/specs/kontakt-wine-optimization/results/progress-notes.md"
+      ],
+      "kind": "wine-prefix"
+    },
+    {
+      "path": "/etc/fstab.bak_",
+      "count": 2,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/fstab-ntfs3g-conversion.md",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/tasks.md"
+      ],
+      "kind": "system-config"
+    },
+    {
+      "path": "/etc/modules-load.d/nct6775.conf",
+      "count": 2,
+      "files": [
+        "kiro/scripts/install_turing.sh"
+      ],
+      "kind": "system-config"
+    },
+    {
+      "path": "/etc/systemd/system/ntfs3-clean-unmount.service",
+      "count": 2,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/INSTALL.md",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/design.md"
+      ],
+      "kind": "system-config"
+    },
+    {
+      "path": "/etc/systemd/system/systemd-suspend.service.d",
+      "count": 2,
+      "files": [
+        "kiro/scripts/install_turing.sh"
+      ],
+      "kind": "system-config"
+    },
+    {
+      "path": "/etc/systemd/system/usb-audio-resume.service",
+      "count": 2,
+      "files": [
+        "kiro/specs/usb-audio-resume/design.md",
+        "kiro/specs/usb-audio-resume/tasks.md"
+      ],
+      "kind": "system-config"
+    },
+    {
+      "path": "/etc/systemd/system/vboxusb-perms.service",
+      "count": 2,
+      "files": [
+        "kiro/scripts/install_turing.sh"
+      ],
+      "kind": "system-config"
+    },
+    {
+      "path": "/etc/systemd/system/workspace-mount-check.service",
+      "count": 2,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/INSTALL.md",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/design.md"
+      ],
+      "kind": "system-config"
+    },
+    {
+      "path": "/etc/udev/rules.d/99-turing-wake.rules",
+      "count": 2,
+      "files": [
+        "kiro/scripts/install_turing.sh"
+      ],
+      "kind": "system-config"
+    },
+    {
+      "path": "/home/phnx/.config/DecentSampler/.config/DecentSampler/Sample",
+      "count": 2,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-decentsampler-crash.sh"
+      ],
+      "kind": "cachyos-home"
+    },
+    {
+      "path": "/home/phnx/KIRO/launch_kontakt_wineasio.sh",
+      "count": 2,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/fix-quantum-128.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/tasks.md"
+      ],
+      "kind": "cachyos-home"
+    },
+    {
+      "path": "/mnt/btrfs_disk/DS Libraries/",
+      "count": 2,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/extract-decentsampler-libs.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/tasks.md"
+      ],
+      "kind": "btrfs-libraries"
+    },
+    {
+      "path": "/mnt/btrfs_disk/Kontakt Libraries/Custom/Sonic Mechanics - Tropical Trap",
+      "count": 2,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/deep-nks-probe.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-pluginguru-deep.sh"
+      ],
+      "kind": "btrfs-libraries"
+    },
+    {
+      "path": "/mnt/btrfs_disk/Kontakt Libraries/Player/Amati Viola Library",
+      "count": 2,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/inspect-nkt-headers.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-nkr-artwork.sh"
+      ],
+      "kind": "btrfs-libraries"
+    },
+    {
+      "path": "/mnt/wd_black/KONTAKT BACKUP/goodstate_snapshot_",
+      "count": 2,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/snapshot-goodstate.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/tasks.md"
+      ],
+      "kind": "wd-black-ntfs"
+    },
+    {
+      "path": "/mnt/wd_black/Kontakt VST-i/",
+      "count": 2,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/tasks.md"
+      ],
+      "kind": "wd-black-ntfs"
+    },
+    {
+      "path": "/mnt/wd_black/kontakt-known-good-20260907_123950/kontakt_userdata",
+      "count": 2,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/diff-tiles-vs-knowngood.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-browser-index.sh"
+      ],
+      "kind": "wd-black-ntfs"
+    },
+    {
+      "path": "/mnt/workspace  ntfs3  rw",
+      "count": 2,
+      "files": [
+        "kiro/specs/kontakt-wine-optimization/design.md",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/design.md"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/workspace is not mounted after boot",
+      "count": 2,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/workspace-mount-check.service",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/design.md"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/workspace mounted OK",
+      "count": 2,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/workspace-mount-check.service",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/tasks.md"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/workspace/",
+      "count": 2,
+      "files": [
+        "kiro/specs/kontakt-wine-optimization/results/progress-notes.md",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/design.md"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/workspace/BACKUP/Kontakt 8/Content/Tools/",
+      "count": 2,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/remove-tools-chords-phrases.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/tasks.md"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/workspace/BACKUP/Kontakt 8/PAResources/image",
+      "count": 2,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/check-live-paresources.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/map-cache-sources.sh"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/workspace/VST Install/Kontakt Portable/Kontakt 8/Content/Presets",
+      "count": 2,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/backup-lofi-piano-folders.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-lofi-piano-refs.sh"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/workspace/VST Install/Kontakt Portable/Kontakt 8/Content/Presets/Piano Uno",
+      "count": 2,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-piano-nki-refs.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/quarantine-piano-multis.sh"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/workspace/VST Install/Kontakt Portable/Kontakt 8/x64/VST3/",
+      "count": 2,
+      "files": [
+        "kiro/specs/kontakt-wine-optimization/results/progress-notes.md"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/workspace/VST Install/Kontakt Portable/UserData/Kontakt 8/LibrariesCache/",
+      "count": 2,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/bugfix.md",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/design.md"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/workspace/VST Install/Kontakt Portable/UserData/NI Resources",
+      "count": 2,
+      "files": [
+        "kiro/specs/kontakt-wine-optimization/results/RESTORE.md"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/workspace/VST Install/Kontakt Portable/UserData/_kiro_removed_tools_chords_phrases",
+      "count": 2,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/remove-tools-chords-phrases.sh",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/verify-tools-state.sh"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/usr/local/sbin",
+      "count": 2,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/INSTALL.md",
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/tasks.md"
+      ],
+      "kind": "installed-helper"
+    },
+    {
+      "path": "~/.cache/turing-themes-backup.tar.gz",
+      "count": 2,
+      "files": [
+        "kiro/scripts/install_turing.sh"
+      ],
+      "kind": "other"
+    },
+    {
+      "path": "~/.config/fish/conf.d/turing.fish",
+      "count": 2,
+      "files": [
+        "kiro/scripts/install_turing.sh",
+        "kiro/scripts/install_turing_original.sh"
+      ],
+      "kind": "other"
+    },
+    {
+      "path": "~/.wine/*.reg",
+      "count": 2,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/tasks.md"
+      ],
+      "kind": "wine-prefix"
+    },
+    {
+      "path": "~/.wine/dosdevices/f:.disabled",
+      "count": 2,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/tasks.md"
+      ],
+      "kind": "wine-prefix"
+    },
+    {
+      "path": "~/.wine/drive_c/windows/system32/",
+      "count": 2,
+      "files": [
+        "kiro/specs/kontakt-wine-optimization/results/progress-notes.md"
+      ],
+      "kind": "wine-prefix"
+    },
+    {
+      "path": "~/.wine/system.reg",
+      "count": 2,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/tasks.md"
+      ],
+      "kind": "wine-prefix"
+    },
+    {
+      "path": "~/DS Libraries All",
+      "count": 2,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/tasks.md"
+      ],
+      "kind": "other"
+    },
+    {
+      "path": "/etc/fstab.bak_YYYYMMDD_HHMMSS",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/fstab-ntfs3g-conversion.md"
+      ],
+      "kind": "system-config"
+    },
+    {
+      "path": "/etc/pacman.conf",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/tasks.md"
+      ],
+      "kind": "system-config"
+    },
+    {
+      "path": "/etc/security/limits.conf",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/fix-reaper-rtprio.sh"
+      ],
+      "kind": "system-config"
+    },
+    {
+      "path": "/etc/security/limits.d/",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/fix-reaper-rtprio.sh"
+      ],
+      "kind": "system-config"
+    },
+    {
+      "path": "/etc/systemd/system",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/INSTALL.md"
+      ],
+      "kind": "system-config"
+    },
+    {
+      "path": "/etc/systemd/system/ntfs-dirty-detect.service",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/INSTALL.md"
+      ],
+      "kind": "system-config"
+    },
+    {
+      "path": "/home/phnx/.config/DecentSampler/Sample",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/tasks.md"
+      ],
+      "kind": "cachyos-home"
+    },
+    {
+      "path": "/home/phnx/DS",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/build-ds-catalog.sh"
+      ],
+      "kind": "cachyos-home"
+    },
+    {
+      "path": "/home/phnx/KIRO/.kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/covers-manual",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/install-guitar-covers.sh"
+      ],
+      "kind": "cachyos-home"
+    },
+    {
+      "path": "/home/phnx/KIRO/.kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/decentsampler-analysis.txt",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/analyze-decentsampler-libs.sh"
+      ],
+      "kind": "cachyos-home"
+    },
+    {
+      "path": "/home/phnx/KIRO/.kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/ds-desc-probe.txt",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-ds-descriptions.sh"
+      ],
+      "kind": "cachyos-home"
+    },
+    {
+      "path": "/home/phnx/KIRO/.kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/ds-lib-missing-art.txt",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-ds-lib-art.sh"
+      ],
+      "kind": "cachyos-home"
+    },
+    {
+      "path": "/home/phnx/KIRO/.kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/ds-library-inventory.txt",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/list-ds-libraries.sh"
+      ],
+      "kind": "cachyos-home"
+    },
+    {
+      "path": "/home/phnx/KIRO/.kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/extract-decentsampler-run.log",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/extract-decentsampler-libs.sh"
+      ],
+      "kind": "cachyos-home"
+    },
+    {
+      "path": "/home/phnx/KIRO/.kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/kontakt-libs-probe.txt",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-kontakt-libs.sh"
+      ],
+      "kind": "cachyos-home"
+    },
+    {
+      "path": "/home/phnx/KIRO/.kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/kontakt-load-error.log",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/capture-kontakt-load-error.sh"
+      ],
+      "kind": "cachyos-home"
+    },
+    {
+      "path": "/home/phnx/KIRO/.kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/missing-art.txt",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-missing-art.sh"
+      ],
+      "kind": "cachyos-home"
+    },
+    {
+      "path": "/home/phnx/KIRO/.kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/nonds-content-probe.txt",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-nonds-content.sh"
+      ],
+      "kind": "cachyos-home"
+    },
+    {
+      "path": "/home/phnx/KIRO/launch_kontakt_wineasio.sh.bak_20260909_172515",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/tasks.md"
+      ],
+      "kind": "cachyos-home"
+    },
+    {
+      "path": "/mnt/",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/build-kontakt-catalog-html.sh"
+      ],
+      "kind": "other"
+    },
+    {
+      "path": "/mnt/... . DEDUP",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/tasks.md"
+      ],
+      "kind": "other"
+    },
+    {
+      "path": "/mnt/... for on-disk inspection",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/find-tile-artwork.sh"
+      ],
+      "kind": "other"
+    },
+    {
+      "path": "/mnt/... to test existence",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-cache-validation.sh"
+      ],
+      "kind": "other"
+    },
+    {
+      "path": "/mnt/btrfs_disk/Kontakt Libraries/",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/tasks.md"
+      ],
+      "kind": "btrfs-libraries"
+    },
+    {
+      "path": "/mnt/btrfs_disk/Kontakt Libraries/Custom/",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/tasks.md"
+      ],
+      "kind": "btrfs-libraries"
+    },
+    {
+      "path": "/mnt/btrfs_disk/Kontakt Libraries/Custom/Doru Malaia - Ethnic Super Drums Collection",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/deep-nks-probe.sh"
+      ],
+      "kind": "btrfs-libraries"
+    },
+    {
+      "path": "/mnt/btrfs_disk/Kontakt Libraries/Custom/Doru Malaia - Ethnic Super Drums Collection/wallpaper.png",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/make-tiles-batch.sh"
+      ],
+      "kind": "btrfs-libraries"
+    },
+    {
+      "path": "/mnt/btrfs_disk/Kontakt Libraries/Custom/Drumdrops - Vintage Funk Kit",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/deep-nks-probe.sh"
+      ],
+      "kind": "btrfs-libraries"
+    },
+    {
+      "path": "/mnt/btrfs_disk/Kontakt Libraries/Custom/Epic SoundLab - The Forge",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/deep-nks-probe.sh"
+      ],
+      "kind": "btrfs-libraries"
+    },
+    {
+      "path": "/mnt/btrfs_disk/Kontakt Libraries/Custom/Hy2rogen - Tekno House Nights",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/make-tile-hy2rogen.sh"
+      ],
+      "kind": "btrfs-libraries"
+    },
+    {
+      "path": "/mnt/btrfs_disk/Kontakt Libraries/Custom/Keyscape - 13",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/deep-nks-probe.sh"
+      ],
+      "kind": "btrfs-libraries"
+    },
+    {
+      "path": "/mnt/btrfs_disk/Kontakt Libraries/Custom/PlugInGuru MegaMagic",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/tasks.md"
+      ],
+      "kind": "btrfs-libraries"
+    },
+    {
+      "path": "/mnt/btrfs_disk/Kontakt Libraries/Custom/PlugInGuru MegaMagic Bells Winds",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/rename-pluginguru-folder.sh"
+      ],
+      "kind": "btrfs-libraries"
+    },
+    {
+      "path": "/mnt/btrfs_disk/Kontakt Libraries/Custom/Sonic Mechanics - Classic Guitar Licks",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/deep-nks-probe.sh"
+      ],
+      "kind": "btrfs-libraries"
+    },
+    {
+      "path": "/mnt/btrfs_disk/Kontakt Libraries/Custom/Sonic Mechanics - Classic Guitar Licks/Sonic Mechanics Classic Guitar Licks.jpg",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/make-tiles-batch.sh"
+      ],
+      "kind": "btrfs-libraries"
+    },
+    {
+      "path": "/mnt/btrfs_disk/Kontakt Libraries/Custom/Sonic Mechanics - EDM Energy Drums",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/deep-nks-probe.sh"
+      ],
+      "kind": "btrfs-libraries"
+    },
+    {
+      "path": "/mnt/btrfs_disk/Kontakt Libraries/Custom/Sonic Mechanics - EDM Energy Drums/Sonic Mechanics - EDM Energy Drums.jpg",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/make-tiles-batch.sh"
+      ],
+      "kind": "btrfs-libraries"
+    },
+    {
+      "path": "/mnt/btrfs_disk/Kontakt Libraries/Custom/Sonic Mechanics - Future Cinematic FX",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/deep-nks-probe.sh"
+      ],
+      "kind": "btrfs-libraries"
+    },
+    {
+      "path": "/mnt/btrfs_disk/Kontakt Libraries/Custom/Sonic Mechanics - Future Cinematic FX/CFX-Cover.jpg",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/make-tiles-batch.sh"
+      ],
+      "kind": "btrfs-libraries"
+    },
+    {
+      "path": "/mnt/btrfs_disk/Kontakt Libraries/Custom/Sonic Mechanics - Tropical Trap/TT-Cover.jpg",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/make-tile-proof.sh"
+      ],
+      "kind": "btrfs-libraries"
+    },
+    {
+      "path": "/mnt/btrfs_disk/Kontakt Libraries/Custom/String Audio - Alchemist Cinematic Impacts",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/deep-nks-probe.sh"
+      ],
+      "kind": "btrfs-libraries"
+    },
+    {
+      "path": "/mnt/btrfs_disk/Kontakt Libraries/Player/5Elements",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/inspect-nkt-headers.sh"
+      ],
+      "kind": "btrfs-libraries"
+    },
+    {
+      "path": "/mnt/btrfs_disk/Kontakt Libraries/Player/Balinese Gamelan Library",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-nkr-artwork.sh"
+      ],
+      "kind": "btrfs-libraries"
+    },
+    {
+      "path": "/mnt/btrfs_disk/Kontakt Libraries/Player/Cloud Supply Library",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-nkr-artwork.sh"
+      ],
+      "kind": "btrfs-libraries"
+    },
+    {
+      "path": "/mnt/btrfs_disk/Kontakt Libraries/Player/Middle East Library",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-nkr-artwork.sh"
+      ],
+      "kind": "btrfs-libraries"
+    },
+    {
+      "path": "/mnt/btrfs_disk/Kontakt Libraries/Player/Pharlight Library",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-nkr-artwork.sh"
+      ],
+      "kind": "btrfs-libraries"
+    },
+    {
+      "path": "/mnt/btrfs_disk/Kontakt VST-i",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/relocate-batch2-light-sdd1.sh"
+      ],
+      "kind": "btrfs-libraries"
+    },
+    {
+      "path": "/mnt/btrfs_disk/Kontakt VST-i/",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/tasks.md"
+      ],
+      "kind": "btrfs-libraries"
+    },
+    {
+      "path": "/mnt/storage   ntfs-3g rw",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/fstab-ntfs3g-conversion.md"
+      ],
+      "kind": "storage-ntfs"
+    },
+    {
+      "path": "/mnt/storage   ntfs3 rw",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/fstab-ntfs3g-conversion.md"
+      ],
+      "kind": "storage-ntfs"
+    },
+    {
+      "path": "/mnt/storage/REC/",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-wine-optimization/results/import-candidates.md"
+      ],
+      "kind": "storage-ntfs"
+    },
+    {
+      "path": "/mnt/wd_black  ntfs-3g rw",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/fstab-ntfs3g-conversion.md"
+      ],
+      "kind": "wd-black-ntfs"
+    },
+    {
+      "path": "/mnt/wd_black  ntfs3 rw",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/fstab-ntfs3g-conversion.md"
+      ],
+      "kind": "wd-black-ntfs"
+    },
+    {
+      "path": "/mnt/wd_black is not mounted. Mount it",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/snapshot-goodstate.sh"
+      ],
+      "kind": "wd-black-ntfs"
+    },
+    {
+      "path": "/mnt/wd_black mounted",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/tasks.md"
+      ],
+      "kind": "wd-black-ntfs"
+    },
+    {
+      "path": "/mnt/wd_black not mounted",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/backup-lofi-piano-folders.sh"
+      ],
+      "kind": "wd-black-ntfs"
+    },
+    {
+      "path": "/mnt/wd_black/DS Libraries/",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/extract-decentsampler-libs.sh"
+      ],
+      "kind": "wd-black-ntfs"
+    },
+    {
+      "path": "/mnt/wd_black/DS Libraries/Festive Celeste",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-festive-celeste.sh"
+      ],
+      "kind": "wd-black-ntfs"
+    },
+    {
+      "path": "/mnt/wd_black/KONTAKT BACKUP",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/snapshot-goodstate.sh"
+      ],
+      "kind": "wd-black-ntfs"
+    },
+    {
+      "path": "/mnt/wd_black/KONTAKT BACKUP/goodstate_snapshot_20260909_150258/",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/tasks.md"
+      ],
+      "kind": "wd-black-ntfs"
+    },
+    {
+      "path": "/mnt/wd_black/KONTAKT BACKUP/presets_pre_resave_",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/backup-lofi-piano-folders.sh"
+      ],
+      "kind": "wd-black-ntfs"
+    },
+    {
+      "path": "/mnt/wd_black/Kontakt Libraries/",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/tasks.md"
+      ],
+      "kind": "wd-black-ntfs"
+    },
+    {
+      "path": "/mnt/wd_black/Kontakt Libraries/Custom/Audio Imperia - Sinfonia Drums",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/deep-nks-probe.sh"
+      ],
+      "kind": "wd-black-ntfs"
+    },
+    {
+      "path": "/mnt/wd_black/Kontakt Libraries/Player",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-blank-nicnt-vs-niimage.sh"
+      ],
+      "kind": "wd-black-ntfs"
+    },
+    {
+      "path": "/mnt/wd_black/Kontakt Libraries/Player/GetGood Drums - Modern and Massive Pack",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-remaining-blanks.sh"
+      ],
+      "kind": "wd-black-ntfs"
+    },
+    {
+      "path": "/mnt/wd_black/kontakt-known-good-20260907_123255/",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/tasks.md"
+      ],
+      "kind": "wd-black-ntfs"
+    },
+    {
+      "path": "/mnt/wd_black/kontakt-known-good-20260907_123950/kontakt_userdata/LibrariesCache",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-cache-validation.sh"
+      ],
+      "kind": "wd-black-ntfs"
+    },
+    {
+      "path": "/mnt/wd_black/kontakt-known-good-20260907_123950/wine",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/restore-wine-registry.sh"
+      ],
+      "kind": "wd-black-ntfs"
+    },
+    {
+      "path": "/mnt/wd_black/kontakt-known-good-20260907_123950/wine/",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/tasks.md"
+      ],
+      "kind": "wd-black-ntfs"
+    },
+    {
+      "path": "/mnt/win_system VST3",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-wine-optimization/results/progress-notes.md"
+      ],
+      "kind": "windows-system"
+    },
+    {
+      "path": "/mnt/win_system/.../Native Instruments/Kontakt/LibrariesCache",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/tasks.md"
+      ],
+      "kind": "windows-system"
+    },
+    {
+      "path": "/mnt/win_system/.../Native Instruments/Kontakt/LibrariesCache/",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/map-cache-sources.sh"
+      ],
+      "kind": "windows-system"
+    },
+    {
+      "path": "/mnt/win_system/Program Files/",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-wine-optimization/results/progress-notes.md"
+      ],
+      "kind": "windows-system"
+    },
+    {
+      "path": "/mnt/win_system/Program Files/Common Files/VST3/",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-wine-optimization/results/progress-notes.md"
+      ],
+      "kind": "windows-system"
+    },
+    {
+      "path": "/mnt/win_system/Users/enspi/AppData/Local/Native Instruments/Kontakt/LibrariesCache",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/map-cache-sources.sh"
+      ],
+      "kind": "windows-system"
+    },
+    {
+      "path": "/mnt/workspace .vst3",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-loaded-vst3-origin.sh"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/workspace NOT mounted",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/design.md"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/workspace NOT mounted after boot",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/workspace-mount-check.service"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/workspace UserData",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/check-reg-and-tiles-state.sh"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/workspace actually mounted right now",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/quick-wine-state-check.sh"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/workspace again it should",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-wine-optimization/results/progress-notes.md"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/workspace as in dosdevices_listing.txt",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/backup-known-good-state.sh"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/workspace but tiles still blank",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-tile-resources.sh"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/workspace etc. are preserved literally",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/backup-known-good-state.sh"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/workspace for those presets/libraries to resolve",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-wine-optimization/results/progress-notes.md"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/workspace here",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-df-paths.py"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/workspace install tree. Kontakt Portable resolves its",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-loaded-vst3-origin.sh"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/workspace is missing",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/workspace-mount-check.service"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/workspace is not mounted",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/design.md"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/workspace is not mounted -- Kontakt will not launch",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/INSTALL.md"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/workspace is not part of local-fs.target's",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/workspace-mount-check.service"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/workspace mounted",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/tasks.md"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/workspace must remain mapped",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-wine-optimization/results/progress-notes.md"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/workspace next to full tree",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-yabridge-repoint.sh"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/workspace ntfs-3g rw",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/fstab-ntfs3g-conversion.md"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/workspace ntfs3 rw",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/fstab-ntfs3g-conversion.md"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/workspace or /",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-kontakt-install-path.sh"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/workspace still mapped",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-kontakt-install-path.sh"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/workspace untouched by any wine/yabridge work. No registry rollback needed",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/tasks.md"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/workspace. Do NOT repurpose F",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-wine-optimization/results/progress-notes.md"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/workspace/BACKUP/Kontakt 8",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/tasks.md"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/workspace/BACKUP/Kontakt 8/Content",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-tools-removal.sh"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/workspace/BACKUP/Kontakt 8/PAResources/image/",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/map-cache-sources.sh"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/workspace/Free VST-s/Pianobook",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/analyze-decentsampler-libs.sh"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/workspace/Free VST-s/Pianobook/",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/analyze-decentsampler-libs.sh"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/workspace/Free VST-s/Pianobook/Decent Sampler/Festive Celeste.zip",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-festive-celeste.sh"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/workspace/VST Install/",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/tasks.md"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/workspace/VST Install/Kontakt Portable/Kontakt 8",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-kontakt-appdir.sh"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/workspace/VST Install/Kontakt Portable/Kontakt 8/Content",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-tools-removal.sh"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/workspace/VST Install/Kontakt Portable/Kontakt 8/Content/Presets/Lo-Fi Vibes",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/inspect-nkt-headers.sh"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/workspace/VST Install/Kontakt Portable/Kontakt 8/PAResources/image",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/check-nks2-tile.sh"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/workspace/VST Install/Kontakt Portable/Kontakt 8/x64/Kontakt 8.vst3plugin",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/quick-wine-state-check.sh"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/workspace/VST Install/Kontakt Portable/Kontakt 8/x64/VST3",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-loaded-vst3-origin.sh"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/workspace/VST Install/Kontakt Portable/UserData/Kontakt 8/Settings.cfg",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-tools-removal.sh"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/workspace/VST Install/Kontakt Portable/UserData/Kontakt 8/lock.lck",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/diag-kontakt-hang.sh"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/workspace/VST Install/Kontakt Portable/UserData/NI Resources/",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/tasks.md"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/workspace/VST Install/Kontakt Portable/UserData/NI Resources/database/pal/",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-wine-optimization/design.md"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/workspace/VST Install/Kontakt Portable/UserData/Service Center/LibraryHints.xml",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/purge-guid-libraryhints.sh"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/workspace/VST Install/Kontakt Portable/UserData/_kiro_backup_20260901/",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-wine-optimization/results/RESTORE.md"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/workspace/VST Install/Kontakt Portable/UserData/_kiro_backup_20260901/NI Resources",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-wine-optimization/results/RESTORE.md"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/workspace/VST Install/Kontakt Portable/UserData/_kiro_backup_20260901/komplete.db3",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-wine-optimization/results/RESTORE.md"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/workspace/VST Install/Kontakt Portable/UserData/_kiro_piano_multis_removed_",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/quarantine-piano-multis.sh"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/workspace/VST Install/Kontakt Portable/UserData/_kiro_tools_nkt_backup_",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/restore-tools-nkt.sh"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/workspace/VST Install/Kontakt Vst-i Folders",
+      "count": 1,
+      "files": [
+        "kiro/scripts/kontakt_scan.py"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/workspace/VST Install/Kontakt Vst-i Folders/",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-wine-optimization/results/progress-notes.md"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/mnt/workspace/VST Install/Kontakt Vst-i/",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/bucket-A-allocation.md"
+      ],
+      "kind": "workspace-ntfs"
+    },
+    {
+      "path": "/usr/local/bin/",
+      "count": 1,
+      "files": [
+        "kiro/specs/usb-audio-resume/tasks.md"
+      ],
+      "kind": "installed-helper"
+    },
+    {
+      "path": "~/.cache/turing-themes-backup.tar.gz?",
+      "count": 1,
+      "files": [
+        "kiro/scripts/install_turing.sh"
+      ],
+      "kind": "other"
+    },
+    {
+      "path": "~/.config/DecentSampler/.config/DecentSampler/Sample",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-ds-doubled-path.sh"
+      ],
+      "kind": "decent-sampler"
+    },
+    {
+      "path": "~/.config/REAPER/",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-reaper-audio.sh"
+      ],
+      "kind": "other"
+    },
+    {
+      "path": "~/.config/pipewire/jack.conf.d/*.conf",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-jack-vs-device.sh"
+      ],
+      "kind": "pipewire"
+    },
+    {
+      "path": "~/.config/pipewire/jack.conf.d/99-reaper-latency.conf",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/probe-reaper-audio.sh"
+      ],
+      "kind": "pipewire"
+    },
+    {
+      "path": "~/.config/pipewire/pipewire.conf.d/",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts/fix-pw-config.sh"
+      ],
+      "kind": "pipewire"
+    },
+    {
+      "path": "~/.wine/",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/tasks.md"
+      ],
+      "kind": "wine-prefix"
+    },
+    {
+      "path": "~/.wine/.../system32/wineasio64.dll",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-wine-optimization/results/progress-notes.md"
+      ],
+      "kind": "wine-prefix"
+    },
+    {
+      "path": "~/.wine/_kiro_reg_backup_20260908_201906",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/tasks.md"
+      ],
+      "kind": "wine-prefix"
+    },
+    {
+      "path": "~/.wine/dosdevices.bak",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-wine-optimization/design.md"
+      ],
+      "kind": "wine-prefix"
+    },
+    {
+      "path": "~/.wine/dosdevices.bak_20260901/",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-wine-optimization/results/RESTORE.md"
+      ],
+      "kind": "wine-prefix"
+    },
+    {
+      "path": "~/DS Libraries All/btrfs",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/tasks.md"
+      ],
+      "kind": "other"
+    },
+    {
+      "path": "~/DS Libraries All/wd_black",
+      "count": 1,
+      "files": [
+        "kiro/specs/kontakt-workspace-drive-dirty-fix/tasks.md"
+      ],
+      "kind": "other"
+    }
+  ],
+  "ref_kinds": [
+    "btrfs-libraries",
+    "cachyos-home",
+    "decent-sampler",
+    "installed-helper",
+    "other",
+    "pipewire",
+    "storage-ntfs",
+    "system-config",
+    "wd-black-ntfs",
+    "windows-system",
+    "wine-prefix",
+    "workspace-ntfs"
+  ],
+  "ref_count": 257
+}

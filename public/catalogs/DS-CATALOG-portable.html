@@ -65,7 +65,7 @@
  .grp{margin:.3rem 0 .1rem;font-weight:600;color:var(--text-muted)} details.patches ul{margin:.1rem 0 .3rem 1rem}
  .nopatch{font-size:.82rem;color:var(--text-muted);opacity:.6}
  #kwbar{display:flex;flex-wrap:wrap;gap:.35rem;margin:.5rem 0}
- .kw{cursor:pointer;border:1px solid var(--accent-instrument-bg);background:var(--accent-instrument-bg);border-radius:14px;padding:clamp(2px,.3vw,4px) clamp(4px,.6vw,8px);font-size:clamp(9px,.9vw,12px);color:var(--accent-instrument);min-height:32px;touch-action:manipulation}
+ .kw{cursor:pointer;border:1px solid var(--accent-instrument-bg);background:var(--accent-instrument-bg);border-radius:14px;padding:clamp(2px,.3vw,4px) clamp(4px,.6vw,8px);font-size:clamp(9px,.9vw,12px);color:var(--accent-instrument);min-height:32px;touch-action:manipulation;-webkit-touch-callout:none;-webkit-user-select:none;user-select:none}
  .kw:hover{border-color:var(--accent-instrument)} .kw.active{background:var(--accent-instrument-active);color:#1a1008;border-color:var(--accent-instrument)}
  .kw.disabled{color:var(--text-muted);background:transparent;border-color:var(--border);cursor:not-allowed;opacity:.5}
  .kw.clear{background:rgba(180,40,40,0.2);border-color:#c03040;color:#ff9090}
@@ -108,6 +108,9 @@
  .search-strip input::placeholder{color:var(--text-muted)}
  .search-strip-clear{flex-shrink:0;background:transparent;border:1px solid var(--border);color:var(--text-muted);border-radius:4px;padding:3px 10px;font-size:clamp(10px,.9vw,12px);cursor:pointer}
  .search-strip-clear:hover{color:var(--accent-instrument);border-color:var(--accent-instrument)}
+ .tap-add-btn{flex-shrink:0;box-sizing:border-box;min-height:36px;background:transparent;border:1px solid var(--border);color:var(--text-muted);border-radius:4px;padding:0 10px;font-size:clamp(10px,.9vw,12px);cursor:pointer;touch-action:manipulation;white-space:nowrap}
+ .tap-add-btn[aria-pressed="true"]{background:var(--accent-instrument-bg);color:var(--accent-instrument);border-color:var(--accent-instrument);font-weight:600}
+ body:not(.search-mode) .tap-add-btn{display:none}
  .mode-btn.clear-all{border-color:#c03040;color:#ff9090;background:rgba(180,40,40,0.2)}
  body.search-extras-collapsed .search-autocomplete,body.search-extras-collapsed .search-active-pills{display:none!important}
  .search-autocomplete{position:fixed;top:36px;left:0;right:0;background:var(--bg-surface);border-bottom:1px solid var(--border);z-index:199;max-height:280px;overflow-y:auto;display:none}
@@ -116,10 +119,11 @@
  .search-autocomplete .ac-item:hover{background:var(--bg-card)}
  .search-autocomplete .ac-item .ac-count{color:var(--text-muted);font-size:.85em}
  .search-active-pills{display:none;flex-wrap:wrap;gap:4px;padding:clamp(4px,.5vw,8px) clamp(8px,2vw,20px);background:var(--bg-surface);border-bottom:1px solid var(--border);position:fixed;top:36px;left:0;right:0;z-index:198}
- .search-mode .search-active-pills{display:flex}
- .pill-tag{background:var(--accent-instrument-bg);color:var(--accent-instrument);border:1px solid var(--accent-instrument);border-radius:12px;padding:2px 8px;font-size:clamp(9px,.85vw,11px);cursor:pointer;display:flex;align-items:center;gap:4px}
- .pill-tag .pill-x{opacity:.7}
- .pill-tag:hover .pill-x{opacity:1}
+ .search-mode .search-active-pills{display:flex;align-items:center}
+ .pill-tag{background:var(--accent-instrument-bg);color:var(--accent-instrument);border:1px solid var(--accent-instrument);border-radius:12px;padding:2px 2px 2px 8px;font-size:clamp(9px,.85vw,11px);cursor:default;display:flex;align-items:center;gap:0;-webkit-user-select:none;user-select:none}
+ .pill-tag .pill-label{padding-right:2px}
+ .pill-tag .pill-x{opacity:1;display:inline-flex;align-items:center;justify-content:center;min-width:36px;min-height:36px;margin:0;padding:0;border:0;background:transparent;color:var(--accent-instrument);font-size:20px;font-weight:700;line-height:1;cursor:pointer;touch-action:manipulation;-webkit-touch-callout:none;border-radius:10px}
+ .pill-tag .pill-x:hover{background:rgba(255,144,144,0.18);color:#ff9090}
  body.search-mode .filter-wrap{top:36px}
  .cat-switch{display:flex;flex-wrap:wrap;gap:clamp(3px,0.8vw,6px);margin-bottom:clamp(6px,1.2vw,10px)}
  .cat-btn{background:var(--bg-card);border:1px solid var(--border);color:var(--text-muted);border-radius:6px;padding:clamp(5px,1.2vw,8px) clamp(10px,2.5vw,18px);font-size:clamp(11px,1.1vw,14px);cursor:pointer;min-height:36px;touch-action:manipulation;white-space:nowrap;transition:background 0.15s,color 0.15s}
@@ -128,10 +132,10 @@
  .search-autocomplete .ac-group-label{padding:4px clamp(8px,2vw,20px) 2px;font-size:.75em;font-weight:700;color:var(--accent-gear);text-transform:uppercase;letter-spacing:.05em}
 </style></head><body>
 <h1 id="top">DecentSampler Library Catalog</h1>
-<p>generated: pet 11 sep 2026 03:01:41 CEST. Library-level; expand a library to see its patches (grouped by subfolder).</p>
+<p>generated: pet 11 sep 2026 03:17:28 CEST. Library-level; expand a library to see its patches (grouped by subfolder).</p>
 <p>Portable snapshot (images embedded; phone-safe). <b>Update:</b> desktop <code>build-ds-catalog-html.sh both</code>.</p>
-<div class="search-strip" id="searchStrip"><input id="searchInput" type="text" placeholder="Search libraries..." autocomplete="off"><button type="button" class="search-strip-clear" onclick="clearAllFilters()">Clear</button></div><div class="search-autocomplete" id="acList"></div><div class="search-active-pills" id="searchPills"></div>
-<div class="filter-wrap" id="filterWrap"><button class="filter-toggle" id="filterToggle" onclick="toggleFilter()"><span class="toggle-arrow">&#9660;</span> Keywords<select id="themePicker" class="theme-picker" onchange="setTheme(this.value)" onclick="event.stopPropagation()"><optgroup label="— Dark —"><option value="desert">Desert Dusk</option><option value="studio">Night Studio</option><option value="smoked">Smoked Glass</option><option value="autumn-ember">Autumn Ember</option><option value="tropical-night">Tropical Night</option><option value="spring-rain">Spring Rain</option><option value="deep-winter">Deep Winter</option></optgroup><optgroup label="— Light —"><option value="sandstorm">Sand Storm</option><option value="bleached">Bleached</option><option value="spring-bloom">Spring Bloom</option><option value="summer-beach">Summer Beach</option><option value="harvest">Harvest</option><option value="arctic">Arctic</option></optgroup><optgroup label="— High Contrast —"><option value="hc-dark">HC Dark</option><option value="hc-light">HC Light</option></optgroup></select></button><div class="filter-panel" id="filterPanel"><div class="mode-switch"><button class="mode-btn active" data-mode="shade" onclick="setMode(this.dataset.mode)">Shade</button><button class="mode-btn" data-mode="search" onclick="setMode(this.dataset.mode)">Search</button><button type="button" class="mode-btn clear-all" onclick="clearAllFilters()">Clear</button></div><div class="cat-switch" id="catSwitch"><button class="cat-btn active" data-cat="all" onclick="setCat(this.dataset.cat)">All</button><button class="cat-btn" data-cat="instrument" onclick="setCat(this.dataset.cat)">Instrument</button><button class="cat-btn" data-cat="brand" onclick="setCat(this.dataset.cat)">Brand</button><button class="cat-btn" data-cat="model" onclick="setCat(this.dataset.cat)">Model</button><button class="cat-btn" data-cat="vibe" onclick="setCat(this.dataset.cat)">Vibe</button><button class="cat-btn" data-cat="other" onclick="setCat(this.dataset.cat)">All other</button></div><div id="kwbar"></div><p id="kwstatus" class="kwstatus"></p></div></div>
+<div class="search-strip" id="searchStrip"><input id="searchInput" type="text" placeholder="Search libraries..." autocomplete="off"><button type="button" class="tap-add-btn" id="tapAddBtnStrip" aria-pressed="false" onclick="toggleTapToAdd()">Tap to add</button><button type="button" class="search-strip-clear" onclick="clearAllFilters()">Clear</button></div><div class="search-autocomplete" id="acList"></div><div class="search-active-pills" id="searchPills"></div>
+<div class="filter-wrap" id="filterWrap"><button class="filter-toggle" id="filterToggle" onclick="toggleFilter()"><span class="toggle-arrow">&#9660;</span> Keywords<select id="themePicker" class="theme-picker" onchange="setTheme(this.value)" onclick="event.stopPropagation()"><optgroup label="— Dark —"><option value="desert">Desert Dusk</option><option value="studio">Night Studio</option><option value="smoked">Smoked Glass</option><option value="autumn-ember">Autumn Ember</option><option value="tropical-night">Tropical Night</option><option value="spring-rain">Spring Rain</option><option value="deep-winter">Deep Winter</option></optgroup><optgroup label="— Light —"><option value="sandstorm">Sand Storm</option><option value="bleached">Bleached</option><option value="spring-bloom">Spring Bloom</option><option value="summer-beach">Summer Beach</option><option value="harvest">Harvest</option><option value="arctic">Arctic</option></optgroup><optgroup label="— High Contrast —"><option value="hc-dark">HC Dark</option><option value="hc-light">HC Light</option></optgroup></select></button><div class="filter-panel" id="filterPanel"><div class="mode-switch"><button class="mode-btn active" data-mode="shade" onclick="setMode(this.dataset.mode)">Shade</button><button class="mode-btn" data-mode="search" onclick="setMode(this.dataset.mode)">Search</button><button type="button" class="tap-add-btn" id="tapAddBtnPanel" aria-pressed="false" onclick="toggleTapToAdd()">Tap to add</button><button type="button" class="mode-btn clear-all" onclick="clearAllFilters()">Clear</button></div><div class="cat-switch" id="catSwitch"><button class="cat-btn active" data-cat="all" onclick="setCat(this.dataset.cat)">All</button><button class="cat-btn" data-cat="instrument" onclick="setCat(this.dataset.cat)">Instrument</button><button class="cat-btn" data-cat="brand" onclick="setCat(this.dataset.cat)">Brand</button><button class="cat-btn" data-cat="model" onclick="setCat(this.dataset.cat)">Model</button><button class="cat-btn" data-cat="vibe" onclick="setCat(this.dataset.cat)">Vibe</button><button class="cat-btn" data-cat="other" onclick="setCat(this.dataset.cat)">All other</button></div><div id="kwbar"></div><p id="kwstatus" class="kwstatus"></p></div></div>
 <h2>Index (alphabetical)</h2><ul class="index">
 <li data-kw="accordion"><a href="#item-45">Accordion</a></li>
 <li data-kw=""><a href="#item-10">1450796_MGSteelStringHarmonics_MikeGeorgiades_DS</a></li>
@@ -7173,6 +7177,21 @@ var CAT_LABEL={instrument:'Instrument',brand:'Brand',model:'Model',vibe:'Vibe',o
 window.setCat=function(cat){activeCat=cat;document.querySelectorAll('.cat-btn').forEach(function(b){b.classList.toggle('active',b.dataset.cat===cat);});if(currentMode==='search')applySearch();else render();};
 /* --- mode switcher --- */
 var currentMode='shade';
+var TAP_ADD_KEY='catalog-tap-to-add';
+var tapToAdd=false;
+try{tapToAdd=localStorage.getItem(TAP_ADD_KEY)==='1';}catch(err){}
+function syncTapToAddBtns(){
+document.querySelectorAll('.tap-add-btn').forEach(function(b){
+b.setAttribute('aria-pressed',tapToAdd?'true':'false');
+b.classList.toggle('on',tapToAdd);
+});
+document.body.classList.toggle('tap-to-add',!!(tapToAdd&&currentMode==='search'));
+}
+window.toggleTapToAdd=function(){
+tapToAdd=!tapToAdd;
+try{localStorage.setItem(TAP_ADD_KEY,tapToAdd?'1':'0');}catch(err){}
+syncTapToAddBtns();
+};
 var searchKeywords=[];
 var searchMeta={};
 var kwCounts={};entries.forEach(function(el){kws(el).forEach(function(k){kwCounts[k]=(kwCounts[k]||0)+1;});});
@@ -7234,6 +7253,7 @@ if(searchInput)searchInput.blur();
 if(acList){acList.classList.remove('open');acList.innerHTML='';}
 entries.forEach(function(el){el.style.display='';el.classList.remove('dim');});
 render();
+syncTapToAddBtns();
 return;
 }
 currentMode=mode;
@@ -7241,7 +7261,8 @@ document.querySelectorAll('.mode-btn').forEach(function(b){b.classList.toggle('a
 document.body.classList.toggle('search-mode',mode==='search');
 document.body.classList.remove('search-extras-collapsed');
 if(mode==='search'){searchKeywords=[];if(searchInput)searchInput.value='';renderPills();applySearch();setTimeout(function(){document.getElementById('searchInput').focus();},50);}
-else{entries.forEach(function(el){el.style.display='';el.classList.remove('dim');});render();}};
+else{entries.forEach(function(el){el.style.display='';el.classList.remove('dim');});render();}
+syncTapToAddBtns();};
 /* --- search mode --- */
 var searchInput=document.getElementById('searchInput'),acList=document.getElementById('acList');
 function jsStr(s){return String(s).replace(/\\/g,'\\\\').replace(/'/g,"\\'");}
@@ -7322,7 +7343,7 @@ if(!isRemainingHitKw(kw))return;
 searchKeywords.push(kw);renderPills();applySearch();
 searchInput.value='';acList.classList.remove('open');};
 window.removeSearchKw=function(kw){searchKeywords=searchKeywords.filter(function(k){return k!==kw;});renderPills();applySearch();};
-function renderPills(){var c=document.getElementById('searchPills');c.innerHTML=searchKeywords.map(function(k){return '<span class="pill-tag" onclick="removeSearchKw(\''+jsStr(k)+'\')">'+htmlStr(k)+' <span class="pill-x">\u00d7</span></span>';}).join('');}
+function renderPills(){var html=searchKeywords.map(function(k){return '<span class="pill-tag"><span class="pill-label">'+htmlStr(k)+'</span><button type="button" class="pill-x" aria-label="Remove '+htmlStr(k)+'" onclick="event.preventDefault();event.stopPropagation();removeSearchKw(\''+jsStr(k)+'\')">\u00d7</button></span>';}).join('');document.querySelectorAll('#searchPills,.search-active-pills').forEach(function(c){c.innerHTML=html;});}
 function pillMatch(el,k){
 var name=elNameLc(el);
 var nameNorm=name.replace(/[^a-z0-9]+/g,' ').replace(/^\s+|\s+$/g,'');
@@ -7394,12 +7415,13 @@ if(currentMode!=='search')return;
 e.preventDefault();
 e.stopPropagation();
 if(typeof e.stopImmediatePropagation==='function')e.stopImmediatePropagation();
-if(e.ctrlKey||e.metaKey){
+if(e.ctrlKey||e.metaKey||tapToAdd){
 var k=(btn.getAttribute('data-kw')||'').trim();
 if(k&&!btn.classList.contains('disabled')&&isRemainingHitKw(k))window.addSearchKw(k);
 }
 },true);
 }
+syncTapToAddBtns();
 render();
 })();
 function highlightEntry(el){

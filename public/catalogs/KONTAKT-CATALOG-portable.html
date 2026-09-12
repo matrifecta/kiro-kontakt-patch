@@ -689,7 +689,7 @@
  .search-autocomplete .ac-item.fav-rec:hover{opacity:1;filter:none}
 </style></head><body>
 <div class="catalog-header"><h1 id="top">Kontakt Library Catalog</h1><select id="themePicker" class="theme-picker" onchange="setTheme(this.value)" onclick="event.stopPropagation()"><optgroup label="— Dark —"><option value="desert">Desert Dusk</option><option value="studio">Night Studio</option><option value="smoked">Smoked Glass</option><option value="autumn-ember">Autumn Ember</option><option value="tropical-night">Tropical Night</option><option value="spring-rain">Spring Rain</option><option value="deep-winter">Deep Winter</option></optgroup><optgroup label="— Light —"><option value="sandstorm">Sand Storm</option><option value="bleached">Bleached</option><option value="spring-bloom">Spring Bloom</option><option value="summer-beach">Summer Beach</option><option value="harvest">Harvest</option><option value="arctic">Arctic</option></optgroup><optgroup label="— High Contrast —"><option value="hc-dark">HC Dark</option><option value="hc-light">HC Light</option></optgroup></select></div>
-<p>generated: sob 12 sep 2026 19:36:48 CEST</p>
+<p>generated: ned 13 sep 2026 00:33:39 CEST</p>
 <p>Portable snapshot (banners embedded; phone-safe). Registered Kontakt libraries; click a name to jump. <b>Update:</b> on desktop re-run <code>build-kontakt-catalog-html.sh both</code> and re-transfer this file.</p>
 <div class="search-chrome" id="searchChrome"><div class="search-col" id="searchCol"><div class="search-strip-anchor"><div class="search-strip" id="searchStrip"><input id="searchInput" type="text" placeholder="Search libraries..." autocomplete="off"><button type="button" class="search-strip-hide" onclick="toggleSearchChrome()" aria-expanded="true">Hide search</button><button type="button" class="search-strip-clear" onclick="clearAllFilters()">Clear</button><button type="button" class="search-strip-fs" id="searchStripFs" onclick="toggleAcFullscreen()" aria-pressed="false" aria-label="Fullscreen search" title="Fullscreen search">&#x26F6;</button><div class="ui-scale search-only-scale" id="searchOnlyScale"><button type="button" class="ui-scale-step" id="searchOnlyScaleDown" aria-label="Smaller Search">−</button><button type="button" class="ui-scale-readout" id="searchOnlyScaleReadout" aria-expanded="false" aria-haspopup="true" title="Search scale">100%</button><button type="button" class="ui-scale-step" id="searchOnlyScaleUp" aria-label="Larger Search">+</button><div class="ui-scale-pop" id="searchOnlyScalePop" hidden></div></div></div><div class="search-ac-shell" id="acShell"><div class="ac-fs-bar" id="acFsBar"><button type="button" class="ac-fs-back" id="acFsBack" aria-label="Back" title="Back" onclick="event.preventDefault();event.stopPropagation();setAcFullscreen(false)">&#x2190;</button><div class="ac-history-wrap" id="searchHistoryWrap"><button type="button" class="ac-history-btn" id="searchHistory" aria-haspopup="dialog" aria-expanded="false" aria-controls="historyCloud" title="History">History</button><div class="ac-history-cloud" id="historyCloud" hidden role="dialog" aria-label="Clear search history"><p class="ac-history-ask">Clear search history?</p><div class="ac-history-actions"><button type="button" class="ac-history-yes" id="historyYes" aria-label="Yes, clear history" title="Clear">&#x2713;</button><button type="button" class="ac-history-no" id="historyNo" aria-label="No, keep history" title="Keep">&#x2715;</button></div></div></div></div><div class="search-autocomplete" id="acList"></div><button type="button" class="ac-height" id="acHeight" aria-label="Resize search suggestions" aria-orientation="horizontal" tabindex="-1"></button><button type="button" class="ac-width" id="acWidth" aria-label="Resize search suggestions width" aria-orientation="vertical" tabindex="-1"></button></div></div><div class="search-active-pills" id="searchPills"></div></div>
 <button type="button" class="search-split" id="searchSplit" aria-label="Resize Search and Keywords" aria-orientation="vertical" tabindex="-1"></button>
@@ -3587,10 +3587,17 @@ function cardSearchYtPlayUrl(id,host,opts){
   id=String(id).replace(/^\s+|\s+$/g,'');
   if(!/^[A-Za-z0-9_-]{6,}$/.test(id))return '';
   if(/^(videoseries|results|search)$/i.test(id))return '';
-  // Error 153 = missing HTTP Referer (Google YT terms). Prefer www.youtube.com; keep meta/iframe referrerpolicy.
   host=String(host||cardSearchState._ytHost||'youtube');
-  if(host!=='nocookie')host='youtube';
   opts=opts||{};
+  // Invidious: open-source YT frontend, no Referer restriction — works from file:// too.
+  if(host==='invidious'){
+    var instances=cardSearchState._invInstances||['yewtu.be','invidious.nerdvpn.de','inv.nadeko.net','yt.artemislena.eu'];
+    var idx=Number(cardSearchState._invInstanceIdx)||0;
+    var inst=instances[idx%instances.length]||'yewtu.be';
+    return 'https://'+inst+'/embed/'+encodeURIComponent(id)+'?autoplay='+(opts.autoplay?1:0)+'&quality=auto&listen=0&iv_load_policy=3';
+  }
+  // Error 153 = missing HTTP Referer (Google YT terms). Prefer www.youtube.com.
+  if(host!=='nocookie')host='youtube';
   var origin=(location.origin&&location.origin!=='null')?location.origin:'';
   var q='rel=0&modestbranding=1&playsinline=1&enablejsapi=1';
   if(opts.autoplay)q+='&autoplay=1';
@@ -3611,7 +3618,11 @@ function cardSearchYtIsBadEmbedUrl(url){
   var s=String(url||'');
   if(!s||s==='about:blank')return true;
   if(/listType=search|\/results\?|\/watch\?|\/embed\/videoseries/i.test(s))return true;
-  if(!/(?:youtube(?:-nocookie)?\.com)\/embed\/[A-Za-z0-9_-]{6,}/.test(s))return true;
+  var isYt=/(?:youtube(?:-nocookie)?\.com)\/embed\/[A-Za-z0-9_-]{6,}/.test(s);
+  var isInv=/(?:yewtu\.be|invidious\.nerdvpn\.de|inv\.nadeko\.net|yt\.artemislena\.eu)\/embed\/[A-Za-z0-9_-]{6,}/.test(s);
+  if(!isYt&&!isInv)return true;
+  return false;
+}
   return false;
 }
 function catalogSearchExtra(){return (window.CATALOG_NS==='ds')?'decent sampler':'kontakt';}
@@ -3791,7 +3802,8 @@ function setCardYtFrame(id,host,opts){
   opts=opts||{};
   var url=cardSearchYtPlayUrl(id,host,opts);
   if(!url||cardSearchYtIsBadEmbedUrl(url))return false;
-  if(!cardSearchYtCanEmbedHere()){
+  var useInvidious=String(host||'').toLowerCase()==='invidious';
+  if(!cardSearchYtCanEmbedHere()&&!useInvidious){
     cardSearchState.ytId=id;
     cardSearchState.embedUrl=url;
     cardSearchState.popupUrl=cardSearchState.popupUrl||('https://www.youtube.com/watch?v='+encodeURIComponent(id));
@@ -3809,7 +3821,8 @@ function setCardYtFrame(id,host,opts){
   if(!frame)return false;
   if(fallback)fallback.classList.remove('open');
   cardSearchState.ytId=id;
-  cardSearchState._ytHost=String(host||cardSearchState._ytHost||'youtube')==='nocookie'?'nocookie':'youtube';
+  var hostNorm=String(host||cardSearchState._ytHost||'youtube');
+  cardSearchState._ytHost=hostNorm==='nocookie'?'nocookie':(hostNorm==='invidious'?'invidious':'youtube');
   cardSearchState.embedUrl=url;
   cardSearchState.history=[url];
   cardSearchState._ytReady=false;
@@ -3853,9 +3866,12 @@ function setCardYtFrame(id,host,opts){
       cardSearchArmYtApiWatchdog(id);
     }catch(err){mountPlain();}
   }
-  // Prefer IFrame API when already available (reliable onError for 153).
-  // Otherwise plain embed + postMessage; preload API for the next play.
-  if(window.YT&&YT.Player)mountApi();
+  // Invidious and autoplay: set iframe src directly in the click gesture (no async API).
+  // For normal (non-autoplay) YT loads, keep mountApi for reliable onError 153 detection.
+  if(opts.autoplay||useInvidious){
+    mountPlain();
+    if(!useInvidious)cardSearchEnsureYtApi(function(){});
+  }else if(window.YT&&YT.Player)mountApi();
   else{
     mountPlain();
     cardSearchEnsureYtApi(function(){});
@@ -4116,7 +4132,15 @@ window.cardSearchPlayYtFallback=function(){
     return;
   }
   if(!cardSearchYtCanEmbedHere()){
-    cardSearchShowYtBlocked('file:// or null origin — YouTube needs HTTP(S) Referer');
+    // file:// or null origin — YouTube embed blocked. Try Invidious instead
+    // (open-source frontend, no Referer restriction, works from file://).
+    cardSearchState._invInstances=['yewtu.be','invidious.nerdvpn.de','inv.nadeko.net','yt.artemislena.eu'];
+    cardSearchState._invInstanceIdx=0;
+    cardSearchState._ytHostTried={};
+    cardSearchState._ytHost='invidious';
+    if(!setCardYtFrame(id,'invidious',{autoplay:1})){
+      cardSearchOpenPopup();
+    }
     return;
   }
   cardSearchState._ytHostTried={};

@@ -1401,10 +1401,18 @@ function cardSearchYtPlayUrl(id,host,opts){
   id=String(id).replace(/^\s+|\s+$/g,'');
   if(!/^[A-Za-z0-9_-]{6,}$/.test(id))return '';
   if(/^(videoseries|results|search)$/i.test(id))return '';
-  // Error 153 = missing HTTP Referer (Google YT terms). Prefer www.youtube.com; keep meta/iframe referrerpolicy.
   host=String(host||cardSearchState._ytHost||'youtube');
-  if(host!=='nocookie')host='youtube';
   opts=opts||{};
+  // Invidious: open-source YT frontend, no Referer restriction — works from file:// too.
+  // Shows a minimal clean player with no YouTube branding, sidebar, or ads.
+  if(host==='invidious'){
+    var instances=cardSearchState._invInstances||['yewtu.be','invidious.nerdvpn.de','inv.nadeko.net','yt.artemislena.eu'];
+    var idx=Number(cardSearchState._invInstanceIdx)||0;
+    var inst=instances[idx%instances.length]||'yewtu.be';
+    return 'https://'+inst+'/embed/'+encodeURIComponent(id)+'?autoplay='+(opts.autoplay?1:0)+'&quality=auto&listen=0&iv_load_policy=3';
+  }
+  // Error 153 = missing HTTP Referer (Google YT terms). Prefer www.youtube.com.
+  if(host!=='nocookie')host='youtube';
   var origin=(location.origin&&location.origin!=='null')?location.origin:'';
   var q='rel=0&modestbranding=1&playsinline=1&enablejsapi=1';
   if(opts.autoplay)q+='&autoplay=1';
@@ -1425,7 +1433,9 @@ function cardSearchYtIsBadEmbedUrl(url){
   var s=String(url||'');
   if(!s||s==='about:blank')return true;
   if(/listType=search|\/results\?|\/watch\?|\/embed\/videoseries/i.test(s))return true;
-  if(!/(?:youtube(?:-nocookie)?\.com)\/embed\/[A-Za-z0-9_-]{6,}/.test(s))return true;
+  var isYt=/(?:youtube(?:-nocookie)?\.com)\/embed\/[A-Za-z0-9_-]{6,}/.test(s);
+  var isInv=/(?:yewtu\.be|invidious\.nerdvpn\.de|inv\.nadeko\.net|yt\.artemislena\.eu)\/embed\/[A-Za-z0-9_-]{6,}/.test(s);
+  if(!isYt&&!isInv)return true;
   return false;
 }
 function catalogSearchExtra(){return (window.CATALOG_NS==='ds')?'decent sampler':'kontakt';}
@@ -1605,7 +1615,8 @@ function setCardYtFrame(id,host,opts){
   opts=opts||{};
   var url=cardSearchYtPlayUrl(id,host,opts);
   if(!url||cardSearchYtIsBadEmbedUrl(url))return false;
-  if(!cardSearchYtCanEmbedHere()){
+  var useInvidious=String(host||'').toLowerCase()==='invidious';
+  if(!cardSearchYtCanEmbedHere()&&!useInvidious){
     cardSearchState.ytId=id;
     cardSearchState.embedUrl=url;
     cardSearchState.popupUrl=cardSearchState.popupUrl||('https://www.youtube.com/watch?v='+encodeURIComponent(id));
@@ -1623,7 +1634,8 @@ function setCardYtFrame(id,host,opts){
   if(!frame)return false;
   if(fallback)fallback.classList.remove('open');
   cardSearchState.ytId=id;
-  cardSearchState._ytHost=String(host||cardSearchState._ytHost||'youtube')==='nocookie'?'nocookie':'youtube';
+  var hostNorm=String(host||cardSearchState._ytHost||'youtube');
+  cardSearchState._ytHost=hostNorm==='nocookie'?'nocookie':(hostNorm==='invidious'?'invidious':'youtube');
   cardSearchState.embedUrl=url;
   cardSearchState.history=[url];
   cardSearchState._ytReady=false;
@@ -1667,9 +1679,12 @@ function setCardYtFrame(id,host,opts){
       cardSearchArmYtApiWatchdog(id);
     }catch(err){mountPlain();}
   }
-  // Prefer IFrame API when already available (reliable onError for 153).
-  // Otherwise plain embed + postMessage; preload API for the next play.
-  if(window.YT&&YT.Player)mountApi();
+  // Invidious and autoplay: set iframe src directly in the click gesture (no async API).
+  // For normal (non-autoplay) YT loads, keep mountApi for reliable onError 153 detection.
+  if(opts.autoplay||useInvidious){
+    mountPlain();
+    if(!useInvidious)cardSearchEnsureYtApi(function(){});
+  }else if(window.YT&&YT.Player)mountApi();
   else{
     mountPlain();
     cardSearchEnsureYtApi(function(){});
@@ -1924,13 +1939,20 @@ window.cardSearchPlayYtFallback=function(){
     var items=cardSearchState.ytItems||[];
     if(items[0]&&items[0].id)id=items[0].id;
   }
-  // Play overlay: always retry in-card embed (same slot). Never auto-open popup.
   if(!id){
     cardSearchShowYtBlocked('no video id');
     return;
   }
   if(!cardSearchYtCanEmbedHere()){
-    cardSearchShowYtBlocked('file:// or null origin — YouTube needs HTTP(S) Referer');
+    // file:// or null origin — YouTube embed blocked. Try Invidious instead
+    // (open-source frontend, no Referer restriction, works from file://).
+    cardSearchState._invInstances=['yewtu.be','invidious.nerdvpn.de','inv.nadeko.net','yt.artemislena.eu'];
+    cardSearchState._invInstanceIdx=0;
+    cardSearchState._ytHostTried={};
+    cardSearchState._ytHost='invidious';
+    if(!setCardYtFrame(id,'invidious',{autoplay:1})){
+      cardSearchOpenPopup();
+    }
     return;
   }
   cardSearchState._ytHostTried={};

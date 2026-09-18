@@ -3297,7 +3297,7 @@ body.catalog-portable #hdrToolsMorePop{display:none!important}
    ::-webkit-scrollbar on `*` would force every element (even ones with only
    incidental sub-pixel overflow) out of overlay scrollbars into classic
    space-reserving ones, throwing off the per-row card equalization. */
-#catalogMain,.catalog-body,.summary-panel,#catalogIndexList,.index,#kwbar,.filter-wrap,.note-pop,.catalog-help-body,.ac-history-cloud,#historyPicks,.card-search-embed,.note-ta,.path,#acCtxBar,.layout-presets-list,.kw-shade-height{scrollbar-width:thin;scrollbar-color:var(--border) var(--bg-surface)}
+.catalog-body,.summary-panel,#catalogIndexList,.index,#kwbar,.filter-wrap,.note-pop,.catalog-help-body,.ac-history-cloud,#historyPicks,.card-search-embed,.note-ta,.path,#acCtxBar,.layout-presets-list,.kw-shade-height{scrollbar-width:thin;scrollbar-color:var(--border) var(--bg-surface)}
 #catalogMain::-webkit-scrollbar,.catalog-body::-webkit-scrollbar,.summary-panel::-webkit-scrollbar,#catalogIndexList::-webkit-scrollbar,.index::-webkit-scrollbar,#kwbar::-webkit-scrollbar,.filter-wrap::-webkit-scrollbar,.note-pop::-webkit-scrollbar,.catalog-help-body::-webkit-scrollbar,.ac-history-cloud::-webkit-scrollbar,#historyPicks::-webkit-scrollbar,.card-search-embed::-webkit-scrollbar,.note-ta::-webkit-scrollbar,.path::-webkit-scrollbar,#acCtxBar::-webkit-scrollbar,.layout-presets-list::-webkit-scrollbar,.kw-shade-height::-webkit-scrollbar{width:10px;height:10px}
 #catalogMain::-webkit-scrollbar-track,.catalog-body::-webkit-scrollbar-track,.summary-panel::-webkit-scrollbar-track,#catalogIndexList::-webkit-scrollbar-track,.index::-webkit-scrollbar-track,#kwbar::-webkit-scrollbar-track,.filter-wrap::-webkit-scrollbar-track,.note-pop::-webkit-scrollbar-track,.catalog-help-body::-webkit-scrollbar-track,.ac-history-cloud::-webkit-scrollbar-track,#historyPicks::-webkit-scrollbar-track,.card-search-embed::-webkit-scrollbar-track,.note-ta::-webkit-scrollbar-track,.path::-webkit-scrollbar-track,#acCtxBar::-webkit-scrollbar-track,.layout-presets-list::-webkit-scrollbar-track,.kw-shade-height::-webkit-scrollbar-track{background:var(--bg-surface)}
 #catalogMain::-webkit-scrollbar-thumb,.catalog-body::-webkit-scrollbar-thumb,.summary-panel::-webkit-scrollbar-thumb,#catalogIndexList::-webkit-scrollbar-thumb,.index::-webkit-scrollbar-thumb,#kwbar::-webkit-scrollbar-thumb,.filter-wrap::-webkit-scrollbar-thumb,.note-pop::-webkit-scrollbar-thumb,.catalog-help-body::-webkit-scrollbar-thumb,.ac-history-cloud::-webkit-scrollbar-thumb,#historyPicks::-webkit-scrollbar-thumb,.card-search-embed::-webkit-scrollbar-thumb,.note-ta::-webkit-scrollbar-thumb,.path::-webkit-scrollbar-thumb,#acCtxBar::-webkit-scrollbar-thumb,.layout-presets-list::-webkit-scrollbar-thumb,.kw-shade-height::-webkit-scrollbar-thumb{background:var(--border);border-radius:6px}
@@ -24269,6 +24269,28 @@ function scheduleEqualizeCardRows(){
   });
 }
 window.collapseInactivePatchTrees=collapseInactivePatchTrees;
+/* fix-EQ-STALE-v1: the card grid reflows (column count changes) when the Search/Keywords
+   panes collapse or the window resizes. Equalization that ran against the OLD column
+   layout leaves stale per-row cover heights, so re-run it whenever the grid box
+   actually changes size. */
+(function(){
+  if(window.__eqGridObs)return;
+  function watch(){
+    var body=document.querySelector("#catalogMain > .catalog-body")||document.querySelector(".catalog-body");
+    if(!body||typeof ResizeObserver==="undefined")return;
+    var lastW=0,lastH=0;
+    var ro=new ResizeObserver(function(){
+      var r=body.getBoundingClientRect();
+      var w=Math.round(r.width),h=Math.round(r.height);
+      if(w===lastW&&Math.abs(h-lastH)<2)return;
+      lastW=w;lastH=h;
+      if(typeof scheduleEqualizeCardRows==="function")scheduleEqualizeCardRows();
+    });
+    try{ro.observe(body);window.__eqGridObs=ro;}catch(err){}
+  }
+  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",watch);
+  else watch();
+})();
 
 function catalogScrollEl(){
   var body=document.querySelector('#catalogMain > .catalog-body');
@@ -27817,6 +27839,12 @@ function placeCatalogJumpStack(){
   var right=Math.max(8,Math.round((window.innerWidth||0)-r.right)+Math.max(8,gutter));
   var inset=typeof catalogJumpStackBottomInset==='function'?catalogJumpStackBottomInset():0;
   var bottom=Math.max(6,Math.round((window.innerHeight||0)-r.bottom)+12+inset+22);
+  /* fix-JUMP-STACK-CONTAIN-v1: never let the stack sit outside the content window's own border */
+  var mainR=main.getBoundingClientRect();
+  var minRight=Math.max(0,Math.round((window.innerWidth||0)-mainR.right)+4);
+  if(right<minRight)right=minRight;
+  var minBottom=Math.max(0,Math.round((window.innerHeight||0)-mainR.bottom)+4);
+  if(bottom<minBottom)bottom=minBottom;
   stack.style.right=right+'px';
   stack.style.bottom=bottom+'px';
   stack.style.left='auto';
@@ -30246,8 +30274,8 @@ body:not(.catalog-portable).hdr-aux-hidden #clearMissBtn,body:not(.catalog-porta
 /* side stack collapse tabs (Legend/Guide + Top/Bottom) */
 .side-stack-tab{position:fixed;z-index:46;box-sizing:border-box;width:2.15rem;height:1.15rem;min-width:2.15rem;min-height:1.15rem;padding:0;margin:0;display:none;align-items:center;justify-content:center;border:1px solid var(--border,#333);background:var(--bg-surface,#16181c);color:var(--text,#eee);cursor:pointer;touch-action:manipulation;font:inherit;line-height:1;font-size:.85rem}
 .side-stack-tab:hover{border-color:var(--accent-instrument,#3ecfbf);color:var(--accent-instrument,#3ecfbf);background:var(--accent-instrument-bg,rgba(62,207,191,.18))}
-#edgeStackTab{left:0;top:0;transform:translate(-50%,calc(.45rem - 100%));border-bottom:0;border-radius:8px 8px 0 0}
-#jumpStackTab{left:0;top:0;transform:translate(-50%,calc(.45rem - 100%));border-bottom:0;border-radius:8px 8px 0 0}
+#edgeStackTab{left:0;top:0;transform:translate(-50%,-100%);border-bottom:0;border-radius:8px 8px 0 0}
+#jumpStackTab{left:0;top:0;transform:translate(-50%,-100%);border-bottom:0;border-radius:8px 8px 0 0}
 body:is(.display-sides,.display-middle,.content-window-on) .side-stack-tab{display:inline-flex}
 body.catalog-portable:not(.content-window-on) .side-stack-tab{display:none!important}
 body:is(.display-fs,.ac-fs-open,.kw-fs-open,.dual-fs-open) .side-stack-tab{display:none!important}
@@ -30623,9 +30651,19 @@ if(DESKTOP){
     if(by<40)by=40;
     var r=es?es.getBoundingClientRect():null;
     var lx=(r&&r.width>4)?(r.left+r.width/2):(mr?mr.left+28:28);
-    tL.style.left=Math.round(lx)+'px';tL.style.top=Math.round(by)+'px';
     var jr=js?js.getBoundingClientRect():null;
     var rx=(jr&&jr.width>4)?(jr.left+jr.width/2):(mr?mr.right-28:vw-28);
+    /* fix-TAB-CONTAIN-v1: tabs are centered on their anchor (translateX(-50%)), so keep
+       the anchor at least half a tab width inside the content window's own borders */
+    var halfL=(tL.getBoundingClientRect().width||34)/2;
+    var halfR=(tR.getBoundingClientRect().width||34)/2;
+    if(mr){
+      if(lx<mr.left+halfL)lx=mr.left+halfL;
+      if(lx>mr.right-halfL)lx=mr.right-halfL;
+      if(rx>mr.right-halfR)rx=mr.right-halfR;
+      if(rx<mr.left+halfR)rx=mr.left+halfR;
+    }
+    tL.style.left=Math.round(lx)+'px';tL.style.top=Math.round(by)+'px';
     tR.style.left=Math.round(rx)+'px';tR.style.top=Math.round(by)+'px';
   }
   function updTabs(){
@@ -30656,7 +30694,11 @@ if(DESKTOP){
     btn.style.top=Math.round(top)+'px';
   }
   new MutationObserver(placeHdrTab).observe(document.body,{attributes:true,attributeFilter:['class']});
-  setInterval(function(){placeTabs();placeHdrTab();},450);
+  setInterval(function(){
+    placeTabs();placeHdrTab();
+    if(typeof placeCatalogJumpStack==="function")placeCatalogJumpStack();
+    if(typeof placeCatalogEdgeStack==="function")placeCatalogEdgeStack();
+  },450);
   window.addEventListener('resize',function(){placeTabs();placeHdrTab();});
   updTabs();
 })();

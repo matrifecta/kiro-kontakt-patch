@@ -26,9 +26,15 @@ until you type "yes" at the final confirmation (skip with --yes for
 non-interactive use, e.g. from a cron job you've already vetted).
 
 Usage:
-  python3 tools/update_catalog.py --check           # dry run (default)
-  python3 tools/update_catalog.py --apply            # do it
-  python3 tools/update_catalog.py --apply --only ds  # just one catalog
+  python3 tools/update_catalog.py --check                # dry run (default)
+  python3 tools/update_catalog.py --mark-known            # review + save
+                                                           # name-overrides.tsv
+                                                           # and the known-names
+                                                           # state ONLY -- leaves
+                                                           # catalog HTML/JSON
+                                                           # untouched
+  python3 tools/update_catalog.py --apply                 # full rebuild + splice
+  python3 tools/update_catalog.py --apply --only ds       # just one catalog
 """
 import argparse
 import json
@@ -54,7 +60,7 @@ CATALOGS = {
         html_portable=REPO / 'public/catalogs/DS-CATALOG-portable.html',
         fresh_desktop=ART_DIR / 'DS-CATALOG.html',
         fresh_portable=ART_DIR / 'DS-CATALOG-portable.html',
-        rawlog=ART_DIR / '.raw-names.desktop.log',
+        rawlog=ART_DIR / '.raw-names.ds.desktop.log',
     ),
     'kontakt': dict(
         builder=ART_DIR / 'build-kontakt-catalog-html.sh',
@@ -63,7 +69,7 @@ CATALOGS = {
         html_portable=REPO / 'public/catalogs/KONTAKT-CATALOG-portable.html',
         fresh_desktop=ART_DIR / 'KONTAKT-CATALOG.html',
         fresh_portable=ART_DIR / 'KONTAKT-CATALOG-portable.html',
-        rawlog=ART_DIR / '.raw-names.desktop.log',
+        rawlog=ART_DIR / '.raw-names.kontakt.desktop.log',
     ),
 }
 
@@ -210,14 +216,23 @@ def _unescape(s: str) -> str:
             .replace('&amp;', '&'))
 
 
-def update_one(catalog: str, cfg: dict, apply: bool, auto_yes: bool) -> bool:
+def update_one(catalog: str, cfg: dict, mode: str, auto_yes: bool) -> bool:
+    """mode is one of:
+      'check'       -- dry run, writes nothing at all
+      'mark-known'  -- records the reviewed name-overrides.tsv + known-
+                       names state (so future runs only flag genuinely
+                       new folders), but does NOT rebuild/splice the
+                       catalog HTML or touch data/*.json
+      'apply'       -- the full pipeline: rebuild, splice onto the live
+                       chrome, and sync data/*.json
+    """
     print(f'== {catalog} ==')
     if not cfg['builder'].exists():
         print(f'  builder not found: {cfg["builder"]}')
         print('  (expected on the machine with the real library folders / komplete.db3 mounted)')
         return False
 
-    print('  pass 1/2: scanning to discover new entries...')
+    print('  scanning to discover new entries...')
     r = run_builder(cfg['builder'], 'desktop')
     if r.returncode != 0:
         print('  builder failed:\n', r.stderr[-4000:])
@@ -238,10 +253,10 @@ def update_one(catalog: str, cfg: dict, apply: bool, auto_yes: bool) -> bool:
 
     updates = review_new_entries(catalog, fresh_html, new_raw, overrides, vocab, auto_yes)
 
-    if not apply:
+    if mode == 'check':
         print(f'  --check only: {len(new_raw)} new entries, '
               f'{sum(1 for k, v in updates.items() if k != v)} would get a name override.')
-        print('  Re-run with --apply to write changes.\n')
+        print('  Re-run with --apply (or --mark-known) to write changes.\n')
         return True
 
     if updates:
@@ -251,7 +266,13 @@ def update_one(catalog: str, cfg: dict, apply: bool, auto_yes: bool) -> bool:
     all_known.setdefault(catalog, {}).update({n: True for n in raw_names})
     save_known_names(all_known)
 
-    print('  pass 2/2: rebuilding with confirmed names...')
+    if mode == 'mark-known':
+        print(f'  recorded {len(new_raw)} entries as known '
+              f'({sum(1 for k, v in updates.items() if k != v)} name overrides saved). '
+              'Catalog HTML/JSON left untouched.\n')
+        return True
+
+    print('  rebuilding with confirmed names...')
     r = run_builder(cfg['builder'], 'both')
     if r.returncode != 0:
         print('  builder failed:\n', r.stderr[-4000:])
@@ -277,18 +298,26 @@ def update_one(catalog: str, cfg: dict, apply: bool, auto_yes: bool) -> bool:
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument('--apply', action='store_true', help='write changes (default is dry-run)')
+    ap.add_argument('--apply', action='store_true',
+                     help='full pipeline: rebuild, splice onto the live catalog HTML, sync data/*.json')
+    ap.add_argument('--mark-known', action='store_true',
+                     help='review + save name-overrides.tsv and the known-names state only -- '
+                          'does NOT touch the catalog HTML or data/*.json')
     ap.add_argument('--check', action='store_true', help='dry run (default; explicit for clarity)')
     ap.add_argument('--only', choices=['ds', 'kontakt', 'both'], default='both')
     ap.add_argument('--yes', action='store_true',
                      help='accept every proposed name automatically (no prompts) -- '
                           'use only if you already trust the auto-cleanup for this batch')
     args = ap.parse_args()
-    apply = args.apply
+
+    if args.apply and args.mark_known:
+        print('Pick one of --apply / --mark-known, not both.')
+        sys.exit(2)
+    mode = 'apply' if args.apply else ('mark-known' if args.mark_known else 'check')
 
     targets = ['ds', 'kontakt'] if args.only == 'both' else [args.only]
 
-    if apply:
+    if mode == 'apply':
         print('This will overwrite catalog HTML + JSON files. It is not reversible by')
         print('this tool -- make sure your current state is committed to git first.')
         resp = input('Type "yes" to continue: ').strip().lower()
@@ -298,7 +327,7 @@ def main():
 
     ok = True
     for t in targets:
-        ok &= update_one(t, CATALOGS[t], apply, args.yes)
+        ok &= update_one(t, CATALOGS[t], mode, args.yes)
 
     sys.exit(0 if ok else 1)
 

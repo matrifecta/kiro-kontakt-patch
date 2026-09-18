@@ -30,7 +30,7 @@ override_cover(){ [ -f "$OVERRIDES" ] || return 0; local want="$1" n p
 # Shared with build-kontakt-catalog-html.sh. Lets a rebuild keep hand-corrected names instead of
 # reverting to the raw on-disk folder name every time. Maintained by tools/update_catalog.py.
 NAME_OVERRIDES="$ART_DIR/name-overrides.tsv"
-RAWNAMES_LOG="$ART_DIR/.raw-names.$MODE.log"
+RAWNAMES_LOG="$ART_DIR/.raw-names.ds.$MODE.log"
 : > "$RAWNAMES_LOG"
 name_override(){ printf '%s\n' "$1" >> "$RAWNAMES_LOG"
   [ -f "$NAME_OVERRIDES" ] || { printf '%s' "$1"; return 0; }; local want="$1" n c

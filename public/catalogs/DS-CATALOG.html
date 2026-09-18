@@ -24054,6 +24054,8 @@ function catalogCardIsExpanded(e){
   var p=e.querySelector('.path');
   return !!(p&&p.classList.contains('is-expanded'));
 }
+/* fix-PREVIEW-CARD-v1: the fixed-position preview card is not part of any grid row */
+function _isPreviewCard(e){return !!(e&&e.classList.contains('selected')&&document.body.classList.contains('chosen-preview-open'));}
 function equalizeCatalogCardRows(){
   var _eqT0=(typeof performance!=='undefined'&&performance.now)?performance.now():Date.now();
   window._eqN=(window._eqN||0)+1;
@@ -24085,7 +24087,7 @@ function equalizeCatalogCardRows(){
   groups.forEach(function(group){
     var entries=[];
     group.querySelectorAll(':scope > .entry').forEach(function(e){
-      if(e.classList.contains('is-hidden')||e.classList.contains('highlight'))return;
+      if(e.classList.contains('is-hidden')||e.classList.contains('highlight')||_isPreviewCard(e))return;
       if(e.style.display==='none')return;
       var r=e.getBoundingClientRect();
       if(r.width>2&&r.height>2)entries.push(e);
@@ -30253,7 +30255,9 @@ body.hdr-bar-hidden .quick-bar,body.layout-edit .quick-bar{display:flex}
 .kw-title-label{display:none;align-items:center;font-weight:600;color:var(--text-muted,#999);font-size:.9375rem;padding:.5rem .35rem .5rem .75rem;pointer-events:none;user-select:none;white-space:nowrap}
 body.catalog-portable .kw-title-label{display:inline-flex}
 /* no menu floats above expanded/fullscreen card or readers */
-body:is(.hl-open,.chosen-preview-open,.card-embed-open,.gallery-open,.img-focus-open,.desc-reader-open,.path-reader-open,.desc-focus-open,.path-focus-open,.search-modal-open,.catalog-help-open,.catalog-help-fs) :is(.search-chrome,.filter-wrap,#filterWrap,.search-ac-shell,#acShell,.layout-presets-pop,.ui-scale-pop,.hdr-more-pop,#hdrMorePop,.kw-strip-more-pop,#kwStripMorePop,#catalogEdgeStack,#catalogJumpStack,#cardMinDock,.fs-stripe-trigger,#acStripeTrigger,#kwStripeTrigger,.fs-snap-btn,#acSnapBtn,#kwSnapBtn,.fs-pin-btn,#fsSepPinBtn,#dualFsSepPin,#acFsBar,#kwFsBar,#acFsBack,#kwFsBack,#acFsModeNav,#kwFsModeNav,#searchSplit,#dualFsSep,#indexHeight,.kw-shade-height,.ac-height,#acHeight,.ac-width,#acWidth,#hdrCluster,.hdr-cluster,.quick-bar,#quickBar){visibility:hidden!important;pointer-events:none!important}
+body:is(.hl-open,.chosen-preview-open,.card-embed-open,.gallery-open,.img-focus-open,.desc-reader-open,.path-reader-open,.desc-focus-open,.path-focus-open,.search-modal-open,.catalog-help-open,.catalog-help-fs) :is(.layout-presets-pop,.ui-scale-pop,.hdr-more-pop,#hdrMorePop,.kw-strip-more-pop,#kwStripMorePop,#catalogEdgeStack,#catalogJumpStack,#cardMinDock,.fs-stripe-trigger,#acStripeTrigger,#kwStripeTrigger,.fs-snap-btn,#acSnapBtn,#kwSnapBtn,.fs-pin-btn,#fsSepPinBtn,#dualFsSepPin,#acFsBar,#kwFsBar,#acFsBack,#kwFsBack,#acFsModeNav,#kwFsModeNav,#searchSplit,#dualFsSep,#indexHeight,.kw-shade-height,.ac-height,#acHeight,.ac-width,#acWidth,.quick-bar,#quickBar){visibility:hidden!important;pointer-events:none!important}
+/* fix-PREVIEW-CARD-v1: panes/header only float over the card on portable */
+body.catalog-portable:is(.hl-open,.chosen-preview-open,.card-embed-open,.gallery-open,.img-focus-open,.desc-reader-open,.path-reader-open,.desc-focus-open,.path-focus-open,.search-modal-open,.catalog-help-open,.catalog-help-fs) :is(.search-chrome,.filter-wrap,#filterWrap,.search-ac-shell,#acShell,#hdrCluster,.hdr-cluster){visibility:hidden!important;pointer-events:none!important}
 /* single visible menu in bare display-middle (portable) — cleanup for stale class-combo hooks */
 body.catalog-portable.display-middle:not(.display-sides):not(.kw-open) #filterWrap,
 body.catalog-portable.display-middle:not(.display-sides).kw-chrome-collapsed #filterWrap{display:none!important}

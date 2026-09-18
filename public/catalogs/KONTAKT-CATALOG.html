@@ -19458,7 +19458,28 @@ function clampPos(dx,dy,v){
   var lx=Math.max(0,vw/2-Math.min(w/2,40)),ly=Math.max(0,vh/2-Math.min(h/2,22));
   return{dx:Math.max(-lx,Math.min(lx,dx)),dy:Math.max(-ly,Math.min(ly,dy)),v:v||0};
 }
-function curPos(){var c=convPos(loadPos()[orient()]);return c?clampPos(c.dx,c.dy,c.v):defPos();}
+/* fix-QB-SEAM-DOCK-v1: a persistent dock follows the seam it was dropped on */
+function sameSet(a,b){if(!a||!b||a.length!==b.length)return false;var s=a.slice().sort().join('|'),t=b.slice().sort().join('|');return s===t;}
+function resolveDock(dk){
+  if(!dk||!window.CATALOG_PORTABLE)return null;
+  var vw=window.innerWidth||800,vh=window.innerHeight||600;
+  var ds=docksFor(),hit=null;
+  for(var i=0;i<ds.length;i++){
+    var d=ds[i];
+    if(d.e!==dk.e)continue;
+    if(dk.e==='seam'&&d.pane!==dk.pane)continue;
+    if(dk.e==='vseam'&&!sameSet(d.panes,dk.panes))continue;
+    hit=d;break;
+  }
+  if(!hit&&(dk.e==='seam'||dk.e==='vseam')){
+    /* no seam to dock to right now (menus hidden) -> bottom centre, keep the dock saved */
+    var r=bar.getBoundingClientRect(),bh=r.height||44;
+    hit={x:vw/2,y:vh-bh/2-8,e:'bottom'};
+  }
+  if(!hit)return null;
+  return clampPos(hit.x-vw/2,hit.y-vh/2,hit.v);
+}
+function curPos(){var st=loadPos();var d=resolveDock(st.dock);if(d)return d;var c=convPos(st[orient()]);return c?clampPos(c.dx,c.dy,c.v):defPos();}
 function setSide(v){bar.classList.toggle('qb-side',!!v);bar.classList.toggle('qb-side-r',v==='right');}
 function qbSideRev(){
   var sc=document.getElementById('searchChrome'),fw=document.getElementById('filterWrap');
@@ -19505,13 +19526,13 @@ function docksFor(){
     var el=document.getElementById(id);
     if(el&&el.offsetParent!==null){
       var rr=el.getBoundingClientRect();
-      panes.push(rr);
-      if(id!=='catalogMain'&&rr.bottom>bh/2+m+36&&rr.bottom<vh-bh/2-m-14)ds.push({x:vw/2,y:rr.bottom,e:'seam'});
+      panes.push({id:id,r:rr});
+      if(id!=='catalogMain'&&rr.bottom>bh/2+m+36&&rr.bottom<vh-bh/2-m-14)ds.push({x:vw/2,y:rr.bottom,e:'seam',pane:id});
     }
   });
   for(var pi=0;pi<panes.length;pi++)for(var pj=0;pj<panes.length;pj++){
     if(pi===pj)continue;
-    var ra=panes[pi],rb=panes[pj];
+    var ra=panes[pi].r,rb=panes[pj].r;
     if(ra.right>rb.left+1)continue;
     var gap=rb.left-ra.right;
     if(gap>30)continue;
@@ -19520,7 +19541,7 @@ function docksFor(){
     var sx=clXv((ra.right+rb.left)/2),sy=clYv((vtop+vbot)/2);
     var dupe=false;
     for(var di=0;di<ds.length;di++){if(Math.hypot(ds[di].x-sx,ds[di].y-sy)<40){dupe=true;break;}}
-    if(!dupe)ds.push({x:sx,y:sy,e:'vseam',v:'vseam'});
+    if(!dupe)ds.push({x:sx,y:sy,e:'vseam',v:'vseam',panes:[panes[pi].id,panes[pj].id]});
   }
   return ds;
 }
@@ -19571,7 +19592,7 @@ bar.addEventListener('pointermove',function(e){
   var ds=docksFor();drag.docks=ds;
   var t=-1,best=92;
   ds.forEach(function(d,i){var dd=Math.hypot(c.dx+vw/2-d.x,c.dy+vh/2-d.y);if(dd<best){best=dd;t=i;}});
-  drag.snap=t>=0?clampPos(ds[t].x-vw/2,ds[t].y-vh/2,ds[t].v):null;
+  drag.snap=t>=0?clampPos(ds[t].x-vw/2,ds[t].y-vh/2,ds[t].v):null;drag.snapDock=t>=0?ds[t]:null;
   setSide(t>=0?ds[t].v:0);
   showDocks(ds,t);
 });
@@ -19584,7 +19605,7 @@ function endDrag(e){
   bar.classList.remove('is-drag','is-hold');
   hideDocks();
   var fin=drag.snap||drag.cur||curPos();fin=clampPos(fin.dx,fin.dy,fin.v);
-  var p=loadPos();p[orient()]=fin;savePos(p);
+  var p=loadPos();p[orient()]=fin;if(drag.snapDock&&window.CATALOG_PORTABLE){var sd=drag.snapDock;p.dock={e:sd.e};if(sd.pane)p.dock.pane=sd.pane;if(sd.panes)p.dock.panes=sd.panes.slice();}else delete p.dock;savePos(p);
   drag=null;applyPos();
   bar._suppress=1;setTimeout(function(){bar._suppress=0;},350);
 }
@@ -19611,6 +19632,24 @@ function sync(){
   }catch(eClamp){}
 }
 new MutationObserver(sync).observe(document.body,{attributes:true,attributeFilter:['class']});
+/* fix-QB-SEAM-DOCK-v1: keep a docked bar glued to its seam */
+(function(){
+  var raf=0;
+  function redock(){
+    if(drag)return;
+    if(!loadPos().dock)return;
+    if(raf)cancelAnimationFrame(raf);
+    raf=requestAnimationFrame(function(){raf=0;applyPos();});
+  }
+  new MutationObserver(redock).observe(document.body,{attributes:true,attributeFilter:['class','style']});
+  new MutationObserver(redock).observe(document.documentElement,{attributes:true,attributeFilter:['style']});
+  if(typeof ResizeObserver!=='undefined'){
+    var ro=new ResizeObserver(redock);
+    ['searchChrome','filterWrap','acShell','catalogMain'].forEach(function(id){var el=document.getElementById(id);if(el)try{ro.observe(el);}catch(e){}});
+  }
+  window.addEventListener('pointerup',function(){setTimeout(redock,0);},true);
+  window.addEventListener('touchend',function(){setTimeout(redock,0);},true);
+})();
 window.addEventListener('resize',function(){applyPos();sync();});
 if(window.visualViewport)window.visualViewport.addEventListener('resize',sync);
 applyPos();sync();

@@ -26,6 +26,17 @@ slug(){ echo "$1" | tr -c 'A-Za-z0-9._-' '_' | cut -c1-70; }
 
 override_cover(){ [ -f "$OVERRIDES" ] || return 0; local want="$1" n p
   while IFS=$'\t' read -r n p; do [ "$n" = "$want" ] || continue; [ -f "$p" ] && { printf '%s' "$p"; return 0; }; done < "$OVERRIDES"; }
+# display-name override: name-overrides.tsv  <raw folder/library name><TAB><clean display name>
+# Shared with build-kontakt-catalog-html.sh. Lets a rebuild keep hand-corrected names instead of
+# reverting to the raw on-disk folder name every time. Maintained by tools/update_catalog.py.
+NAME_OVERRIDES="$ART_DIR/name-overrides.tsv"
+RAWNAMES_LOG="$ART_DIR/.raw-names.$MODE.log"
+: > "$RAWNAMES_LOG"
+name_override(){ printf '%s\n' "$1" >> "$RAWNAMES_LOG"
+  [ -f "$NAME_OVERRIDES" ] || { printf '%s' "$1"; return 0; }; local want="$1" n c
+  while IFS=$'\t' read -r n c; do case "$n" in \#*) continue;; esac
+    [ "$n" = "$want" ] || continue; [ -n "$c" ] && { printf '%s' "$c"; return 0; }; done < "$NAME_OVERRIDES"
+  printf '%s' "$want"; }
 # view-artwork URL override: cover-view-urls.tsv  <entry name><TAB><https url to the image/page>
 VIEWURLS="$ART_DIR/cover-view-urls.tsv"
 view_url(){ [ -f "$VIEWURLS" ] || return 0; local want="$1" n u
@@ -219,13 +230,13 @@ uniq_tokens(){ local seen=" " t o=""
 # tokens use lowercase; multi-char models kept as single tokens.
 GEAR="808 909 707 606 727 cr-78 cr78 tr-808 tr-909 linndrum juno jupiter moog minimoog \
 mellotron rhodes wurlitzer prophet oberheim korg roland yamaha dx7 casio sh-101 ms-20 \
-op-1 volca arp emu fairlight ppg synclavier hammond leslie optigan chamberlin \
+op-1 volca emu fairlight ppg synclavier hammond leslie optigan chamberlin \
 steinway broadwood ensoniq dfam ibanez casiotone digitech tx81z selmer"
 classify_desc(){ local d; d=$(printf '%s' "${1:-}" | tr 'A-Z' 'a-z'); local o=""
   for k in $GEAR; do case "$d" in *"$k"*) o="$o $k";; esac; done; printf '%s' "${o# }"; }
 
 # ---- category map for keyword buttons (emitted as JS object at build time) ----
-KW_CATS_JS='{"piano":"instrument","keys":"instrument","organ":"instrument","harmonium":"instrument","celeste":"instrument","harpsichord":"instrument","clavinova":"model","wurlitzer":"instrument","choir":"instrument","vocal":"instrument","voice":"instrument","strings":"instrument","string":"instrument","violin":"instrument","cello":"instrument","viola":"instrument","domra":"instrument","guitar":"instrument","bass":"instrument","bassoon":"instrument","harp":"instrument","mandolin":"instrument","lute":"instrument","flute":"instrument","recorder":"instrument","ocarina":"instrument","whistle":"instrument","woodwind":"instrument","reed":"instrument","clarinet":"instrument","oboe":"instrument","drum":"instrument","drums":"instrument","percussion":"instrument","kalimba":"instrument","bell":"instrument","bells":"instrument","glock":"instrument","chimes":"instrument","bodhran":"instrument","tabla":"instrument","tablas":"instrument","xylophone":"instrument","marimba":"instrument","synth":"instrument","pad":"instrument","bowed":"instrument","accordion":"instrument","saxophone":"instrument","harmonica":"instrument","melodica":"instrument","bagpipe":"instrument","didgeridoo":"instrument","flutina":"instrument","ukulele":"instrument","autoharp":"instrument","lapsteel":"instrument","dobro":"instrument","hurdy":"instrument","lyre":"instrument","erhu":"instrument","kantele":"instrument","gusli":"instrument","bandola":"instrument","guitarron":"instrument","jaw":"instrument","tongue":"instrument","bowl":"instrument","cajon":"instrument","djembe":"instrument","udu":"instrument","clave":"instrument","brass":"instrument","horn":"instrument","gamelan":"instrument","orchestra":"instrument","guitarist":"instrument","mellotron":"instrument","rhodes":"instrument","hammond":"instrument","optigan":"instrument","chamberlin":"instrument","fairlight":"instrument","synclavier":"instrument","gretsch":"brand","moog":"brand","oberheim":"brand","korg":"brand","roland":"brand","yamaha":"brand","casio":"brand","arp":"brand","emu":"brand","ppg":"brand","steinway":"brand","broadwood":"brand","ensoniq":"brand","ibanez":"brand","digitech":"brand","selmer":"brand","stradivari":"brand","amati":"brand","guarneri":"brand","808":"model","909":"model","707":"model","606":"model","727":"model","cr-78":"model","cr78":"model","tr-808":"model","tr-909":"model","linndrum":"model","juno":"model","jupiter":"model","minimoog":"model","prophet":"model","dx7":"model","sh-101":"model","ms-20":"model","op-1":"model","volca":"model","leslie":"model","dfam":"model","casiotone":"model","tx81z":"model","drone":"vibe","ambient":"vibe","texture":"vibe","noise":"vibe","fx":"vibe","fm":"vibe","granular":"vibe","glitch":"vibe","lofi":"vibe","vintage":"vibe","cinematic":"vibe","orchestral":"vibe","ethereal":"vibe","atmospheric":"vibe","hybrid":"vibe","world":"vibe","analog":"vibe","soul":"vibe"}'
+KW_CATS_JS='{"piano":"instrument","keys":"instrument","organ":"instrument","harmonium":"instrument","celeste":"instrument","harpsichord":"instrument","clavinova":"model","wurlitzer":"instrument","choir":"instrument","vocal":"instrument","voice":"instrument","strings":"instrument","string":"instrument","violin":"instrument","cello":"instrument","viola":"instrument","domra":"instrument","guitar":"instrument","bass":"instrument","bassoon":"instrument","harp":"instrument","mandolin":"instrument","lute":"instrument","flute":"instrument","recorder":"instrument","ocarina":"instrument","whistle":"instrument","woodwind":"instrument","reed":"instrument","clarinet":"instrument","oboe":"instrument","drum":"instrument","drums":"instrument","percussion":"instrument","kalimba":"instrument","bell":"instrument","bells":"instrument","glock":"instrument","chimes":"instrument","bodhran":"instrument","tabla":"instrument","tablas":"instrument","xylophone":"instrument","marimba":"instrument","synth":"instrument","pad":"instrument","bowed":"instrument","accordion":"instrument","saxophone":"instrument","harmonica":"instrument","melodica":"instrument","bagpipe":"instrument","didgeridoo":"instrument","flutina":"instrument","ukulele":"instrument","autoharp":"instrument","lapsteel":"instrument","dobro":"instrument","hurdy":"instrument","lyre":"instrument","erhu":"instrument","kantele":"instrument","gusli":"instrument","bandola":"instrument","guitarron":"instrument","jaw":"instrument","tongue":"instrument","bowl":"instrument","cajon":"instrument","djembe":"instrument","udu":"instrument","clave":"instrument","brass":"instrument","horn":"instrument","gamelan":"instrument","orchestra":"instrument","guitarist":"instrument","mellotron":"instrument","rhodes":"instrument","hammond":"instrument","optigan":"instrument","chamberlin":"instrument","fairlight":"instrument","synclavier":"instrument","gretsch":"brand","moog":"brand","oberheim":"brand","korg":"brand","roland":"brand","yamaha":"brand","casio":"brand","arp":"instrument","emu":"brand","ppg":"brand","steinway":"brand","broadwood":"brand","ensoniq":"brand","ibanez":"brand","digitech":"brand","selmer":"brand","stradivari":"brand","amati":"brand","guarneri":"brand","808":"model","909":"model","707":"model","606":"model","727":"model","cr-78":"model","cr78":"model","tr-808":"model","tr-909":"model","linndrum":"model","juno":"model","jupiter":"model","minimoog":"model","prophet":"model","dx7":"model","sh-101":"model","ms-20":"model","op-1":"model","volca":"model","leslie":"model","dfam":"model","casiotone":"model","tx81z":"model","drone":"vibe","ambient":"vibe","texture":"vibe","noise":"vibe","fx":"vibe","fm":"vibe","granular":"vibe","glitch":"vibe","lofi":"vibe","vintage":"vibe","cinematic":"vibe","orchestral":"vibe","ethereal":"vibe","atmospheric":"vibe","hybrid":"vibe","world":"vibe","analog":"vibe","soul":"vibe"}'
 
 # returns 0 and prints an <img> if the source is a USABLE image; returns 1 if degenerate so the
 # caller can try the next candidate. Rejects: <16px dims, sprite strips (h>w*5), unreadable.
@@ -379,13 +390,13 @@ end_loc(){ printf '</div>\n' >> "$BODY"; }
 begin_loc
 section "1. Via SAMPLE STORE (DS default folder)"
 printf '<p class="loc-hint">Folder: <code>%s</code></p>\n' "$(e "$HOME_LIB")" >> "$BODY"
-while IFS=$'\t' read -r nm dir openp; do [ -z "$nm" ] && continue; entry "$nm" "$dir" "$openp"; done < <(list_libraries "$HOME_LIB" | sort -f | uniq)
+while IFS=$'\t' read -r nm dir openp; do [ -z "$nm" ] && continue; nm=$(name_override "$nm"); entry "$nm" "$dir" "$openp"; done < <(list_libraries "$HOME_LIB" | sort -f | uniq)
 end_loc
 
 do_drive(){ begin_loc; section "$1"
   printf '<p class="loc-hint">FILE BROWSER &rarr; <b>%s</b> &rarr; <code>DS Libraries</code>. Root: <code>%s</code></p>\n' "$(e "$3")" "$(e "$2")" >> "$BODY"
   if [ ! -d "$2" ]; then printf '<p class="loc-hint"><i>(drive not present)</i></p>\n' >> "$BODY"; end_loc; return; fi
-  while IFS=$'\t' read -r nm dir openp; do [ -z "$nm" ] && continue; entry "$nm" "$dir" "$openp"; done < <(list_libraries "$2" | sort -f | uniq)
+  while IFS=$'\t' read -r nm dir openp; do [ -z "$nm" ] && continue; nm=$(name_override "$nm"); entry "$nm" "$dir" "$openp"; done < <(list_libraries "$2" | sort -f | uniq)
   end_loc
 }
 do_drive "2. Via FILE BROWSER - BTRFS drive" "$BTRFS" "btrfs"

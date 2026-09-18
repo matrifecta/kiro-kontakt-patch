@@ -4,15 +4,17 @@ Applies to all four catalogs in `public/catalogs/` (DS / Kontakt, desktop + port
 
 ## Card views and pinned-card dock (do in this order)
 
-1. **Pinned cards missing from the bottom dock** — minimized/pinned cards do not
-   appear on the bottom bar (`#cardMinDock`) until it is clicked. Find why the
-   dock is not rendered/shown on pin and fix.
-2. **No duplicate pins of the same card** — one card must not be pinned twice
-   (expanded card / embedded mode as one pin, fullscreen card view as another).
-   A card gets a single pin regardless of which view it was minimized from.
-3. **Name click opens the expanded card** — clicking the card label name must
-   return to entering the expanded card view (preview, without embedded content),
-   as it used to; it currently opens the fullscreen overlay.
+1. ~~**Pinned cards missing from the bottom dock**~~ — done (`21fa68f`).
+2. ~~**No duplicate pins of the same card**~~ — done (`f88b6ab`).
+3. ~~**Name click opens the expanded card**~~ — done (`4902555`).
+3b. **Playing pill layout** — while an embedded YouTube video plays in a pinned
+   card, the pill loses its cover image and shows a large buffering spinner in
+   the media disc that knocks the name/image out of alignment (see pill
+   "Clave Frog & Fri..." with the spinner). The disc must stay 2.15rem, keep
+   the cover visible or a clean thumbnail, and never reflow the pill.
+3c. **Pinned card not displaying when hidden by filter** — restore from the dock
+   sometimes shows nothing when the content window does not contain the card.
+   Not reproduced headless yet; needs exact steps.
 
 ## Embedded content (YouTube) inside the expanded card
 

@@ -16965,7 +16965,7 @@ body.catalog-portable #hdrToolsMorePop{display:none!important}
           <li><b>H</b> — History (session AC, saved sessions, saved combinations).</li>
           <li><b>S</b> / <b>K</b> — show or hide Search and Keywords. Hiding both on portable is content-only (catalog pane alone).</li>
           <li><b>← Back</b> — one step back from expanded card, card fullscreen, gallery, description/path reader, Search fullscreen, embed, or this Legend/Guide. Keywords fullscreen uses ⛶ + Hide instead of a back arrow.</li>
-          <li><b>Legend / Guide</b> — left-edge keys on the content border, docked like the skip icons. Selected sticks out further. They hide when the content window is not on screen and must not overlay About / Document. They also hide under card overlays unless help itself is open.</li>
+          <li><b>Legend / Guide</b> — left-edge keys on the content border, docked like the skip icons. Selected sticks out further. They hide when the content window is not on screen and must not overlay About / Document. They also hide under card overlays unless help itself is open.</li><li><b>▼ / ▲ tabs</b> — two small tabs on the content window’s bottom border hide or show the Legend / Guide pair (left) and the skip-to-top / skip-to-bottom pair (right). They stay fully inside the content window. On phone they sit a quarter of the way in from each side (not on the edges) in both orientations, so they never crowd the edge controls.</li>
         </ul>
       </details>
       <details open>
@@ -16973,7 +16973,7 @@ body.catalog-portable #hdrToolsMorePop{display:none!important}
         <ul>
           <li><b>Search</b> — field placeholder “Search libraries…”. Name / other / patch tokens. Does not auto-open a front card. Hits highlight in the content window.</li>
           <li><b>Suggestion list</b> (session AC) — lives in the Search column under the field. Groups can include libraries, keyword hits, Patch names, session pins, and saved combinations. Session only until you save. Resize edges show in Customize.</li>
-          <li><b>Keyword pills</b> — Instrument / Brand / Model / Vibe / Patch groups. Combine to narrow. Active filters also appear as Search pills. Portable ⋯ reveals the category buttons at the top of this window.</li>
+          <li><b>Keyword pills</b> — Instrument / Brand / Model / Vibe / Patch groups. Combine to narrow. Active filters also appear as Search pills. Libraries whose name uses a non-English or obscure instrument word also carry the English keyword (e.g. <i>Floete</i> → flute, <i>Xilo</i> → xylophone, <i>Gjallar Horn</i> → horn), so the English search term finds them. Portable ⋯ reveals the category buttons at the top of this window.</li>
           <li><b>Two-line name</b> — library title uses a fixed two-line slot with ellipsis (<code>.lib-name</code>). Hover (desktop) can show the full name in a themed bubble. Tap/click the name from anywhere (grid, Sides preview) to open the expanded card view, same as ⛶. Portable portrait splits the document title around the notch, each word centered in its half.</li>
           <li><b>Path</b> — three icons under the cover (FS | copy | folder), not an expandable path field. FS opens the reader for the full location.</li>
           <li><b>Description</b> — blurb on the card; tap / wheel to open the description reader instead of stretching the grid.</li>
@@ -17012,7 +17012,7 @@ body.catalog-portable #hdrToolsMorePop{display:none!important}
           <li><b>Sides</b> / <b>Middle</b> — layout pick (persisted per catalog ns + orientation). Phone Middle is portrait-only.</li>
           <li><b>Flip</b> — swap the menu columns / stacked order. Landscape nested Sides: Flip moves the Search+Keywords pair together.</li>
           <li><b>Collapse</b> — close open patch trees, even card row heights, and (with Index Window open) collapse the index so cards return.</li>
-          <li><b>Customize</b> — reveal drag edges for Search, Keywords, Index, and menu height. Becomes <b>Done</b> while arranging.</li>
+          <li><b>Customize</b> — reveal drag edges for Search, Keywords, Index, and menu height. In Middle layout both the Search pane and the Keywords pane show a centred drag line on their bottom edge, so either one can set the menu height. Becomes <b>Done</b> while arranging.</li>
           <li><b>Layouts</b> — named menu size presets (Search + Keywords vs Search-only stores). Saved layouts, not the live session.</li>
           <li><b>Profiles</b> — saved workspace snapshots (pills, Flip, related chrome). Max <b>12</b> per catalog. Desktop header; phone parks it in ⋯. Portable hides the standing header control.</li>
           <li><b>Theme picker</b> — Desert Dusk, Night Studio, Smoked Glass, seasonal light/dark sets, HC Dark / HC Light. Saved as <code>catalog-theme</code>.</li>
@@ -17040,6 +17040,19 @@ body.catalog-portable #hdrToolsMorePop{display:none!important}
         </ol>
         <p class="catalog-help-k">You should see</p>
         <p>The 💬 button only appears when a note is saved. Notes (and the keywords they generate) live in this browser's <code>localStorage</code> and are not part of the HTML file. Erase them from History → <b>User text (notes)</b>.</p>
+      </details>
+      <details>
+        <summary>Place the quick toolbar (phone)</summary>
+        <p class="catalog-help-k">Goal</p>
+        <p>Park the floating S / K / ⇄ toolbar where it does not get in the way, and have it remembered for every way you use the screen.</p>
+        <p class="catalog-help-k">Steps</p>
+        <ol>
+          <li>Hide the header bar (or turn on Customize) so the toolbar shows.</li>
+          <li>Press and hold the toolbar for about 3 seconds until it lifts, then drag. Dock markers appear on the edges and on the seam between the menu and the content window (or between the two menus).</li>
+          <li>Drop it on a seam to dock it there, or anywhere else to leave it free. Repeat for each way you use the screen: Search up, Keywords up, both, neither, flipped, portrait, landscape.</li>
+        </ol>
+        <p class="catalog-help-k">You should see</p>
+        <p>A docked toolbar rides along when you drag the separator. Each combination of orientation, visible menus and Flip keeps its own spot: switch menus and the toolbar jumps to where you last left it for that combination, and comes back when you switch again. Positions are saved on this device.</p>
       </details>
       <details open>
         <summary>Find a library by Search</summary>
@@ -17297,14 +17310,14 @@ body.catalog-portable #hdrToolsMorePop{display:none!important}
           <li><b>Flip</b> — <code>catalog-sides-portrait-flip-*</code> per catalog namespace and layout scope.</li>
           <li><b>Index Embed</b> — remembered Window vs Embed.</li>
           <li><b>Profiles</b> — <code>catalog-user-profiles-*</code>, max 12.</li>
-          <li><b>Header bar</b> — hide/show document header.</li>
+          <li><b>Header bar</b> — hide/show document header. While it is hidden (or Customize is on) a small floating <b>quick toolbar</b> appears with S (Search), K (Keywords), ⇄ Flip, layout and a collapse arrow.</li><li><b>Quick toolbar docking (phone)</b> — long-press the toolbar (about 3 s) to drag it; dock markers appear on the screen edges and on every seam between two panes (menu | menu, or menu | content window). Drop it on a seam and it stays glued there, following the separator when you resize. Each layout combination — orientation, which of Search / Keywords is up, Flip — remembers its own position separately, so once you have placed the toolbar for a combination it comes back there automatically whenever that combination returns. Dropping it away from a seam remembers that free spot for the current combination instead.</li>
           <li>Clearing site data for this origin resets chrome. Rebuilding HTML does not.</li>
         </ul>
       </details>
       <details>
         <summary>Session vs saved</summary>
         <ul>
-          <li><b>Saved (localStorage, per catalog ns)</b> — theme, Sides/Middle pick, Flip, Customize sizes, Layouts, Profiles (max 12), Favorites, notes, UI scale, Index/About Embed prefs, some Search-split ratios, Clear on miss.</li>
+          <li><b>Saved (localStorage, per catalog ns)</b> — theme, Sides/Middle pick, Flip, Customize sizes, Layouts, Profiles (max 12), Favorites, notes, UI scale, Index/About Embed prefs, some Search-split ratios, Clear on miss, quick toolbar position and docks (one per layout combination).</li>
           <li><b>Session</b> — typed Search AC list until you save a session/combination; open expanded card; Legend/Guide open state; Index open/closed this visit (arrow still required to open).</li>
           <li>History <b>All search</b> erases typed history only. History <b>All</b> also targets saved sessions and saved combinations — not theme and not named Layouts unless those were stored as combinations.</li>
           <li>Closing the tab keeps saved keys. A private window will look like a first run.</li>
@@ -30351,6 +30364,10 @@ function updCollapse(){
 
 function loadPos(){try{var o=JSON.parse(localStorage.getItem(POSKEY)||'null');if(o&&typeof o==='object'){if(o.dock&&!o.docks){o.docks={portrait:o.dock,landscape:o.dock};}delete o.dock;return o;}}catch(e){}return {};}
 function dockFor(st,o){return (st&&st.docks&&st.docks[o||orient()])||null;}
+/* fix-QB-COMBO-STATES-v1: one remembered position per layout combination */
+function paneVis(id){var el=document.getElementById(id);if(!el||el.offsetParent===null)return false;var r=el.getBoundingClientRect();return r.width>4&&r.height>4;}
+function stateSig(){var c=document.body.classList;return orient()+'|S'+(paneVis('searchChrome')?1:0)+'K'+(paneVis('filterWrap')?1:0)+'F'+(c.contains('portable-flip-on')||c.contains('sides-portrait-flip')?1:0)+'M'+(c.contains('display-middle')?1:0);}
+function stateFor(st,sig){return (st&&st.states&&st.states[sig||stateSig()])||null;}
 function seamAvailable(){var ds=docksFor();for(var i=0;i<ds.length;i++)if(ds[i].e==='seam'||ds[i].e==='vseam')return true;return false;}
 function savePos(p){try{localStorage.setItem(POSKEY,JSON.stringify(p));}catch(e){}}
 function defPos(){var vh=window.innerHeight||600,r=bar.getBoundingClientRect(),h=r.height||44;return{dx:0,dy:Math.max(0,vh/2-h/2-14)};}
@@ -30391,7 +30408,16 @@ function resolveDock(dk){
   if(!hit)return null;
   return clampPos(hit.x-vw/2,hit.y-vh/2,hit.v);
 }
-function curPos(){var st=loadPos();var d=resolveDock(dockFor(st));if(d)return d;var c=convPos(st[orient()]);return c?clampPos(c.dx,c.dy,c.v):defPos();}
+function curPos(){
+  var st=loadPos();
+  var en=window.CATALOG_PORTABLE?stateFor(st):null;
+  if(en){
+    if(en.dock){var dd=resolveDock(en.dock);if(dd)return dd;}
+    if(en.pos){var cp=convPos(en.pos);if(cp)return clampPos(cp.dx,cp.dy,cp.v);}
+  }
+  var d=resolveDock(dockFor(st));if(d)return d;
+  var c=convPos(st[orient()]);return c?clampPos(c.dx,c.dy,c.v):defPos();
+}
 function setSide(v){bar.classList.toggle('qb-side',!!v);bar.classList.toggle('qb-side-r',v==='right');}
 function qbSideRev(){
   var sc=document.getElementById('searchChrome'),fw=document.getElementById('filterWrap');
@@ -30517,7 +30543,13 @@ function endDrag(e){
   bar.classList.remove('is-drag','is-hold');
   hideDocks();
   var fin=drag.snap||drag.cur||curPos();fin=clampPos(fin.dx,fin.dy,fin.v);
-  var p=loadPos(),o=orient();p.docks=p.docks||{};var sd=drag.snapDock;if(sd&&(sd.e==='seam'||sd.e==='vseam')&&window.CATALOG_PORTABLE){var dk={e:sd.e};if(sd.pane)dk.pane=sd.pane;if(sd.panes)dk.panes=sd.panes.slice();p.docks[o]=dk;}else{p[o]=fin;if(window.CATALOG_PORTABLE&&seamAvailable())delete p.docks[o];}savePos(p);
+  var p=loadPos(),o=orient();p[o]=fin;var sd=drag.snapDock;
+if(window.CATALOG_PORTABLE){
+  p.states=p.states||{};var sig=stateSig(),en={pos:fin,dock:null};
+  if(sd&&(sd.e==='seam'||sd.e==='vseam')){var dk={e:sd.e};if(sd.pane)dk.pane=sd.pane;if(sd.panes)dk.panes=sd.panes.slice();en.dock=dk;}
+  p.states[sig]=en;
+}
+savePos(p);
   drag=null;applyPos();
   bar._suppress=1;setTimeout(function(){bar._suppress=0;},350);
 }
@@ -30549,7 +30581,7 @@ new MutationObserver(sync).observe(document.body,{attributes:true,attributeFilte
   var raf=0;
   function redock(){
     if(drag)return;
-    if(!dockFor(loadPos()))return;
+    if(!window.CATALOG_PORTABLE)return;
     if(raf)cancelAnimationFrame(raf);
     raf=requestAnimationFrame(function(){raf=0;applyPos();});
   }

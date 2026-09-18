@@ -115,6 +115,8 @@ html[data-ui-scale="110"] .index,html[data-ui-scale="125"] .index{--index-name-l
 html[data-ui-scale="133"] .index,html[data-ui-scale="140"] .index,html[data-ui-scale="150"] .index,html[data-ui-scale="175"] .index,html[data-ui-scale="200"] .index,html[data-ui-scale="250"] .index,html[data-ui-scale="300"] .index{--index-name-lines:4}
  #catalogMain,#catalogMain>.catalog-body{overflow-anchor:none}
  .catalog-body{--cat-min:15rem;--cat-cols:repeat(auto-fill,minmax(min(100%,var(--cat-min)),1fr));display:grid;grid-template-columns:var(--cat-cols);gap:clamp(0.6rem,1.2vw,1.15rem);align-items:stretch;margin-top:1rem;width:100%;max-width:100%}
+ /* fix-GRID-NO-STRETCH-v1: short content (one row) must not stretch collapsed Index / doc note / headings to fill the pane */
+ .catalog-body,.loc-group{align-content:start}
  .catalog-body>h2,.catalog-body>p,.loc-group>h2,.loc-group>p,.loc-group>.loc-hint{grid-column:1/-1;order:-5}
  .catalog-body>h2,.loc-group>h2,.catalog-index-title{border-bottom:0;padding-bottom:0}
  .loc-group{grid-column:1/-1;display:grid;grid-template-columns:var(--cat-cols);gap:inherit;align-items:start}

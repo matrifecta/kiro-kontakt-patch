@@ -1458,9 +1458,15 @@ body.display-sides.display-middle #filterWrap{
   transform:none!important;width:100%!important;max-width:none!important;
   height:100%!important;max-height:none!important;z-index:5!important;
   box-shadow:none!important;border-left:1px solid var(--border)!important;border-right:0!important;
+  border-bottom:1px solid var(--border)!important;
   overflow:hidden!important;display:flex!important;flex-direction:column!important
 }
 body.display-sides.display-middle.kw-open #filterWrap{transform:none!important}
+/* fix-KW-BORDER-MIDDLE-v1: Middle mode gives #searchChrome a bottom border; match it on
+   the Keywords pane. Needs to out-specify body.display-sides.kw-open:not(.kw-chrome-collapsed)
+   #filterWrap, which zeroes the border shorthand with !important. */
+body.display-sides.display-middle.kw-open:not(.kw-chrome-collapsed) #filterWrap,
+body.display-sides.display-middle:not(.kw-chrome-collapsed) #filterWrap{border-bottom:1px solid var(--border)!important}
 body.display-sides.display-middle.kw-chrome-collapsed #filterWrap{display:none!important}
 body.display-sides.display-middle.search-chrome-collapsed #filterWrap{grid-column:1/-1!important}
 body.display-sides.display-middle.kw-chrome-collapsed #searchChrome{grid-column:1/-1!important}
@@ -24153,6 +24159,14 @@ if(DESKTOP){
     var lx=(r&&r.width>4)?(r.left+r.width/2):(mr?mr.left+28:28);
     var jr=js?js.getBoundingClientRect():null;
     var rx=(jr&&jr.width>4)?(jr.left+jr.width/2):(mr?mr.right-28:vw-28);
+    /* fix-TAB-MOBILE-CENTER-v1: on the phone catalog the edges are crowded, so sit each
+       tab halfway between the centre of the content window and its own side (25% / 75%),
+       in both orientations, instead of hugging the edge */
+    if(document.body.classList.contains("catalog-portable")){
+      var baseL=mr?mr.left:0,baseW=mr?mr.width:vw;
+      lx=baseL+baseW*0.25;
+      rx=baseL+baseW*0.75;
+    }
     /* fix-TAB-CONTAIN-v1: tabs are centered on their anchor (translateX(-50%)), so keep
        the anchor at least half a tab width inside the content window's own borders */
     var halfL=(tL.getBoundingClientRect().width||34)/2;

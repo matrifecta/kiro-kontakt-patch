@@ -19496,7 +19496,7 @@ function openCardSearchEmbed(type,popupUrl){
   else urls.web=popupUrl;
   var name=(card.getAttribute('data-name')||'')||((document.getElementById('searchModalTitle')||{}).textContent||'');
   var query=cardSearchQuery(popupUrl,name);
-  cardSearchState={type:type||'',popupUrl:popupUrl,embedUrl:'',history:[],query:query,name:name,view:'',results:[],images:[],_webData:null,urls:urls,_iframeLoads:0,_iframeHasStack:false,_embedFrameLoads:0,_embedUserInteracted:false,_landingEmbedUrl:''};
+  cardSearchState={type:type||'',popupUrl:popupUrl,embedUrl:'',history:[],query:query,name:name,view:'',results:[],images:[],_webData:null,urls:urls,_iframeLoads:0,_iframeHasStack:false,_embedFrameLoads:0,_embedUserInteracted:false,_landingEmbedUrl:'',cardId:card.id||''};
   var _landView=type==='yt'?'yt-list':(type==='img'?'grid':'results');
   cardSearchState.history=[{kind:'root',view:_landView,type:type||'web',landing:1}];
   if(typeof cardSearchBindFrameNav==='function')cardSearchBindFrameNav(document.getElementById('cardSearchFrame'));
@@ -24910,6 +24910,13 @@ function cardMinMediaPlaying(){
   if(f.classList.contains('is-hidden'))return false;
   return !!(document.body.classList.contains('card-embed-open')||(window.cardSearchState&&(cardSearchState.ytId||cardSearchState.embedUrl||src)));
 }
+function cardMinMediaBelongs(entry){
+  if(!entry||!entry.id)return false;
+  var host=document.getElementById('cardSearchEmbed');
+  if(host&&entry.contains(host))return true;
+  if(window.cardMinMediaOwnerId===entry.id)return true;
+  return !!(window.cardSearchState&&cardSearchState.cardId===entry.id);
+}
 function cardMinPauseMedia(){cardMinYtCmd('pauseVideo');}
 function cardMinPlayMedia(){cardMinYtCmd('playVideo');}
 function cardMinParkMedia(id){
@@ -25459,12 +25466,13 @@ function minimizeExpandedCard(entry){
     }
     cardMinDockItems.push(rec);
   }
-  var keep=typeof cardMinMediaPlaying==='function'&&cardMinMediaPlaying();
+  /* fix-MEDIA-OWNER-v1: only the card that actually hosts the embed may park it; a video parked for another pin must not be re-owned */
+  var keep=typeof cardMinMediaPlaying==='function'&&cardMinMediaPlaying()&&cardMinMediaBelongs(entry);
   if(window.cardMinMediaOwnerId&&window.cardMinMediaOwnerId!==entry.id&&typeof cardMinPauseMedia==='function')cardMinPauseMedia();
   if(document.body.classList.contains('hl-open')||entry.classList.contains('highlight'))closeOverlay({skipScroll:true});
   else if(document.body.classList.contains('chosen-preview-open'))closeChosenPreview({skipJumpExit:true,skipDismiss:true,keepMedia:keep});
   cardMinRender();
-  if(keep&&kind==='preview'&&typeof cardMinParkMedia==='function')cardMinParkMedia(entry.id);
+  if(keep&&kind==='preview'&&typeof cardMinParkMedia==='function'){cardMinParkMedia(entry.id);cardMinRender();}
 }
 function cardMinRestore(id,kind){
   var i=cardMinIndex(id,kind||'preview');

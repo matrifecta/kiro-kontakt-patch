@@ -46,6 +46,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 import catalog_splice as splice
 import name_clean_lib as ncl
+import sort_catalog_cards as sortcards
 
 REPO = Path(__file__).resolve().parents[1]
 ART_DIR = Path('/home/phnx/KIRO/.kiro/specs/kontakt-workspace-drive-dirty-fix/artifacts')
@@ -136,51 +137,106 @@ def extract_entry_kw(fresh_html: str, raw_name_attr: str) -> str:
     return m.group(1) if m else ''
 
 
+def extract_entry_desc(fresh_html: str, raw_name_attr: str) -> str:
+    m = re.search(r'data-name="' + re.escape(raw_name_attr) + '"', fresh_html)
+    if not m:
+        return ''
+    d = fresh_html.find('class="desc"', m.start())
+    if d == -1:
+        return ''
+    end = fresh_html.find('</p>', d)
+    return _unescape(fresh_html[d + len('class="desc">'):end])
+
+
+def existing_clean_names(json_path: Path) -> set:
+    if not json_path.exists():
+        return set()
+    return {e['name'] for e in json.loads(json_path.read_text())}
+
+
+def dedupe_name(name: str, taken: set) -> str:
+    """Naming-source priority for a colliding name: since we don't have a
+    reliable distinguishing "source" string here (that lives in the
+    review prompt, where the user can say where it came from), fall back
+    to the documented rule of last resort -- a numeric suffix."""
+    if name not in taken:
+        return name
+    i = 2
+    while f'{name} ({i})' in taken:
+        i += 1
+    return f'{name} ({i})'
+
+
 def review_new_entries(catalog: str, fresh_html: str, new_raw_names: list[str],
-                        overrides: dict, vocab: set, auto_yes: bool) -> dict:
+                        vocab: set, taken_names: set, auto_yes: bool) -> dict:
     """Interactively confirms a clean name (and reports auto-tagged
     keywords) for each newly-discovered raw name. Returns the subset of
-    `overrides`-style updates {raw: clean} for names that need one."""
+    `overrides`-style updates {raw: clean} for names that need one.
+
+    Naming-source priority, per the project's naming rules:
+      1. the real name from the source site (Pianobook, etc.) -- this
+         tool can't fetch that itself, so it flags likely Pianobook
+         entries and asks you to check pianobook.co.uk for the listed
+         title instead of trusting the folder name
+      2. the name given in the library's own description text file
+         (extracted as a candidate, shown alongside the heuristic guess)
+      3. the heuristic folder-name cleanup (tools/name_clean_lib.py)
+      4. ask -- if a chosen name collides with another entry in the same
+         catalog, disambiguate by where it came from if known, else a
+         numeric suffix ("Name (2)")
+    """
     if not new_raw_names:
         return {}
-    all_names_for_freq = new_raw_names  # frequency signal is weak with just
-    # the new batch, but still catches a repeated author across new drops
     freq = ncl.trailing_freq(new_raw_names)
     updates = {}
+    taken = set(taken_names)
     print(f'\n{len(new_raw_names)} new {catalog} entries found:\n')
     for raw in new_raw_names:
+        desc = extract_entry_desc(fresh_html, _attr_escape(raw))
         clean, needs_review = ncl.clean_name(raw, freq)
+        desc_title = ncl.title_from_description(desc)
+        is_pianobook = ncl.looks_like_pianobook(raw, desc)
         kw = extract_entry_kw(fresh_html, _attr_escape(raw))
         unknown_kw = [k for k in kw.split() if k not in vocab]
-        confident = not needs_review and not unknown_kw
+        confident = not needs_review and not unknown_kw and not is_pianobook
 
         print(f'  raw name : {raw}')
         print(f'  proposed : {clean}' + ('' if clean == raw else '  (cleaned)'))
+        if desc_title and desc_title != clean:
+            print(f'  desc says: {desc_title}  (from the description text)')
+        if is_pianobook:
+            print('  NOTE: this looks like a Pianobook (or similar community-repo) submission --')
+            print('        the folder name is usually NOT the real title. Check '
+                  'https://pianobook.co.uk for the listed name before accepting.')
         print(f'  keywords : {kw or "(none found)"}' + (
             f'  [new tags not in the existing map: {" ".join(unknown_kw)}]' if unknown_kw else ''))
 
         if confident:
             print('  -> looks clear, auto-accepting.\n')
-            if clean != raw:
-                updates[raw] = clean
-            continue
-
-        if auto_yes:
+            final_name = clean
+        elif auto_yes:
             print('  -> --yes given, accepting the proposed name as-is.\n')
-            if clean != raw:
-                updates[raw] = clean
-            continue
+            final_name = clean
+        else:
+            print('  This one needs a look (uncertain name, an untagged keyword, and/or a '
+                  'likely Pianobook submission).')
+            suggestion = desc_title or clean
+            resp = input(
+                f'  Press Enter to accept "{suggestion}", type a corrected/source-verified name, '
+                f'or "?" to list the existing keyword map: '
+            ).strip()
+            while resp == '?':
+                print('  existing keywords:', ' '.join(sorted(vocab)))
+                resp = input(f'  Press Enter to accept "{suggestion}", or type a corrected name: ').strip()
+            final_name = resp if resp else suggestion
+            print()
 
-        print('  This one needs a look (uncertain name and/or an untagged keyword).')
-        resp = input(
-            f'  Press Enter to accept "{clean}", type a corrected name, '
-            f'or "?" to list the existing keyword map: '
-        ).strip()
-        while resp == '?':
-            print('  existing keywords:', ' '.join(sorted(vocab)))
-            resp = input(f'  Press Enter to accept "{clean}", or type a corrected name: ').strip()
-        final_name = resp if resp else clean
-        print()
+        if final_name in taken:
+            deduped = dedupe_name(final_name, taken)
+            print(f'  "{final_name}" already exists in this catalog -- using "{deduped}" instead.\n')
+            final_name = deduped
+        taken.add(final_name)
+
         if final_name != raw:
             updates[raw] = final_name
     return updates
@@ -251,7 +307,8 @@ def update_one(catalog: str, cfg: dict, mode: str, auto_yes: bool) -> bool:
     fresh_html = cfg['fresh_desktop'].read_text(encoding='utf-8')
     new_raw = [n for n in dict.fromkeys(raw_names) if n not in known and n not in overrides]
 
-    updates = review_new_entries(catalog, fresh_html, new_raw, overrides, vocab, auto_yes)
+    taken = existing_clean_names(cfg['json_path']) | set(overrides.values())
+    updates = review_new_entries(catalog, fresh_html, new_raw, vocab, taken, auto_yes)
 
     if mode == 'check':
         print(f'  --check only: {len(new_raw)} new entries, '
@@ -287,6 +344,10 @@ def update_one(catalog: str, cfg: dict, mode: str, auto_yes: bool) -> bool:
         fresh = splice.extract_fresh(fresh_html2)
         before = splice.entry_count(live_html)
         spliced = splice.splice_onto_live(live_html, fresh)
+        # Keep each location group's cards alphabetically sorted by
+        # display name -- the builder sorts by raw name, which drifts
+        # out of order once name-overrides.tsv renames things.
+        spliced, _groups, _n = sortcards.sort_cards_in_html(spliced)
         after = splice.entry_count(spliced)
         html_path.write_text(spliced, encoding='utf-8')
         print(f'  {html_path.name}: {before} -> {after} entries')

@@ -31,6 +31,13 @@ BLOB_VERSION_RE = re.compile(r'^(?:v\.?\d+(?:[._]\d+){0,3}[a-z]?\.?|\d+(?:[._]\d
 SPACED_VERSION_RE = re.compile(r'^(?:v\.?\d+(?:[._]\d+){0,3}[a-z]?\.?|\d+(?:[._]\d+)+[a-z]?)$', re.I)
 IDNUM_RE = re.compile(r'^\d{2,8}$')
 TIMESTAMP_RE = re.compile(r'^\d{8}-\d{6}$')
+# Community-repo submission tags: "<Name> for Pianobook <datecode>" (or
+# just "<Name> Pianobook <datecode>") is a self-identifying upload tag --
+# site name plus a YYMMDD-style submission date -- never part of the
+# actual instrument name. e.g. "Blackbird for Pianobook 250818" is really
+# just "Blackbird"; the real name should come from the source site or the
+# library's own description text, not this folder-naming convention.
+PIANOBOOK_SUFFIX_RE = re.compile(r'(?i)\s+(?:for\s+)?pianobook(?:\s+\d{4,8})?\s*$')
 # Pure product/plugin-format boilerplate -- never meaningful title content.
 # Deliberately does NOT include words like "free"/"edition"/"lite"/"demo"/
 # "preset": those describe the release itself (a free/lite/demo tier, a
@@ -98,7 +105,8 @@ def _core_words(raw: str):
     (raw blobs only), version/timestamp/boilerplate words filtered out
     (rules depend on whether this is a raw blob or an already-spaced
     name). Returns (words, had_space)."""
-    name = _strip_boilerplate_brackets(raw.strip())
+    name = PIANOBOOK_SUFFIX_RE.sub('', raw.strip())
+    name = _strip_boilerplate_brackets(name)
     words, had_space = _words_for(name)
 
     if had_space:
@@ -213,6 +221,61 @@ def clean_name(raw: str, corpus_trailing_freq: dict) -> tuple[str, bool]:
     # "1930s" or "X-99B"). Ordinary punctuation is fine and NOT flagged.
     needs_review = bool(re.search(r'_|\b\d{3,}\b', cleaned)) or len(cleaned) < 3
     return cleaned, needs_review
+
+
+def looks_like_pianobook(raw_name: str, description: str = '') -> bool:
+    """True if a raw name or its description self-identifies as a
+    Pianobook (or similar community-repo) submission -- a strong signal
+    that the folder name is NOT the library's real name, and the real
+    name should come from the source site or the description text
+    instead of the usual ID/version-stripping heuristic."""
+    return bool(re.search(r'(?i)pianobook', raw_name) or re.search(r'(?i)pianobook', description or ''))
+
+
+def title_from_description(description: str) -> str | None:
+    """Best-effort extraction of a "name given in the description text
+    file" per the naming-source priority: source site > description
+    title > heuristic cleanup > ask. Many of these community READMEs
+    start with a heading like "# Title - Version: [1.0] Name: Author" or
+    "# Title Version: 1.0" -- take the part before the first " - Version"/
+    "Version:"/"Name:" marker on the first line as the candidate title.
+    Returns None if nothing usable is found."""
+    if not description:
+        return None
+    first_line = description.strip().splitlines()[0].lstrip('#').strip()
+    m = re.split(r'\s*-?\s*(?:Version:|Name:)', first_line, maxsplit=1)
+    title = m[0].strip() if m else ''
+    return title or None
+
+
+def resolve_collisions(mapping: dict[str, str], source_of: dict = None) -> dict[str, str]:
+    """Disambiguates any clean names in `mapping` (raw -> clean) that
+    collide with each other, per the "name it from where it came from,
+    else a number" rule:
+      - if `source_of` gives a distinguishing location/source string for
+        each raw name and the colliding entries have DIFFERENT sources,
+        append " (from <source>)" to each
+      - otherwise append " (2)", " (3)", ... to the duplicates (the
+        first-seen one keeps the bare clean name)
+    Returns a new mapping with the same keys, deduplicated clean values.
+    """
+    source_of = source_of or {}
+    by_clean: dict[str, list[str]] = {}
+    for raw, clean in mapping.items():
+        by_clean.setdefault(clean, []).append(raw)
+
+    resolved = dict(mapping)
+    for clean, raws in by_clean.items():
+        if len(raws) < 2:
+            continue
+        sources = [source_of.get(r) for r in raws]
+        if all(sources) and len(set(sources)) == len(sources):
+            for raw, src in zip(raws, sources):
+                resolved[raw] = f'{clean} (from {src})'
+        else:
+            for i, raw in enumerate(raws):
+                resolved[raw] = clean if i == 0 else f'{clean} ({i + 1})'
+    return resolved
 
 
 def trailing_freq(names: list[str]) -> dict:

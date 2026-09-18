@@ -25,6 +25,9 @@ import sys
 import urllib.parse
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).parent))
+import sort_catalog_cards as sortcards
+
 REPO = Path(__file__).resolve().parents[1]
 GEN = REPO / 'tools' / '_generated'
 
@@ -167,6 +170,11 @@ def process_file(rel_path: str, map_name: str, desc_prefix: str, search_suffix: 
     else:
         new_index = '\n' + rebuild_index(new_chunks)
         body = body[:idx_content_start] + new_index + body[idx_end:]
+
+    # keep each location group's card grid alphabetically sorted too --
+    # a rename doesn't move a card, so this prevents the grid drifting
+    # out of order relative to its own (now-current) display names
+    body, _groups, _n = sortcards.sort_cards_in_html(body)
 
     path.write_text(body, encoding='utf-8')
     print(f'{rel_path}: {renamed} entries renamed, {len(chunks)} total, index rebuilt')

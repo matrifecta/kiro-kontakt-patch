@@ -37,7 +37,11 @@ def build_mapping(names: list[str]) -> dict[str, str]:
             continue
         cleaned, _needs_review = ncl.clean_name(n, freq)
         mapping[n] = cleaned
-    return mapping
+    # Two different raw names cleaning to the same result (rare) get
+    # disambiguated rather than silently colliding: same rule as
+    # tools/update_catalog.py's interactive wizard -- "(from <source>)"
+    # if distinguishable, else a numeric suffix.
+    return ncl.resolve_collisions(mapping)
 
 
 def main():

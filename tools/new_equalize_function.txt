@@ -1,0 +1,227 @@
+function equalizeCatalogCardRows(){
+  var _eqT0=(typeof performance!=='undefined'&&performance.now)?performance.now():Date.now();
+  window._eqN=(window._eqN||0)+1;
+  var _scrollPin=typeof catalogScrollAnchor==='function'?catalogScrollAnchor():null;
+  if(_scrollPin&&_scrollPin.sc)_scrollPin.sc.style.setProperty('overflow-anchor','none');
+  var groups=document.querySelectorAll('.loc-group');
+  var _desk=!(typeof window!=='undefined'&&window.CATALOG_PORTABLE);
+  /* perf-BATCH-v1: reset (write), single reflow */
+  groups.forEach(function(group){
+    group.querySelectorAll(':scope > .entry').forEach(function(e){
+      if(e.classList.contains('highlight'))return;
+      e.style.minHeight='';
+      var _cov=e.querySelector('.cover');
+      if(_cov)_cov.style.minHeight='';
+      var _sp=e.querySelector('.summary-panel');
+      if(_sp){_sp.style.marginTop='';_sp.style.minHeight='';}
+      var _hb=e.querySelector('.hl-body');
+      if(_hb){_hb.style.paddingTop='';_hb.style.minHeight='';}
+      var _path=e.querySelector('.path');
+      if(_path)_path.style.paddingTop='';
+      var _fav=e.querySelector('.fav-btn');
+      if(_fav){_fav.style.top='';_fav.style.bottom='';}
+    });
+  });
+  if(typeof document!=='undefined'&&document.body)void document.body.offsetHeight;
+  /* perf-BATCH-v1: build the row list once (read), reused by every later phase
+     instead of re-deriving per phase and forcing a reflow per row */
+  var allRows=[];
+  groups.forEach(function(group){
+    var entries=[];
+    group.querySelectorAll(':scope > .entry').forEach(function(e){
+      if(e.classList.contains('is-hidden')||e.classList.contains('highlight'))return;
+      if(e.style.display==='none')return;
+      var r=e.getBoundingClientRect();
+      if(r.width>2&&r.height>2)entries.push(e);
+    });
+    var rows=[];
+    entries.forEach(function(e){
+      var t=Math.round(e.getBoundingClientRect().top);
+      var row=null;
+      for(var i=0;i<rows.length;i++){if(Math.abs(rows[i].t-t)<=24){row=rows[i];break;}}
+      if(!row){row={t:t,cards:[]};rows.push(row);}
+      row.cards.push(e);
+    });
+    rows.forEach(function(row){
+      if(row.cards.length<2)return;
+      row._band=row.cards.filter(function(e){return !(typeof catalogCardIsExpanded==='function'&&catalogCardIsExpanded(e));});
+      if(!row._band.length)row._band=row.cards;
+      allRows.push(row);
+    });
+  });
+  /* Phase 1 (all rows): measure max cover height, then write cover/hl-body sizing.
+     One reflow for the whole document instead of one per row. */
+  allRows.forEach(function(row){
+    var _maxCovH=0,_refCard=null;
+    row._band.forEach(function(e){
+      var _c=e.querySelector('.cover');
+      if(!_c)return;
+      var _h=Math.round(_c.getBoundingClientRect().height);
+      var _img=_c.querySelector('img');
+      if(_img){
+        var _ih=Math.round(_img.getBoundingClientRect().height);
+        if(_ih>_h)_h=_ih;
+      }
+      if(_h>_maxCovH){_maxCovH=_h;_refCard=e;}
+    });
+    row._maxCovH=_maxCovH;
+    var _slotH=_maxCovH;
+    if(_refCard){
+      var _rc=_refCard.querySelector('.cover');
+      if(_rc){
+        var _rcs=getComputedStyle(_rc);
+        _slotH=_maxCovH+Math.round(parseFloat(_rcs.marginTop)||0)+Math.round(parseFloat(_rcs.marginBottom)||0);
+      }
+    }
+    row._slotH=_slotH;
+  });
+  allRows.forEach(function(row){
+    row.cards.forEach(function(e){
+      var _c=e.querySelector('.cover');
+      var _sp=e.querySelector('.summary-panel');
+      var _exp=typeof catalogCardIsExpanded==='function'&&catalogCardIsExpanded(e);
+      var _hb=e.querySelector('.hl-body');
+      if(_c){
+        if(_desk&&row._maxCovH>0&&!_exp)_c.style.minHeight=row._maxCovH+'px';
+        else _c.style.minHeight='';
+        if(_hb&&!_exp)_hb.style.paddingTop='';
+      }else if(_hb){
+        if(_desk&&row._slotH>0&&!_exp)_hb.style.paddingTop=row._slotH+'px';
+        else _hb.style.paddingTop='';
+      }
+      if(_sp)_sp.style.marginTop='';
+    });
+  });
+  if(_desk&&typeof document!=='undefined'&&document.body)void document.body.offsetHeight;
+  /* Phase 2 (all rows): collapsed card height, then write entry minHeight. */
+  allRows.forEach(function(row){
+    var collapsedMax=0;
+    row.cards.forEach(function(e){
+      if(typeof catalogCardIsExpanded==='function'&&catalogCardIsExpanded(e))return;
+      collapsedMax=Math.max(collapsedMax,e.getBoundingClientRect().height);
+    });
+    row._colMh=collapsedMax>0?Math.round(collapsedMax):0;
+  });
+  allRows.forEach(function(row){
+    row.cards.forEach(function(e){
+      if(typeof catalogCardIsExpanded==='function'&&catalogCardIsExpanded(e)){
+        e.style.minHeight='';
+        return;
+      }
+      e.style.minHeight=row._colMh>0?row._colMh+'px':'';
+    });
+  });
+  if(_desk&&typeof document!=='undefined'&&document.body)void document.body.offsetHeight;
+  var rowLog=null;
+  if(_desk){
+    /* Phase 3 (all rows): chrome (path-label) tops + a pre-write height snapshot,
+       so the write pass can compute the new min-height analytically
+       (old height + added padding) instead of re-reading the DOM
+       mid-write (which used to force a reflow per card). */
+    allRows.forEach(function(row){
+      row._labTop=new Map();
+      row._preH=new Map();
+      row._band.forEach(function(e){
+        var lab=e.querySelector('.path-label')||e.querySelector('.path');
+        if(lab)row._labTop.set(e,Math.round(lab.getBoundingClientRect().top));
+        row._preH.set(e,Math.round(e.getBoundingClientRect().height));
+      });
+    });
+    allRows.forEach(function(row){
+      if(!row._labTop.size)return;
+      var _chromeTarget=Math.max.apply(null,Array.from(row._labTop.values()));
+      row._band.forEach(function(e){
+        var top=row._labTop.get(e);
+        if(top===undefined)return;
+        var path=e.querySelector('.path');
+        if(!path)return;
+        var d=_chromeTarget-top;
+        if(d>1){
+          path.style.paddingTop=d+'px';
+          var eh=row._preH.get(e)||0;
+          e.style.minHeight=Math.max(row._colMh,eh+d)+'px';
+        }
+      });
+    });
+    if(typeof document!=='undefined'&&document.body)void document.body.offsetHeight;
+    /* Phase 4 (all rows): fav/search geometry, then write fav + note-view-btn bottom. */
+    allRows.forEach(function(row){
+      row._favBot=new Map();
+      row._band.forEach(function(e){
+        var s=e.querySelector('.search-popup-btn,.search-link');
+        var f=e.querySelector('.fav-btn');
+        if(!s||!f)return;
+        var er=e.getBoundingClientRect();
+        var sr=s.getBoundingClientRect();
+        var bot=Math.round(er.bottom-sr.bottom);
+        if(bot<0)bot=0;
+        row._favBot.set(e,bot);
+      });
+    });
+    allRows.forEach(function(row){
+      row._favBot.forEach(function(bot,e){
+        var f=e.querySelector('.fav-btn');
+        if(f)f.style.bottom=bot+'px';
+        var nv=e.querySelector('.note-view-btn');
+        if(nv)nv.style.bottom=bot+'px';
+      });
+    });
+  }
+  if(window.__catdbg&&window._eqN%8===1){
+    allRows.forEach(function(row){
+      if(rowLog)return;
+      rowLog={n:row.cards.length,colMh:row._colMh,covH:row._maxCovH,hs:row.cards.map(function(e){return Math.round(e.getBoundingClientRect().height);}),open:row.cards.map(function(e){return !!e.querySelector('details.patches[open]');}),paths:row.cards.map(function(e){var p=e.querySelector('.path');return !!(p&&p.classList.contains('is-expanded'));})};
+    });
+    // #region agent log
+    try{
+      var _eqDt=(typeof performance!=='undefined'&&performance.now)?Math.round(performance.now()-_eqT0):0;
+      fetch('http://127.0.0.1:7529/ingest/1cf46354-1d61-4c80-bd72-a340f1db1b51',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'c00e3e'},body:JSON.stringify({sessionId:'c00e3e',runId:'post-fix',hypothesisId:'C',location:'catalog:equalizeCatalogCardRows',message:'equalize card row heights',data:Object.assign({dt:_eqDt,eqN:window._eqN},rowLog||{n:0}),timestamp:Date.now()})}).catch(function(){});
+    }catch(eDbgC){}
+    // #endregion
+    // #region agent log
+    try{
+      var _e=document.querySelector('#catalogMain .loc-group > .entry:not(.highlight)');
+      if(_e){
+        var _er=_e.getBoundingClientRect();
+        function _box(el){if(!el)return null;var r=el.getBoundingClientRect();return{l:Math.round(r.left-_er.left),t:Math.round(r.top-_er.top),b:Math.round(_er.bottom-r.bottom),h:Math.round(r.height)};}
+        var _fav=_e.querySelector('.fav-btn');
+        var _search=_e.querySelector('.search-popup-btn');
+        var _patches=_e.querySelector('details.patches');
+        var _pl=_e.querySelector('.path-label');
+        var _icons=_e.querySelector('.path-action-row');
+        var _hl=_e.querySelector('.hl-body');
+        var _cs=_hl?getComputedStyle(_hl):null;
+        var _jump=document.getElementById('catalogJumpStack');
+        var _jr=_jump?_jump.getBoundingClientRect():null;
+        var _pr=_patches?_patches.getBoundingClientRect():null;
+        fetch('http://127.0.0.1:7529/ingest/1cf46354-1d61-4c80-bd72-a340f1db1b51',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'c00e3e'},body:JSON.stringify({sessionId:'c00e3e',runId:'chrome-v2',hypothesisId:'G',location:'catalog:cardChromeAlign',message:'path/patches/search/fav/jump',data:{fav:_box(_fav),search:_box(_search),patches:_box(_patches),pathLabel:_box(_pl),icons:_box(_icons),gapPatchSearch:_search&&_patches?Math.round(_search.getBoundingClientRect().top-_patches.getBoundingClientRect().bottom):null,gapSearchFav:_search&&_fav?Math.round(_search.getBoundingClientRect().bottom-_fav.getBoundingClientRect().bottom):null,searchH:_search?Math.round(_search.getBoundingClientRect().height):null,favH:_fav?Math.round(_fav.getBoundingClientRect().height):null,jumpOver:!!(_jr&&_pr&&!(_jr.right<_pr.left||_jr.left>_pr.right||_jr.bottom<_pr.top||_jr.top>_pr.bottom)),hl:_cs?[_cs.display,_cs.flexGrow,_cs.minHeight].join(','):null},timestamp:Date.now()})}).catch(function(){});
+      }
+    }catch(eDbgE){}
+    // #endregion
+    // #region agent log
+    try{
+      var _cards=[];
+      document.querySelectorAll('#catalogMain .loc-group > .entry:not(.highlight)').forEach(function(e,i){
+        if(i>3)return;
+        if(e.classList.contains('is-hidden'))return;
+        var er=e.getBoundingClientRect();
+        function _rel(sel){var el=e.querySelector(sel);if(!el)return null;var r=el.getBoundingClientRect();return{t:Math.round(r.top-er.top),h:Math.round(r.height)};}
+        var d=e.querySelector('.summary-panel');
+        _cards.push({id:e.id,title:_rel('.lib-name'),desc:_rel('.summary-panel'),path:_rel('.path'),descMax:d?getComputedStyle(d).maxHeight:null,descH:d?getComputedStyle(d).height:null});
+      });
+      fetch('http://127.0.0.1:7529/ingest/1cf46354-1d61-4c80-bd72-a340f1db1b51',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'c00e3e'},body:JSON.stringify({sessionId:'c00e3e',runId:'post-fix',hypothesisId:'F',location:'catalog:equalizeCardSections',message:'title/desc/path bands',data:{cards:_cards},timestamp:Date.now()})}).catch(function(){});
+    }catch(eDbgF){}
+    // #endregion
+  }
+  if(typeof catalogRestoreScroll==='function')catalogRestoreScroll(_scrollPin);
+  if(_scrollPin&&_scrollPin.sc){
+    requestAnimationFrame(function(){
+      catalogRestoreScroll(_scrollPin);
+      requestAnimationFrame(function(){
+        catalogRestoreScroll(_scrollPin);
+        _scrollPin.sc.style.removeProperty('overflow-anchor');
+        if(typeof placeCatalogJumpStack==='function')placeCatalogJumpStack();
+      });
+    });
+  }
+}

@@ -17105,6 +17105,8 @@ function closeChosenPreview(opts){
   setOverlayFocus(null);
   unpinSelectedForPreview();
   collapseOversizedGridPatches();
+  /* fix-PREVIEW-CARD-v1: the card returns to its row; re-equalize so it picks up the row heights */
+  if(typeof scheduleEqualizeCardRows==='function')scheduleEqualizeCardRows();
   if(last&&typeof rememberViewed==='function')rememberViewed(last);
   if(jumpExit){
     if(typeof window.consumeGallerySearchExit==='function')window.consumeGallerySearchExit(last);
@@ -17386,11 +17388,8 @@ function cardMinTinKind(el,mode){
   return 'preview';
 }
 function cardMinIndex(id,kind){
-  kind=kind||'preview';
-  for(var i=0;i<cardMinDockItems.length;i++){
-    var it=cardMinDockItems[i];
-    if(it.id===id&&(it.kind||(it.mode==='highlight'?'highlight':'preview'))===kind)return i;
-  }
+  /* fix-ONE-PIN-PER-CARD-v1: a card holds a single pin; its kind follows the last view minimized */
+  for(var i=0;i<cardMinDockItems.length;i++){if(cardMinDockItems[i].id===id)return i;}
   return -1;
 }
 function cardMinDismissOpen(){

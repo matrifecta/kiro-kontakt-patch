@@ -23845,7 +23845,9 @@ function updCollapse(){
   updSideOrder();
 }
 
-function loadPos(){try{var o=JSON.parse(localStorage.getItem(POSKEY)||'null');if(o&&typeof o==='object')return o;}catch(e){}return {};}
+function loadPos(){try{var o=JSON.parse(localStorage.getItem(POSKEY)||'null');if(o&&typeof o==='object'){if(o.dock&&!o.docks){o.docks={portrait:o.dock,landscape:o.dock};}delete o.dock;return o;}}catch(e){}return {};}
+function dockFor(st,o){return (st&&st.docks&&st.docks[o||orient()])||null;}
+function seamAvailable(){var ds=docksFor();for(var i=0;i<ds.length;i++)if(ds[i].e==='seam'||ds[i].e==='vseam')return true;return false;}
 function savePos(p){try{localStorage.setItem(POSKEY,JSON.stringify(p));}catch(e){}}
 function defPos(){var vh=window.innerHeight||600,r=bar.getBoundingClientRect(),h=r.height||44;return{dx:0,dy:Math.max(0,vh/2-h/2-14)};}
 function convPos(c){
@@ -23880,15 +23882,12 @@ function resolveDock(dk){
     if(dk.e==='vseam'&&!sameSet(d.panes,dk.panes))continue;
     hit=d;break;
   }
-  if(!hit&&(dk.e==='seam'||dk.e==='vseam')){
-    /* no seam to dock to right now (menus hidden) -> bottom centre, keep the dock saved */
-    var r=bar.getBoundingClientRect(),bh=r.height||44;
-    hit={x:vw/2,y:vh-bh/2-8,e:'bottom'};
-  }
+  /* seam not present right now (content-only view): fall through to this orientation's
+     free position; the dock stays saved and is restored when the menus come back */
   if(!hit)return null;
   return clampPos(hit.x-vw/2,hit.y-vh/2,hit.v);
 }
-function curPos(){var st=loadPos();var d=resolveDock(st.dock);if(d)return d;var c=convPos(st[orient()]);return c?clampPos(c.dx,c.dy,c.v):defPos();}
+function curPos(){var st=loadPos();var d=resolveDock(dockFor(st));if(d)return d;var c=convPos(st[orient()]);return c?clampPos(c.dx,c.dy,c.v):defPos();}
 function setSide(v){bar.classList.toggle('qb-side',!!v);bar.classList.toggle('qb-side-r',v==='right');}
 function qbSideRev(){
   var sc=document.getElementById('searchChrome'),fw=document.getElementById('filterWrap');
@@ -24014,7 +24013,7 @@ function endDrag(e){
   bar.classList.remove('is-drag','is-hold');
   hideDocks();
   var fin=drag.snap||drag.cur||curPos();fin=clampPos(fin.dx,fin.dy,fin.v);
-  var p=loadPos();p[orient()]=fin;if(drag.snapDock&&window.CATALOG_PORTABLE){var sd=drag.snapDock;p.dock={e:sd.e};if(sd.pane)p.dock.pane=sd.pane;if(sd.panes)p.dock.panes=sd.panes.slice();}else delete p.dock;savePos(p);
+  var p=loadPos(),o=orient();p.docks=p.docks||{};var sd=drag.snapDock;if(sd&&(sd.e==='seam'||sd.e==='vseam')&&window.CATALOG_PORTABLE){var dk={e:sd.e};if(sd.pane)dk.pane=sd.pane;if(sd.panes)dk.panes=sd.panes.slice();p.docks[o]=dk;}else{p[o]=fin;if(window.CATALOG_PORTABLE&&seamAvailable())delete p.docks[o];}savePos(p);
   drag=null;applyPos();
   bar._suppress=1;setTimeout(function(){bar._suppress=0;},350);
 }
@@ -24046,7 +24045,7 @@ new MutationObserver(sync).observe(document.body,{attributes:true,attributeFilte
   var raf=0;
   function redock(){
     if(drag)return;
-    if(!loadPos().dock)return;
+    if(!dockFor(loadPos()))return;
     if(raf)cancelAnimationFrame(raf);
     raf=requestAnimationFrame(function(){raf=0;applyPos();});
   }

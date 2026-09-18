@@ -3,21 +3,21 @@
 <meta name="viewport" id="catalogViewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Kontakt Library</title>
 <style>
- [data-theme="desert"]{--bg:#0f0f12;--bg-surface:#141417;--bg-card:#1a1a20;--text:#e8e0d0;--text-muted:#8a8070;--border:#2a2820;--accent-instrument:#e8c84a;--accent-gear:#e07830;--accent-instrument-bg:rgba(232,200,74,0.18);--accent-gear-bg:rgba(224,120,48,0.18);--accent-instrument-active:#fff0a0;--accent-gear-active:#ffb060}
- [data-theme="studio"]{--bg:#080c14;--bg-surface:#0e1620;--bg-card:#101824;--text:#c8d8e8;--text-muted:#5a7080;--border:#1a2838;--accent-instrument:#e8c84a;--accent-gear:#e07830;--accent-instrument-bg:rgba(232,200,74,0.15);--accent-gear-bg:rgba(224,120,48,0.15);--accent-instrument-active:#fff0a0;--accent-gear-active:#ffb060}
- [data-theme="smoked"]{--bg:#181818;--bg-surface:#1e1e1e;--bg-card:#222222;--text:#d8d0c8;--text-muted:#706860;--border:#2a2826;--accent-instrument:#e8c84a;--accent-gear:#e07830;--accent-instrument-bg:rgba(232,200,74,0.16);--accent-gear-bg:rgba(224,120,48,0.16);--accent-instrument-active:#fff0a0;--accent-gear-active:#ffb060}
- [data-theme="sandstorm"]{--bg:#f5edd8;--bg-surface:#ede0c4;--bg-card:#faf5e8;--text:#3a2a14;--text-muted:#8a7050;--border:#d8c8a0;--accent-instrument:#a07010;--accent-gear:#b04808;--accent-instrument-bg:rgba(160,112,16,0.15);--accent-gear-bg:rgba(176,72,8,0.15);--accent-instrument-active:#c89020;--accent-gear-active:#d06010}
- [data-theme="bleached"]{--bg:#faf7f0;--bg-surface:#f0ece4;--bg-card:#ffffff;--text:#2a2520;--text-muted:#807060;--border:#ddd8cc;--accent-instrument:#9a7808;--accent-gear:#a84010;--accent-instrument-bg:rgba(154,120,8,0.12);--accent-gear-bg:rgba(168,64,16,0.12);--accent-instrument-active:#c8a020;--accent-gear-active:#cc5820}
- [data-theme="spring-bloom"]{--bg:#f0f8ec;--bg-surface:#e4f0dc;--bg-card:#fafff8;--text:#1a3010;--text-muted:#507040;--border:#b8d8a8;--accent-instrument:#208040;--accent-gear:#c03080;--accent-instrument-bg:rgba(32,128,64,0.14);--accent-gear-bg:rgba(192,48,128,0.14);--accent-instrument-active:#40c070;--accent-gear-active:#e050a0}
- [data-theme="spring-rain"]{--bg:#080f0a;--bg-surface:#0e1a10;--bg-card:#121e14;--text:#c8e8c0;--text-muted:#507050;--border:#1a2e1c;--accent-instrument:#40c878;--accent-gear:#80e840;--accent-instrument-bg:rgba(64,200,120,0.15);--accent-gear-bg:rgba(128,232,64,0.15);--accent-instrument-active:#80ffb0;--accent-gear-active:#b0ff60}
- [data-theme="summer-beach"]{--bg:#fdf5e0;--bg-surface:#f5e8c8;--bg-card:#fffdf5;--text:#2a1808;--text-muted:#806040;--border:#e0c888;--accent-instrument:#0080c0;--accent-gear:#e04000;--accent-instrument-bg:rgba(0,128,192,0.14);--accent-gear-bg:rgba(224,64,0,0.14);--accent-instrument-active:#20a8f0;--accent-gear-active:#ff6020}
- [data-theme="tropical-night"]{--bg:#04100e;--bg-surface:#081a18;--bg-card:#0a2020;--text:#b0f0e0;--text-muted:#307060;--border:#103028;--accent-instrument:#00d4a0;--accent-gear:#f0c000;--accent-instrument-bg:rgba(0,212,160,0.15);--accent-gear-bg:rgba(240,192,0,0.15);--accent-instrument-active:#40ffcc;--accent-gear-active:#ffe040}
- [data-theme="autumn-ember"]{--bg:#100806;--bg-surface:#1c1008;--bg-card:#221408;--text:#f0d8b0;--text-muted:#806040;--border:#302010;--accent-instrument:#e09020;--accent-gear:#c04010;--accent-instrument-bg:rgba(224,144,32,0.18);--accent-gear-bg:rgba(192,64,16,0.18);--accent-instrument-active:#ffb840;--accent-gear-active:#ff6030}
- [data-theme="harvest"]{--bg:#faf0d8;--bg-surface:#f0e0b8;--bg-card:#fffaf0;--text:#2a1808;--text-muted:#806030;--border:#d8b870;--accent-instrument:#a05800;--accent-gear:#903010;--accent-instrument-bg:rgba(160,88,0,0.14);--accent-gear-bg:rgba(144,48,16,0.14);--accent-instrument-active:#c87810;--accent-gear-active:#c05020}
- [data-theme="arctic"]{--bg:#f0f5ff;--bg-surface:#e0eaf8;--bg-card:#f8fbff;--text:#101828;--text-muted:#5070a0;--border:#b8d0e8;--accent-instrument:#1060c0;--accent-gear:#8020a0;--accent-instrument-bg:rgba(16,96,192,0.13);--accent-gear-bg:rgba(128,32,160,0.13);--accent-instrument-active:#3090f0;--accent-gear-active:#b040d0}
- [data-theme="deep-winter"]{--bg:#060810;--bg-surface:#0a0e1c;--bg-card:#0e1228;--text:#c0cce0;--text-muted:#405070;--border:#141a30;--accent-instrument:#6090e0;--accent-gear:#a060e0;--accent-instrument-bg:rgba(96,144,224,0.15);--accent-gear-bg:rgba(160,96,224,0.15);--accent-instrument-active:#90c0ff;--accent-gear-active:#d090ff}
- [data-theme="hc-dark"]{--bg:#000000;--bg-surface:#0a0a0a;--bg-card:#111111;--text:#ffffff;--text-muted:#cccccc;--border:#444444;--accent-instrument:#ffff00;--accent-gear:#ff8000;--accent-instrument-bg:rgba(255,255,0,0.2);--accent-gear-bg:rgba(255,128,0,0.2);--accent-instrument-active:#ffff88;--accent-gear-active:#ffbb44}
- [data-theme="hc-light"]{--bg:#ffffff;--bg-surface:#f0f0f0;--bg-card:#ffffff;--text:#000000;--text-muted:#333333;--border:#000000;--accent-instrument:#0000cc;--accent-gear:#990000;--accent-instrument-bg:rgba(0,0,204,0.15);--accent-gear-bg:rgba(153,0,0,0.15);--accent-instrument-active:#0000ff;--accent-gear-active:#cc0000}
+ [data-theme="desert"]{--bg:#0f0f12;--bg-surface:#141417;--bg-card:#1a1a20;--text:#e8e0d0;--text-muted:#8a8070;--border:#2a2820;--accent-instrument:#e8c84a;--accent-gear:#e07830;--accent-instrument-bg:rgba(232,200,74,0.18);--accent-gear-bg:rgba(224,120,48,0.18);--accent-instrument-active:#fff0a0;--accent-gear-active:#ffb060;--accent-note:#7fb3e0}
+ [data-theme="studio"]{--bg:#080c14;--bg-surface:#0e1620;--bg-card:#101824;--text:#c8d8e8;--text-muted:#5a7080;--border:#1a2838;--accent-instrument:#e8c84a;--accent-gear:#e07830;--accent-instrument-bg:rgba(232,200,74,0.15);--accent-gear-bg:rgba(224,120,48,0.15);--accent-instrument-active:#fff0a0;--accent-gear-active:#ffb060;--accent-note:#7fb3e0}
+ [data-theme="smoked"]{--bg:#181818;--bg-surface:#1e1e1e;--bg-card:#222222;--text:#d8d0c8;--text-muted:#706860;--border:#2a2826;--accent-instrument:#e8c84a;--accent-gear:#e07830;--accent-instrument-bg:rgba(232,200,74,0.16);--accent-gear-bg:rgba(224,120,48,0.16);--accent-instrument-active:#fff0a0;--accent-gear-active:#ffb060;--accent-note:#7fb3e0}
+ [data-theme="sandstorm"]{--bg:#f5edd8;--bg-surface:#ede0c4;--bg-card:#faf5e8;--text:#3a2a14;--text-muted:#8a7050;--border:#d8c8a0;--accent-instrument:#a07010;--accent-gear:#b04808;--accent-instrument-bg:rgba(160,112,16,0.15);--accent-gear-bg:rgba(176,72,8,0.15);--accent-instrument-active:#c89020;--accent-gear-active:#d06010;--accent-note:#2f5fa8}
+ [data-theme="bleached"]{--bg:#faf7f0;--bg-surface:#f0ece4;--bg-card:#ffffff;--text:#2a2520;--text-muted:#807060;--border:#ddd8cc;--accent-instrument:#9a7808;--accent-gear:#a84010;--accent-instrument-bg:rgba(154,120,8,0.12);--accent-gear-bg:rgba(168,64,16,0.12);--accent-instrument-active:#c8a020;--accent-gear-active:#cc5820;--accent-note:#2f5fa8}
+ [data-theme="spring-bloom"]{--bg:#f0f8ec;--bg-surface:#e4f0dc;--bg-card:#fafff8;--text:#1a3010;--text-muted:#507040;--border:#b8d8a8;--accent-instrument:#208040;--accent-gear:#c03080;--accent-instrument-bg:rgba(32,128,64,0.14);--accent-gear-bg:rgba(192,48,128,0.14);--accent-instrument-active:#40c070;--accent-gear-active:#e050a0;--accent-note:#2f5fa8}
+ [data-theme="spring-rain"]{--bg:#080f0a;--bg-surface:#0e1a10;--bg-card:#121e14;--text:#c8e8c0;--text-muted:#507050;--border:#1a2e1c;--accent-instrument:#40c878;--accent-gear:#80e840;--accent-instrument-bg:rgba(64,200,120,0.15);--accent-gear-bg:rgba(128,232,64,0.15);--accent-instrument-active:#80ffb0;--accent-gear-active:#b0ff60;--accent-note:#7fb3e0}
+ [data-theme="summer-beach"]{--bg:#fdf5e0;--bg-surface:#f5e8c8;--bg-card:#fffdf5;--text:#2a1808;--text-muted:#806040;--border:#e0c888;--accent-instrument:#0080c0;--accent-gear:#e04000;--accent-instrument-bg:rgba(0,128,192,0.14);--accent-gear-bg:rgba(224,64,0,0.14);--accent-instrument-active:#20a8f0;--accent-gear-active:#ff6020;--accent-note:#0f6fae}
+ [data-theme="tropical-night"]{--bg:#04100e;--bg-surface:#081a18;--bg-card:#0a2020;--text:#b0f0e0;--text-muted:#307060;--border:#103028;--accent-instrument:#00d4a0;--accent-gear:#f0c000;--accent-instrument-bg:rgba(0,212,160,0.15);--accent-gear-bg:rgba(240,192,0,0.15);--accent-instrument-active:#40ffcc;--accent-gear-active:#ffe040;--accent-note:#7fb3e0}
+ [data-theme="autumn-ember"]{--bg:#100806;--bg-surface:#1c1008;--bg-card:#221408;--text:#f0d8b0;--text-muted:#806040;--border:#302010;--accent-instrument:#e09020;--accent-gear:#c04010;--accent-instrument-bg:rgba(224,144,32,0.18);--accent-gear-bg:rgba(192,64,16,0.18);--accent-instrument-active:#ffb840;--accent-gear-active:#ff6030;--accent-note:#7fb3e0}
+ [data-theme="harvest"]{--bg:#faf0d8;--bg-surface:#f0e0b8;--bg-card:#fffaf0;--text:#2a1808;--text-muted:#806030;--border:#d8b870;--accent-instrument:#a05800;--accent-gear:#903010;--accent-instrument-bg:rgba(160,88,0,0.14);--accent-gear-bg:rgba(144,48,16,0.14);--accent-instrument-active:#c87810;--accent-gear-active:#c05020;--accent-note:#2f5fa8}
+ [data-theme="arctic"]{--bg:#f0f5ff;--bg-surface:#e0eaf8;--bg-card:#f8fbff;--text:#101828;--text-muted:#5070a0;--border:#b8d0e8;--accent-instrument:#1060c0;--accent-gear:#8020a0;--accent-instrument-bg:rgba(16,96,192,0.13);--accent-gear-bg:rgba(128,32,160,0.13);--accent-instrument-active:#3090f0;--accent-gear-active:#b040d0;--accent-note:#1060c0}
+ [data-theme="deep-winter"]{--bg:#060810;--bg-surface:#0a0e1c;--bg-card:#0e1228;--text:#c0cce0;--text-muted:#405070;--border:#141a30;--accent-instrument:#6090e0;--accent-gear:#a060e0;--accent-instrument-bg:rgba(96,144,224,0.15);--accent-gear-bg:rgba(160,96,224,0.15);--accent-instrument-active:#90c0ff;--accent-gear-active:#d090ff;--accent-note:#6090e0}
+ [data-theme="hc-dark"]{--bg:#000000;--bg-surface:#0a0a0a;--bg-card:#111111;--text:#ffffff;--text-muted:#cccccc;--border:#444444;--accent-instrument:#ffff00;--accent-gear:#ff8000;--accent-instrument-bg:rgba(255,255,0,0.2);--accent-gear-bg:rgba(255,128,0,0.2);--accent-instrument-active:#ffff88;--accent-gear-active:#ffbb44;--accent-note:#4da6ff}
+ [data-theme="hc-light"]{--bg:#ffffff;--bg-surface:#f0f0f0;--bg-card:#ffffff;--text:#000000;--text-muted:#333333;--border:#000000;--accent-instrument:#0000cc;--accent-gear:#990000;--accent-instrument-bg:rgba(0,0,204,0.15);--accent-gear-bg:rgba(153,0,0,0.15);--accent-instrument-active:#0000ff;--accent-gear-active:#cc0000;--accent-note:#0033cc}
  html{--hl-backdrop:rgba(0,0,0,.55);--hl-shadow:0 12px 48px rgba(0,0,0,.45);--accent-patch:#3ecfbf;--accent-patch-bg:rgba(62,207,191,0.18);--accent-patch-active:#7eefe4;--catalog-max:1800px;--ui-base:16px;--ui-scale:1;--search-ui-scale:1;--cat-land-cols:3;--card-chrome-inset:.5rem;--card-chrome-btn:2.75rem;--card-chrome-gap:.5rem;--safe-top:env(safe-area-inset-top,0px);--safe-right:env(safe-area-inset-right,0px);--safe-bottom:env(safe-area-inset-bottom,0px);--safe-left:env(safe-area-inset-left,0px);--sides-pane-gap:clamp(4px,.35em,8px);font-size:calc(var(--ui-base) * var(--ui-scale))}
  *{box-sizing:border-box}
  html,body{min-height:100vh;min-height:100dvh}
@@ -3286,6 +3286,16 @@ body.catalog-portable #hdrToolsMorePop{display:none!important}
     padding-left:1.5em!important
   }
 }
+
+/* Theme-aware scrollbars for all scrollable content */
+*{scrollbar-width:thin;scrollbar-color:var(--border) var(--bg-surface)}
+*::-webkit-scrollbar{width:10px;height:10px}
+*::-webkit-scrollbar-track{background:var(--bg-surface)}
+*::-webkit-scrollbar-thumb{background:var(--border);border-radius:6px}
+*::-webkit-scrollbar-thumb:hover{background:var(--text-muted)}
+*::-webkit-scrollbar-corner{background:var(--bg-surface)}
+.desc-user-note{color:var(--accent-note);display:block}
+.desc-note-sep{border:none;border-top:1px dashed var(--border);margin:.6em 0}
 </style></head><body class="search-mode">
 <div class="catalog-header"><h1 id="top">Kontakt Library</h1><div class="hdr-cluster" id="hdrCluster"><div class="hdr-layout-btns" id="hdrLayoutBtns" role="toolbar" aria-label="Layout controls"></div><button type="button" class="clear-miss-btn" id="clearMissBtn" aria-pressed="false" title="When leaving the image gallery on a library outside the current Search hits, clear Search." onclick="event.preventDefault();event.stopPropagation();toggleClearOnMiss()">Clear on miss</button><div class="hdr-menu-btns" id="hdrMenuBtns" role="toolbar" aria-label="Search and Keywords"><button type="button" class="hdr-menu-btn is-on" id="hdrSearchBtn" aria-pressed="true" title="Search" aria-label="Search" onclick="event.preventDefault();event.stopPropagation();toggleHdrSearch()">S</button><button type="button" class="hdr-menu-btn is-on" id="hdrKwBtn" aria-pressed="true" title="Keywords" aria-label="Keywords" onclick="event.preventDefault();event.stopPropagation();toggleHdrKw()">K</button></div><button type="button" class="hdr-more-btn" id="hdrMoreBtn" aria-expanded="false" aria-haspopup="true" title="More header controls" onclick="event.preventDefault();event.stopPropagation();toggleHdrMore()">&#x22EF;</button><div class="hdr-more-pop" id="hdrMorePop" hidden></div><div class="display-switch" id="displaySwitch" role="tablist" aria-label="Display layout"><button type="button" class="display-btn is-active" data-display="upper" onclick="event.preventDefault();event.stopPropagation();setDisplayMode('upper')">Upper</button><button type="button" class="display-btn display-desktop-only" data-display="sides" onclick="event.preventDefault();event.stopPropagation();setDisplayMode('sides',{pick:true})">Sides</button><button type="button" class="display-btn" data-display="middle" title="Middle: Search and Keywords on top, catalog below" onclick="event.preventDefault();event.stopPropagation();setDisplayMode('middle',{pick:true})">Middle</button><button type="button" class="display-btn" data-display="fs" onclick="event.preventDefault();event.stopPropagation();setDisplayMode('fs')">Full</button></div><select id="themePicker" class="theme-picker" onchange="setTheme(this.value)" onclick="event.stopPropagation()"><optgroup label="— Dark —"><option value="desert">Desert Dusk</option><option value="studio">Night Studio</option><option value="smoked">Smoked Glass</option><option value="autumn-ember">Autumn Ember</option><option value="tropical-night">Tropical Night</option><option value="spring-rain">Spring Rain</option><option value="deep-winter">Deep Winter</option></optgroup><optgroup label="— Light —"><option value="sandstorm">Sand Storm</option><option value="bleached">Bleached</option><option value="spring-bloom">Spring Bloom</option><option value="summer-beach">Summer Beach</option><option value="harvest">Harvest</option><option value="arctic">Arctic</option></optgroup><optgroup label="— High Contrast —"><option value="hc-dark">HC Dark</option><option value="hc-light">HC Light</option></optgroup></select></div><button type="button" class="hdr-bar-toggle" id="hdrBarToggle" aria-expanded="true" aria-label="Hide document header" title="Hide header" onclick="event.preventDefault();event.stopPropagation();toggleHdrBar()"><span class="toggle-arrow">&#9660;</span></button></div></div>
 <div class="search-chrome" id="searchChrome"><div class="search-col" id="searchCol"><div class="search-strip-anchor"><div class="search-strip" id="searchStrip"><input id="searchInput" type="text" placeholder="Search libraries..." autocomplete="off"><button type="button" class="search-strip-hide" onclick="toggleSearchChrome()" aria-expanded="true">Hide Search</button><button type="button" class="search-strip-clear" onclick="clearAllFilters()" aria-label="Clear" title="Clear"><svg class="clear-sweep-ico" viewBox="0 0 24 24" width="1.2em" height="1.2em" aria-hidden="true" focusable="false"><path fill="currentColor" fill-rule="evenodd" d="M9.2 2.2h5.6v3.4h6.1c.42 0 .7.42.58.82L18.5 20.2c-.09.4-.45.7-.86.7H6.36c-.41 0-.77-.3-.86-.7L2.52 6.42c-.12-.4.16-.82.58-.82H9.2V2.2zm1.7 1.7v3.2H4.72L7.22 18.9h9.56l2.5-11.8h-6.38V3.9h-1.7zM7.85 14.4h1.55v3.5H7.85v-3.5z"/></svg></button><button type="button" class="search-strip-fs" id="searchStripFs" onclick="toggleAcFullscreen()" aria-pressed="false" aria-label="Fullscreen search" title="Fullscreen search">&#x26F6;</button><div class="ui-scale search-only-scale" id="searchOnlyScale"><button type="button" class="ui-scale-step" id="searchOnlyScaleDown" aria-label="Smaller Search">−</button><button type="button" class="ui-scale-readout" id="searchOnlyScaleReadout" aria-expanded="false" aria-haspopup="true" title="Search scale">100%</button><button type="button" class="ui-scale-step" id="searchOnlyScaleUp" aria-label="Larger Search">+</button><div class="ui-scale-pop" id="searchOnlyScalePop" hidden></div></div></div><div class="search-ac-shell" id="acShell"><div class="ac-fs-bar" id="acFsBar"><button type="button" class="ac-fs-back" id="acFsBack" aria-label="Exit fullscreen" title="Exit fullscreen" onclick="event.preventDefault();event.stopPropagation();setAcFullscreen(false)">&#x2190;</button><div class="fs-mode-nav" id="acFsModeNav" role="navigation" aria-label="Mode"><button type="button" class="mode-btn" data-mode="pick" onclick="event.preventDefault();event.stopPropagation();setMode(&#x27;pick&#x27;)">Pick</button><button type="button" class="mode-btn" data-mode="search" onclick="event.preventDefault();event.stopPropagation();setMode(&#x27;search&#x27;)">Search</button></div><button type="button" class="kw-companion-btn" id="kwCompanionBtn" aria-label="Keywords side-by-side" aria-pressed="false" title="Keywords" onclick="event.preventDefault();event.stopPropagation();toggleKwFsCompanion()">K</button><div class="fs-stripe-wrap"><button type="button" class="fs-stripe-trigger" id="acStripeTrigger" aria-label="Expand controls" title="Expand controls" onclick="event.preventDefault();event.stopPropagation();toggleFsStripe(&#x27;ac&#x27;)">&#x203a;</button><div class="fs-stripe-panel" id="acFsStripePanel"><button type="button" class="fs-snap-btn" id="acSnapBtn" style="display:none" aria-label="Snap 50/50" title="Snap 50/50" onclick="event.preventDefault();event.stopPropagation();snapDualFsTo50()">&#x229e; 50/50</button><button type="button" class="fs-pin-btn" id="fsSepPinBtn" style="display:none" aria-label="Lock separator" aria-pressed="false" title="Lock separator" onclick="event.preventDefault();event.stopPropagation();toggleDualFsPin()">&#x1F4CC;</button><div class="ac-history-wrap" id="searchHistoryWrap"><button type="button" class="ac-history-btn" id="searchHistory" aria-haspopup="dialog" aria-expanded="false" aria-controls="historyCloud" title="History">H</button><div class="ac-history-cloud" id="historyCloud" hidden role="dialog" aria-label="Erase history"><p class="ac-history-ask">Erase history</p><div class="ac-history-picks" id="historyPicks"></div><div class="ac-history-actions"><button type="button" class="ac-history-search" id="historySearchAll" title="Select all search history (not saved sessions or saved combinations)">All search</button><button type="button" class="ac-history-all" id="historyAll" title="Select all, including saved sessions and saved combinations">All</button><button type="button" class="ac-history-yes" id="historyYes" aria-label="Erase selected" title="Erase">&#x2713;</button><button type="button" class="ac-history-no" id="historyNo" aria-label="Cancel" title="Keep">&#x2715;</button></div></div></div><div class="fs-stripe-scale for-ac" aria-label="Scale"><button type="button" class="fs-stripe-scale-btn" aria-label="Smaller search" title="Smaller search" onclick="event.preventDefault();event.stopPropagation();if(typeof stepSearchOnlyUiScale===&#x27;function&#x27;)stepSearchOnlyUiScale(-1)">&#x2212;</button><button type="button" class="fs-stripe-scale-btn" aria-label="Larger search" title="Larger search" onclick="event.preventDefault();event.stopPropagation();if(typeof stepSearchOnlyUiScale===&#x27;function&#x27;)stepSearchOnlyUiScale(1)">+</button></div></div></div></div><div class="ac-ctx-bar" id="acCtxBar"></div><div class="search-autocomplete" id="acList"></div><div class="ac-scroll-stripe" id="acScrollStripe" hidden><div class="ac-scroll-thumb" id="acScrollThumb"></div></div><button type="button" class="ac-height" id="acHeight" aria-label="Resize search suggestions" aria-orientation="horizontal" tabindex="-1"></button><button type="button" class="ac-width" id="acWidth" aria-label="Resize search suggestions width" aria-orientation="vertical" tabindex="-1"></button></div></div><div class="search-active-pills" id="searchPills"></div></div>
@@ -3367,7 +3377,7 @@ body.catalog-portable #hdrToolsMorePop{display:none!important}
       </div>
     </div>
     <div class="summary-panel">
-      <p class="desc">Native Instruments library: 5Elements.</p>
+      <p class="desc">No additional description provided.</p>
     </div>
     <div class="path"><b>path:</b> <code>/mnt/btrfs_disk/Kontakt Libraries/Player/5Elements</code> &nbsp;<a class="folder" href="file:///mnt/btrfs_disk/Kontakt%20Libraries/Player/5Elements">[open folder]</a></div>
   <details class="patches" data-patch-count="2"><summary>Patches (2)</summary>
@@ -3403,7 +3413,7 @@ body.catalog-portable #hdrToolsMorePop{display:none!important}
       </div>
     </div>
     <div class="summary-panel">
-      <p class="desc">Native Instruments library: Amati Viola. Tags: viola, amati.</p>
+      <p class="desc">No additional description provided.</p>
     </div>
     <div class="path"><b>path:</b> <code>/mnt/btrfs_disk/Kontakt Libraries/Player/Amati Viola Library</code> &nbsp;<a class="folder" href="file:///mnt/btrfs_disk/Kontakt%20Libraries/Player/Amati%20Viola%20Library">[open folder]</a></div>
   <details class="patches" data-patch-count="2"><summary>Patches (2)</summary>
@@ -3439,7 +3449,7 @@ body.catalog-portable #hdrToolsMorePop{display:none!important}
       </div>
     </div>
     <div class="summary-panel">
-      <p class="desc">Native Instruments library: Balinese Gamelan. Tags: gamelan.</p>
+      <p class="desc">No additional description provided.</p>
     </div>
     <div class="path"><b>path:</b> <code>/mnt/btrfs_disk/Kontakt Libraries/Player/Balinese Gamelan Library</code> &nbsp;<a class="folder" href="file:///mnt/btrfs_disk/Kontakt%20Libraries/Player/Balinese%20Gamelan%20Library">[open folder]</a></div>
   <details class="patches" data-patch-count="13"><summary>Patches (13)</summary>
@@ -3496,7 +3506,7 @@ body.catalog-portable #hdrToolsMorePop{display:none!important}
       </div>
     </div>
     <div class="summary-panel">
-      <p class="desc">Native Instruments library: Bowls.</p>
+      <p class="desc">No additional description provided.</p>
     </div>
     <div class="path"><b>path:</b> <code>/mnt/btrfs_disk/Kontakt Libraries/Player/Bowls</code> &nbsp;<a class="folder" href="file:///mnt/btrfs_disk/Kontakt%20Libraries/Player/Bowls">[open folder]</a></div>
   <details class="patches" data-patch-count="1"><summary>Patches (1)</summary>
@@ -3531,7 +3541,7 @@ body.catalog-portable #hdrToolsMorePop{display:none!important}
       </div>
     </div>
     <div class="summary-panel">
-      <p class="desc">Native Instruments library: Butch Vig Drums. Tags: drums.</p>
+      <p class="desc">No additional description provided.</p>
     </div>
     <div class="path"><b>path:</b> <code>/mnt/btrfs_disk/Kontakt Libraries/Player/Butch Vig Drums Library</code> &nbsp;<a class="folder" href="file:///mnt/btrfs_disk/Kontakt%20Libraries/Player/Butch%20Vig%20Drums%20Library">[open folder]</a></div>
   <details class="patches" data-patch-count="1"><summary>Patches (1)</summary>
@@ -3566,7 +3576,7 @@ body.catalog-portable #hdrToolsMorePop{display:none!important}
       </div>
     </div>
     <div class="summary-panel">
-      <p class="desc">Native Instruments library: Cloud Supply.</p>
+      <p class="desc">No additional description provided.</p>
     </div>
     <div class="path"><b>path:</b> <code>/mnt/btrfs_disk/Kontakt Libraries/Player/Cloud Supply Library</code> &nbsp;<a class="folder" href="file:///mnt/btrfs_disk/Kontakt%20Libraries/Player/Cloud%20Supply%20Library">[open folder]</a></div>
   <details class="patches" data-patch-count="1"><summary>Patches (1)</summary>
@@ -3601,7 +3611,7 @@ body.catalog-portable #hdrToolsMorePop{display:none!important}
       </div>
     </div>
     <div class="summary-panel">
-      <p class="desc">Native Instruments library: Kontakt.</p>
+      <p class="desc">No additional description provided.</p>
     </div>
     <div class="path"><b>path:</b> <code>/mnt/btrfs_disk/Kontakt Libraries/Custom/Drumforge.I.Ultimate.KONTAKT-SYNTHiC4TE</code> &nbsp;<a class="folder" href="file:///mnt/btrfs_disk/Kontakt%20Libraries/Custom/Drumforge.I.Ultimate.KONTAKT-SYNTHiC4TE">[open folder]</a></div>
   <details class="patches" data-patch-count="123"><summary>Patches (123)</summary>
@@ -3776,7 +3786,7 @@ body.catalog-portable #hdrToolsMorePop{display:none!important}
       </div>
     </div>
     <div class="summary-panel">
-      <p class="desc">Native Instruments library: East Asia.</p>
+      <p class="desc">No additional description provided.</p>
     </div>
     <div class="path"><b>path:</b> <code>/mnt/btrfs_disk/Kontakt Libraries/Player/East Asia Library</code> &nbsp;<a class="folder" href="file:///mnt/btrfs_disk/Kontakt%20Libraries/Player/East%20Asia%20Library">[open folder]</a></div>
   <details class="patches" data-patch-count="42"><summary>Patches (42)</summary>
@@ -3878,7 +3888,7 @@ body.catalog-portable #hdrToolsMorePop{display:none!important}
       </div>
     </div>
     <div class="summary-panel">
-      <p class="desc">Native Instruments library: Ethereal Earth. Tags: ethereal.</p>
+      <p class="desc">No additional description provided.</p>
     </div>
     <div class="path"><b>path:</b> <code>/mnt/btrfs_disk/Kontakt Libraries/Player/Ethereal Earth Library</code> &nbsp;<a class="folder" href="file:///mnt/btrfs_disk/Kontakt%20Libraries/Player/Ethereal%20Earth%20Library">[open folder]</a></div>
   <details class="patches" data-patch-count="2"><summary>Patches (2)</summary>
@@ -3914,7 +3924,7 @@ body.catalog-portable #hdrToolsMorePop{display:none!important}
       </div>
     </div>
     <div class="summary-panel">
-      <p class="desc">Native Instruments library: EXHALE.</p>
+      <p class="desc">No additional description provided.</p>
     </div>
     <div class="path"><b>path:</b> <code>/mnt/btrfs_disk/Kontakt Libraries/Player/Output Exhale</code> &nbsp;<a class="folder" href="file:///mnt/btrfs_disk/Kontakt%20Libraries/Player/Output%20Exhale">[open folder]</a></div>
   <details class="patches" data-patch-count="2"><summary>Patches (2)</summary>
@@ -3950,7 +3960,7 @@ body.catalog-portable #hdrToolsMorePop{display:none!important}
       </div>
     </div>
     <div class="summary-panel">
-      <p class="desc">Native Instruments library: GroveBass.</p>
+      <p class="desc">No additional description provided.</p>
     </div>
     <div class="path"><b>path:</b> <code>/mnt/btrfs_disk/Kontakt Libraries/Player/GroveBass</code> &nbsp;<a class="folder" href="file:///mnt/btrfs_disk/Kontakt%20Libraries/Player/GroveBass">[open folder]</a></div>
   <details class="patches" data-patch-count="1"><summary>Patches (1)</summary>
@@ -3985,7 +3995,7 @@ body.catalog-portable #hdrToolsMorePop{display:none!important}
       </div>
     </div>
     <div class="summary-panel">
-      <p class="desc">Native Instruments library: Guarneri Violin. Tags: violin, guarneri.</p>
+      <p class="desc">No additional description provided.</p>
     </div>
     <div class="path"><b>path:</b> <code>/mnt/btrfs_disk/Kontakt Libraries/Player/Guarneri Violin Library</code> &nbsp;<a class="folder" href="file:///mnt/btrfs_disk/Kontakt%20Libraries/Player/Guarneri%20Violin%20Library">[open folder]</a></div>
   <details class="patches" data-patch-count="2"><summary>Patches (2)</summary>
@@ -4021,7 +4031,7 @@ body.catalog-portable #hdrToolsMorePop{display:none!important}
       </div>
     </div>
     <div class="summary-panel">
-      <p class="desc">Native Instruments library: Hybrid Keys. Tags: keys, hybrid.</p>
+      <p class="desc">No additional description provided.</p>
     </div>
     <div class="path"><b>path:</b> <code>/mnt/btrfs_disk/Kontakt Libraries/Player/Hybrid Keys Library</code> &nbsp;<a class="folder" href="file:///mnt/btrfs_disk/Kontakt%20Libraries/Player/Hybrid%20Keys%20Library">[open folder]</a></div>
   <details class="patches" data-patch-count="2"><summary>Patches (2)</summary>
@@ -4057,7 +4067,7 @@ body.catalog-portable #hdrToolsMorePop{display:none!important}
       </div>
     </div>
     <div class="summary-panel">
-      <p class="desc">Native Instruments library: Iconic Violin. Tags: violin.</p>
+      <p class="desc">No additional description provided.</p>
     </div>
     <div class="path"><b>path:</b> <code>/mnt/btrfs_disk/Kontakt Libraries/Player/Iconic Violin</code> &nbsp;<a class="folder" href="file:///mnt/btrfs_disk/Kontakt%20Libraries/Player/Iconic%20Violin">[open folder]</a></div>
   <details class="patches" data-patch-count="2"><summary>Patches (2)</summary>
@@ -4099,7 +4109,7 @@ body.catalog-portable #hdrToolsMorePop{display:none!important}
       </div>
     </div>
     <div class="summary-panel">
-      <p class="desc">Native Instruments library: India.</p>
+      <p class="desc">No additional description provided.</p>
     </div>
     <div class="path"><b>path:</b> <code>/mnt/btrfs_disk/Kontakt Libraries/Player/India Library</code> &nbsp;<a class="folder" href="file:///mnt/btrfs_disk/Kontakt%20Libraries/Player/India%20Library">[open folder]</a></div>
   <details class="patches" data-patch-count="16"><summary>Patches (16)</summary>
@@ -4159,7 +4169,7 @@ body.catalog-portable #hdrToolsMorePop{display:none!important}
       </div>
     </div>
     <div class="summary-panel">
-      <p class="desc">Native Instruments library: Mass.</p>
+      <p class="desc">No additional description provided.</p>
     </div>
     <div class="path"><b>path:</b> <code>/mnt/btrfs_disk/Kontakt Libraries/Player/Mass</code> &nbsp;<a class="folder" href="file:///mnt/btrfs_disk/Kontakt%20Libraries/Player/Mass">[open folder]</a></div>
   <details class="patches" data-patch-count="1"><summary>Patches (1)</summary>
@@ -4194,7 +4204,7 @@ body.catalog-portable #hdrToolsMorePop{display:none!important}
       </div>
     </div>
     <div class="summary-panel">
-      <p class="desc">Native Instruments library: MELODIES.</p>
+      <p class="desc">No additional description provided.</p>
     </div>
     <div class="path"><b>path:</b> <code>/mnt/btrfs_disk/Kontakt Libraries/Player/MELODIES</code> &nbsp;<a class="folder" href="file:///mnt/btrfs_disk/Kontakt%20Libraries/Player/MELODIES">[open folder]</a></div>
   <details class="patches" data-patch-count="1"><summary>Patches (1)</summary>
@@ -4229,7 +4239,7 @@ body.catalog-portable #hdrToolsMorePop{display:none!important}
       </div>
     </div>
     <div class="summary-panel">
-      <p class="desc">Native Instruments library: Middle East.</p>
+      <p class="desc">No additional description provided.</p>
     </div>
     <div class="path"><b>path:</b> <code>/mnt/btrfs_disk/Kontakt Libraries/Player/Middle East Library</code> &nbsp;<a class="folder" href="file:///mnt/btrfs_disk/Kontakt%20Libraries/Player/Middle%20East%20Library">[open folder]</a></div>
   <details class="patches" data-patch-count="55"><summary>Patches (55)</summary>
@@ -4340,7 +4350,7 @@ body.catalog-portable #hdrToolsMorePop{display:none!important}
       </div>
     </div>
     <div class="summary-panel">
-      <p class="desc">Native Instruments library: Pharlight.</p>
+      <p class="desc">No additional description provided.</p>
     </div>
     <div class="path"><b>path:</b> <code>/mnt/btrfs_disk/Kontakt Libraries/Player/Pharlight Library</code> &nbsp;<a class="folder" href="file:///mnt/btrfs_disk/Kontakt%20Libraries/Player/Pharlight%20Library">[open folder]</a></div>
   <details class="patches" data-patch-count="1"><summary>Patches (1)</summary>
@@ -4375,7 +4385,7 @@ body.catalog-portable #hdrToolsMorePop{display:none!important}
       </div>
     </div>
     <div class="summary-panel">
-      <p class="desc">Native Instruments library: Piano Colors. Tags: piano.</p>
+      <p class="desc">No additional description provided.</p>
     </div>
     <div class="path"><b>path:</b> <code>/mnt/btrfs_disk/Kontakt Libraries/Player/Piano Colors Library</code> &nbsp;<a class="folder" href="file:///mnt/btrfs_disk/Kontakt%20Libraries/Player/Piano%20Colors%20Library">[open folder]</a></div>
   <details class="patches" data-patch-count="1"><summary>Patches (1)</summary>
@@ -4410,7 +4420,7 @@ body.catalog-portable #hdrToolsMorePop{display:none!important}
       </div>
     </div>
     <div class="summary-panel">
-      <p class="desc">Native Instruments library: Play Series Selection.</p>
+      <p class="desc">No additional description provided.</p>
     </div>
     <div class="path"><b>path:</b> <code>/mnt/btrfs_disk/Kontakt Libraries/Player/Play Series Selection Library</code> &nbsp;<a class="folder" href="file:///mnt/btrfs_disk/Kontakt%20Libraries/Player/Play%20Series%20Selection%20Library">[open folder]</a></div>
   <details class="patches" data-patch-count="3"><summary>Patches (3)</summary>
@@ -4447,7 +4457,7 @@ body.catalog-portable #hdrToolsMorePop{display:none!important}
       </div>
     </div>
     <div class="summary-panel">
-      <p class="desc">Native Instruments library: Session Guitarist - Electric Vintage. Tags: guitarist, vintage.</p>
+      <p class="desc">No additional description provided.</p>
     </div>
     <div class="path"><b>path:</b> <code>/mnt/btrfs_disk/Kontakt Libraries/Player/Session Guitarist - Electric Vintage Library</code> &nbsp;<a class="folder" href="file:///mnt/btrfs_disk/Kontakt%20Libraries/Player/Session%20Guitarist%20-%20Electric%20Vintage%20Library">[open folder]</a></div>
   <details class="patches" data-patch-count="2"><summary>Patches (2)</summary>
@@ -4483,7 +4493,7 @@ body.catalog-portable #hdrToolsMorePop{display:none!important}
       </div>
     </div>
     <div class="summary-panel">
-      <p class="desc">Native Instruments library: Session Guitarist - Picked Acoustic. Tags: guitarist.</p>
+      <p class="desc">No additional description provided.</p>
     </div>
     <div class="path"><b>path:</b> <code>/mnt/btrfs_disk/Kontakt Libraries/Player/Session Guitarist - Picked Acoustic Library</code> &nbsp;<a class="folder" href="file:///mnt/btrfs_disk/Kontakt%20Libraries/Player/Session%20Guitarist%20-%20Picked%20Acoustic%20Library">[open folder]</a></div>
   <details class="patches" data-patch-count="2"><summary>Patches (2)</summary>
@@ -4519,7 +4529,7 @@ body.catalog-portable #hdrToolsMorePop{display:none!important}
       </div>
     </div>
     <div class="summary-panel">
-      <p class="desc">Native Instruments library: Soul Sessions. Tags: soul.</p>
+      <p class="desc">No additional description provided.</p>
     </div>
     <div class="path"><b>path:</b> <code>/mnt/btrfs_disk/Kontakt Libraries/Player/Soul Sessions Library</code> &nbsp;<a class="folder" href="file:///mnt/btrfs_disk/Kontakt%20Libraries/Player/Soul%20Sessions%20Library">[open folder]</a></div>
   <details class="patches" data-patch-count="1"><summary>Patches (1)</summary>
@@ -4554,7 +4564,7 @@ body.catalog-portable #hdrToolsMorePop{display:none!important}
       </div>
     </div>
     <div class="summary-panel">
-      <p class="desc">Native Instruments library: Stradivari Cello. Tags: cello, stradivari.</p>
+      <p class="desc">No additional description provided.</p>
     </div>
     <div class="path"><b>path:</b> <code>/mnt/btrfs_disk/Kontakt Libraries/Player/Stradivari Cello Library</code> &nbsp;<a class="folder" href="file:///mnt/btrfs_disk/Kontakt%20Libraries/Player/Stradivari%20Cello%20Library">[open folder]</a></div>
   <details class="patches" data-patch-count="2"><summary>Patches (2)</summary>
@@ -4590,7 +4600,7 @@ body.catalog-portable #hdrToolsMorePop{display:none!important}
       </div>
     </div>
     <div class="summary-panel">
-      <p class="desc">Native Instruments library: Stradivari Violin. Tags: violin, stradivari.</p>
+      <p class="desc">No additional description provided.</p>
     </div>
     <div class="path"><b>path:</b> <code>/mnt/btrfs_disk/Kontakt Libraries/Player/Stradivari Violin Library</code> &nbsp;<a class="folder" href="file:///mnt/btrfs_disk/Kontakt%20Libraries/Player/Stradivari%20Violin%20Library">[open folder]</a></div>
   <details class="patches" data-patch-count="2"><summary>Patches (2)</summary>
@@ -4626,7 +4636,7 @@ body.catalog-portable #hdrToolsMorePop{display:none!important}
       </div>
     </div>
     <div class="summary-panel">
-      <p class="desc">Native Instruments library: Straylight.</p>
+      <p class="desc">No additional description provided.</p>
     </div>
     <div class="path"><b>path:</b> <code>/mnt/btrfs_disk/Kontakt Libraries/Player/Straylight Library</code> &nbsp;<a class="folder" href="file:///mnt/btrfs_disk/Kontakt%20Libraries/Player/Straylight%20Library">[open folder]</a></div>
   <details class="patches" data-patch-count="1"><summary>Patches (1)</summary>
@@ -4661,7 +4671,7 @@ body.catalog-portable #hdrToolsMorePop{display:none!important}
       </div>
     </div>
     <div class="summary-panel">
-      <p class="desc">Native Instruments library: Tablas. Tags: tablas.</p>
+      <p class="desc">No additional description provided.</p>
     </div>
     <div class="path"><b>path:</b> <code>/mnt/btrfs_disk/Kontakt Libraries/Player/Soundiron - Tablas</code> &nbsp;<a class="folder" href="file:///mnt/btrfs_disk/Kontakt%20Libraries/Player/Soundiron%20-%20Tablas">[open folder]</a></div>
   <details class="patches" data-patch-count="100"><summary>Patches (100)</summary>
@@ -4821,7 +4831,7 @@ body.catalog-portable #hdrToolsMorePop{display:none!important}
       </div>
     </div>
     <div class="summary-panel">
-      <p class="desc">Native Instruments library: Ultimate Pro Oriental Strings. Tags: strings.</p>
+      <p class="desc">No additional description provided.</p>
     </div>
     <div class="path"><b>path:</b> <code>/mnt/btrfs_disk/Kontakt Libraries/Player/Oriental Sounds - Ultimate Pro Oriental Strings Arabic Turkish Indian</code> &nbsp;<a class="folder" href="file:///mnt/btrfs_disk/Kontakt%20Libraries/Player/Oriental%20Sounds%20-%20Ultimate%20Pro%20Oriental%20Strings%20Arabic%20Turkish%20Indian">[open folder]</a></div>
   <details class="patches" data-patch-count="18"><summary>Patches (18)</summary>
@@ -4883,7 +4893,7 @@ body.catalog-portable #hdrToolsMorePop{display:none!important}
       </div>
     </div>
     <div class="summary-panel">
-      <p class="desc">Introduction Thank you very much for choosing WEST AFRICA! In this document you will find information regarding last-minute additions, compatibility issues and possible problem causes. Pro Tools users are advised to edit their WEST AFRICA grooves in the standalone version of KONTAK or KONTAKT Player.</p>
+      <p class="desc">No additional description provided.</p>
     </div>
     <div class="path"><b>path:</b> <code>/mnt/btrfs_disk/Kontakt Libraries/Player/West Africa Library</code> &nbsp;<a class="folder" href="file:///mnt/btrfs_disk/Kontakt%20Libraries/Player/West%20Africa%20Library">[open folder]</a></div>
   <details class="patches" data-patch-count="74"><summary>Patches (74)</summary>
@@ -5013,7 +5023,7 @@ body.catalog-portable #hdrToolsMorePop{display:none!important}
       </div>
     </div>
     <div class="summary-panel">
-      <p class="desc">Native Instruments library: ANALOG STRINGS. Tags: strings, analog.</p>
+      <p class="desc">No additional description provided.</p>
     </div>
     <div class="path"><b>path:</b> <code>/mnt/wd_black/Kontakt Libraries/Player/Output Analog Strings KONTAKT</code> &nbsp;<a class="folder" href="file:///mnt/wd_black/Kontakt%20Libraries/Player/Output%20Analog%20Strings%20KONTAKT">[open folder]</a></div>
   <details class="patches" data-patch-count="1"><summary>Patches (1)</summary>
@@ -5048,7 +5058,7 @@ body.catalog-portable #hdrToolsMorePop{display:none!important}
       </div>
     </div>
     <div class="summary-panel">
-      <p class="desc">Native Instruments library: GetGood Drums - Modern and Massive Pack. Tags: drums.</p>
+      <p class="desc">No additional description provided.</p>
     </div>
     <div class="path"><b>path:</b> <code>/mnt/wd_black/Kontakt Libraries/Player/GetGood Drums - Modern and Massive Pack</code> &nbsp;<a class="folder" href="file:///mnt/wd_black/Kontakt%20Libraries/Player/GetGood%20Drums%20-%20Modern%20and%20Massive%20Pack">[open folder]</a></div>
   <details class="patches" data-patch-count="1"><summary>Patches (1)</summary>
@@ -5083,7 +5093,7 @@ body.catalog-portable #hdrToolsMorePop{display:none!important}
       </div>
     </div>
     <div class="summary-panel">
-      <p class="desc">Native Instruments library: Mysteria.</p>
+      <p class="desc">No additional description provided.</p>
     </div>
     <div class="path"><b>path:</b> <code>/mnt/wd_black/Kontakt Libraries/Player/Mysteria Library</code> &nbsp;<a class="folder" href="file:///mnt/wd_black/Kontakt%20Libraries/Player/Mysteria%20Library">[open folder]</a></div>
   <details class="patches" data-patch-count="1"><summary>Patches (1)</summary>
@@ -5118,7 +5128,7 @@ body.catalog-portable #hdrToolsMorePop{display:none!important}
       </div>
     </div>
     <div class="summary-panel">
-      <p class="desc">Native Instruments library: Palette.</p>
+      <p class="desc">No additional description provided.</p>
     </div>
     <div class="path"><b>path:</b> <code>/mnt/wd_black/Kontakt Libraries/Player/Red Room Audio - Palette Symphonic Sketchpad</code> &nbsp;<a class="folder" href="file:///mnt/wd_black/Kontakt%20Libraries/Player/Red%20Room%20Audio%20-%20Palette%20Symphonic%20Sketchpad">[open folder]</a></div>
   <details class="patches" data-patch-count="20"><summary>Patches (20)</summary>
@@ -5172,7 +5182,7 @@ body.catalog-portable #hdrToolsMorePop{display:none!important}
       </div>
     </div>
     <div class="summary-panel">
-      <p class="desc">Native Instruments library: The Orchestra Complete. Tags: orchestra.</p>
+      <p class="desc">No additional description provided.</p>
     </div>
     <div class="path"><b>path:</b> <code>/mnt/wd_black/Kontakt Libraries/Player/Best Service - The Orchestra Complete</code> &nbsp;<a class="folder" href="file:///mnt/wd_black/Kontakt%20Libraries/Player/Best%20Service%20-%20The%20Orchestra%20Complete">[open folder]</a></div>
   <details class="patches" data-patch-count="160"><summary>Patches (160)</summary>
@@ -5443,7 +5453,7 @@ body.catalog-portable #hdrToolsMorePop{display:none!important}
       </div>
     </div>
     <div class="summary-panel">
-      <p class="desc">Native Instruments library: World Percussion 2.0. Tags: percussion, world.</p>
+      <p class="desc">No additional description provided.</p>
     </div>
     <div class="path"><b>path:</b> <code>/mnt/wd_black/Kontakt Libraries/Player/Evolution Series - World Percussion v2.0 Close Front Mics</code> &nbsp;<a class="folder" href="file:///mnt/wd_black/Kontakt%20Libraries/Player/Evolution%20Series%20-%20World%20Percussion%20v2.0%20Close%20Front%20Mics">[open folder]</a></div>
   <details class="patches" data-patch-count="101"><summary>Patches (101)</summary>
@@ -5600,7 +5610,7 @@ body.catalog-portable #hdrToolsMorePop{display:none!important}
       </div>
     </div>
     <div class="summary-panel">
-      <p class="desc">Native Instruments library: Cinebrass.</p>
+      <p class="desc">No additional description provided.</p>
     </div>
     <div class="path"><b>path:</b> <code>/mnt/storage/Programs/Ultimate Orchestral Toolkit V. 2 (BannanaButt)/Library Identification Files/Cinesamples' CineBrass</code> &nbsp;<a class="folder" href="file:///mnt/storage/Programs/Ultimate%20Orchestral%20Toolkit%20V.%202%20(BannanaButt)/Library%20Identification%20Files/Cinesamples'%20CineBrass">[open folder]</a></div>
   <details class="patches" data-patch-count="3"><summary>Patches (3)</summary>
@@ -5637,7 +5647,7 @@ body.catalog-portable #hdrToolsMorePop{display:none!important}
       </div>
     </div>
     <div class="summary-panel">
-      <p class="desc">Native Instruments library: Damage.</p>
+      <p class="desc">No additional description provided.</p>
     </div>
     <div class="path"><b>path:</b> <code>/mnt/storage/Programs/Ultimate Orchestral Toolkit V. 2 (BannanaButt)/Library Identification Files/Heavyocity Damage</code> &nbsp;<a class="folder" href="file:///mnt/storage/Programs/Ultimate%20Orchestral%20Toolkit%20V.%202%20(BannanaButt)/Library%20Identification%20Files/Heavyocity%20Damage">[open folder]</a></div>
   <details class="patches" data-patch-count="2"><summary>Patches (2)</summary>
@@ -5673,7 +5683,7 @@ body.catalog-portable #hdrToolsMorePop{display:none!important}
       </div>
     </div>
     <div class="summary-panel">
-      <p class="desc">Native Instruments library: Elite Orchestral Percussion. Tags: percussion, orchestral.</p>
+      <p class="desc">No additional description provided.</p>
     </div>
     <div class="path"><b>path:</b> <code>/mnt/storage/Programs/Ultimate Orchestral Sample Toolkit [BanannaButt]/Extras/Ultimate Orchestral Toolkit [BanannaButt]/Library Identification Files/Vir2 Elite Orchestral Percussion</code> &nbsp;<a class="folder" href="file:///mnt/storage/Programs/Ultimate%20Orchestral%20Sample%20Toolkit%20[BanannaButt]/Extras/Ultimate%20Orchestral%20Toolkit%20[BanannaButt]/Library%20Identification%20Files/Vir2%20Elite%20Orchestral%20Percussion">[open folder]</a></div>
   <details class="patches" data-patch-count="1"><summary>Patches (1)</summary>
@@ -5708,7 +5718,7 @@ body.catalog-portable #hdrToolsMorePop{display:none!important}
       </div>
     </div>
     <div class="summary-panel">
-      <p class="desc">Native Instruments library: Evolve Mutations 2.</p>
+      <p class="desc">No additional description provided.</p>
     </div>
     <div class="path"><b>path:</b> <code>/mnt/storage/Programs/Ultimate Orchestral Sample Toolkit [BanannaButt]/Extras/Ultimate Orchestral Toolkit [BanannaButt]/Library Identification Files/Native Instruments' Evolve Mutations 2</code> &nbsp;<a class="folder" href="file:///mnt/storage/Programs/Ultimate%20Orchestral%20Sample%20Toolkit%20[BanannaButt]/Extras/Ultimate%20Orchestral%20Toolkit%20[BanannaButt]/Library%20Identification%20Files/Native%20Instruments'%20Evolve%20Mutations%202">[open folder]</a></div>
   <details class="patches" data-patch-count="1"><summary>Patches (1)</summary>
@@ -5743,7 +5753,7 @@ body.catalog-portable #hdrToolsMorePop{display:none!important}
       </div>
     </div>
     <div class="summary-panel">
-      <p class="desc">Native Instruments library: LA Scoring Strings. Tags: strings.</p>
+      <p class="desc">No additional description provided.</p>
     </div>
     <div class="path"><b>path:</b> <code>/mnt/storage/Programs/Ultimate Orchestral Sample Toolkit [BanannaButt]/Extras/Ultimate Orchestral Toolkit [BanannaButt]/Library Identification Files/Audiobro LA Scoring Strings</code> &nbsp;<a class="folder" href="file:///mnt/storage/Programs/Ultimate%20Orchestral%20Sample%20Toolkit%20[BanannaButt]/Extras/Ultimate%20Orchestral%20Toolkit%20[BanannaButt]/Library%20Identification%20Files/Audiobro%20LA%20Scoring%20Strings">[open folder]</a></div>
   <details class="patches" data-patch-count="2"><summary>Patches (2)</summary>
@@ -5779,7 +5789,7 @@ body.catalog-portable #hdrToolsMorePop{display:none!important}
       </div>
     </div>
     <div class="summary-panel">
-      <p class="desc">Native Instruments library: Orchestral Brass Classic. Tags: brass, orchestral.</p>
+      <p class="desc">No additional description provided.</p>
     </div>
     <div class="path"><b>path:</b> <code>/mnt/storage/Programs/Ultimate Orchestral Sample Toolkit [BanannaButt]/Extras/Ultimate Orchestral Toolkit [BanannaButt]/Library Identification Files/ProjectSAM Orchestral Brass Classic</code> &nbsp;<a class="folder" href="file:///mnt/storage/Programs/Ultimate%20Orchestral%20Sample%20Toolkit%20[BanannaButt]/Extras/Ultimate%20Orchestral%20Toolkit%20[BanannaButt]/Library%20Identification%20Files/ProjectSAM%20Orchestral%20Brass%20Classic">[open folder]</a></div>
   <details class="patches" data-patch-count="2"><summary>Patches (2)</summary>
@@ -5815,7 +5825,7 @@ body.catalog-portable #hdrToolsMorePop{display:none!important}
       </div>
     </div>
     <div class="summary-panel">
-      <p class="desc">Native Instruments library: Orchestral String Runs. Tags: orchestral, string.</p>
+      <p class="desc">No additional description provided.</p>
     </div>
     <div class="path"><b>path:</b> <code>/mnt/storage/Programs/Ultimate Orchestral Sample Toolkit [BanannaButt]/Extras/Ultimate Orchestral Toolkit [BanannaButt]/Library Identification Files/OrchestraTools.Orchestral.Strings.Run.KONTAKT.SCD-AudioP2P</code> &nbsp;<a class="folder" href="file:///mnt/storage/Programs/Ultimate%20Orchestral%20Sample%20Toolkit%20[BanannaButt]/Extras/Ultimate%20Orchestral%20Toolkit%20[BanannaButt]/Library%20Identification%20Files/OrchestraTools.Orchestral.Strings.Run.KONTAKT.SCD-AudioP2P">[open folder]</a></div>
   <details class="patches" data-patch-count="5"><summary>Patches (5)</summary>
@@ -5854,7 +5864,7 @@ body.catalog-portable #hdrToolsMorePop{display:none!important}
       </div>
     </div>
     <div class="summary-panel">
-      <p class="desc">Native Instruments library: Symphobia.</p>
+      <p class="desc">No additional description provided.</p>
     </div>
     <div class="path"><b>path:</b> <code>/mnt/storage/Programs/Ultimate Orchestral Sample Toolkit [BanannaButt]/Extras/Ultimate Orchestral Toolkit [BanannaButt]/Library Identification Files/ProjectSAM Symphobia</code> &nbsp;<a class="folder" href="file:///mnt/storage/Programs/Ultimate%20Orchestral%20Sample%20Toolkit%20[BanannaButt]/Extras/Ultimate%20Orchestral%20Toolkit%20[BanannaButt]/Library%20Identification%20Files/ProjectSAM%20Symphobia">[open folder]</a></div>
   <details class="patches" data-patch-count="6"><summary>Patches (6)</summary>
@@ -5894,7 +5904,7 @@ body.catalog-portable #hdrToolsMorePop{display:none!important}
       </div>
     </div>
     <div class="summary-panel">
-      <p class="desc">Native Instruments library: Symphobia 2.</p>
+      <p class="desc">No additional description provided.</p>
     </div>
     <div class="path"><b>path:</b> <code>/mnt/storage/Programs/Ultimate Orchestral Sample Toolkit [BanannaButt]/Extras/Ultimate Orchestral Toolkit [BanannaButt]/Library Identification Files/ProjectSAM Symphobia 2</code> &nbsp;<a class="folder" href="file:///mnt/storage/Programs/Ultimate%20Orchestral%20Sample%20Toolkit%20[BanannaButt]/Extras/Ultimate%20Orchestral%20Toolkit%20[BanannaButt]/Library%20Identification%20Files/ProjectSAM%20Symphobia%202">[open folder]</a></div>
   <details class="patches" data-patch-count="6"><summary>Patches (6)</summary>
@@ -5934,7 +5944,7 @@ body.catalog-portable #hdrToolsMorePop{display:none!important}
       </div>
     </div>
     <div class="summary-panel">
-      <p class="desc">Native Instruments library: Voxos.</p>
+      <p class="desc">No additional description provided.</p>
     </div>
     <div class="path"><b>path:</b> <code>/mnt/storage/Programs/Ultimate Orchestral Sample Toolkit [BanannaButt]/Extras/Ultimate Orchestral Toolkit [BanannaButt]/Library Identification Files/Cinesamples' Voxos</code> &nbsp;<a class="folder" href="file:///mnt/storage/Programs/Ultimate%20Orchestral%20Sample%20Toolkit%20[BanannaButt]/Extras/Ultimate%20Orchestral%20Toolkit%20[BanannaButt]/Library%20Identification%20Files/Cinesamples'%20Voxos">[open folder]</a></div>
   <details class="patches" data-patch-count="3"><summary>Patches (3)</summary>
@@ -9229,6 +9239,8 @@ function paintFavBtn(btn,fav){
   btn.setAttribute('aria-label',fav?'Unfavorite':'Favorite');
   btn.textContent=fav?'\u2665':'\u2661';
 }
+var NO_DESC_TEXT='No additional description provided.';
+function escHtml(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
 function syncEntryMeta(el){
   if(!el)return;
   var name=entryName(el);
@@ -9239,7 +9251,19 @@ function syncEntryMeta(el){
   var badge=el.querySelector('.un-badge');
   if(badge){badge.hidden=!note;badge.classList.toggle('has-note',!!note);}
   var nt=el.querySelector('.note-text');
-  if(nt){nt.textContent=note;nt.hidden=!note;nt.classList.toggle('has-note',!!note);}
+  if(nt){nt.hidden=true;nt.classList.remove('has-note');nt.textContent='';}
+  var dsc=el.querySelector('.desc');
+  if(dsc){
+    if(dsc.dataset.orig===undefined)dsc.dataset.orig=dsc.textContent;
+    var orig=dsc.dataset.orig;
+    var isPlaceholder=(orig.replace(/^\s+|\s+$/g,'')===NO_DESC_TEXT);
+    var escOrig=escHtml(orig);
+    var escNote=note?escHtml(note).replace(/\n/g,'<br>'):'';
+    var html='';
+    if(!(isPlaceholder&&note))html=escOrig;
+    if(note)html+=(html?'<hr class="desc-note-sep">':'')+'<span class="desc-user-note">'+escNote+'</span>';
+    dsc.innerHTML=html;
+  }
 }
 function syncAllMeta(){document.querySelectorAll('.entry').forEach(syncEntryMeta);if(typeof window.syncChromeFavs==='function')window.syncChromeFavs();}
 window.syncChromeFavs=function(el){

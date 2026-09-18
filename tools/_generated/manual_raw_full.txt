@@ -1,0 +1,81 @@
+===== 1781 - Ganer Square Piano ( item-13|ds )
+RAW: Hi everyone! I am glad to release the two 18th-century British pianos - The 1796 Broadwood Baby grand and the 1781 Ganer square piano virtual libraries for decent sampler via Pianobook, developed for my Postgraduate (taught) Project. The samples were recorded inside the anechoic chamber at ISVR, University of Southampton, United Kingdom, where the Professor, musician and composer David Owen Norris contributed to the recordings, which were later used for physics-based modelling and comparisons. It is a collaborative project between the Institute of Sound and Vibration Research and the University of Southampton's Music Department. There are three variations for Broadwood (pedals): > No Pedals (F0 - key switches), > with Una Corda Pedal (G0), > with Sustain Pedal (A0) and there are 8 variations for the Ganer square piano (the dampers and buff stops): > No dampers; no buff stop (C0), > No dampers with.
+
+===== 1796 - Broadwood Piano ( item-14|ds )
+RAW: Hi everyone! I am glad to release the two 18th-century British pianos - The 1796 Broadwood Baby grand and the 1781 Ganer square piano virtual libraries for decent sampler via Pianobook, developed for my Postgraduate (taught) Project. The samples were recorded inside the anechoic chamber at ISVR, University of Southampton, United Kingdom, where the Professor, musician and composer David Owen Norris contributed to the recordings, which were later used for physics-based modelling and comparisons. It is a collaborative project between the Institute of Sound and Vibration Research and the University of Southampton's Music Department. There are three variations for Broadwood (pedals): > No Pedals (F0 - key switches), > with Una Corda Pedal (G0), > with Sustain Pedal (A0) and there are 8 variations for the Ganer square piano (the dampers and buff stops): > No dampers; no buff stop (C0), > No dampers with.
+
+===== 1950s Archer L-1X Crystal Mic Choir ( item-16|ds )
+RAW: A while ago, when at an antique store, I stumbled upon this old Crystal Mic from the 1950s. Remarkably it works great. I plan to make a few instruments with this, but to start off I thought, why not make an old fashioned choir sound. I recorded myself singing a few notes (poorly I might add) and arranged them to creat this VST. It's silly but fun and sounds kinda cool in a lofi way.
+
+===== Ampco ( item-56|ds )
+RAW: ***ENGLISH VERSION FOLLOWS*** NOM: AMPCO - Vol. 1 FORMAT: Decent Sampler (version minimale 1.7.0) CORRECTIONS Faites-moi savoir si vous trouvez quelque chose... CARACTÉRISTIQUES - 19 percussions - 8 effets sonores - 1 son synthétiseur de type «pad» EFFETS - 2 reverbérations par convolution (clair et sombre) DESCRIPTION Voici à mes oreilles une petite perle de conception sonore telle que j'aime en trouver... L'Amphithéâtre Cogeco est un lieu bien connu à Trois-Rivières, au Québec, pour ses spectacles et autres évènements, toutefois, avec un peu de travail, certains sons caractéristiques, la manipulation des décors, ou encore le vent qui se faufile à travers une porte, l'ambience. Tous les sons utilisés ici ont été capturés sur la scène et ses alentours.
+
+===== Ancient Harp ( item-58|ds )
+RAW: Arpa Persa versión 1.0 Name: Ancient Harp DECENT SAMPLER -Decent Sampler - Release Notes Simple sonido wave - Efects: Attack, Realese, Chorus, Tone and Reverb, - He escuchado y probado muchos samples,muchos tienen grandes sonidos y efectos, en mi caso solo decidí hacer uno. espero lo disfruten ! Saludos desde México !
+
+===== Austrian Jaw Harp ( item-65|ds )
+RAW: The Jaw Harp, also called the Juice Harp, Mouth Harp, or the Jew's Harp is a fun one note instrument. By striking a netal tong between two metal extrusions framing either side of the tong, and placing the frame against your teeth, you can generate a tone that is amplified by your open mouth. By changing the position of your lips and toungue you can further change the tone of the note. This VST I have created, while simple, is still a lot of fun and is silly. Hopefully you all enjoy it as much as I do!
+
+===== Authentic Sleigh Bells and One Fake Bell ( item-66|ds )
+RAW: Merry Christmas and Happy Holidays everyone. What better way to celebrate the season then with a free, simple vst with samples from authentic Sleighbells but with a twist. One of the bells is fake! I hope everyone's holidays are full of cheer and you all have fun with this silly little instrument! How do I use it?
+
+===== Cinematic Granular Synthesizer ( item-101|ds )
+RAW: Cinematic Granular Synth Creator: Trevor Venemon-Holt Over the last two months, I went through this phase of modular synthesis. Not having enough money for my own Eurorack hardware, I asked chat, GPT, what are some software alternatives and it pointed me towards VCV rack, a perfect hardware emulator, and you can record the patches that you make as an audio or video file and use them for songs. So I designed my own patch in VCV Rack, using two main oscillators, a texture, synthesizer for granular synthesis, and then built-in effects from DecentSampler. I used it in a project and one thing that the sample preset does it even better is capture all of the qualities from each individual sample. When I used it in a song, the texture synthesizer was monophonic, but when I sampled it, it would become polyphonic, which is an added bonus I didn’t think about at first.
+
+===== Clockworks ( item-132|ds )
+RAW: ***ENGLISH VERSION FOLLOWS*** NOM: Clockworks FORMAT: Decent Sampler (version minimale 1.6.0) CORRECTIONS Faites-moi savoir si vous trouvez quelque chose... CARACTÉRISTIQUES - 3 catégories de sons: «Bowed», «Decayed» et «Weird» avec 2 combinaisons EFFETS - Filtre - Délai - Réverbération - «Release» ajustable DESCRIPTION On fait toutes sortes de découvertes dans un vieux sous-sol. Vous avez ici une variété de sons provenant de gongs d'horloges frottés avec un archet. Prenez note que les octaves moyens et plus graves sont de façon générale plus doux pour les oreilles et agréables à jouer. Les octaves plus aigus (marqués en rouge) tombent davantage dans l'univers de la conception sonore et s'utilisent plus facilement une note à la fois.
+
+===== Crafter 6 steel strings DC ( item-109|ds )
+RAW: Hello everyone I am delighted with Pianobook, I found a lot of the coolest tools here and am constantly adding to my collection! I thank everyone who had a hand in creating this project, as well as everyone who puts their sample libraries here – you are cool! I also want to contribute, and therefore I will present to you my library of Crafter electroacoustic guitar (MD70-12EQ/TBK) for Decent Sampler! Initially, this is a 12-string guitar, but since I’m only new to playing the guitar, I left only 6 strings in the classical formation (EADGBE). At first I just wanted to borrow this guitar from my work colleague Julia to record it and then return it, but the guitar playing fascinated me so much, and the sound of Crafter seemed so beautiful that I decided to buy it back.
+
+===== Delta ( item-123|ds )
+RAW: ***ENGLISH VERSION FOLLOWS*** NOM: Delta FORMAT: Decent Sampler (version minimale 1.11.1) CORRECTIONS Faites-moi savoir si vous trouvez quelque chose... CARACTÉRISTIQUES - 1 pad simple avec une touche lofi, sur 5 octaves EFFETS - délai ("time", "feedback" et "wet level" liés) - chorus ("rate", "depth" et "mix" liés) - reverb ("size" et "wet level" liés) DESCRIPTION Une de ses découvertes en marchant près d'une bouche. À SAVOIR Je vous encourage à utiliser les sons présentés ici comme bon vous semble, fichiers WAV ou autre, tels quels ou à travers le «plugin», en autant que vous ne les mettiez pas à vendre. Cette banque sonore est gratuite, partagez-la. Elle vient avec des caractéristiques et des effets de base pour que vous puissiez expérimenter vous-mêmes.
+
+===== Dfam Hard Sync Bass ( item-125|ds )
+RAW: So far I am loving my Moog Sound Studio 3 so I decided I should make a few patches to share with you all! But since I realize not everyone has Moog's DFAM I also made this Decent Sampler VST so you all can still have some fun with these patches even if you don't have the Synth yourself! If you make anything cool with this, please feel free to share! I would love to see what you create! How do I use it?
+
+===== Dfam Moving Back Alarm Lead ( item-126|ds )
+RAW: So far I am loving my Moog Sound Studio 3 so I decided I should make a few patches to share with you all! But since I realize not everyone has Moog's DFAM I also made this Decent Sampler VST so you all can still have some fun with these patches even if you don't have the Synth yourself! If you make anything cool with this, please feel free to share! I would love to see what you create! How do I use it?
+
+===== Gjallar Horn ( item-165|ds )
+RAW: What started as me browsing around on amazon one night has turned into this rathe unique sample library. The Gjallarhorn, or otherwise known as a Viking warhorn or sounding horn, is a unique instrument made from the horn of a ox. It only really can make one pitch consistently and is rather difficult to play. It relies on the vibration of ones lips being amplified by the shape of the horn itself. This instrument is unique and rather silly, but hopefully you all get as much enjoyment using it as I did making this VST.
+
+===== Homemade Oscillator and Speaker Circuit ( item-185|ds )
+RAW: While in college, I took some classes that enabled me to create some of my own circuits. Currently, while working on some side projects and brute forcing my own projects, I have had some time to reflect on some experiments I did in college. I took some time to clean up some of my old circuits and create some simple cases to house them using old tins I have saved around my place. These are some of those experiments.. I recorded a few notes (poorly I might add) and arranged them to creat this VST.
+
+===== Hurdy Gurdy ( item-187|ds )
+RAW: Hedy Gurdy v. 1.0 Name: Rare Gurdy DECENT SAMPLER -Decent Sampler - Release Notes Simple sonido wave - Efects: Attack, Realese, Chorus, Tone and Reverb, - He escuchado y probado muchos samples,muchos tienen grandes sonidos y efectos, en mi caso solo decidí hacer uno con mayor amplitud de. espero lo disfruten ! Saludos desde México !
+
+===== Lofi Dreams ( item-213|ds )
+RAW: Acknowledgement: Thank you for downloading my sample library, "Lofi Dreams." This is my first decent sampler library and my third sample library uploaded to Pianobook. I apologize if there are any issues; I am continuously trying to improve my sample libraries. Please feel free to leave comments on the Pianobook page or email me through my website: I welcome any suggestions for improvement. I noticed one problem: when the release is set to 0, there is a clicking sound at the end when you release the key. I am working on fixing this issue and will update the sample library once it's resolved.
+
+===== MB Analogue Drums ( item-220|ds )
+RAW: MB Analogue Drums - Version: 1.0 Name: Jon Chapman - Decent Sampler - Kontakt Using the instrument Open Kontakt. Click the Disk Icon and Select Load... Navigate to where you have saved the MB Analogue Drums folder. Double Click on the MB_Analogue_Drums_V1.0.nki file. Alternatively, all the samples are accessible as .wav files (24Bit, 48KHz).
+
+===== SL-20231105-01 - Singing Bowl ( item-296|ds )
+RAW: Sonus Lucis - Singing Bowl v1.00 - For Decent Sampler My partner noticed my facination in sampling and knew I had a love of ringing sounds. She bought me a singing bowl for my birthday this year. It has a wonderful ring and I thought it would make a good instrument. I sampled the bowl in my bathroom (quietest room in the flat!) with a Tascam DR-40x in XY mode. I used a soft felt beater.
+
+===== Sonus Lucis - Cymbalon ( item-301|ds )
+RAW: Sonus Lucis - Cymbalon v1.00 - For Decent Sampler I have been wanting to program velocity layers and round robins together in Decent Sampler for a while so I took the opportunity to practice with a small Lap Harp labelled Cymbalon on the box. It is a trapezoid shaped sound box with a circular sound hole in the centre and 15 strings. Quite commonly available on your favourite auction site. I chose a string close to 'C' and tuned it before sampling with a Tascam DR-40x in XY mode. I have set the usable range from C0 to C6.
+
+===== The Stranger Ethereal Fountain ( item-322|ds )
+RAW: ***ENGLISH VERSION FOLLOWS*** NOM: Ethereal Fountain FORMAT: Decent Sampler (version minimale 1.11.1) CORRECTIONS Faites-moi savoir si vous trouvez quelque chose... CARACTÉRISTIQUES Mode 1: - Digital Sea, un petit monde d'interférences électomagnétiques pour l'ambiance - Plus 5 boutons qui vous permettent d'activer des couches d'interférences supplémentaires Mode 2: - Soft(ish), plus «doux», pour l'accompagnement Mode 3: - Rise and Fall,. Les 6 boutons de droite activent les effets et l'évaporation de l'enveloppe pour tous les Modes. DESCRIPTION Voici le son d'une fontaine de ville capturé à travers l'appareil Ether de Soma Laboratory. C'est un instrument qui n'a définitivement rien de traditionnel mais qui est tout de même très musical.
+
+===== V-0002 Glitched Washed Pad ( item-345|ds )
+RAW: This VST is a small part of a much larger project involving visual feedback generative installation systems as a part of a much larger experimental installation piece. This piece involves generative analog music gear feeding into CRTVs with Camera s and animations being altered by the sounds created. How do I use it? First, you'll need the FREE Decent Sampler plugin here (Windows, Mac, and Linux!): If you want to keep your libraries in a specific location, make sure the '.dspreset' file is in that directory BEFORE importing! Do I have to credit you?
+
+===== V-0003 Glitched Washed Pad ( item-346|ds )
+RAW: This VST is a small part of a much larger project involving visual feedback generative installation systems as a part of a much larger experimental installation piece. This piece involves generative analog music gear feeding into CRTVs with Camera s and animations being altered by the sounds created. How do I use it? First, you'll need the FREE Decent Sampler plugin here (Windows, Mac, and Linux!): If you want to keep your libraries in a specific location, make sure the '.dspreset' file is in that directory BEFORE importing! Do I have to credit you?
+
+===== V-0004 Glitched Washed Pad ( item-347|ds )
+RAW: This VST is a small part of a much larger project involving visual feedback generative installation systems as a part of a much larger experimental installation piece. This piece involves generative analog music gear feeding into CRTVs with Camera s and animations being altered by the sounds created. How do I use it? First, you'll need the FREE Decent Sampler plugin here (Windows, Mac, and Linux!): If you want to keep your libraries in a specific location, make sure the '.dspreset' file is in that directory BEFORE importing! Do I have to credit you?
+
+===== Impactos Hybrid Percussion ( item-366|ds )
+RAW: Instrument Name: IMPACTOS - Version: 1.0 Format: Decent Sampler Audio Resolution: 96 kHz / 48 kHz Total Samples: 1800 samples Developed by: Samuel Eduardo Flores Mora Release Date: June 2025 - Decent Sampler This hybrid percussion library is the result of a graduation project. It combines orchestral percussion elements with processed industrial sounds, creating a distinctive hybrid palette. The library is primarily designed for action cues, such as trailers, combat sequences, and high-intensity moments in film, TV, and video games. However, its wide range of timbres and textures allows for creative use in other genres as well. Percussionists: Juan Rafael Moreno Echeverry, Juan David Agudelo, Ricardo Morán Marín (@by.r4m), Santiago Gómez Ríos, Juan David Posada Jaramillo, Juan Pablo Mesa García.
+
+===== West Africa ( item-30|kt )
+RAW: Introduction Thank you very much for choosing WEST AFRICA! In this document you will find information regarding last-minute additions, compatibility issues and possible problem causes. Pro Tools users are advised to edit their WEST AFRICA grooves in the standalone version of KONTAK or KONTAKT Player.
+
+===== World Percussion ( item-36|kt )
+RAW: Native Instruments library: World Percussion 2.0. Tags: percussion, world.
+

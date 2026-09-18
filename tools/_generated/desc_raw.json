@@ -1,0 +1,2066 @@
+{
+ "ds": [
+  [
+   "item-1",
+   "Altstrings Free Edition",
+   "Decent Sampler library: Altstrings Free Edition."
+  ],
+  [
+   "item-2",
+   "Interlaced Free Edition",
+   "Decent Sampler library: Interlaced Free Edition."
+  ],
+  [
+   "item-3",
+   "Zauberwinds Solo Floete",
+   "Decent Sampler library: Zauberwinds Solo Floete."
+  ],
+  [
+   "item-8",
+   "12 Oscillator Doom Drone",
+   "Decent Sampler library: 12 Oscillator Doom Drone."
+  ],
+  [
+   "item-6",
+   "12 String Acoustic",
+   "Decent Sampler library: 12 String Acoustic."
+  ],
+  [
+   "item-13",
+   "1781 - Ganer Square Piano",
+   "Hi everyone! I am glad to release the two 18th-century British pianos - The 1796 Broadwood Baby grand and the 1781 Ganer square piano virtual libraries for decent sampler via Pianobook, developed for my Postgraduate (taught) Project. The samples were recorded inside the anechoic chamber at ISVR, University of Southampton, United Kingdom, where the Professor, musician and composer David Owen Norris contributed to the recordings, which were later used for physics-based modelling and comparisons. It is a collaborative project between the Institute of Sound and Vibration Research and the University of Southampton's Music Department. There are three variations for Broadwood (pedals): &gt; No Pedals (F0 - key switches), &gt; with Una Corda Pedal (G0), &gt; with Sustain Pedal (A0) and there are 8 variations for the Ganer square piano (the dampers and buff stops): &gt; No dampers; no buff stop (C0), &gt; No dampers with."
+  ],
+  [
+   "item-14",
+   "1796 - Broadwood Piano",
+   "Hi everyone! I am glad to release the two 18th-century British pianos - The 1796 Broadwood Baby grand and the 1781 Ganer square piano virtual libraries for decent sampler via Pianobook, developed for my Postgraduate (taught) Project. The samples were recorded inside the anechoic chamber at ISVR, University of Southampton, United Kingdom, where the Professor, musician and composer David Owen Norris contributed to the recordings, which were later used for physics-based modelling and comparisons. It is a collaborative project between the Institute of Sound and Vibration Research and the University of Southampton's Music Department. There are three variations for Broadwood (pedals): &gt; No Pedals (F0 - key switches), &gt; with Una Corda Pedal (G0), &gt; with Sustain Pedal (A0) and there are 8 variations for the Ganer square piano (the dampers and buff stops): &gt; No dampers; no buff stop (C0), &gt; No dampers with."
+  ],
+  [
+   "item-15",
+   "1930s Wurlitzer Upright",
+   "--1930s Wurlitzer Upright v1.0-- Author: Alexandroth Music --Formats Included-- -Decent Sampler --Presets Included-- -Pizzicato (Plucking the strings with my fingers, producing a harp-like sound.) --The Story-- This library was made from my antique 1930s Wurlitzer upright. I have had this piano since I was 6 years old when I started taking piano lessons. After taking lessons for about a year, my parents looked for an upright piano for me to practice on, and this is the one they got me. I have been interested in composing music since I was in high school, and I have had this piano all those years. One day, I figured out some extended techniques like plucking the strings and I loved the harp sound it could create."
+  ],
+  [
+   "item-16",
+   "1950s Archer L-1X Crystal Mic Choir",
+   "A while ago, when at an antique store, I stumbled upon this old Crystal Mic from the 1950s. Remarkably it works great. I plan to make a few instruments with this, but to start off I thought, why not make an old fashioned choir sound. I recorded myself singing a few notes (poorly I might add) and arranged them to creat this VST. It's silly but fun and sounds kinda cool in a lofi way."
+  ],
+  [
+   "item-17",
+   "1984 Elec. Bass Vantage X-99B Lite",
+   "Decent Sampler library: 1984 Elec. Bass Vantage X-99B 1.0 Lite. Tags: bass."
+  ],
+  [
+   "item-25",
+   "3d Printed Ocarina",
+   "# [Grandma's Beachhouse Piano] Version: [0.0.0] ## Included formats - Decent Sampler ## Release notes -Created first release alpha ### New -High Velocity Layer -Background Image of source instrument ## Using the instrument This is simple 'ocarina in b' sample instrument. It works \"as is\" in decent sampler. ## The Story This is an ocarina I 3D printed at home on my creality ender3-v3se. It was printed in black esun pla-plus."
+  ],
+  [
+   "item-26",
+   "40 Voices",
+   "Decent Sampler library: 40 Voices."
+  ],
+  [
+   "item-32",
+   "60 Clock Ticks",
+   "# 60 Clock Tickets - Version: 1.0 Name: Shaun Hayward ## Included formats - Decent Sampler ## Release notes ### New - Initial release - Includes reverb ### Bugfixes ## Using the instrument 1 minute of sequential ticks from a quartz wall clock with no other adjustments. All 60 ticks are set to a round robin and play back in the order they ticked on the actual clock. Play 60 notes in a row to get 60 different ticks. Root note is middle C (MIDI note number 60), so this note gives you the original pitch of the clock. It has a 4 octave range but everything except for middle C speeds up or slows down the sample to pitch it up and down."
+  ],
+  [
+   "item-36",
+   "80's Module",
+   "## 80's Module - Version: [1.0] Name: Alber Lemi ## Included formats - Decent Sampler ## Release notes An old Ensoniq ESQ-m hybrid synth module I bought in the late 80's later sampled to soundfonts in the 90's now presented as a DS instrument. BTW, I still keep it on a shelf collecting dust. ## New ## Bugfixes ## Using the instrument The instrument includes 32 of my favourites patches paired in 16 presets with mix and detune controls. Also volume envelope, low-pass filter with LFO modulation, reverb, delay chorus and phaser effects."
+  ],
+  [
+   "item-46",
+   "A Childs Memory",
+   "I have had this recorder since elementary school. It's a cheap plastic pitchy mess and silly to play. Like many in the united states, my elementary school had everyone learn how to play this instrument and play some songs in shows for our parents. They were never any good of course, but considering our age, our parents were proud and loved them none-the-less. I have turned this instrument into two simple libraries for you all to play with."
+  ],
+  [
+   "item-64",
+   "A Singing Bowl From New Hampshire",
+   "I have found myself stuck the past couple weeks, feeling rather aimless and forgotten. Like what I do doesn't matter, and finding financial stability and security is out of reach. This has weighed heavy on me and made it difficult to focus, especially on things I care about like music and art. Then I went with my Mom, Dad, Sister and her fianc'e9 on a family vacation back to New Hampshire. I grew up there and it was amazing to see north conway again."
+  ],
+  [
+   "item-45",
+   "Accordion",
+   "Decent Sampler library: Accordion. Tags: accordion."
+  ],
+  [
+   "item-44",
+   "Accordion La Melodiosa",
+   "La Melodiosa Sampling, editing and instrument programming by Petri Pohjanmies (Finland), 2026. This sample pack is released under the Creative Commons CC-BY license. You are free to use it in your own music, commercial or non-commercial, as long as proper attribution is given. For SFZ Version Tested with Sforzando adn Sfizz players. Bass and treble has own voice selections, like real instrument."
+  ],
+  [
+   "item-47",
+   "Acoustic Cassette Drums",
+   "Decent Sampler library: Acoustic Cassette Drums."
+  ],
+  [
+   "item-48",
+   "Aeon Guitar",
+   "Decent Sampler library: Aeon Guitar (DS). Tags: guitar."
+  ],
+  [
+   "item-49",
+   "Afri Xilo",
+   "African Xilophone versi\u00f3n 1.0 -Decent Sampler - New sample - Efects- - Attack, Release, Chorus, Tone and Reverb. - History Siempre me han llamado la atenci\u00f3n los instrumentos de \u00c1frica, en este caso, solo realic\u00e9 una simple modificaci\u00f3n a varios sonidos de un Xil\u00f3fono que un amigo ten\u00eda arrumbado en su casa, trato de dar un sonido m\u00e1s claro y sin efectos, logrando un sonido m\u00e1s real. He escuchado y probado muchos samples, muchos tienen grandes sonidos y efectos, en mi caso solo decid\u00ed hacer uno con mayor amplitud de sonidos. Sampler realizado por un simple sonido de un Xil\u00f3fono, los sonidos son graves y agudos con un rango de cuatro octavas; Bb - f. Espero lo disfruten !"
+  ],
+  [
+   "item-50",
+   "Afterglow Demo",
+   "# Afterglow (Demo) - Version: [1.0] Name: Fr\u00e9d\u00e9ric Poirier ## Included formats - Decent Sampler ## Release notes ### New This DecentSampler instrument is a free demo version of Fr\u00e9d\u00e9ric Poirier - Afterglow, a Pianobook Artists sample library. ## Using the instrument The range of the instrument is limited to the first 3 octaves, it has 2 dynamic layers and only one round robin. The full version of this articulation has 4 dynamic layers and 3 round robins, and the full instrument includes 8 articulations, 3 different signals, and 15 custom Textures."
+  ],
+  [
+   "item-38",
+   "Air Piano Clean",
+   "Decent Sampler library: Air Piano Clean."
+  ],
+  [
+   "item-51",
+   "Albi's Sound Toolbox",
+   "# Albi's Sound Toolbox Version: [1.1] Website: saymonmartinelli.com ## Included formats - Decent Sampler ## Release notes This is the first version of the Albi's Sound Toolbox instrument for Decent Sampler. ### Features - 35 original samples recorded from a working music-therapist's musical toolbox, live performed by Albi himself! (He wasn't hurt during the process.) - ADSR envelope - Global Vari-Speed control - Low pass filter with resonance control - Room reverb effect with mix, size and damp controls - Delay effect with mix, time and feedback controls - Waveshaper distortion with Drive, Boost and. Use the included sound-shaping tools to find the sweet spot for your project! ## The Story Alberto (friendly known as Albi) is a good friend of mine."
+  ],
+  [
+   "item-52",
+   "Aleatory 3",
+   "# Aleatory Version [1.3] ## Included Formats - Decent Sampler ## Release Notes - Adjusted ADSR Controls for ease of use. ### New - Now prompts users to DecentSampler version 1.15.1 ### Bugfixes - Fixed Reverb knob not working. ## Using The Instrument. \"Slaughter\" knob mangles the samples, however it varies on each preset, combine both reverb and slaughter for an interesting scary yet ethereal effect. ## The Story This started all the way back in 2023, when I made a Collab album with my (now ex) girlfriend (who making the cover art, it was a Halloween album)."
+  ],
+  [
+   "item-53",
+   "Alto Recorder",
+   "# Alto-Recorder Version: [1.0] ## Included formats - Decent Sampler ## Release notes ### New - V1.1 Performed some additional tuning ### Bugfixes - ## Using the instrument Use the menu or the key switches (midi notes 24 to 27) to select long and short notes. Also you can adjust filter, ADSR, reverb, chorus and delay. ## The Story My wife used to be a teacher for recorder and alto-recorder. Making my first attempts to create decent sampler intruments. I had do record her playing her favourite instrument."
+  ],
+  [
+   "item-55",
+   "Amazon Kalimba DCSampler Preset",
+   "# Amazon Kalimba Version: [1.1] ## Included formats - Decent Sampler ## Release notes This preset contains samples from a 17 key Kalimba. The range was slightly expanded to over 2 octaves from A1 to G#4. It was also made chromatic. Includes 2 round robins for each note and one velocity. Includes one voice that is plucked with thumbnail."
+  ],
+  [
+   "item-54",
+   "Amazonia",
+   "Decent Sampler library: Amazonia."
+  ],
+  [
+   "item-56",
+   "Ampco",
+   "***ENGLISH VERSION FOLLOWS*** NOM: AMPCO - Vol. 1 FORMAT: Decent Sampler (version minimale 1.7.0) CORRECTIONS Faites-moi savoir si vous trouvez quelque chose... CARACT\u00c9RISTIQUES - 19 percussions - 8 effets sonores - 1 son synth\u00e9tiseur de type \u00abpad\u00bb EFFETS - 2 reverb\u00e9rations par convolution (clair et sombre) DESCRIPTION Voici \u00e0 mes oreilles une petite perle de conception sonore telle que j'aime en trouver... L'Amphith\u00e9\u00e2tre Cogeco est un lieu bien connu \u00e0 Trois-Rivi\u00e8res, au Qu\u00e9bec, pour ses spectacles et autres \u00e9v\u00e8nements, toutefois, avec un peu de travail, certains sons caract\u00e9ristiques, la manipulation des d\u00e9cors, ou encore le vent qui se faufile \u00e0 travers une porte, l'ambience. Tous les sons utilis\u00e9s ici ont \u00e9t\u00e9 captur\u00e9s sur la sc\u00e8ne et ses alentours."
+  ],
+  [
+   "item-57",
+   "Amsterdam Metro",
+   "Decent Sampler library: Amsterdam Metro."
+  ],
+  [
+   "item-58",
+   "Ancient Harp",
+   "Arpa Persa versi\u00f3n 1.0 Name: Ancient Harp DECENT SAMPLER -Decent Sampler - Release Notes Simple sonido wave - Efects: Attack, Realese, Chorus, Tone and Reverb, - He escuchado y probado muchos samples,muchos tienen grandes sonidos y efectos, en mi caso solo decid\u00ed hacer uno. espero lo disfruten ! Saludos desde M\u00e9xico !"
+  ],
+  [
+   "item-59",
+   "Antique Harmonium",
+   "Decent Sampler library: Antique Harmonium (DS). Tags: harmonium."
+  ],
+  [
+   "item-60",
+   "Antz 2",
+   "Decent Sampler library: Antz 2."
+  ],
+  [
+   "item-61",
+   "Archive Found Strings 001",
+   "Decent Sampler library: Archive Found Strings 001 DS. Tags: strings."
+  ],
+  [
+   "item-62",
+   "Arn Bottles",
+   "Echoes in Glass Ever since I was a child, I\u2019ve enjoyed making sounds by blowing across the tops of bottles. I remember one time at a party with a few friends \u2014 we each grabbed a pair of empty beer bottles, tuned them with water, and played a few songs together. That memory inspired me to create this sample pack. I collected a variety of bottles and started recording their unique tones. The result is a playful, organic sound that I hope you\u2019ll enjoy using as much as I enjoyed making it."
+  ],
+  [
+   "item-63",
+   "Arn Lofi Chorus",
+   "# LoFi Chorus- Version: 1.0 Name: Arnold Farkas ## Included formats - Decent Sampler ## Release notes Untuned male and female \u201cla-la\u201d vocal, performed by my wife and me. It might sound rough around the edges, but we had a lot of fun recording it \u2014 and that spirit lives in the sound. ## Using the instrument Male and female \u201cla-la\u201d vocal samples across two octaves, with 4 round robins for natural variation."
+  ],
+  [
+   "item-65",
+   "Austrian Jaw Harp",
+   "The Jaw Harp, also called the Juice Harp, Mouth Harp, or the Jew's Harp is a fun one note instrument. By striking a netal tong between two metal extrusions framing either side of the tong, and placing the frame against your teeth, you can generate a tone that is amplified by your open mouth. By changing the position of your lips and toungue you can further change the tone of the note. This VST I have created, while simple, is still a lot of fun and is silly. Hopefully you all enjoy it as much as I do!"
+  ],
+  [
+   "item-66",
+   "Authentic Sleigh Bells and One Fake Bell",
+   "Merry Christmas and Happy Holidays everyone. What better way to celebrate the season then with a free, simple vst with samples from authentic Sleighbells but with a twist. One of the bells is fake! I hope everyone's holidays are full of cheer and you all have fun with this silly little instrument! How do I use it?"
+  ],
+  [
+   "item-67",
+   "Automotive Junk",
+   "# Automotive Junk Version: 1.0 ## Included formats - Decent Sampler ## The Story I was an automotive tech for a couple years and kept a lot of things I thought I could use to make stuff. One thing I made was this collage of parts that made different noises. The sounds were made by hitting the parts with a screwdriver. 3-4 velocity layers except for Wiper switch(G1) and ABS module(C#0) which only have 1 3 round robins except for ABS module which only has 1 Instruments/parts include; ABS pump cover ABS Module Diesel truck hub cap Some kind of small bracket Undercarriage oil filter cover(edge."
+  ],
+  [
+   "item-68",
+   "Baby Grand Piano",
+   "This library was created after a Baby Grand Piano that my mother received as a gift almost 60 years ago. This is my first attempt to create a sample library."
+  ],
+  [
+   "item-69",
+   "Bandola Andina Colombiana",
+   "Bandola Andina Colombiana by Estiven Sep\u00falveda This virtual instrument is the culmination of my University thesis. Showcasing the andian bandola, a traditional Colombian instrument. Its unique design features 12 strings grouped into six sets which produce a range of Sonic effects triggered by key switches. Including: pizzicato, tremolo, harmonics and glissandos. Furthermore, this instrument offers multiple effects to enhance sound manipulation."
+  ],
+  [
+   "item-70",
+   "Bass Dean",
+   "#Bass 5 strings DEAN - Version: [1.0] Name: IOND ## Included formats - Decent Sampler ## Release notes first realese ### New ### Bugfixes ## Using the instrument 2.5 octaves, 4 knobs, simply."
+  ],
+  [
+   "item-71",
+   "Bass Forge Demo",
+   "Decent Sampler library: Bass Forge Demo."
+  ],
+  [
+   "item-72",
+   "Bass Tromb one two",
+   "Bass Trombone 1.0 dspreset, image &amp; wav samples Name: Tromb one two\u2026 -Decent Sampler - Release Notes New sample sound Simple sonido wave - Efects: Attack, Realese, Chorus, Tone and Reverb. - Using Wav Bass Trombone. HISTORY Desde hace tiempo los sonidos met\u00e1licos me han gustado mucho, en esta ocasi\u00f3n, solo grab\u00e9 sonidos simples y los organic\u00e9 para dar un tono claro. Los sonidos del tromb\u00f3n No es un instrumento m\u00edo; son proporcionados por una base de datos de instrumentos de aliento. For a long time I have been very fond of brass sounds, this time I just recorded simple sounds and arranged them to give a clear tone."
+  ],
+  [
+   "item-73",
+   "Beyond the Strings",
+   "#Beyond the Strings - Version: 1.1 ## Included formats - Decent Sampler ## Using the instrument From tradition bow instrument to futuristic synth pad. This happens when you touch something with a violin bow. ## The Story I was looking for a pad sound based on strings. Long time ago, as very young guitarist, I was inspired by Jimmy Page who played with a violin bow on his Gibson Les Paul. The sound of it blew my mind."
+  ],
+  [
+   "item-74",
+   "Bilhorn Reed",
+   "____ _ _ _ _____ _ | _ \\(_) | | | __ \\ | | | |_) |_| | |__ ___ _ __ _ __ | |__) |___ ___ __| | | _ &lt;| | | '_ \\ / _ \\| '__| '_ \\| _ // _ \\/ _ \\/ _` | | |_) | | | | | | (_) | | | | | | | \\ \\ __/ __/ (_| | |____/|_|_|_| |_|\\___/|_| |_| |_|_| \\_\\___|\\___|\\__,_| # Bilhorn Reed -. We sampled the Bilhorn Telecope reed organ with a Zoom H1n recorder in three different configurations: The default sound recorded from below with pedal noises captured is designated as 'Natural'. The organ also has two swell switches producing wider sound incorporating larger sound chambers. These we have indicated as 'Left Swell' and 'Right Swell' based on the switch location. All 49 notes of the organ were sampled in these three configurations."
+  ],
+  [
+   "item-75",
+   "Bioshock Kalimba",
+   "Recently I have been Playing the Bioshock series a lot. I m Going through 1, 2 and infinite remasters. The game is good mindless fun, shooting crazy junked up sociopaths in an underwater steampunk dystopia that critiques the absurdity of late stage, free market capitalism. You know, the usual video game stuff. To make this Library I took a Kalimba that I installed a piezo disc into and connected it to an Infinite Jets and a Microcosm from Hologram."
+  ],
+  [
+   "item-77",
+   "Black Hole Synth",
+   "# Black Hole Synth - Version: [1.0] Name: Mark Zhou ## Included formats - Decent Sampler ## Using the instrument I recommend keeping reverb high and playing around with the modulation knob. Try adding some distortion for a sci-fi effect!"
+  ],
+  [
+   "item-76",
+   "Blackbird",
+   "# Blackbird Version: [1.0] ## Included formats - Decent Sampler ## Release notes ### New - V1.1: Bigger sliders vor more convenience. (Increase the reverb to place the blackbird into a wood!) ### Bugfixes - ## Using the instrument Use the menu or the key switches (midi notes 29 to 34) to select looping and the strength of the blackbird's trill. Also you can adjust filter, ADSR, reverb, chorus and delay. ## The Story When I learned for my final exam at university I whistled Beethoven\u2019s violin concerto and found a blackbird in the garden answering the tunes. Glad about the distraction I started to teach the blackbird and after some weeks we both luckily passed our exams."
+  ],
+  [
+   "item-78",
+   "Blended Keys - E Devey",
+   "Courier; eftab720 tightenfactor0 Blended Keys - Version 1 Name: Edward Devey ## Included Formats - Decent Sampler ## Release Notes - No bugs as of now."
+  ],
+  [
+   "item-79",
+   "Blown Feedback",
+   "Decent Sampler library: Blown Feedback."
+  ],
+  [
+   "item-80",
+   "Bombo De Guancho",
+   "# Guancho bass drum - Version: [1.0] Name: MdL ## Included formats - Decent Sampler ## Release notes This is a traditional Galician bass drum (bombo galego). ## Using the instrument It consists of 6 sounds: C1-----bass drum mallet 1 C#1----bass drum mallet 1 muted D1-----bass drum mallet 2 D#1----bass drum mallet 2 muted E1------bass drum muted F1------ringshot The sounds were captured by 2 microphones at different distances. The Controls: mic 1 microphone close mic 2 far microphone Release MdL."
+  ],
+  [
+   "item-81",
+   "Bosque",
+   "# Bosque - Version: [1] Name: Mateus Henrique Granja Beledelli ## Included formats - Decent Sampler ## Release notes I'm so happy you've downloaded my very first library! Hope you enjoy It! ## Bugfixes - Wallpapers not working fixed! ## Using the instrument So,if you have any ideas or encounter any problems/errors, you can email me anytime! (mbeledellim@gmail.com)."
+  ],
+  [
+   "item-82",
+   "Bottle O Phone",
+   "Decent Sampler library: Bottle O Phone."
+  ],
+  [
+   "item-83",
+   "Broken Cassette Piano",
+   "# Broken Cassette Piano - Version: [1.1.1] Name: Vivien Aubke ## Included formats - Decent Sampler ### Bugfixes - [1.1.1] Fixed a late trigger for note A2 The broken cassette piano is a virtual instrument that combines the sound of a upright piano with the lo-fi charm of a. The instrument is based on a sampled C. Bechstein piano, which has been reprocessed by recording it onto a cassette tape that got exposed to too much moisture and sun over the years. You can mix the clean signal with the one from the cassette to dial in your preferred tone, from a thin, wonky and noisy tape warble of a tone, to a sound which has a bit more body. A shimmer reverb has been added as well for a more dreamlike sound."
+  ],
+  [
+   "item-84",
+   "Bruno Drums",
+   "# Bruno Drums - Version: [1.0] Name: MdL ## Included formats - Decent Sampler ## Release notes My friend Bruno recorded the sounds of his drum kit. The elements that make up this drum kit are Kick,snare,hit hat,tom,floor tom,crash and ride. The ambient sound on the snare, hi hats, hi tom and floor tom is also recorded. ## Using the instrument C1----- Kick D1----- snare E1------ringshot F#1-----hi hats G1------floor tom G#1-----close hi hats A#1-----open hi hats C2------hi tom C#2-----crash D#2-----ride The Controls: The kick has two volume controls, kick in, kick out. The snare has two volume controls, snare up, snare down."
+  ],
+  [
+   "item-85",
+   "Burdigala Audio Takoda Lite",
+   "Decent Sampler library: Burdigala Audio Takoda Lite."
+  ],
+  [
+   "item-108",
+   "C Pops",
+   "Decent Sampler library: C Pops."
+  ],
+  [
+   "item-86",
+   "Casioclone",
+   "# Casioclone - Version: [1.0] Name: Nathan \u00d3 Maoilearca - Decent Sampler Casioclone is a simplified reproduction of the Casiotone MT-65 from 1983, featuring its twenty classic instrument sounds ranging from Electric Piano to Cosmic Tone. I love how accessible and easy-to-use this mini-synth is, so much of the functionality here remains faithful to the original. Effects sliders and envelope toggles is all you need to let these sounds shine! I hope you use these keys to channel your inner Ricky Baker: Nathan \ud83d\udc7d \ud83d\ude10 Technical Notes \ud83d\ude10 \ud83d\ude34 'Reverb' uses an impulse response of a spring reverb on the Roland RE-201 Space Echo, with a pinch of drive \ud83e\udd71 'Echo' is a combination of Valhalla's phenomenal FreqEcho and GSI's."
+  ],
+  [
+   "item-87",
+   "Cat Toy Drums Free",
+   "Decent Sampler library: Cat Toy Drums Free."
+  ],
+  [
+   "item-88",
+   "Cello Drone",
+   "# Cello Drone - Version [1.0] ## Included Formats - Decent Sampler ## Release Notes - Initial Release ### New Nothing new yet. ### Bugfixes - No bugfixes as of yet. ## Using the Instrument Use the reverb titled \"Metal\" to your advantage, as well as \"Scuff\". Hold the note for as long as possible if you want to use it in an unsettling context. ## The Story Just a simple one this time."
+  ],
+  [
+   "item-90",
+   "CH Foogered Piano",
+   "# Foogered Piano DS - Version: [1.0] Name: Ed Harper ## Included formats - Decent Sampler ## Release notes DS Port by Ed Harper ### New."
+  ],
+  [
+   "item-91",
+   "CH Grumpy Strings",
+   "# Grumpy Strings DS - Version: [1.0] Name: Ed Harper ## Included formats - Decent Sampler ## Release notes ### New The original version relied on Kontakt's built-in tape simulation effect. Since DS doesn't have an equivalent, I have imitated one with an LFO-modulated LPF/pitch effect."
+  ],
+  [
+   "item-92",
+   "CH Hand Dryer Bass",
+   "# Super Fat Hand-Dryer Bass DS - Version: [1.0] Name: Ed Harper ## Included formats - Decent Sampler ## Release notes DS Port by Ed Harper."
+  ],
+  [
+   "item-97",
+   "CH Octodrums",
+   "# CH Octodrums DS - Version: [1.01] Name: Ed Harper ## Included formats - Decent Sampler ## Release notes DS Port by Ed Harper ### Bugfixes - Three tom pitches now supported."
+  ],
+  [
+   "item-42",
+   "CH Tape Delay Experiment",
+   "Decent Sampler library: CH Tape Delay Experiment."
+  ],
+  [
+   "item-89",
+   "Charlie's Baritone Uke",
+   "# Charlie's Baritone Uke - Version 1.0 Name: Mark Lowrie ## Included formats: - Decent Sampler ## Release notes ### New Four round-robin sample pack of a baritone ukulele. ## Using the instrument Download and select."
+  ],
+  [
+   "item-93",
+   "Chimes",
+   "# Chimes - Version: [1.0] Name: Raymond ## Included formats - Decent Sampler ## Release notes ### New Samples: 49 Notes (C4 \u2192 C8) + 12 Runs (up) + 12 Runs (down) = 73 Sample Files Length: 5 seconds (notes) - 8 seconds (runs) per sample ## Using the instrument Notes: Key:."
+  ],
+  [
+   "item-94",
+   "Chinese door bells",
+   "Decent Sampler library: Chinese door bells."
+  ],
+  [
+   "item-95",
+   "ChingKluay",
+   "# Ching Kluay Version: [1.0.0] ## Included formats - Decent Sampler - .wav Files (you can use it as sample) ## Using the instrument Just simply add DecentSampler on your DAW and load ChingKluay! This ChingKluay library comes with 4 sounds, each has 5 dynamic samples. (1 being the most quiet, and 5 being the most loudest) This is note layout in default preset. Open - Note 64 (E4) 2. Closed - Note 65 (F4) 3."
+  ],
+  [
+   "item-96",
+   "Chloe's Spinet",
+   "# Chloe's Spinet Version: [1.1] Name: Graham Warren ## Included formats - Decent Sampler ## Release notes ## New ## Bugfixes ## Using the instrument Reverb: range from dry to medium hall. Lute Stop: effectively a tone control, softens the sound of the notes ## The Story This spinet belonged to my friend Christopher who passed away in 2020. He bequeathed it to my daughter Chloe. Whilst her flat was being renovated the instrument was in storage for 18 months (not ideal and not recommended!). When it was eventually moved to her flat it was discovered that for some unknown reason most of the plectra had been removed and some of the strings were broken and some were missing."
+  ],
+  [
+   "item-98",
+   "Choir of the Fallen",
+   "#Choir of the Fallen - Version: 1.1 ## Included formats - Decent Sampler ## Using the instrument Do you need some dark low throat singing vocals in your tracks? Enter the undergound realm of the forgotten fallen spirits to summon them! ## The Story First of all, I'm not a vocalist... but I like to play with voices, even with mine. I like the sound of throat singing, more like if it is in the low registers."
+  ],
+  [
+   "item-99",
+   "Christmas Perc",
+   "Decent Sampler library: Christmas Perc."
+  ],
+  [
+   "item-100",
+   "Chromatic Flatboard Kalimba",
+   "Chromatic Flatboard Kalimba - Version: [1] Name: Airboerne - Decent Sampler."
+  ],
+  [
+   "item-101",
+   "Cinematic Granular Synthesizer",
+   "Cinematic Granular Synth Creator: Trevor Venemon-Holt Over the last two months, I went through this phase of modular synthesis. Not having enough money for my own Eurorack hardware, I asked chat, GPT, what are some software alternatives and it pointed me towards VCV rack, a perfect hardware emulator, and you can record the patches that you make as an audio or video file and use them for songs. So I designed my own patch in VCV Rack, using two main oscillators, a texture, synthesizer for granular synthesis, and then built-in effects from DecentSampler. I used it in a project and one thing that the sample preset does it even better is capture all of the qualities from each individual sample. When I used it in a song, the texture synthesizer was monophonic, but when I sampled it, it would become polyphonic, which is an added bonus I didn\u2019t think about at first."
+  ],
+  [
+   "item-102",
+   "Classic Slide Whistle",
+   "Happy New Year Everyone! 2023 was a rollercoaster of a year. World events being escalation of the Ukraine War, The Israel and Palestine conflict, The Death of Kissinger, Widespread UFO Sightings and declassifications, and much more. In my Personal Life I was Laid off from my job and I still haven't found new work, But I also went to Lollapolooza with friends I haven't seen in a while, Went to the Bahamas for the first time, Exhibited in Seattle and so on. Overall I am glad 2023 is over, It was exhausting and emotional."
+  ],
+  [
+   "item-7",
+   "Claustrophobic Piano V2",
+   "Decent Sampler library: Claustrophobic Piano V2."
+  ],
+  [
+   "item-103",
+   "Clave Frog &amp; Friends",
+   "# Clave Frog (&amp; Friends) - Version: [1.3] Name: Gearoid O Broin (Plug-in Play) ## Included formats - Decent Sampler ## Release notes Library number 2! With my first library finished, I approached this one with a new goal: to explore the limits of what the latest version of Decent Sampler (V1.7.4) can do. For this I decided to tackle a percussion library. In particular, I've always found shaker samples to be difficult to play in a way that sounds natural. So that was my challenge."
+  ],
+  [
+   "item-104",
+   "Clavinova Warm Pad",
+   "# Clavinova Warm Pad Version: [1.1] Name: Graham Warren ## Included formats - Decent Sampler ## Release notes ## New ## Bugfixes ## Using the instrument There are no tweakable parameters included in the UI but if you use the instrument in a DAW some reverb, delay and/or. ## The Story This is one single preset from my Yamaha Clavinova CVP-79a. I've tried unsuccessfully to replicate this sound using a Yamaha DX7. The instruments have different sound engines. DX7 uses FM synthesis and Clavinova models were based on sampling technology."
+  ],
+  [
+   "item-132",
+   "Clockworks",
+   "***ENGLISH VERSION FOLLOWS*** NOM: Clockworks FORMAT: Decent Sampler (version minimale 1.6.0) CORRECTIONS Faites-moi savoir si vous trouvez quelque chose... CARACT\u00c9RISTIQUES - 3 cat\u00e9gories de sons: \u00abBowed\u00bb, \u00abDecayed\u00bb et \u00abWeird\u00bb avec 2 combinaisons EFFETS - Filtre - D\u00e9lai - R\u00e9verb\u00e9ration - \u00abRelease\u00bb ajustable DESCRIPTION On fait toutes sortes de d\u00e9couvertes dans un vieux sous-sol. Vous avez ici une vari\u00e9t\u00e9 de sons provenant de gongs d'horloges frott\u00e9s avec un archet. Prenez note que les octaves moyens et plus graves sont de fa\u00e7on g\u00e9n\u00e9rale plus doux pour les oreilles et agr\u00e9ables \u00e0 jouer. Les octaves plus aigus (marqu\u00e9s en rouge) tombent davantage dans l'univers de la conception sonore et s'utilisent plus facilement une note \u00e0 la fois."
+  ],
+  [
+   "item-105",
+   "Contact Mic Piano",
+   "# Real Kalimba - Version: [0.2] Name: Eunjae Im ## Included formats - Decent Sampler ## Release notes ### New ### Bugfixes ## Using the instrument."
+  ],
+  [
+   "item-106",
+   "Coro Di Cicale",
+   "# Coro di Cicale /feat. Giacomo **Date:** October 29, 2023 **By:** Oliver Scheuch ## Included Formats - Decent Sampler ## Release Notes **First Release** ## The Story and Usage Introducing a unique sample pack inspired by my recent journey to Tuscany \u2013 the \"Coro di Cicale\" featuring the remarkable. This collection captures the mesmerizing sounds of a cicada choir, with a standout star, Giacomo, a single cicada whose voice promises to be the sensation of cicada choirs worldwide in the near future. Giacomo's voice is featured prominently in this pack, and a portion of his enchanting melody is also used as a very small looping element (only 32 samples) to infuse an additional layer of melodic ambiance. The sounds of the entire field, with the harmonious chorus of cicadas, serve as a backdrop, and Giacomo's voice, processed through a granular delay, adds a touch of atmospheric charm to the cicada choir."
+  ],
+  [
+   "item-107",
+   "cp10 Piano",
+   "Decent Sampler library: cp10-piano. Tags: piano."
+  ],
+  [
+   "item-111",
+   "CR Seventy Eight",
+   "# CR Seventy Eight - Version: 1.0.4 ko-fi.com/whiteorchidinstruments whiteorchid.gumroad.com youtube.com/@whiteorchidinstruments ## Included formats - Decent Sampler 1.11.7+ ## Release notes: 07 July 2025 v1.0.4 Kontakt: Reversed the image for the main page effect bypass buttons. The button is now transparent when the effect is bypassed and colored when the effect is enabled. I think this looks better and makes more sense. Kontakt: Fixed a bug* with the velocity control that was causing some kit pieces to play at full velocity regardless of the setting. *It was doing this because I forgot to add the control to the kit pieces!"
+  ],
+  [
+   "item-109",
+   "Crafter 6 steel strings DC",
+   "Hello everyone I am delighted with Pianobook, I found a lot of the coolest tools here and am constantly adding to my collection! I thank everyone who had a hand in creating this project, as well as everyone who puts their sample libraries here \u2013 you are cool! I also want to contribute, and therefore I will present to you my library of Crafter electroacoustic guitar (MD70-12EQ/TBK) for Decent Sampler! Initially, this is a 12-string guitar, but since I\u2019m only new to playing the guitar, I left only 6 strings in the classical formation (EADGBE). At first I just wanted to borrow this guitar from my work colleague Julia to record it and then return it, but the guitar playing fascinated me so much, and the sound of Crafter seemed so beautiful that I decided to buy it back."
+  ],
+  [
+   "item-110",
+   "Creaker.v1.0",
+   "Decent Sampler library: Creaker.v1.0."
+  ],
+  [
+   "item-112",
+   "cryptid80",
+   "Decent Sampler library: cryptid80."
+  ],
+  [
+   "item-113",
+   "Cupboard Castoffs",
+   "Cupboard Castoffs A collection of revived samples. So...I realised that I had a number of samples in various flavours lurking on my hard drive. They are left over from ideas that didn't quite work, assorted random thoughts and indeed some recordings so old I can't recall what they were for in the first place. I've cherry picked a few, layered them all together, added an additional pad sound created from the same sounds and released it all into the wild. I've tried to create an instrument which gives maximum adaptability to the user."
+  ],
+  [
+   "item-114",
+   "Curly - Electric Piano",
+   "# Curly Electric Piano - Version: [1.2] Name: Eoin O'Dowd ## Included formats - Decent Sampler ## Release notes ### New Velocity layers adjusted and updated ### Bugfixes Volume too loud."
+  ],
+  [
+   "item-115",
+   "Cymbalum",
+   "Decent Sampler library: Cymbalum."
+  ],
+  [
+   "item-119",
+   "D Bass",
+   "# [ DBass ] Version: [1.1] ## Included formats - Decent Sampler ## Release notes ### New - Added velocity layers - Added filter control ### Bugfixes - Label text now visible on iOS ## Using the instrument ALL KNOBS WORK AS THEY SHOULD. YOU'RE A MUSICIAN YOU GOT THIS :) DI SQUIRE BASS EDITED IN ABLETON TO MAKE IT FIRE ;) ## The Story We love bass, you love bass. I love you love bass. Download, enjoy and lastly make only fire music ;)."
+  ],
+  [
+   "item-116",
+   "Dacr Microsynth",
+   "# Dacr Microsynth Version: 1.1 ## Included formats - Decent Sampler ## Release notes ### New - 1.1 Fixed playbackMode - 1.0 First Release ## Using the instrument - 4 fix waveform based oscillators (1 cycle, comes from Waldorf Blofeld) - Waveshaper on all oscillators - Pitch. However, I had an old idea that I had started to build up until then, and now you see this. I envisioned 4 oscillators with the 4 basic waveforms. Each oscillator can only use one. I've always been interested in what you can do with such a minimalist synthesizer."
+  ],
+  [
+   "item-117",
+   "Dacr Shaker",
+   "# Dacr Shaker Version: 1.2 ## Included formats - Decent Sampler - Kontakt 5 ## Release notes ### New - 1.2 New Kontakt file by MFB (uniform skin) - 1.1 Added Kontakt format (by MFB) - 1.0 First Release ## Using the instrument - Real shaker filled with millet - Clear and. I brought a bag of millet from the kitchen and filled it with it. I really like using it in live recordings, so I thought I would share the sound of my shaker with you in a sample library. Developed with DS version 1.12.14."
+  ],
+  [
+   "item-118",
+   "Dark Drums",
+   "# Dark Drums - Version: [1.0] Name: Liam Turnage ## Included formats - Decent Sampler ## Release notes 1.0 - First release ### New ### Bugfixes - All samples are playable and fully functional. ## Using the instrument This sample library contains four control knobs as well as three custom effect sliders as listed below: Gain Release Attack Reverb Verb Echo Grit The samples are split into three groupings that are color coded on the keyboard. The first grouping is for a pitched sample from C3 to B3. The second group is the raw recordings of the samples with added effects on the sliders. The last group is for ambient pads and FX that were modulated based on a single sample."
+  ],
+  [
+   "item-120",
+   "Dead Line",
+   "# Dead Line - Version [1.0] ## Included Formats - Decent Sampler ## Release Notes - Initial Release ### New - Nothing new yet ### Bugfixes - No bugfixes as of yet. ## Using the Instrument - Use ADSR controls in conjunction with the variation knob, particularly with the Mini Harp ## The Story A month ago (at the time of me writing this) on the Crow Hill podcast, Christian brought up about Inside No9, which is a horror comedy anthology. Inside No9 is one of my favourite TV shows, and I have a hyperfixation on this tv show. I asked him on that very podcast if I could actually make a DecentSampler version of a library he made for the live episode titled \"Dead Line\", not only did he create these samples and composed the score, but he also did one thing no composer has ever done... perform it LIVE."
+  ],
+  [
+   "item-122",
+   "DecenTron",
+   "# DecenTron. Mellotron sounds for Decent Sampler. You can dial in some \"tape noise\" too. He writes on his website: \"These WAV samples were taken from 2 different Mellotrons: an M400S and an M4000. The tapes were in mint condition when sampled."
+  ],
+  [
+   "item-123",
+   "Delta",
+   "***ENGLISH VERSION FOLLOWS*** NOM: Delta FORMAT: Decent Sampler (version minimale 1.11.1) CORRECTIONS Faites-moi savoir si vous trouvez quelque chose... CARACT\u00c9RISTIQUES - 1 pad simple avec une touche lofi, sur 5 octaves EFFETS - d\u00e9lai (\"time\", \"feedback\" et \"wet level\" li\u00e9s) - chorus (\"rate\", \"depth\" et \"mix\" li\u00e9s) - reverb (\"size\" et \"wet level\" li\u00e9s) DESCRIPTION Une de ses d\u00e9couvertes en marchant pr\u00e8s d'une bouche. \u00c0 SAVOIR Je vous encourage \u00e0 utiliser les sons pr\u00e9sent\u00e9s ici comme bon vous semble, fichiers WAV ou autre, tels quels ou \u00e0 travers le \u00abplugin\u00bb, en autant que vous ne les mettiez pas \u00e0 vendre. Cette banque sonore est gratuite, partagez-la. Elle vient avec des caract\u00e9ristiques et des effets de base pour que vous puissiez exp\u00e9rimenter vous-m\u00eames."
+  ],
+  [
+   "item-124",
+   "Destinys Agent - Zitherone",
+   "Decent Sampler library: Destinys Agent - Zitherone."
+  ],
+  [
+   "item-125",
+   "Dfam Hard Sync Bass",
+   "So far I am loving my Moog Sound Studio 3 so I decided I should make a few patches to share with you all! But since I realize not everyone has Moog's DFAM I also made this Decent Sampler VST so you all can still have some fun with these patches even if you don't have the Synth yourself! If you make anything cool with this, please feel free to share! I would love to see what you create! How do I use it?"
+  ],
+  [
+   "item-126",
+   "Dfam Moving Back Alarm Lead",
+   "So far I am loving my Moog Sound Studio 3 so I decided I should make a few patches to share with you all! But since I realize not everyone has Moog's DFAM I also made this Decent Sampler VST so you all can still have some fun with these patches even if you don't have the Synth yourself! If you make anything cool with this, please feel free to share! I would love to see what you create! How do I use it?"
+  ],
+  [
+   "item-127",
+   "Dictaphone Orchestra",
+   "# [DICTAPHONE ORCHESTRA] Version: [1.1] This work is licensed under a CC 0 1.0 license. ## Included formats - Decent Sampler ## Release notes -Includes 7 instruments recorded direct to microcassette. Rajao (five string portuguese ukulele) Violin Bows (looped) Violin Plucks Trumpet (looped) Clarinet (looped) Toy Piano Kalimba ## Using the instrument I tuned the clarinet and trumpet samples, the rest are presently untuned so they may be a bit wonky. Try playing with the attack on the short samples."
+  ],
+  [
+   "item-128",
+   "Dima Koltsov - Some Pads and Stuff",
+   "Use with a little bit of vinyl emulation and reverb if you like. ## The Story I was bored and decided to make some cool instrument that me and other people can you in making cinematic music."
+  ],
+  [
+   "item-129",
+   "Divine Errors Part 1 Demo",
+   "Decent Sampler library: Divine Errors Part 1 Demo."
+  ],
+  [
+   "item-130",
+   "Dobro Slide",
+   "Decent Sampler library: Dobro Slide. Tags: dobro."
+  ],
+  [
+   "item-131",
+   "Drone Organ",
+   "# Drone Organ - Version: [v2] Name: MdL ## Included formats - Decent Sampler ## Release notes This version includes the stereo image simulation effect introduced in version 1.17.0. This instrument is made from 5 bass bagpipe drones, 1 mid bagpipe drone and 1 hi bagpipe drone. ## Using the instrument Sounds 1 ----- G2-------Bass Drone 2-------A2-------Bass Drone 3-------B2-------Bass Drone 4-------C3-------Bass Drone 5-------D3-------Bass Drone 6.1-----C4-------Mid Drone 6.2-----F5-------Hi Drone Control 1 Button Bass Drone 1, octave-1, octave+1."
+  ],
+  [
+   "item-133",
+   "Duduk",
+   "My mother recently got me this plesent wind instrument from Armenia for my 27th Birthday on April 4th. This instrument has a wood body and a double reed mouth piece. It is very pitchy and exremely difficult to play well. It requires you to soak the mouth piece for apx 10 mins before playing and the time you have to play with the instrument is limited since the reed continues to expand rapidily due to the moisture. That being said, the tones it creates are reallly unique and very pleasent sounding."
+  ],
+  [
+   "item-134",
+   "Dynamic Overtone Guitar",
+   "# [Dynamic Overtone Guitar] Version: [1.0] ## Included formats - Decent Sampler ## Release notes initial release ## Using the instrument -hit the distortion! -\u201eImpulse Volume\u201c is not affected by ADSR -the rest is pretty self explainatory ## The Story I've always wanted to try to record a sample library. Since I have little to no experience in recording and only cheap equipment, I did not expect great results on a technical level. So instead, I was looking for an idea that would set my project apart in a different way. The Instrument I sampled is the first guitar I ever bought with my own money."
+  ],
+  [
+   "item-135",
+   "E Bass Studio Stomps",
+   "Decent Sampler library: E Bass Studio Stomps DS. Tags: bass."
+  ],
+  [
+   "item-136",
+   "EjIm Piano",
+   "Decent Sampler library: EjIm Piano v0.2.1. Tags: piano."
+  ],
+  [
+   "item-137",
+   "Electric Mandolin",
+   "Decent Sampler library: Electric Mandolin (DS). Tags: mandolin."
+  ],
+  [
+   "item-27",
+   "Electric Sparkles",
+   "Decent Sampler library: Electric Sparkles."
+  ],
+  [
+   "item-138",
+   "Electro Acoustic Piano",
+   "Decent Sampler library: Electro Acoustic Piano (DS). Tags: piano."
+  ],
+  [
+   "item-139",
+   "Elements",
+   "Decent Sampler library: Elements."
+  ],
+  [
+   "item-140",
+   "Emerald Resonances",
+   "Decent Sampler library: Emerald Resonances."
+  ],
+  [
+   "item-141",
+   "Erhu",
+   "Erhu - Version: 1.0 Name: Esko Ilola ## Included formats - Decent Sampler The erhu is a traditional two-stringed bowed instrument from China, often called the \u201cChinese violin.\u201d It has a small hexagonal or cylindrical soundbox, usually covered with python skin, and a long,. The bow is fixed between the two strings, allowing for smooth, expressive playing with a wide range of tones\u2014from soft and lyrical to bright and piercing. The erhu is widely used in Chinese folk music, opera, and contemporary compositions, known for its ability to closely mimic the human voice. The samples and the instrument itself are next to non-existent in the internet. So my solution for this was to create one using the Decent Sampler."
+  ],
+  [
+   "item-142",
+   "Fable &amp; Clare1",
+   "Decent Sampler library: Fable &amp; Clare1."
+  ],
+  [
+   "item-143",
+   "Fallout Organ",
+   "# [Fallout Organ] Version: [1.0] ## Included formats - Decent Sampler ## Using the instrument The blue range of the keys is built based on the separated long-time samples created by mixing ODIN2 Synth and HydraSynth. The blue part of the keys provides a solid bass pad with an interesting, time-dependent texture. The yellow key is the most powerful by default setting of the preset. ## The Story The cold and dynamic texture of the low-end instruments represents my feeling for a 'Fallout Organ' in the middle of nothing... The cold and dynamic texture of the low-end instruments represents my feeling for a 'Fallout Organ' in the middle of nothing..."
+  ],
+  [
+   "item-144",
+   "Familiy Ensemble",
+   "# Family Ensemble Version: [1.0] ## Included formats - Decent Sampler ## Release notes ### New - V1.0 ### Bugfixes - ## Using the instrument Blend the volumes of four distinct singers (my wife, my father-in-law, my younger son, and myself) or solo them for a personal touch. Use the \"head\" controls to position each singer across the stereo field. Toggle between four different articulations: Ah, Oh, La, and Di. The right side of the UI gives you full creative control with envelope settings, reverb, chorus, delay, and a filter. ## The Story Ever since Jon Meyer introduced the Meyer Choir, I\u2019ve been inspired to capture the unique character of the voices closest to me."
+  ],
+  [
+   "item-34",
+   "Family Grand V3",
+   "Decent Sampler library: Family Grand V3."
+  ],
+  [
+   "item-145",
+   "Felt &amp; Fog Free",
+   "Decent Sampler library: Felt &amp; Fog Free."
+  ],
+  [
+   "item-29",
+   "Flannel Piano",
+   "Decent Sampler library: Flannel Piano."
+  ],
+  [
+   "item-146",
+   "Florence Upright",
+   "# Florence Upright - Version: [0.5] Name: Samuele Gamberoni ## Included formats - Decent Sampler ## Release notes Nothing yet! ### New - Nothing yet! ### Bugfixes - Nothing yet! ## Using the instrument Don't expect a hifi, well tuned piano."
+  ],
+  [
+   "item-147",
+   "Flute Organ",
+   "## Flute Organ - Version: [1.1] Name: Alber Lemi ## Included formats - Decent Sampler ## Release notes A cheap plastic flute recorded with a smartphone, then cleaned up and trimmed to little pieces of waveforms assigned to different drawbars tuned like classic overtones used. ## New ## Bugfixes ## Using the instrument There is a pop-up menu available to select between flute and 10 organ presets. Each drawbar has its own volume and pan control, and a green/yellow/red led (or button) to enable/disable overtones which are not used, in order to increase polyphony. Red : drawbar group disabled Green : clean sound Yellow: TAL Rev 4 over processed sound If you come up with a new preset and want to keep it for later use, select first option in menu (\"No Preset\") before saving your DAW project, otherwise, drawbars will go back to their."
+  ],
+  [
+   "item-148",
+   "Flutina",
+   "# [Flutina] Version: [1.0] ## Included formats - Decent Sampler ## Using Flutina The instrument is fairly self explanatory, it's a basic flute after all. An ADSR envelope has been added to be able to tweak the Flutina however you desire. There's also controllable reverb, which I would recommend to at least have at least a pinch, as the flute sounds very dry without it. The air noise from blowing the flute has also been split out into it's own separate knob, to set the desired level, if any. Setting the knob to zero will effecively mute the air noise."
+  ],
+  [
+   "item-149",
+   "FM Little Module",
+   "## FM Little Module - Version: [1.0] Name: alber lemi E-mail: alber2000@yahoo.com ## Included formats - Decent Sampler ## Release notes I powered up my old Yamaha TX81Z module after decades of storage in a shelf. Internal memory was totally scrambled but factory reset worked well, probably its internal battery died a long time ago. I recovered my personal favorite patches from sys-ex dumps I kept in pen-drives. After some tweaking to make the recording process easier, I sampled 126 patches and organized them in 63 different presets, each with 2 similar sounds that can be mixed, detuned and panned independently. ## New ## Bugfixes ## Using the instrument Select the sound to play from any of the 6 available menus."
+  ],
+  [
+   "item-150",
+   "Forest",
+   "# FOREST - Version: [1.1] Name: Spaceman\u2019s Notes ## Included formats - Decent Sampler ## Using the instrument The keyboard is split into four colors - dark, medium, and bright tones, and just forest sounds. ADSR controls, tone knob, and effects work as usual. Bless You, enjoy!"
+  ],
+  [
+   "item-151",
+   "Forest melodica",
+   "FOREST MELODICA (version 1) by Sever\u00e1k While learning ancient art of sampling I sampled my melodica. I made it sound and behave as close as possible to the real one. As in real melodica you have only one \"parameter\" to alter the sound played - how much air you blown into it. I mapped it as \"Air\" parameter, which controls both volume and lowpass filter frequency. This affects all the played keys at once as it does in real melodica."
+  ],
+  [
+   "item-152",
+   "Forgotten Bagpipes",
+   "This library was something I made from old recordings of two different bagpipes I got online for cheap. Sadly I no longer have these bagpipes but I used them extensively for my first album ' Of Myths and Fables.' This instrument means a great deal to me and the sounds they make are something that speaks to ones very soul. They are powerful, but have a sense of longing. Ancient yet contemporary. Complex and simple."
+  ],
+  [
+   "item-153",
+   "Fresh GuitarV2",
+   "# FreshGuitar Version: 2.0 ## Included formats Decent Sampler ## Release notes ### New - Revised interface - Plectrum sounds added - Bottom note lowered to C from E to encompass dropped tunings - Bass cut control added - Palm muting - Strum engine ### Bugfixes ## Using the. Keys 31-35 (grey on the interface) fire samples of fingering-derived guitar sounds such as squeaks, top taps, thumb slaps and damping. Note that key 35 (percussive mute) not only fires the sound of the strings being muted, but also mutes any notes currently playing, as it would on a real guitar. The type of chord (major, minor, 7th etc) is determined by keyswitches on keys 89-100 ## The Story I'm thoroughly enjoying both Decent Sampler and the Pianobook community (many thanks to all those involved) and decided it was time I offered something back. This library is the second version of a sample pack of my Freshman acoustic, recorded both with a Sennheiser dynamic mic near the soundhole, and via the guitar's inbuilt piezo pickup, into Reaper on Linux."
+  ],
+  [
+   "item-24",
+   "Frozen Glock Dan Keen",
+   "Decent Sampler library: Frozen Glock Dan Keen."
+  ],
+  [
+   "item-154",
+   "Fullbore Synth",
+   "#Fullbore Synth - Version: 1.0 ## Included formats - Decent Sampler ## Using the instrument Mixable drawn soundwaves through a Hi Gain Distortion pedal ## The Story This time my goal was to create a dirty lead synth sound. First I had to draw some soundwaves. After some searching I realised there is a free option... So I drew some soundwaves, edited them and chose some of my favourites. At least I left 2 in the game."
+  ],
+  [
+   "item-155",
+   "G3 Grand",
+   "# G3 Grand (practice) Version: 1.0 ## Included formats - Decent Sampler ## Release notes v1.0: Initial Release ## Using the instrument 2 instruments are included. \"G3Grand\" is a normal piano sound. 3 velocity layers are available. \"G3Grand_UnaCorda\" is a sound produced when the soft pedal is pressed down. 2 velocity layers are available."
+  ],
+  [
+   "item-156",
+   "Gaita Do",
+   "# Galician Bagpipe C - Version: [1.0] Name: MdL ## Included formats - Decent Sampler ## Release notes This is a Galician bagpipe by luthier Oli Xiraldez. Oli Xiraldez is a renowned luthier (instrument maker) in Galicia, celebrated for his dedication to crafting bagpipes. His instruments stand out for their precise tuning, high-quality materials, and artisanal finish. Craftsmen like him preserve ancestral techniques while occasionally incorporating innovations to enhance durability and sound quality. The work of masters like Xiraldez is vital to keeping this cultural tradition alive, ensuring that each bagpipe is not just an instrument but a piece of musical heritage."
+  ],
+  [
+   "item-157",
+   "Gankogui",
+   "Decent Sampler library: Gankogui."
+  ],
+  [
+   "item-158",
+   "Garage Sale Kit",
+   "# GARAGE SALE KIT (V1.0) Name: Mark Lowrie # Decent Sampler # The Story This drum kit has been sitting around taking up space for too long! I bought it during the COVID lockdowns for $100 to learn a little more about drum tuning but, not being a drummer, I have little use for it now. :-) I have built this pack as a record of the kit before its disposal takes place. There are three round-robins and three velocities of most components. There's an additional snare hit group with a tea towel draped over the drum."
+  ],
+  [
+   "item-159",
+   "Garland Music Box Marimba",
+   "Decent Sampler library: Garland Music Box Marimba (DS). Tags: marimba."
+  ],
+  [
+   "item-160",
+   "Garv Babblings",
+   "Decent Sampler library: Garv Babblings."
+  ],
+  [
+   "item-161",
+   "GEM Jumbo 61",
+   "GEM Jumbo61 R6 Sampling, editing and instrument programming by Petri Pohjanmies (Finland), 2026. This sample pack is released under the Creative Commons CC-BY license. You are free to use it in your own music, commercial or non-commercial, as long as proper attribution is given. Notes for SFZ Version Tested with Sforzando adn Sfizz players. They should set one Flutes voice as default."
+  ],
+  [
+   "item-162",
+   "George Yazbek - Daydream",
+   "Decent Sampler library: George Yazbek - Daydream."
+  ],
+  [
+   "item-163",
+   "George Yazbek - The Gift",
+   "Decent Sampler library: George Yazbek - The Gift."
+  ],
+  [
+   "item-164",
+   "George Yazbek - The yoyo",
+   "Decent Sampler library: George Yazbek - The yoyo."
+  ],
+  [
+   "item-165",
+   "Gjallar Horn",
+   "What started as me browsing around on amazon one night has turned into this rathe unique sample library. The Gjallarhorn, or otherwise known as a Viking warhorn or sounding horn, is a unique instrument made from the horn of a ox. It only really can make one pitch consistently and is rather difficult to play. It relies on the vibration of ones lips being amplified by the shape of the horn itself. This instrument is unique and rather silly, but hopefully you all get as much enjoyment using it as I did making this VST."
+  ],
+  [
+   "item-166",
+   "Glockenglass",
+   "# Glockenglass - Version [1.0] ## Included Formats - Decent Sampler ## Release Notes Initial release ### New Nothing new yet. ### Bugfixes No bugfixes as of yet. ## Using the Instrument Don't play this in octaves, it creates an extra harmonic.. for example if you play C in octaves, you get an extra D, however in close voiced chords (eg. triads) it doesn't have that effect."
+  ],
+  [
+   "item-167",
+   "GoodTimes Keyboard",
+   "# GoodTimes Keyboard Version: [1.0] ______ __ .' ___ | | ] / .' \\_| .--. .--.| | | | ____ / .'`\\ \\/ .'`\\ \\/ /'`\\' | \\ `.___] || \\__. || \\__/ | `._____.' '.__.' '.__.' '.__.;__] _________ _ | _ _ |(_) |_/ | | \\_|__ _ .--..--. | | [ | [ `.-. |/ /__\\\\( (`\\] _| |_ | | | | | | | || \\__., `'.'."
+  ],
+  [
+   "item-168",
+   "Grandmas Beachhouse Piano",
+   "# [Grandma's Beachhouse Piano] Version: [0.0.0] ## Included formats - Decent Sampler ## Release notes -Created first release alpha ### New -High Velocity Layer -Background Image of source piano ## Using the instrument This is a very minimalistic \"saloon\" piano. It works \"as is\" in decent sampler. ## The Story This piano has sat in a spare room at my grandma's beach house for as long as I can remember. It has never been tuned as long as it's been there, and over the years has drifted furthur into dissonance. This is a piano with a lot of unique character."
+  ],
+  [
+   "item-169",
+   "Grandmas Piano",
+   "Decent Sampler library: Grandmas Piano. Tags: piano."
+  ],
+  [
+   "item-170",
+   "Grandpas Piano",
+   "# [Grandpa's Piano] Version: [1.0] ## Included formats - Decent Sampler ## Release notes ### New - Added velocity layers - Added filter control ## Using the instrument Please explore adjusting the pedal and key volume. ## The Story This is my Grandpa's 1933 Steinway Model L grand piano. He was a professional piano player in Southeast Michigan, and could be heard just about every weekend (and many weeknights) at venues around Metro Detroit. He had a long-standing gig at Stouffer's restaurant. I grew up visiting him and my grandma and playing this beautiful instrument with him."
+  ],
+  [
+   "item-171",
+   "Greenwood Drums",
+   "# Greenwood Drums - Version: V1.0 Name: Matt Grimm ## Included formats - Decent Sampler ## Release notes Initial release 2024-12-11 Happy Holidays. ## Using the instrument Description: Drum kit sampled with five microphones. Sample Pack Story: Rock out with Greenwood Drums, a drum kit sampled with five microphones in a live room. Microphone level controls make it easy to adjust levels of the different mics used. Microphones: 1: Kick (dynamic) 2: Overhead Mid (ribbon) 3: Overhead Side (ribbon) 4: Room Right (small-diaphragm condenser) 5: Room Left (small-diaphragm condenser) Drum kit pieces: Kick, Stick/Rim, Snare, Floor Tom, Rack Tom, Hi-Hat Closed, Hi-hat Foot, Crash."
+  ],
+  [
+   "item-172",
+   "Gretsch Catalina Ash",
+   "Decent Sampler library: Gretsch Catalina Ash - Decent Sampler. Tags: gretsch."
+  ],
+  [
+   "item-173",
+   "Guitar percussion and noises",
+   "Decent Sampler library: Guitar percussion and noises. Tags: guitar, percussion."
+  ],
+  [
+   "item-174",
+   "Guitar Precussion",
+   "# Guitar Percussion Version: [1.1] ## Included formats - Decent Sampler ## Release notes - Fist time creating an instruments, so not much to say ### New - Nothing new ;) ### Bugfixes - Removed malfunctioning faders ## Using the instrument Basic taps on my guitar, can be used."
+  ],
+  [
+   "item-175",
+   "Gusli Perepyolochka",
+   "Decent Sampler library: Gusli Perepyolochka. Tags: gusli."
+  ],
+  [
+   "item-177",
+   "Harmonica",
+   "Decent Sampler library: Harmonica. Tags: harmonica."
+  ],
+  [
+   "item-176",
+   "Harmonica Americana",
+   "While I was away on vacation with my Family, we went to this store called Zeb's General Store. This is a fun 50s style general store full of old fashion food, candies and toys. one of the toys I discovered was this cheap chinese harmonica with classic Americana Packaging. It's wildly out of tune and the tones present are a bit all over the place, but it was still charming none the less. I recorded both the blows and draws from this instrument and arranged them into this synth."
+  ],
+  [
+   "item-178",
+   "Harpsimachord",
+   "# Harpsimachord - Version: 1.0 Name: Douglas Knisely ## Included formats - Decent Sampler ## Release notes Initial release. ### New ### Bugfixes ## Using the instrument Harpsimachord is a Decent Sampler deep sampling of my 1970s Douglas Van Dyck Brown harpsichord. The instrument is a two manual/three rank (8/8/4) design with cabinetry closely styled to resemble a 1750 Kirckman English harpsichord. The sound resembles existing Kirckmans (easily found on recordings), but the mechanics are custom and modern. The long string length of the instrument produces a warm resonant tone with long reverberation."
+  ],
+  [
+   "item-179",
+   "Healing Bowl",
+   "# healingBOWL - Version: [1.0] Name: OSCaudio ## Included formats: - Decent Sampler ## Release notes -Initial release. ### New -Initial Release ### Bugfixes -Initial release, no bug fixes yet!"
+  ],
+  [
+   "item-180",
+   "Heaven and Hell 002",
+   "Decent Sampler library: Heaven and Hell 002."
+  ],
+  [
+   "item-181",
+   "Hellscape Synth",
+   "Decent Sampler library: Hellscape Synth. Tags: synth."
+  ],
+  [
+   "item-182",
+   "Helsinkii1967",
+   "# Helsinki 1967 PRO Version: 1.411 ## Included formats DecentSampler ## Release notes 17.12.2025 v.1.411 - Wallpaper file was missing from the previous version package, should be now visible - The default output gain of the instrument is now closer to typical commercial. 29.11.2025 v.1.41 - Removed some unnecessary clutter from XML, making the instrument less glitchy - Limited polyphony to 80, just like in the Kontakt version. 12.11.2025 v.1.4 - Multi Out version! In the \"Helsinki 1967 Multi Out.dspreset\", instead of sending everything to Main out, auxiliary outputs are used. This makes it possible to record each microphone perspective on separate audio tracks, so they can be rebalanced and processed individually during mixing."
+  ],
+  [
+   "item-183",
+   "Hohner Melodica",
+   "_ _ _ __ __ _ _ _ | | | | | | | \\/ | | | | (_) | |__| | ___ | |__ _ __ ___ _ __| \\ / | ___| | ___ __| |_ ___ __ _ | __ |/ _ \\| '_ \\| '_ \\ / _ \\ '__| |\\/| |/ _ \\ |/ _ \\ / _` | |/ __/ _` | | | | | (_) | | | | | | | __/ | | | | | __/ | (_) | (_| | | (_| (_| | |_| |_|\\___/|_|. It features a musical keyboard on top (usually two or three octaves), and is played by blowing air through a mouthpiece. We sampled a 1960's Hohner Melodica Soprano through the two octave range (C3 - C5) using five round robins. As the instrument has a limited tonal range, we've enhanced it's useability by incorporating a number of resampled wave files with embedded effects. These include standard chorus, delay, echo and reverb along with distortion, tremolo and vibrato."
+  ],
+  [
+   "item-186",
+   "Home Percussions",
+   "SamuFL's Home Percussions by Samuel Ferraz-Leite PACK NAME SamuFL's Home Percussions CREATOR Samuel Ferraz-Leite Composer, music explorer, and creator of cinematic and orchestral music. ABOUT THE PACK / STORY SamuFL's Home Percussions started as a simple home recording experiment, inspired by conversations with fellow Samplist Mark \"Nowa\" Taylor. Using everyday instruments and objects \u2014 a cajon, a banana shaker, and a jaw harp \u2014 this pack captures both the natural character of acoustic performances and their transformation into more cinematic and experimental textures. Some instruments stay grounded and organic. Others intentionally drift into sound design territory, blurring the line between percussion, pad, and synth."
+  ],
+  [
+   "item-184",
+   "Homemade Ceramic Udo",
+   "I made this Simple Ceramic Udo When I was in college. I did it in my ceramics class at The School of The Art Institute of Chicago. In all honesty it was a terrible class. I loved ceramics and throwing on the wheel, but my classmates and my teacher treated me extremely poorly. Regardless of this I did make some neat things I like from that class, one of which being this."
+  ],
+  [
+   "item-185",
+   "Homemade Oscillator and Speaker Circuit",
+   "While in college, I took some classes that enabled me to create some of my own circuits. Currently, while working on some side projects and brute forcing my own projects, I have had some time to reflect on some experiments I did in college. I took some time to clean up some of my old circuits and create some simple cases to house them using old tins I have saved around my place. These are some of those experiments.. I recorded a few notes (poorly I might add) and arranged them to creat this VST."
+  ],
+  [
+   "item-187",
+   "Hurdy Gurdy",
+   "Hedy Gurdy v. 1.0 Name: Rare Gurdy DECENT SAMPLER -Decent Sampler - Release Notes Simple sonido wave - Efects: Attack, Realese, Chorus, Tone and Reverb, - He escuchado y probado muchos samples,muchos tienen grandes sonidos y efectos, en mi caso solo decid\u00ed hacer uno con mayor amplitud de. espero lo disfruten ! Saludos desde M\u00e9xico !"
+  ],
+  [
+   "item-43",
+   "Ice Choir",
+   "Decent Sampler library: Ice Choir."
+  ],
+  [
+   "item-188",
+   "Inanimate Glitches",
+   "# Inanimate Glitches - Version [1.0] ## Included Formats - Decent Sampler ## Release Notes - Initial Release ### New - Nothing new as of yet ### Bugfixes - No bugfixes as of yet. ## Using the Instrument I found that blending the glitch knob and reverb you can get really fun results. ## The Story So, this all started back when Crow Hill launched their \"Venom Rescore\" challenge that involved us making our own sounds. I went around my house (or to specify further, my bedroom which looks like a mess) recording random sounds. I do not have any instruments so I had to use inanimate objects."
+  ],
+  [
+   "item-189",
+   "Indonesian Didgeridoo",
+   "While in New Hampshire Last summer, I stopped by the local music store North Conway Music Center. Arthur Cholewa Is the man who procures the didgeridoos from Indonesia himself for the store on his trips down there. There are no reliable sources of the exact age of the didgeridoo however, Archaeological studies suggest that people of the Kakadu region in Northern Australia have been using the didgeridoo for around 1,000 years, based partly on the dating of rock art paintings. The instrument is a simple hollowed out log, historically done by ants however they can also be carved by hand. They also often have patterns painted on the outside of them as well and use beeswax as a mouth piece."
+  ],
+  [
+   "item-190",
+   "Irish Tin Whistle",
+   "Decent Sampler library: Irish Tin Whistle."
+  ],
+  [
+   "item-191",
+   "Italian Typewriter",
+   "# Italian Typewriter Version: [1.1] Website: saymonmartinelli.com ## Included formats - Decent Sampler ## Release notes This is the first version of the Vintage Typewriter instrument for Decent Sampler. ### Features - 73 original samples recorded from a vintage typewriter from the famous italian brand - ADSR envelope - Global Vari-Speed control - Low pass filter with resonance control - Room reverb effect with mix, size and damp controls - Delay effect with mix, time and. Use the included sound-shaping tools to find the sweet spot for your project! ## The Story This typewriter lied under my bed for years before getting revived for this virtual instrument! Before personal computers landed in every house, many and many families had one of these cheap, clunky mechanical typewriters for taking notes, writing letters or try to be the next big sensation at Strega prizes and most of these curious machines were provided by a notorious."
+  ],
+  [
+   "item-192",
+   "Jew`s Harp F#",
+   "Decent Sampler library: Jew`s Harp F#. Tags: harp."
+  ],
+  [
+   "item-193",
+   "Jon's Cajons",
+   "# Jon's Cajons Version: [1.0] ## Included formats - Decent Sampler - Kontakt 6 ## Release notes ### New - v1.0, the initial release of Jon's Cajons ## Using the instrument The Kontakt and Decent Sampler versions of the instrument share the same samples and have similar GUIs,. The samples are grouped on the keyboard by left and right hand. Both versions have a slider for controlling the mix between the two mic positions and the stereo separation of the left and right hand, as well as keyswitches for selecting the snare and no-snare sample sets. Both versions also provide controls for reverb, low-pass and high-pass filters, and gain. The Kontakt version has additional controls for easily remapping the keyswitches, adjusting the tuning of each individual hit, as well as an option to spread one hit across the whole keyboard which can be used for more esoteric effects."
+  ],
+  [
+   "item-194",
+   "Jouhikko The Finnish Bowed Lyre",
+   "Jouhikko \u2013 Traditional Finnish Bowed Lyre Sampling, editing and instrument programming by Petri Pohjanmies (Finland), 2025. This sample pack is based on a traditional Finnish jouhikko, a bowed lyre with melody strings and a constant drone string. The instrument includes: - Velocity-layered plucked/bowed samples - Natural damping (mute) samples - Optional drone (bordun) controlled via keyswitch - SFZ version (Sforzando / sfizz compatible with background image) - DecentSampler version with custom UI Keyswitches: - C1:. You are free to use it in your own music, commercial or non-commercial, as long as proper attribution is given."
+  ],
+  [
+   "item-195",
+   "Junost 21 Soviet Virtual Synth Free",
+   "# Junost 21 // Soviet Virtual Synth - Version: [1.0] Name: Lev Instruments ## Included formats - Decent Sampler - EXS ## Release notes Hey, thanks for downloading this soviet virtual synth! Captivated by the haunting allure of abandoned buildings and factories scattered throughout my hometown in Upper Silesia, I find solace in their unique post-apocalyptic ambiance, a strangely calming presence. Eternally drawn to the echoes of an era when my ancestors endured unimaginable hardships I always look for sonical signs. I connected with a fellow enthusiast who shares my passion for collecting vintage synths, sparking the idea to immortalize their essence through a virtual instrument. Spending many hours experimenting with the Junost 21, we meticulously recorded its most captivating sounds."
+  ],
+  [
+   "item-196",
+   "Jupiter-6 Unison Strings",
+   "# Jupiter-6 Unioson Strings - Version: [1.0] Name: Doug Stechishin (silent5/unicity) ## Included formats - Decent Sampler."
+  ],
+  [
+   "item-205",
+   "K Percussion",
+   "Decent Sampler library: K Percussion. Tags: percussion."
+  ],
+  [
+   "item-197",
+   "Kalimba By Lasiurus",
+   "# Kalimba **by Lasiurus (George)** My friend gave me this Kalimba as a birthday gift. So I decided to try and make it a Decent Sampler instrument. Thank you, man, for this Kalimba. Now, if YOU come by this instrument by any accident or something \u2014 I hope you'll like it. At least, it gave me a whole lot of good emotions."
+  ],
+  [
+   "item-198",
+   "Kalimba Experiments",
+   "# Kalimba Experiments - Version [1.0] ## Included Formats - Decent Sampler ## Release Notes - Initial Release ### New - Nothing new yet. ### Bugfixes - No bugfixes as of yet. ## Using the Instrument - Be careful using the reverbs \"Bloom\" and \"Heavy\", they can get chaotic very quickly. - Use reverbs in conjunction with Wobble."
+  ],
+  [
+   "item-199",
+   "Kalimba G Pygmy",
+   "Decent Sampler library: Kalimba (G Pygmy). Tags: kalimba."
+  ],
+  [
+   "item-200",
+   "Kalimba Swarm",
+   "# Kalimba Swarm - Version [1.0] ## Included Formats - Decent Sampler ## Release Notes - Initial Release ### New - Nothing new yet. ### Bugfixes - No bugfixes as of yet. ## Using the Instrument - Take advantage of Buzzed Apocalypse, it's really good for Ambient music. - Be very careful using the cnvolution reverbs, specificaly bloom."
+  ],
+  [
+   "item-201",
+   "Kantele The Finnish Zither",
+   "Kantele \u2013 Traditional Finnish Zither Sampling, editing and instrument programming by Petri Pohjanmies (Finland), 2026. - SFZ version (Sforzando / sfizz compatible with background image) - DecentSampler version with custom UI This sample pack is released under the Creative Commons CC-BY license. You are free to use it in your own music, commercial or non-commercial, as long as proper attribution is given."
+  ],
+  [
+   "item-202",
+   "Kazoo",
+   "# Kazoo - Version: [1.0] Name: Gearoid O Broin (Plug-in Play) ## Included formats - Decent Sampler ## Release notes 2 kazoos with individual mixers (mic/piezo) and pan controls. 4 different articulations (long mmm, short mm, long doo, short do). Global reverb (wet level/size), chorus (wet level/depth/rate), attack, release and glide controls. High pass filter controllable using the mod wheel. ### New - v1.0 Initial Release ### Bugfixes Development log: - V0.1 Implemented metal and wood kazoo sustains."
+  ],
+  [
+   "item-203",
+   "Kitchen Drum Kit",
+   "Decent Sampler library: Kitchen Drum Kit. Tags: drum."
+  ],
+  [
+   "item-204",
+   "Kosmosky Tongue Drum",
+   "# Kosmosky Tongue Drum - Version 1.0 Name: Wayne Bow Decent Sampler Format ## Release notes This is the initial release. I may start over with more consistent sampling at some point and/or add additional functionality if it is called for. Aloha From the Island of Oahu! My name is Wayne Bow and I'm a musician, computer geek, and wanna-be composer among many other more mundane pursuits. At the beginning of the forced isolation period in 2020, I purchased a double-sided Kosmosky tongue drum with E-min and D-maj scales."
+  ],
+  [
+   "item-206",
+   "Lapsteel Articulations",
+   "# Lapsteel Articulations Version: [1.0] ## Included formats - Decent Sampler ## Release notes First release ### New - Open String preset - Slide Up preset - Slide Down Preset - Single layer for each articulation - Added \"Swell\" (Attack) knob ## Using the instrument To use the. The presets should automatically link within the plugin for easy modulation of articulations by switching presets. ## The Story After recording some demos for my band Nine Lives Narrow, I had truely fallen in love with the instrument. I hope you find enjoyment and inspiration with this sample library."
+  ],
+  [
+   "item-207",
+   "Legacy Knight Piano",
+   "Decent Sampler library: Legacy Knight Piano v1.0. Tags: piano."
+  ],
+  [
+   "item-208",
+   "Leolani Ukulele",
+   "# Leolani Ukulele Sample Pack - Version: [1.0] Name: David May ## Included formats - Decent Sampler ## Release notes Plucked strings sample from my Leolani Ukulele. This was recorded DI with no amp or effects added to enable you complete control over that side of things using whatever modelling tools you have available. Hope you find it useful."
+  ],
+  [
+   "item-209",
+   "Lil Bro's Drum Guitar",
+   "# Lil Bro's Guitar Drum Once upon a time, around 15 years ago, I started to play the guitar. A few years later, as I transitioned to an electric guitar, the classical one I was using upon until then was given to my little brother... who barely played it at all. It had since then stayed in his room, pretty much untouched for the longest time. That was until a few days ago, when I decided to give it another spin."
+  ],
+  [
+   "item-210",
+   "Little Black EP",
+   "# Little Black Piano - Version: [1.0] Name: Dean Coyle ## Included formats - Decent Sampler ## Release notes This sampled instrument is based on a pianet T. This is a reed based instruemnt, I have added controls for LFO on the amp volume to create a tremolo effect similar to the Wurlitzer piano. The chorus, delay and reverb can create some dreamy scapes. ## Bug Fixes ## Using the instrument When adding effect the volume can get loud, so care is neededto ensure the volume does not become too much. I have created a demo on youtube.com/channel/UCvApHOTJ8SyWToIs4WC_SpA Please connect me through there is you have any questions and I will try to help best I can."
+  ],
+  [
+   "item-211",
+   "Little Grreen Reed Organ",
+   "Decent Sampler library: Little Grreen Reed Organ. Tags: organ, reed."
+  ],
+  [
+   "item-212",
+   "Lofi AI Drum Pi",
+   "# [Lofi AI Drum Pi] Version: [1.1] ## Included formats - Decent Sampler ## Release notes -Initial Release ## Using the instrument Lofi Ai Drum Pi contains 7 knobs. The most useful of these are the tuning knob and the high pass filter to adjust the tone of the instrument. The lower the hi pass, the more you get that signature mushy lo-fi tone, at the cost of cymbal resonance. The chorus effect is light, adding a bit of additional width to the kit, as well as a strange drift to the higher drums. The reverb is sized for a small room, but quickly becomes cavernous about 1/4 of the way up."
+  ],
+  [
+   "item-213",
+   "Lofi Dreams",
+   "Acknowledgement: Thank you for downloading my sample library, \"Lofi Dreams.\" This is my first decent sampler library and my third sample library uploaded to Pianobook. I apologize if there are any issues; I am continuously trying to improve my sample libraries. Please feel free to leave comments on the Pianobook page or email me through my website: I welcome any suggestions for improvement. I noticed one problem: when the release is set to 0, there is a clicking sound at the end when you release the key. I am working on fixing this issue and will update the sample library once it's resolved."
+  ],
+  [
+   "item-215",
+   "Low Whistle",
+   "# Low Whistle - Version: [1.1] Name: Gearoid O Broin (Plug-in Play) ## Included formats - Decent Sampler ## Release notes Purchased from an old market shop in the middle of the Irish Gaeltacht in Spideal, Co. Galway, this old low whistle (tenor whistle) has been through a lot. It's been played on stages all around Ireland; seen sun, rain and snow. So much so that over the years, mostly through neglect on my part, it has ended up nearly (but not quite) 1 semitone flat. Because of this, it was unfortunately retired from its life on the road."
+  ],
+  [
+   "item-216",
+   "Luapsel Revguitar",
+   "# LUAPSEL REVGUITAR - Version: [1.0] Name: OSCaudio ## Included formats: - Decent Sampler ## Release notes -Initial release. ### New -Initial Release ### Bugfixes -Initial release, no bug fixes yet!"
+  ],
+  [
+   "item-217",
+   "LWR Swallow Guitar",
+   "# [Swallow Guitar] Version: [1.0] ## Included formats - Decent Sampler ## Using the instrument Plucked: Just the guitar plucked normally Harmonics: Harmonics plucked Pizzicato: String picked above the nut Sustain: An effected and resampled version of the harmonics layer, good. ## The Story I tried my hand at sampling for a pianobook challenge a few months ago and loved it. So I thought I\u2019d try sampling the first instrument I had in arms reach, my guitar. I\u2019ve worked on it here and there for a few months and I thought it was at a place where I wanted to share it, so here it is; the Swallow Guitar. I\u2019m still figuring out how best to implement features and types of sounds, so feel free to give any feedback in the reviews."
+  ],
+  [
+   "item-214",
+   "L\u00d8 - Fragile Violins Free",
+   "Decent Sampler library: L\u00d8 - Fragile Violins Free."
+  ],
+  [
+   "item-218",
+   "Maracas by Estudios Ivcame",
+   "# Guaje Maracas - Version: [1.0] Name: Estudios Ivcame ## Included formats - Decent Sampler ## Using the instrument Play high-beat rhythms with whole tones and low-beat rhythms with flats."
+  ],
+  [
+   "item-219",
+   "Massive Pad",
+   "Decent Sampler library: Massive Pad. Tags: pad."
+  ],
+  [
+   "item-41",
+   "Maxs Bentley",
+   "Decent Sampler library: Maxs Bentley."
+  ],
+  [
+   "item-220",
+   "MB Analogue Drums",
+   "MB Analogue Drums - Version: 1.0 Name: Jon Chapman - Decent Sampler - Kontakt Using the instrument Open Kontakt. Click the Disk Icon and Select Load... Navigate to where you have saved the MB Analogue Drums folder. Double Click on the MB_Analogue_Drums_V1.0.nki file. Alternatively, all the samples are accessible as .wav files (24Bit, 48KHz)."
+  ],
+  [
+   "item-221",
+   "Melody Maker",
+   "Sample Pack: Melody Maker Name: Ray Beausoleil The name Melody Maker is from the same name of the lee Oskar line of harmonicas. The Lee Oskar Melody Maker harmonicas are tuned differently than the standard Hohner Marine Band. This project started out as a way for me to provide my granddaughter, who lives in Uzbekistan, some harmonica tutorials. I taught her some basics a few years ago but now I have to do it remotely. I had watched some YouTube videos of harmonica videos that graphically illustrated harmonica playing technique and I wanted to do something similar."
+  ],
+  [
+   "item-222",
+   "Mexican Guitarron",
+   "# Mexican Guitarron Version: [1.0] ## Included formats - Desent Sampler ## Using the instrument Each key represents each of the 6 strings pulled in different tones, so to create a chord you must press the two keys corresponding to the tones that make up the chord. The VST has 3 octaves B3 to C1. ## The Story I needed a Guitarron samples for the soundtrack of my videogame, but I didn't find any. So I had the idea of making virtual instruments to add them as a new extension of my project. My first VTS is this, a Mexican Guitarron, which is a musical instrument of strings invented in Mexico in the XIX century to play the section of the lowest notes of the Mariachi."
+  ],
+  [
+   "item-10",
+   "MG Steel String Harmonics Mike Georgiades",
+   "Decent Sampler library: MG Steel String Harmonics Mike Georgiades."
+  ],
+  [
+   "item-223",
+   "Micro Guitar",
+   "Decent Sampler library: Micro Guitar."
+  ],
+  [
+   "item-224",
+   "Milk Factory - Jd Cheetham",
+   "# [MILK FACTORY] Version: [1.1] This work is licensed under a CC 0 1.0 license. ## Included formats - Decent Sampler ## Release notes -4 instruments included: percussion, recorder, glockenspiel and ukulele ## Using the instrument The samples are quite noisy. There was a family of sparrows chirping whilst I was recording and cars/people going past. I tried as much noise reduction as I could without removing all the reverb ## The Story This pack was created from recordings made in the Old dairy crest milk factory, Great Torrington. During the Covid-19 lockdowns I was living in Great Torrington, North Devon."
+  ],
+  [
+   "item-225",
+   "Mini African Drum",
+   "# Mini African Drum - Version 1.0 ## Included Formats - Decent Sampler ## The Story For the past 3 months I have been visiting Chad, Africa. The family that I am staying with has a small African drum kicking around. It is made with a gourd and goat skin and I have enjoyed playing with it during my stay. One of my goals, has been to sample an instrument and this drum seemed like the perfect opportunity. Unfortunately, I don\u2019t have access to my mics, so I made do with a phone."
+  ],
+  [
+   "item-226",
+   "Mini Drum Lone Singer",
+   "# Mini Drum Lone Singer: [1.0] Website: saymonmartinelli.com Other channels: ## Included formats - Decent Sampler ## Release notes This is the first version of the Mini Drum Lone Singer instrument for Decent Sampler. ### Instrument Features - 10 sample based instrument channels (plus a couple hidden ones) with 4 round robins each, recorded with a very nice sounding recreation of a rare synth. - Classic architecture with 3 independent controls for every channel - Bass section with glide control - Waveshaper distortion to bring your sound from aggressive to mesmerizing - Low &amp; High pass filter with resonance control to shape your overall tone - Strongly. There's also a two octave Bass section mapped from C2 to C4. Use the included sound-shaping tools and controls to find the sweet spot for your project!"
+  ],
+  [
+   "item-227",
+   "Mini Drum Magic Ladder",
+   "# Mini Drum Magic Ladder: [1.0] Website: saymonmartinelli.com Other channels: ## Included formats - Decent Sampler ## Release notes This is the first version of the Mini Drum Magic Ladder instrument for Decent Sampler. ### Instrument Features - 10 sample based instrument channels (plus a couple hidden ones) with 4 round robins each, recorded with the official reproduction of the most acclaimed American analog monosynth of all times. - Classic architecture with 3 independent controls for every channel - Bass section with glide control - Waveshaper distortion to bring your sound from aggressive to mesmerizing - Low &amp; High pass filter with resonance control to shape your overall tone - Strongly. There's also a two octave Bass section mapped from C2 to C4. Use the included sound-shaping tools and controls to find the sweet spot for your project!"
+  ],
+  [
+   "item-228",
+   "Mini Kalimba",
+   "# Mini Kalimba - Version: [1.1] Name: Gearoid O Broin (Plug-in Play) ## Included formats - Decent Sampler ## Release notes Welcome to my first foray into sampling! Over the years I've amassed a few interesting acoustic instruments, so I thought it would be a good idea to preserve them digitally in the form of sample libraries. I decided to start my sampling journey small with a mini kalimba (thumb piano) that I got as a novelty Christmas gift a couple of years ago. Despite its size, it has a really nice tone to it. This library was created for Decent Sampler."
+  ],
+  [
+   "item-229",
+   "Mixing Bowl",
+   "Decent Sampler library: Mixing Bowl DS. Tags: bowl."
+  ],
+  [
+   "item-230",
+   "Modern Acoustic Guitar",
+   "# Modern Acoustic Guitar # Version: 1.1 ### 10/15/24 UPDATE: - Tuning adjusted to 440Hz (thank you geebro for pointing that out!) ## Using the instrument 3 round robins = 3 discrete samples per note per velocity layer On the lowest sampled note, I placed a fret noise (D#1). ## The Story One day, weeks ago, I picked up my father's guitar and started noodling around on it. Frankly, with all the crazy instruments lying around our house, I don't know why I picked the most bland one. But I can say one thing: I was astonished at the sheer power and clarity that the instrument could produce. Even a singular string, plucked with the most delicate of touches, emanated a haunting, and yet crystal clear depiction of my emotion at the moment."
+  ],
+  [
+   "item-231",
+   "Mordros Final",
+   "Decent Sampler library: Mordros Final."
+  ],
+  [
+   "item-232",
+   "More Violin Experiments",
+   "# MORE Violin Experiments - Version [1.1] ## Included Formats - Decent Sampler ## Release Notes - Swapped IR ussd on \"Direct\" convolution. ### New - No new features yet ### Bugfixes - Fixed Looping on te eperimental \"Death\" articulation on solo violin. ## Using the Instrument - Be sure if you are using this in conjunction with other string libraries, cut out some of the mids. - Be careful with bloom and heavy, they cn get pretty chaotic. - Use Col Leg with Experimental at 100% and a bit of Heavy reverb at the same time, it's very fun."
+  ],
+  [
+   "item-233",
+   "Morpho Lute By Magisk",
+   "Decent Sampler library: Morpho Lute By Magisk."
+  ],
+  [
+   "item-234",
+   "MS20 Plus",
+   "Decent Sampler library: MS20 Plus."
+  ],
+  [
+   "item-235",
+   "Mum's Upright",
+   "# MUM\u2019s UPRIGHT (V1.0) Name: Mark Lowrie # Decent Sampler # The Story With my mum\u2019s passing a year ago, I had her old upright piano moved into my back room. It had hardly been played for over 20 years, so needed a good clean and tune up but, having got it to a reasonable state, I quite liked the sound it gives out. It was built by J. Cramer and Co from London and a little research indicates it could be early 20th century but not too sure about that! I\u2019ve sampled it using a pair of Rode NT1A large diaphragm condensers about 12 inches off the strings, through a stereo UA Neve 1073 Unison preamp, with a touch of EQ to manage the bottom end build up, and some tape saturation."
+  ],
+  [
+   "item-236",
+   "Murky Roads",
+   "# Murky Roads - Version: [1.0] Name: Foundational Audio ## Included formats - Decent Sampler ## Release notes 1.0 - First release ### New ### Bugfixes - All samples are playable and fully functional. ## Using the instrument This sample library contains four layers as listed below: Pads Echo Bass Noise These layers can all be adjusted in volume with sliders. Feel free to leave a review at."
+  ],
+  [
+   "item-237",
+   "My Cheap Bass",
+   "Decent Sampler library: my_cheap_bass. Tags: bass."
+  ],
+  [
+   "item-238",
+   "My Duduk",
+   "Expressive MyDuduk 1.0 dspreset, image &amp; wav samples Name: MyDuduk -Decent Sampler - Release Notes - New sample sound Simple sonido wave - Efects: Attack, Decay, Sustain Realse, Chorus, Tone and Reverb. - Using duduk note Waves. Descripci\u00f3n Instrumento de viento (Duduk) generado con sonidos naturales. Wind instrument (Duduk) generated with natural sounds. HISTORY Mucho tiempo me dediqu\u00e9 a la m\u00fasica antigua, adquir\u00ed un gran gusto por los sonidos de instrumentos tradicionales del mundo, sobre todo los de oriente, en algunos casos tuve la oportunidad de comprar algunos, y a\u00fan conservo algunos."
+  ],
+  [
+   "item-4",
+   "Native Flute Original",
+   "Decent Sampler library: Native Flute Original."
+  ],
+  [
+   "item-11",
+   "NFO Alternative Chamber Strings Longs Marco Iannello",
+   "In the middle of April 2021, I had booked a 3 hour slot part of a shared recording session offered by Manchester based Northern Film Orchestra, in order to record a few ambient, textural chamber strings cues for a short film I had been scoring. As the players were so incredibly brilliant, the recordings were wrapped up halfway through the session, and I had previously asked Jack Hughes, director of the NFO, whether I could capture a few samples of the chamber strings ensemble, with the objective of making a sample. Jack had happily agreed to that , so we went ahead and started sampling both long and short notes, starting from the lowest C0 and going up in 5ths to F6.The long samples were recorded twice, whereas the short ones were recorded four times. I had time to record only a single dynamic layer, which I decided to be mezzoforte. In the end, I was sent about 3 gigabytes of samples, and I decided to use the Close, Stereo Pair, Outriggers, and Room ones, therefore, for this reason, the library features four mic positions."
+  ],
+  [
+   "item-239",
+   "Nicks LP Studio",
+   "# Nick's LP Studio - Version: [1.0] Name: Nick Landis Contact: NickLandis@NickLandis.com ## Included formats - Decent Sampler ## Release notes This is the first release. Please let me know if you find some problems. ### New - everything! ### Bugfixes ## About the instrument Clean DI Les Paul Studio tones with flatwounds\u2014warm, smooth, and ready for amp sims or ambient textures. This instrument was originally created as a class assignment during my time as an SRT student at the Fire Station Studios."
+  ],
+  [
+   "item-240",
+   "Noise Drums",
+   "--Noise Drums by Andrew Reeds-- Here are some of it that I liked. The drums have 4 velocity layers and 2 round robins. They cover a range of 7 octaves from C0 to C1. Thank you, Andrew Reeds."
+  ],
+  [
+   "item-241",
+   "NT Agnostic Drone",
+   "Helvetica; irnatural tightenfactor0 # Nontemporary Toolbox Agnostic Drone v1 by BRiES ## Included formats - Decent Sampler - Ableton Live 11 Sampler ## Using the instrument This is a drone instrument with mix controls for 3 layers of sound. The layer named '91fund'92 is the bass or fundamental pitch. Turning up the '91air'92 control adds a vocal element and '91grit'92 is a heavily phase modulated tone that somewhat resembles a tonewheel organ (but with more upper harmonics). You can tame the harshness a lot by applying some low pass filtering. In the DS version CC1 and CC11 are mapped to the level control for the '91grit'92 layer and the filter frequency."
+  ],
+  [
+   "item-242",
+   "NT Angelic Dramatic",
+   "Helvetica; irnatural tightenfactor0 # Nontemporary Toolbox Angelic Dramatic v2 by BRiES ## Included formats - Decent Sampler - Ableton Live 11 Sampler ## New - UI updated - minor tweaks to the level of the groups ## Using the instrument This is a multi-instrument sample pack. It'92s ideal for scoring or background ambience. Try adjusting the attack for different implementations (pads or melodies). Turn up the release (or use sustained notes) to hear the full ambient tails. There'92s no looping so the notes die out gradually."
+  ],
+  [
+   "item-243",
+   "NT Bionic Brass and Winds",
+   "Helvetica; irnatural tightenfactor0 # Nontemporary Toolbox Bionic Brass and Winds by BRiES ## Included formats - Decent Sampler - Ableton Live 11 Sampler ## Using the instrument This is a multi-instrument sample pack created with a modular synth. I synthesized a tuba, a trombone/horns section and a clarinet or flute type sound. All the notes are sampled chromatically. The note ranges and according sounds are: C-1 - B0: tuba / C1-B2: horns / C3-C5: winds. These ranges are displayed on the Decent Sampler user interface."
+  ],
+  [
+   "item-245",
+   "NT Subharmonic Memory Unit",
+   "Decent Sampler library: NT Subharmonic Memory Unit."
+  ],
+  [
+   "item-244",
+   "NTS-2 An Oscilloscope Turned Synth",
+   "I was in the market for an Oscilloscope recently and I stumbled across some sponsored videos from a few different youtubers about the NTS-2. As some one who is a fan of Legos, the idea of building one myself really appealed to me. While the construction aspect is rather simple, given you don't need to solder anything, It was still fun to put it together. On top of this it came with a really nice hardcover book on Korg Instruments from Bjooks. I've been meaning to grab one of their books for a while so it seemed like an all around win for me."
+  ],
+  [
+   "item-121",
+   "Oboe",
+   "Helvetica; irnatural tightenfactor0 #Decent Oboe Version [1.0] Date 19 - 02 - 2023 Name: John Wildgoose ## Included Formats - Decent Sampler ## Using The Instrument The sampler is a Yamaha oboe sampled from C4 through to C#6. irnatural tightenfactor0 There are 2 Round Robins for each note of the sustains/legatos irnatural tightenfactor0 There is a selection switch to change the samples from Sustain / Staccatos / Legatos There are variable controls for ADSR, Vibrato (Depth and Rate), Delay (Amount,. As well as the main '91Decent_Oboe'92 There are also 3 separate presets saved: Decent_Oboe_Legato Decent_Oboe_Hammond irnatural tightenfactor0 Decent_Oboe_Etherial_Staccatos Enjoy..!"
+  ],
+  [
+   "item-246",
+   "Odyssea",
+   "Helvetica; irnatural tightenfactor0 # Nontemporary Toolbox Odyssea v2 by BRiES ## Included formats - Decent Sampler ## Using the instrument This is an instrument inspired by a '91variable spectrum harmonic cluster'92 oscillator called Odessa. It'92s possible to create clean and harmonic sounds with it, but it'92s very good at dissonant drones. By turning the big knob to the right harmonics are added to the sound. By adjusting the tension knob on the original eurorack oscillator the harmonics are shifted towards each other or away from each other, loosing any sense of defined pitch. I tried to mimic this behaviour in this Decent Sampler instrument."
+  ],
+  [
+   "item-248",
+   "OMS-1 Gretsch Feedback",
+   "Decent Sampler library: OMS-1 Gretsch Feedback. Tags: gretsch."
+  ],
+  [
+   "item-249",
+   "Only drums",
+   "Sample Pack - Version: [1.1] Name: Marco van Heerden - Decent Sampler Bugfixes No bugs that have poped up. Using the instrument This sample pack contains a load and soft velocity for each highlighted note. Thre are reverb, delay, convolution, and a low pass cutoff nobs for you to play with."
+  ],
+  [
+   "item-250",
+   "Ootg Piano",
+   "# OOTG Piano DS - Version: [1.0] Name: Ed Harper ## Included formats - Decent Sampler ## Release notes ### New."
+  ],
+  [
+   "item-251",
+   "Optical Fibre",
+   "# Optical Fibre - Version: [1.0] Name: Marco Iannello ## Included formats - Decent Sampler - Kontakt 5.8.1+ ## Using the instrument About the \"Sample Control\" section in the \"Optical Fibre Breaths\" patch for Kontakt: the Random Sample Start Position slider enables a facility. This control is unipolar, so the more the lsider is moved towards the right, the more of the sample will be used to pick a random starting point, i.e.: moving the slider to 10% will use the first 10% of the sample to select a rando start point, moving the lsider to 100% will. The \"Time Machine\" button makes the sample play at its original speed no matter what the pitch being played is, that is, with this option on there is no automatic repitching occurring as it would be the case normally."
+  ],
+  [
+   "item-252",
+   "Orange Soda Super Flute",
+   "# {Orange Soda Super Flute} Version: [1.1] ## Included formats - Decent Sampler ## Release notes -Initial Release ### New - Initial Release ## Using The Instrument Orange Soda Super Flute Contains two patches. The first, \"calliope\" aims to immitate the sound of the calliope on the New Orleans riverboat. Like the sound of the riverboat, it goes gradually more out of tune the further up you go. It's charming, but easy to create accidental dissonance with, especially in combination with other instruments. The second patch, titled simply after the instrument, is based off of a single sample and stays in tune."
+  ],
+  [
+   "item-253",
+   "Organ grinder",
+   "Decent Sampler library: Organ grinder. Tags: organ."
+  ],
+  [
+   "item-254",
+   "Organ of the Damned",
+   "#Organ of the Damned - Version: 1.0 ## Included formats - Decent Sampler ## Using the instrument Cursed organ sounds by a guitar ## The Story I was having fun with my DigiTech Whammy DT, which can give a clean guitar an organ-like sound. I thought I could take it to the next level, so I started recording simple guitar plunks with as long sustains as possible, then edited the root notes. The library is quite large because it contains 300 panned WAV files for a wider sound. You can mix five different layers: a basic tone, a distorted one, two lower octaves, and the fifth. The lowest octave repeats the from B3 because, to my ears, it blends better with the higher notes, creating a smoother continuity."
+  ],
+  [
+   "item-255",
+   "Orgel Unterhaus",
+   "# Orgel Unterhaus Version: 2.1 ## Included formats - Decent Sampler - Kontakt ## Release notes - v1.0 First version, Decent Sampler - v2.0 New, longer Samples ### New - v2.1 Kontakt version and bug fixing by mfb ### Bugfixes - v2.1 loop errors for certain samples fixed in. ## The Story The protestant church of Unterhaus in Carinthia / Austria has a small but impressive sounding organ. It was built in 1903 as \u201cOpus 4\u201d of Johann Kuhler from \u201cSt. Leonhard im Loibenthale\u201d. The organ has one manual with 7 stops and two bass stops for the pedal."
+  ],
+  [
+   "item-256",
+   "Otto",
+   "# Otto Tongue Drum - Version: [1.0] Name: Clay Walters ## Included formats - Decent Sampler ## Using the instrument This drum loves reverb, be sure to crank it up a bit when using!"
+  ],
+  [
+   "item-18",
+   "Palm Muted Schimmel",
+   "Decent Sampler library: Palm Muted Schimmel."
+  ],
+  [
+   "item-257",
+   "Palm Mutes",
+   "# Palm Mutes Version: 1.0 ## Included formats - Decent Sampler ## Release notes ### New - Initial release. ## Using the instrument This library consists of single note palm mutes from A1 to E3. The samples are short and don't tail off cleanly if sustained, because it's designed to be used with a 1/8th note argeggiator (or a series of drawn 1/8 notes) at ~80BPM or higher. Samples are clean DI. There is no distorion or amp modelling added."
+  ],
+  [
+   "item-258",
+   "Pamaha",
+   "PAMAHA - Version: [1.0] Name: Daniel Wilkinson-Mackie ## Included formats - Decent Sampler ## Release notes ### New ### Bugfixes ## Using the instrument The Gain is also under the Logo the Velocity control how much the Volume is effected by Velocity (How hard you press) But. That means pressing softly with Velocity all the way down will play the lowest level but loud. The Realease Control determines the gain of the release samples."
+  ],
+  [
+   "item-259",
+   "Paters Piano",
+   "# Paters Piano - Version: [1.0] Name: baklu ## Included formats - Decent Sampler."
+  ],
+  [
+   "item-260",
+   "Pawe\u0142 Lewicki - Birdy Kalimba",
+   "# Birdy Kalimba - Version: [1.0] Name: Pawe\u0142 Lewicki ## Included formats - Decent Sampler ## Release notes Hey, thanks for downloading Birdy Kalimba! These samples were recorded in my hometown Piekary Slaskie, Poland during the early spring of 2023. I played Kalimba with my sister and we were chilling out amongst old sacral architecture in the park called: 'Kalwaria'. The harmonious blend of singing birds, the melodic tones of the kalimba and distant church bells created a unique blend of sonic texture. It gave me some real The Elder Scrolls: Oblivion vibes and I decided to try to mix up all these recordings."
+  ],
+  [
+   "item-261",
+   "PD Big Brother",
+   "## PD Big Brother - Version: [1.0] Name: Alber Lemi E-mail: alber2000@yahoo.com ## Included formats - Decent Sampler ## Release notes The CZ-1 was the most advanced Phase Distortion low-cost synthesizer released by Casio in the mid eighties. I bought one of those in 1985, no money to afford a DX-7 :-) Now I have sampled and included 64 different presets/patches in this instrument, grouped in 6 banks. ## New ## Bugfixes ## Using the instrument Filter cut-off frecuency and resonance can be controlled using CC#7 and CC#11. Cut-off is also affected by each note velocity: higher velocities produce higher cut-off frecuencies and vice-versa. This effect can be regulated using F5, G5 and A5 keys."
+  ],
+  [
+   "item-262",
+   "Pencil Guitar",
+   "# Pencil Guitar - Version: [2.0] Name: David May ## Included formats - Decent Sampler ## Release notes V2 So. having discovered how to do velocity layers I thought it might be more useable to be able to swap between a single hit and a bounce hit depending on how hard you hit the keys. I've also resampled both sounds. V1 OK back to basics. As a guitar tutor I often show the kids that you can make all sort of weird noises with a guitar."
+  ],
+  [
+   "item-263",
+   "Phobos - Canvas Essential Edition",
+   "Phobos Canvas - Essential Edition NEW 0.8.9: - intital release - special articulation added PREVIOUS none Thanks for downloading Phobos Canvas (Essential Edition). I (Thomas) created this sample pack, while playing around with a Korg contact microphone, finding sounds that sound so close you could almost feel them. Inside you will find 3 main \"Instruments\": Metallic Bells* Vulkan Guitars** Frame Drums *custom-made metal bell object **custom-made one-string stringable object I hope you like this little library. More to come soon; this is just a little \"taster.\" ;)."
+  ],
+  [
+   "item-264",
+   "Piano Percussions",
+   "Decent Sampler library: Piano Percussions_v1.0. Tags: piano."
+  ],
+  [
+   "item-265",
+   "Pipe Drum",
+   "Decent Sampler library: Pipe Drum. Tags: drum."
+  ],
+  [
+   "item-19",
+   "Pitched Electric Celeste Christian Henson",
+   "Decent Sampler library: Pitched Electric Celeste Christian Henson."
+  ],
+  [
+   "item-266",
+   "Plasma Drive Kalimba",
+   "Recently I purchased a Plasma Drive Eurorack Module from Gamechanger Audio and Erica Synths. The thought of converting a signal to hot plasma and back to distort a sound really captivated me. It's unique and a fun concept to explore. This instrument represent my first tests exploring the plasma drive by running a Kalimba through it and seeing what happens. I also sent the signal through a microcosm for some further depth and flexibility."
+  ],
+  [
+   "item-267",
+   "Playwatch",
+   "# Playwatch - Version: 1.0 ## Included formats - Decent Sampler ## Release notes ### New - First release ## Using the instrument The instrument is rather simple to use. You can choose a style and combine it with a convolution effect if you want to. You also have the option to change the tone of the instrument (using the tone knob as a lo-pass filter), control the amount of reverb and room size, as well as the amount of delay and the delay time. In total, there are the following seven styles to choose from: - Clean Harsh - Clean Soft - Clean Wide - Staccato - Reversed - Vintage - Amped You can combine these styles with a convolution effect if you like. You have the following options to choose from: - Big Room - Small Room - Glide - Slide - Wind - Wobbly - Fan (long) - Fan (short) - Drums (80 BPM) ## The Story I received this music box as a gift one year ago and while it looks cool on the shelf, I wondered, 'Why shouldn't I."
+  ],
+  [
+   "item-268",
+   "Polaroid CL635",
+   "# Polaroid CL635 - Version: [1.0] Name: Vasiliy Neretin ## Included formats - Decent Sampler ## Using the instrument Just have fun and explore a not too old Polaroid!"
+  ],
+  [
+   "item-269",
+   "Pop",
+   "# [Pop!] Version: [1.0] ## Included formats - Decent Sampler ## Using Pop! Easy to use! The instrument is split into five color coded parts, each occupying one octave from C3 to C7. Each part can be individually tuned using the tuning controls, and also be individually volume controlled dragging in the descriptive image of each part. Beyond that reverb, delay and phase can be set for the entire instrument."
+  ],
+  [
+   "item-31",
+   "Posh CR 78",
+   "Decent Sampler library: Posh CR 78."
+  ],
+  [
+   "item-270",
+   "Prehispanic Flute",
+   "Decent Sampler library: prehispanic flute v3. Tags: flute."
+  ],
+  [
+   "item-271",
+   "Purplehero",
+   "Decent Sampler library: Purplehero."
+  ],
+  [
+   "item-285",
+   "R.R. Drums1",
+   "Decent Sampler library: R.R. Drums1."
+  ],
+  [
+   "item-273",
+   "Rain Choir",
+   "# Rain Choir - Version: [1.1] Name: Soroosh Mohassesi ## Included formats - Decent Sampler ## Release Notes What do you get when you leave someone with zero knowledge of sampling out in a bus stop on a rainy day, with just their phone, and then manipulate the recording with. You get, Rain Choir! I recorded the original sample in a bus stop in Great Vancouver, Canada, and did not think much of it at the time. Months later, after watching a video by the amazing Venus Theory on creating tonal sounds from any recording, I found the inspiration to make my first ever sample library. And after going through my field recordings, I found this recording again and set out to do mindless sound design to hopefully create something usable out of it."
+  ],
+  [
+   "item-272",
+   "Rain Choir (1)",
+   "# Rain Choir - Version: [1.1] Name: Soroosh Mohassesi ## Included formats - Decent Sampler ## Release Notes What do you get when you leave someone with zero knowledge of sampling out in a bus stop on a rainy day, with just their phone, and then manipulate the recording with. You get, Rain Choir! I recorded the original sample in a bus stop in Great Vancouver, Canada, and did not think much of it at the time. Months later, after watching a video by the amazing Venus Theory on creating tonal sounds from any recording, I found the inspiration to make my first ever sample library. And after going through my field recordings, I found this recording again and set out to do mindless sound design to hopefully create something usable out of it."
+  ],
+  [
+   "item-274",
+   "Raw Violin",
+   "# Raw Violin - Version: [1.0] Name: Marco Iannello ## Included formats - Decent Sampler - Kontakt 6.7+ ## Release notes - Decent Sampler presets added - Kontakt instruments added ### New ### Bugfixes ## Using the instrument Use the Sample start sliders in the Kontakt version. Doing that also makes the use of the included stock Kontakt Arpeggiator much easier. Please note that Sample start sliders are not available in the Decent Sampler version."
+  ],
+  [
+   "item-275",
+   "RedTape Z2",
+   "Thank you for downloading the Red Tape library! Red Tape consists of four instruments recorded on a reel to reel tape player, lets take a look. Red Tape - Bass ESP LTD 4 string bass guitar (finger plucks) (48 samples) Red Tape - Drums PDP 5 piece drum kit with an extra 2 Meinl cymbals (306 samples) Red Tape - Guitar Fender Squire Strat (picked notes) (279 samples) Red Tape - Piano (144 samples) All four instruments. Each instrument has two main sample groups, \"Source\" and \"Tape\" The Source group was recorded through the Teac AR-40S Amp and acts like a DI group. The Tape group was recorded using AMPEX 641 reel tape."
+  ],
+  [
+   "item-276",
+   "Reluctant Autoharp",
+   "Decent Sampler library: Reluctant Autoharp (DS). Tags: autoharp."
+  ],
+  [
+   "item-277",
+   "Resonator",
+   "Decent Sampler library: Resonator."
+  ],
+  [
+   "item-278",
+   "Reverb Tail Pad",
+   "Decent Sampler library: Reverb Tail Pad. Tags: pad."
+  ],
+  [
+   "item-279",
+   "RGB Waves",
+   "## RGBwaves - Version: [1.0] Name: Alber Lemi E-mail: alber2000@yahoo.com ## Included formats - Decent Sampler ## Release notes Just 3 oscillators (Red, Green and Blue) and a bunch of waveforms, envelopes, filters and LFOs to play with. There is a total of 35 very basic (one cycle) analog and FM waveforms sampled from some old synths I have. Samples are distributed among 3 different oscillators, each of them with independent volume and tuning controls, separate envelopes, filters and LFOs. I would say the instrument works more like a traditional subtractive synth than a sampler. Not being a patch programmer, I have managed to create several presets to demostrate its basic capabilities."
+  ],
+  [
+   "item-280",
+   "RJS Classic Electric 1",
+   "Decent Sampler library: RJS Classic Electric 1."
+  ],
+  [
+   "item-281",
+   "RJS LoFi Nylon 1",
+   "Decent Sampler library: RJS LoFi Nylon v1_1. Tags: lofi."
+  ],
+  [
+   "item-282",
+   "RJS Vocal Pads 1",
+   "# RJS Vocal Pads Version: [1.1] ## Included formats - Decent Sampler - Kontakt 6.7.1 ## Release notes ### New - ADSR improved with longer attack, decay, and release times. ### Bugfixes ## Using the instrument - Try layering sounds to create different textures. - Using the ADSR (presets) can significantly shape the character of the sound. - Kontakt only: Make more synthy pads with the filter. - Kontakt only: The EQ can be used to tame frequency buildups, especially when using the filter."
+  ],
+  [
+   "item-283",
+   "Roaring Saxophone",
+   "Roaring Saxophone - Version: 1.0 Name: Nicholas Hann ## Included formats - Decent Sampler ## Using the instrument This instrument consists of four sounds sampled from a Mark VI alto saxophone on an SM7B microphone. It is my first attempt at a sample instrument and is therefore quite chaotic and idiomatic. The sound is inspired by Colin Stetson's sound in soundtracks such as 'Hereditary'. 'Movement' is in the register C0 - Eb2. The samples are from C2-C3 so it sounds most natural in this range but the pitch down samples have a cool effect in the low end."
+  ],
+  [
+   "item-284",
+   "Rosedale Cortina Virtuoso",
+   "# Rosedale Cortina Virtuoso - Version: [1.0] Name: Toby James ## Included formats - Decent Sampler ## Release notes This is Rosie. She's an early 1970s Rosedale Cortina Virtuoso electric chord organ \u2014 a toy, really, in the same family as the Bontempi organs that filled living rooms across Britain in that decade. She's a rather drab off-green colour, and not particularly beautiful to look at. The gentleman I bought her from on Facebook Marketplace told me that his children had played her, and then his grandchildren. She carries that history in her keys."
+  ],
+  [
+   "item-286",
+   "Rubber Bass",
+   "# [Rubber Bass] Version: [1.1] ## Included formats - Decent Sampler ## Release notes ### New ### Bugfixes ## Using the instrument Even though the name is \"Bass\" - it is actually more like a percussive instrument. Although it is possible to turn it into synth plucks, or an actual bass layer. ## The Story I just hit, pull, scrape, blow or pluck random objects I find or create. This is one of the results :)."
+  ],
+  [
+   "item-287",
+   "Santa Croce",
+   "# Santa Croce Soundscapes Sample Pack The \"Santa Croce Soundscapes\" sample pack is the result of recordings made during my stay in Tuscany at the impressive Santa Croce Church in Florence. The acoustics and atmosphere of this Gothic church are exceptional and have served as the inspiration for this sound project. Santa Croce Church stands as an impressive example of Italian Gothic architecture and is a place of historical significance, being the final resting place of many famous Florentines. ## Overview The foundation of this auditory journey is built upon original background sounds captured within the church, including subdued conversations, gentle footsteps, and the echoing sound that reflects the solemnity of the surroundings. I intricately wove these natural sounds into a sound collage to encapsulate the unique aura of Santa Croce."
+  ],
+  [
+   "item-288",
+   "Schlagwerk U78 Side Skin Udu",
+   "# Schlagwerk U78 Side Skin Udu This Instrument is the Schlagwerk U78 Side Skin Udu, which - additionally to the typical hole - has a skin on the right side of the hole which makes for some nice flavor in sound and gives extra levels of dynamic since the skin can be hit quite. ## Included Sounds We wanted to keep it simple and focused on just a few sounds: 1) Single fingers hitting the skin while the hole is closed: Middle finger, ring finger and thumb of the right hand hitting the skin. They are placed on three separate notes next to each other on the Keyboard to make mimicking fast finger movements possible. 2) Hole sounds: Three different ways of hitting the hole (short, medium, long) delivering the typical Udo sound. In the current version you are stuck with a fixed timing of those sounds."
+  ],
+  [
+   "item-289",
+   "Seaside Transistor Organ",
+   "# Seaside Transistor Organ: [1.0] Website: saymonmartinelli.com Other channels: ## Included formats - Decent Sampler ## Release notes This is the first version of the Seaside Transistor Organ &amp; Drum Machine instrument for Decent Sampler. ### Organ Features - 67 original samples recorded from all registers from a fabulous vintage transistor organ, spanning over 4 octaves like the original instrument - Additive synthesis like architecture - 9 Drawbar faders for mixing the carefully sampled analog waveforms and. The Drum machine preset is structured similarly to a standard drum kit from C1 to Bb1. Use the included sound-shaping tools to find the sweet spot for your project! ## The Story The Seaside Transistor Organ is an enhanced emulations of a relic from the past, when Italy was home for some of the biggest electronic musical instruments manufacturers of the market."
+  ],
+  [
+   "item-290",
+   "Sewers",
+   "# Sewers - Version: [1.0] Name: Marco Iannello ## Included formats - Decent Sampler - Kontakt 6.7.1 ## Release notes - 1.0.1 Replaced Sewers Water Organ.nki after confirming the Group Solo button within Kontakt is not clicked ## Using the instrument Sewers Pulse: playing the. The loop is tempo-synced. This patch is available only as a Kontakt instrument Sewers Water Organ: push the modwheel up to add more of the harmonic layers."
+  ],
+  [
+   "item-291",
+   "Shimmered Affinity Swells",
+   "# Shimmered Affinity Swells - Version: [1.0] Name: A. Gonz\u00e1lez ## Included formats - Decent Sampler ## Using the instrument -No specific usage or other info! ##About the instrument -This morning I decided to learn and make my first sample pack for Decent Sampler, from some of my favorite sounds I've ever achieved from my bedroom. -This is a small sample pack that consists of slow guitar swells, made using a Squier Affinity Telecaster and ran through the IK Multimedia's X-Space simulation in Amplitube, sampled for an easier usage. *please note that english is not my first language."
+  ],
+  [
+   "item-28",
+   "Shivering Waves Fred Poirier",
+   "Decent Sampler library: Shivering Waves Fred Poirier."
+  ],
+  [
+   "item-292",
+   "Shoal Audio - SEK-922",
+   "Decent Sampler library: Shoal Audio - SEK-922."
+  ],
+  [
+   "item-293",
+   "Shoal Audio - Tongue Drum",
+   "# Expressive Tongue Drum - Version: [1.1] Name: Will (Shoal Audio) ## Included formats - Decent Sampler ## Release notes Change log: - Added a \"smooth\" mode, which maps the lower notes (with fewer inharmonic resonances) over the full range of the instrument. I have also added a dropdown to enable the original mapping, which is available in the \"classic\" option. - Added a separate dropdown, which offers the user an option to choose from two IR Reverb files. - Remapped the filter cutoff for more natural behaviour. Hello, and thank you for downloading the Expressive Tongue Drum!"
+  ],
+  [
+   "item-294",
+   "Shopping Cart",
+   "# Shopping Cart Version: 1.0 ## Included formats - Decent Sampler ## Using the instrument There are three instruments included. Shopping Cart Percussion is a collection of percussive hits and guiro type sounds. Most of the notes in Percussion have 3-5 velocity layers and three round robins. Shopping Cart Rolling is a looping sample of the cart rolling across rough concrete, playable across the entire range of the keyboard. Shopping Cart Harness is the same concept, but with a sample of the child harness being shaken around."
+  ],
+  [
+   "item-295",
+   "Sketchy Klaviphon",
+   "SKETCHY KLAVIPHON by Sever\u00e1k Klaviphon is electric piano from 1960s Czechoslovakia. It was manufactured at organ making factory in Krnov which needed something to do after demand for church organs was suddenly lower in now communist state. It works by plucking steel reeds in similar way how Hohner Cembalet and Weltmeister Claviset works but its piano action is different as far as I know (I did not seen Cembalet open yet). There is pickup coil at each reed and that's basically it. It's rather primitive instrument."
+  ],
+  [
+   "item-296",
+   "SL-20231105-01 - Singing Bowl",
+   "Sonus Lucis - Singing Bowl v1.00 - For Decent Sampler My partner noticed my facination in sampling and knew I had a love of ringing sounds. She bought me a singing bowl for my birthday this year. It has a wonderful ring and I thought it would make a good instrument. I sampled the bowl in my bathroom (quietest room in the flat!) with a Tascam DR-40x in XY mode. I used a soft felt beater."
+  ],
+  [
+   "item-297",
+   "Slit Log Drum",
+   "Recently, at one of the many local antique malls in my area, a booth was set up for musical instruments. I always love to go there and check out what is new and available at this mall and to find this was a nice surprise. One of the many things that caught my eye was this large log drum. The price was only $20 and I simply could not resist buying it. I decided it would be a fun and quick thing to sample for you all!"
+  ],
+  [
+   "item-298",
+   "Snaps n Claps",
+   "Snaps'n'Claps by Destinys Agent - v1.00 Name: Steve Smith ## Included formats - Decent Sampler This instrument was born from me wanting to know how Round Robins are implimented in Decent Sampler. I also wanted to use something I could sample quickly with little fuss. I settled on finger snaps since I carry the instruments around with me! I recorded in my bathroom, which is the quietest place in the flat. There is a small tail on the samples because of this."
+  ],
+  [
+   "item-299",
+   "Solar Winds",
+   "# [Solar Winds] Version: [1.1] ## Included formats - Decent Sampler ## Initial Release ## Using the instrument Chorus and delay parameters vary slightly to suit each instrument. ## The Story Solar Winds began as a sound design project at the end of 2022. Centered around being large, cosmic, and slightly terrifying, each sample was mixed from a combination of synthesis, found sound, and filtered noise. Several presets also use public domain samples of orchestral instruments. Special thanks to the University of Iowa for providing such wonderful samples into the public domain!"
+  ],
+  [
+   "item-300",
+   "Solitary Choir",
+   "Decent Sampler library: Solitary Choir (DS). Tags: choir."
+  ],
+  [
+   "item-301",
+   "Sonus Lucis - Cymbalon",
+   "Sonus Lucis - Cymbalon v1.00 - For Decent Sampler I have been wanting to program velocity layers and round robins together in Decent Sampler for a while so I took the opportunity to practice with a small Lap Harp labelled Cymbalon on the box. It is a trapezoid shaped sound box with a circular sound hole in the centre and 15 strings. Quite commonly available on your favourite auction site. I chose a string close to 'C' and tuned it before sampling with a Tascam DR-40x in XY mode. I have set the usable range from C0 to C6."
+  ],
+  [
+   "item-302",
+   "Souvenir Tunisian Drum",
+   "Decent Sampler library: Souvenir Tunisian Drum. Tags: drum."
+  ],
+  [
+   "item-37",
+   "Spring Piano",
+   "Decent Sampler library: Spring Piano."
+  ],
+  [
+   "item-303",
+   "Stacked It - E Devey",
+   "Courier; eftab720 tightenfactor0 # Stacked It- Version: [1.0.1] 1.0.1 Fixed Directory Issue Name: Edward Devey ## Included formats - Decent Sampler eftab720 irnatural tightenfactor0 Stacked it was created as part of my university project Please check out my website:."
+  ],
+  [
+   "item-23",
+   "Steinway Jon Meyer",
+   "Decent Sampler library: Steinway Jon Meyer."
+  ],
+  [
+   "item-304",
+   "Stratford Tony Organ",
+   "# Stratford Tony Organ - Version: [1.0] Name: Tuan Anh Vu ## Included formats - Decent Sampler - Kontakt ## Using the instrument The instrument contains a close mic layer, a far mic layer, a release trigger layer, and a tape layer. Each of these layers can be controlled using its respective slider. A quick note: although the close mic, far mic, and release trigger layers contain only one velocity layer, the tape layer contains six. These six velocity layers correspond to how hard the samples were run through the cassette recorder. As a result, the harder you play, the more distorted the tape layer becomes."
+  ],
+  [
+   "item-305",
+   "Stratmosphere",
+   "Decent Sampler library: Stratmosphere v1.1. Tags: strings, guitar."
+  ],
+  [
+   "item-306",
+   "Studio Doctor Sweet pads",
+   "---------------Studio Doctor ---Sweet Pads I was jus playing some ambient melodies and i accidentaly tricked the filter knob of my Korg and the result was amazing so idecided to make library and share it with th comunity."
+  ],
+  [
+   "item-307",
+   "Summer Challenge '26 EH",
+   "Decent Sampler library: Summer Challenge '26 EH."
+  ],
+  [
+   "item-21",
+   "Summer Felt",
+   "Decent Sampler library: Summer Felt."
+  ],
+  [
+   "item-309",
+   "Synth of Desire",
+   "Decent Sampler library: Synth of Desire. Tags: synth."
+  ],
+  [
+   "item-308",
+   "Syntheticstrings",
+   "Decent Sampler library: Syntheticstrings."
+  ],
+  [
+   "item-310",
+   "Synthphony 003",
+   "## Synthphony 3 ## ## Included Format ## - Kontakt 6 - Decent Sampler ## The Story ## In this Synthphony 3 sample library, all samples are generated with different settings so that it sounds slightly different from each other. The samples are also being set to be triggered by the Velocity range when played. For example, Sample E2 is to be triggered when the Velocity value is 1 to 32, Sample G#2 is 33 to 64, Sample C3 is 65 to 127, Sample E3 is 81 to 127, and Sample G#3 is 100 to 127. This arrangement is a kind of experimental, I hope this library is able to inspire music producers &amp; unleash their creativity. The library has no factory preset, the Kontakt version has only 1 library file &amp; Decent Sampler has 2 files."
+  ],
+  [
+   "item-311",
+   "Synthphony S004 Motion",
+   "## Synthphony S4 Motion ## ## Included Format ## - Kontakt 6 - Decent Sampler ## The Story ## After spending much time fine-tuning the scripts, many new features have been added to this Synthphony S4 Motion. All presets are now built into one instruments file for both Kontakt &amp; Decent Sampler. Now you can select different presets from the UI itself. Besides, LFO modulation for Volume, Filter &amp; Pitch now becomes part of your sound design. You will notice there are 6 new knobs for each sample source (A B C D)."
+  ],
+  [
+   "item-312",
+   "Synthphony S005 Complex",
+   "Decent Sampler library: Synthphony S005 Complex."
+  ],
+  [
+   "item-35",
+   "Systems Grand",
+   "Decent Sampler library: Systems Grand."
+  ],
+  [
+   "item-313",
+   "Talman Bass",
+   "Tanpa Do # Sample Pack - Version: [1.0] Name: Tanpa Do ## Included formats - Decent Sampler ## Talman Bass TMB30 Ibanez / 20 frets."
+  ],
+  [
+   "item-314",
+   "Tea from Hell",
+   "#Tea from HELL - Version: 1.1 ## Included formats - Decent Sampler ## Using the instrument \"What is your pleasure, sir?\" Open the bottle of the liqueur from HELL to find pleasure and to summon something from another world. ## The Story There is a slovakian tea liqueur, which is called Tatratea. It is a strong, but tasty drink which with I have good and funny memories. The strongest one tastes like the fire of hell. It tempts you with a sweet scent, then burns."
+  ],
+  [
+   "item-39",
+   "The 9000ft Piano",
+   "Decent Sampler library: The 9000ft Piano."
+  ],
+  [
+   "item-315",
+   "The Bjorgan",
+   "# The Bjorgan - Version: [1.0.1] Name: Cassidy Anderson ## Included formats - Decent Sampler ## Release Notes: 1.0.1 - Allowed for volume sliders for pedal speeds to be controlled via MIDI. Low, Medium, and Fast are mapped to 12, 13, and 14 respectively. - Fixed an issue where sliders would disappear behind keyboard element when scaled at certain resolutions. - Edited some file names to be more clear. ## Using the instrument There are three versions of the instrument: a Main LR version, a Surround Front, and a Surround back."
+  ],
+  [
+   "item-316",
+   "The Claustrophobic Toy Piano",
+   "Decent Sampler library: The-Claustrophobic-Toy-Piano. Tags: piano."
+  ],
+  [
+   "item-9",
+   "The Cool Piano",
+   "Decent Sampler library: The Cool Piano."
+  ],
+  [
+   "item-317",
+   "The Di Archtop",
+   "Decent Sampler library: The Di Archtop."
+  ],
+  [
+   "item-318",
+   "The Forest Flute",
+   "Decent Sampler library: The Forest Flute. Tags: flute."
+  ],
+  [
+   "item-12",
+   "The Gaffer",
+   "Decent Sampler library: The Gaffer."
+  ],
+  [
+   "item-22",
+   "The Hebridean Knight",
+   "Decent Sampler library: The Hebridean Knight."
+  ],
+  [
+   "item-319",
+   "The Kickstarter Risk - Hanago",
+   "A little while a go I saw this kickstarter project for a \"New\" Instrument labeled Hanago. It was designed in Korea and promised to be like a a simple Hand pluck instrument, but with a catch, A fret Board and an Audio Jack. I saw this and was interested, and for the price of $99 USD I thought it seemed like a reasonable gamble. It's not cheap, but for musical instruments it's certainly not expensive either. Especially if it's halfway decent."
+  ],
+  [
+   "item-320",
+   "The Pad - Kulek Records",
+   "# The Pad - 1.0 Name: kulek records | Julian Dumicz ## Included formats - Decent Sampler ### Using the instrument Range: 3 octaves - A1-A4 Knobs: ATTACK - attack time RELEASE - release time TONE - low pass filter TEXTURE - amount of the ambient sound."
+  ],
+  [
+   "item-321",
+   "The Spellsinger",
+   "Decent Sampler library: The Spellsinger."
+  ],
+  [
+   "item-322",
+   "The Stranger Ethereal Fountain",
+   "***ENGLISH VERSION FOLLOWS*** NOM: Ethereal Fountain FORMAT: Decent Sampler (version minimale 1.11.1) CORRECTIONS Faites-moi savoir si vous trouvez quelque chose... CARACT\u00c9RISTIQUES Mode 1: - Digital Sea, un petit monde d'interf\u00e9rences \u00e9lectomagn\u00e9tiques pour l'ambiance - Plus 5 boutons qui vous permettent d'activer des couches d'interf\u00e9rences suppl\u00e9mentaires Mode 2: - Soft(ish), plus \u00abdoux\u00bb, pour l'accompagnement Mode 3: - Rise and Fall,. Les 6 boutons de droite activent les effets et l'\u00e9vaporation de l'enveloppe pour tous les Modes. DESCRIPTION Voici le son d'une fontaine de ville captur\u00e9 \u00e0 travers l'appareil Ether de Soma Laboratory. C'est un instrument qui n'a d\u00e9finitivement rien de traditionnel mais qui est tout de m\u00eame tr\u00e8s musical."
+  ],
+  [
+   "item-20",
+   "The Summer Piano",
+   "Decent Sampler library: The Summer Piano."
+  ],
+  [
+   "item-323",
+   "The Superstar - Complete Edition",
+   "# The Superstar - Version: [1.0] Name: Liam Turnage ## Included formats - Decent Sampler ## Release notes 1.0 - Added three presets: Superstar, Stairway to Heaven, D-MOD ### New ### Bugfixes - All samples are playable and fully functional. ## Using the instrument This sample pack contains three presets as listed below: Superstar (Dry Kit): This is the standard preset for the Superstar that includes a fully sampled five-piece drum kit that includes three control knobs, Release, Tone, and Room. Stairway to Heaven: This is a sampled Yamaha drum kit recorded in a three-story stairwell room. The large yellow knob controls the room ambience level. This preset also includes four additional knobs for better control of the instrument, Lowpass EQ, Volume level, Attack, and Release."
+  ],
+  [
+   "item-324",
+   "The Terracotta Ball",
+   "# The Terracotta Ball - Kontakt-Instrument v.1.0.0.0.0.0 - Decent-Sampler-Preset v.1.0.0.0.0.0 ## Included formats - Decent Sampler Preset - Kontakt 7 Instrument ## Release notes ### New ### Bugfixes ## Using the instrument You have the choice between 11 play styles and 2. FX Order: Delay -&gt; Reverb -&gt; Limiter ## The Story As a passionate drummer, as a child I couldn't resist the urge to beat on anything within my reach. One particular object that captivated me was my mother's terracotta ball. I was fascinated by the deep, resonant bass it produced when I beat on the hole on the bottom. The years flew by, and I came across Pianobook."
+  ],
+  [
+   "item-325",
+   "The Viking Log Lyre",
+   "Decent Sampler library: The-Viking-Log-Lyre. Tags: lyre."
+  ],
+  [
+   "item-326",
+   "The Vintage Japanese Mandolin",
+   "Just before Christmas, my father and I went hunting at some antique shops for a unique present my dad could give my mother. We do this every year and I always go with my father since I have a good eye for presents to give to others. While hunting around I stumbled on this old mandolin buried and under a cabinet. It has certainly seen a lot of use but the price was fantastic and it came with a bunch of accessories. Against my better judgement I decided I had to have it."
+  ],
+  [
+   "item-327",
+   "Thors Brother",
+   "# Thors_Brother - Version: [1.0] Name: Filip Sijanec - Decent Sampler Features: Effects: A - Attack R - Release T - Tone (Low Pass filter frequency) Rev - Reverb Wet Level St- Stereo Spread of the Delay effect."
+  ],
+  [
+   "item-328",
+   "Three Strings Domra",
+   "Decent Sampler library: Three Strings Domra. Tags: strings, domra."
+  ],
+  [
+   "item-329",
+   "Thru Zero E-Piano",
+   "Decent Sampler library: Thru Zero E-Piano. Tags: piano."
+  ],
+  [
+   "item-330",
+   "Thunder",
+   "# THUNDER - Version: [1.1] Name: Spaceman\u2019s Notes ## Included formats - Decent Sampler ## Using the instrument The keyboard is split into four colors - dark, medium, and bright tones, and just rain &amp; thunder sounds. ADSR controls, tone knob, and effects work as usual. Bless You, enjoy!"
+  ],
+  [
+   "item-331",
+   "Thunder &amp; Wine",
+   "# Thunder &amp; Wine Sample Pack - Version: 1.0 Name: Oliver Scheuch ## Included formats - Decent Sampler ## Description While capturing the sound of a wine glass might not be groundbreaking, I believe in starting small and I just wanted to make a humble contribution to this. ## First Preset: Thunder &amp; Wine I recorded a wine glass with precision using an Octawa MK12 microphone, placing it on a stereo track. This unassuming sound is then enveloped in a Convolution Hall created from a 20-second thunder recording captured in my garden a few days ago. When you play a short note, you can hear the glass's subtle resonance within the thunderous backdrop. For customization, blend in an additional sample track to give the sound more character."
+  ],
+  [
+   "item-332",
+   "Tin Can Drums",
+   "Something about tin cans I find truly fascinating. They are simple and have boundless possibilities. They can organize, or store. They can act as planters or decoration. They can even be made into a drum."
+  ],
+  [
+   "item-333",
+   "Tones From The Deep",
+   "Decent Sampler library: Tones From The Deep."
+  ],
+  [
+   "item-334",
+   "Tongue Bottle Glass",
+   "Decent Sampler library: Tongue_Bottle_Glass. Tags: tongue."
+  ],
+  [
+   "item-335",
+   "Toy Accordion",
+   "# Toy Accordion: [1.0] Website: saymonmartinelli.com Other channels: ## Included formats - Decent Sampler ## Release notes This is the first version of the Toy Accordion instrument for Decent Sampler. ### Instrument Features - 10 original samples recorded from a a thrifted diatonic Stradellina Accordion, chromatically stretched to reach a little more than 4 playable octaves - ADSR amp envelope - Vibrato onboard effect to give a nice vibe to the sound, from subtle to. Use the included sound-shaping tools to find the sweet spot for your project! ## The Story I aquired the little toy that inspired this instrument while walking on the lakeside of a pretty lake near where I live, on a quiet sunday. It is quite common to find some flea markets there and you can find stacks of weird, interesting things, as well as useful tools or total garbage: it's hard to find the right category for this particular item to fit."
+  ],
+  [
+   "item-336",
+   "Toy Xylophone",
+   "Menlo-Regular; Courier; eftab720 tightenfactor0 # Toy Xylophone - Version: [1.0] Name: Davi B. Borges eftab720 tightenfactor0 ## Included formats - Decent Sampler ## Release notes ### New ### Bugfixes ## Using the instrument Recorded with an AKG C44 Microphone, have 1 velocity layer and three round robins. Have also two effects: Reverb and Low Pass. Can be used for a variety of purposes, from lullabies to soundtracks for suspenseful/scary scenes. ## The Story When I was a baby, my parents gave me a toy xylophone."
+  ],
+  [
+   "item-40",
+   "Tracked Piano",
+   "Decent Sampler library: Tracked Piano."
+  ],
+  [
+   "item-337",
+   "Trash Drums",
+   "Decent Sampler library: Trash Drums."
+  ],
+  [
+   "item-338",
+   "Tribal Percussion",
+   "#Tribal Percussion - Version: 1.0 ## Included formats - Decent Sampler ## Using the instrument Tribal Percussion brings authentic djembe ## The Story I got a djembe from my sister as a birthday present, and I wanted to share its sounds as a library. I recorded 6 samples per note using my beloved Aston Origin microphone. For the highest sounds, I also used a frog guiro, which was another birthday present from my sister. To create a little atmosphere, I added storm sounds \"hidden\" on the C2 and D2 notes. These sounds were made using a broken kick drum head and its plastic bag."
+  ],
+  [
+   "item-339",
+   "Triple Box",
+   "Decent Sampler library: Triple Box."
+  ],
+  [
+   "item-340",
+   "Tubular Bells",
+   "Decent Sampler library: Tubular Bells."
+  ],
+  [
+   "item-341",
+   "Tuned Gongs",
+   "# Tuned Gongs Version: [1.0] ## Included formats - Decent Sampler ## Release notes First Release ### New N/A ### Bugfixes N/A ## Using the instrument Contains 3 mic positions: -Condenser mic (Rode NT1-A), 15 inches away from the nipple to capture contact sound -Room mic (Rode. Noticing a lack of high-quality gong sample libraries, I decided to work on creating my own! Me and a friend recorded a 2.5 octave whole tone scale, from the lowest pitch available to us. Special thanks to Fernando Meza and Mike Duffy of the University of Minnesota for making this possible!"
+  ],
+  [
+   "item-33",
+   "Tunnel Bodhran",
+   "Decent Sampler library: Tunnel Bodhran."
+  ],
+  [
+   "item-342",
+   "Uke Swarm",
+   "# Uke Swarm Version: 1.0 ## Included formats - Decent Sampler ## Release notes - Nothing yet! ### New - Nothing yet! ### Bugfixes - Nothing yet! ## Using the instrument The \"swarm\" part is essential :) ## The Story I found this plastic ukulele in a thrift shop. It belonged to a kid that never bothered to learn how to play it."
+  ],
+  [
+   "item-343",
+   "Ukulele of Doom",
+   "#Ukulele of Doom - Version: 1.0 ## Included formats - Decent Sampler ## Using the instrument If you play staccatos it is nice and clean... if you hold the notes it brings chaos! You can change Attak and Release parameters, add Chorus with adjustable Rate and Reverb effects. If you use external MIDI device with mod wheel, it will automaticly control the Tone knob. ## The Story This is my first library I have ever made."
+  ],
+  [
+   "item-344",
+   "Unknown Home Piano SE",
+   "UnknownHomePiano- Version: 1.0 ## Included formats - Decent Sampler ## Release notes This library was made exclusively with the high-end microphone from my samsung, and the original samples were recorded on a non-treated room, with the microphone laying on top of the piano. Not professional at all, but I figured someone would enjoy it."
+  ],
+  [
+   "item-345",
+   "V-0002 Glitched Washed Pad",
+   "This VST is a small part of a much larger project involving visual feedback generative installation systems as a part of a much larger experimental installation piece. This piece involves generative analog music gear feeding into CRTVs with Camera s and animations being altered by the sounds created. How do I use it? First, you'll need the FREE Decent Sampler plugin here (Windows, Mac, and Linux!): If you want to keep your libraries in a specific location, make sure the '.dspreset' file is in that directory BEFORE importing! Do I have to credit you?"
+  ],
+  [
+   "item-346",
+   "V-0003 Glitched Washed Pad",
+   "This VST is a small part of a much larger project involving visual feedback generative installation systems as a part of a much larger experimental installation piece. This piece involves generative analog music gear feeding into CRTVs with Camera s and animations being altered by the sounds created. How do I use it? First, you'll need the FREE Decent Sampler plugin here (Windows, Mac, and Linux!): If you want to keep your libraries in a specific location, make sure the '.dspreset' file is in that directory BEFORE importing! Do I have to credit you?"
+  ],
+  [
+   "item-347",
+   "V-0004 Glitched Washed Pad",
+   "This VST is a small part of a much larger project involving visual feedback generative installation systems as a part of a much larger experimental installation piece. This piece involves generative analog music gear feeding into CRTVs with Camera s and animations being altered by the sounds created. How do I use it? First, you'll need the FREE Decent Sampler plugin here (Windows, Mac, and Linux!): If you want to keep your libraries in a specific location, make sure the '.dspreset' file is in that directory BEFORE importing! Do I have to credit you?"
+  ],
+  [
+   "item-348",
+   "Vinyl Player",
+   "# The Vinyl player - Version: [1.0] Name: Vasiliy Neretin ## Included formats - Decent Sampler ## Using the instrument As simple as it can be - push and play!"
+  ],
+  [
+   "item-349",
+   "Violin Experiments 2",
+   "# Violin Experiments - Version [1.2] ## Included Formats - Decent Sampler ## Release Notes - Adjusted built in DecentSampler reverb, now it sounds drier but with a presence. ### New - Nothing new yet. ### Bugfixes - Adjusted sample start on \"experimental pizz\". ## Using the Instrument Make use of the \"Experimental\" knob, each preset has a different experimental sound :) Adjust reverb to your taste Be wary of using too nmuch \"Close for comfort\" reverb, it can get a bit... ## The Story So, sometime during spring after seeing Aleatory kick off..."
+  ],
+  [
+   "item-350",
+   "Voodoo Drum's of Jakmel",
+   "While In Haiti Starting a Digital music program at Jakmel Ekspresyon I got a Voodoo drum made for me to have a musical instrument for the students to practice recording with. This instrument was made specifically for me by Michelet Desir and painted by the Artist Makatu. Makatu Claims the instrument was painted with the blood of Haiti and painted my artist name 'Necatuss' on it. I also had Michelet and Makatu Sign it, as well as Carlo, the man who introduced me to them. This drum is heavy and rather large, with a thick goat skin top for the drum head."
+  ],
+  [
+   "item-351",
+   "VSS Volca Flute Lo Fi Samples",
+   "Menlo-Regular; Helvetica; eftab720 tightenfactor0 VSS Volca + Flute LoFi - Version: 1.0 Name: Levi Q Bridge ## Included formats - Decent Sampler - EXS24 files are still there, too ## Notes - LoFi Lead, Ana-LoFi-Log Percussion, Dance Supersaw, Kittens from Space, Saw Harp, and. eftab720 irnatural tightenfactor0 - LoFi Navajo Flute and LoFi Navajo House Stabs were made by playing the flute into the on-keyboard microphone (the latter of which utilizes the \"overwrite\" function to stack recordings onto each other. May have to experiment with that more in a future sample instrument...). - Yours Truly Choral Fifths was my own voice recorded via the built-in microphone. - Lastly, True Galactic Harp was a modified sound which came straight from the keyboard itself."
+  ],
+  [
+   "item-30",
+   "Warty Dulcitone",
+   "Decent Sampler library: Warty Dulcitone."
+  ],
+  [
+   "item-352",
+   "Waterfall",
+   "# Waterfall - Version: [1.0] Name: Marco Iannello ## Included formats - Decent Sampler - Kontakt 5.8.1+ ## Using the instrument The \"Waterfall\" patch for Kontakt features a \"Sample Start\" slider that permits one to select a different starting point for the sample to start. The \"Nasty Waterfall\" patch sounds best in the C2 to C4 register. However, playing below C2 results in a rich drone that can be made sound even better if the attack value is increased and delay/reverb are activated."
+  ],
+  [
+   "item-353",
+   "Wet Spanish Thumb",
+   "# Version: 1.0 ## Included formats DecentSampler ## Release notes V1 Initial Version 2026.08.07 v.1.0 ## News Initial version ## The Story A Spanish guitar made by Vendoma (handcrafted in Argentina) that holds a very, very special place in my heart, as it was the instrument I. The first \"good instrument\" I was able to buy with my very first job, over 15 years ago. During the COVID-19 pandemic, I was teaching one-on-one guitar lessons in my backyard to comply with local lockdown and social distancing regulations. One afternoon, right after finishing my last class, my girlfriend and I went to the supermarket to pick up some food. It was a beautiful, warm summer-like afternoon\u2014technically spring."
+  ],
+  [
+   "item-354",
+   "Wiedergesichts Wurli",
+   "# Wiedergesichts Wurli Version: [1.0] ## Included formats - Decent Sampler ## Release notes ### New / Initial Release - Initial Samples - three velocity layers - added reverb control - custom background image ### Bugfixes - ## Using the instrument I highly recomment people. ## The Story A modern Wurli electric piano sound. No parameters to choose from. Just the very basics. I've come to love this little epiano, but I've noticed that I've only used one setting (aside from effects): The Wurli patch."
+  ],
+  [
+   "item-355",
+   "Wild Percussion",
+   "# Wild Percussion - Version: [1.0] Name: Vasily Neretin ## Included formats - Decent Sampler ## Using the instrument Some sounds need to have a bit of compression for I tried to make them as little EQd as possible, so pay attention to any ugly frequences ;)."
+  ],
+  [
+   "item-356",
+   "Wind Chimes",
+   "# Wind Chimes Sample Pack - Version: [1.0] Name: David May ## Included formats - Decent Sampler ## Release notes This is just from some wind chimes my wife bought that hang in our garden. The keyboard colours are hopefully close enough so that you can see which chimes you're playing. This assumes, of course, that you have the Decent Sampler program open at the time. Hope you find it useful."
+  ],
+  [
+   "item-5",
+   "Winter Piano NR",
+   "Decent Sampler library: Winter Piano NR."
+  ],
+  [
+   "item-357",
+   "Women 4 syllables Choir",
+   "#Femal Choir ah eh mh ho - Version: [1.1] Name: IOND ## Included formats - Decent Sampler ## Release notes first realese ### New - play random syllabes - Attack deacy, volume ### Bugfixes - assign all sample to the good note (-1 semi shifting) - extend lower and higher."
+  ],
+  [
+   "item-358",
+   "Wooden Church of St. Nepomucen Free Edition",
+   "# Wooden Church of St. Nepomucen Free Edition - Version: [1.0] Name: Pawe\u0142 Lewicki ## Included formats - Decent Sampler - EXS ## Release notes Hey, thanks for downloading Wooden Church of St. Nepomucen Free Edition! I'm thrilled to kick off this exciting new project! My idea is to explore fascinating locations around the world and transform them into VST instruments."
+  ],
+  [
+   "item-359",
+   "Wooden Flute1",
+   "Decent Sampler library: Wooden Flute1."
+  ],
+  [
+   "item-360",
+   "World's Biggest Braaam",
+   "# World's Biggest Braaam - Version: [1.00] Name: Pianobook ## Included formats - Kontakt 6.7.0 - Decent Sampler 1.7.4 * * * Version: [1.00] * * * ### New - NA ### Bugfixes - NA ## Using the instrument (Kontakt) Rocket button toggles between main and Advanced pages Use the. Moon knob shifts between presets selected using the drop-down menus beneath the moon knob. The moon functions similarly to a macro knob allowing the user to adjust many parameters with the turn of a single control. The parameters linked to the moon knob include A, D, S, R, Vol, and six hidden controls unique to each build. ## Using the instrument (Decent Sampler) Users are giving the ability to adjust parameters of the volume envelope, distortion, reverb, and tremolo amount."
+  ],
+  [
+   "item-361",
+   "YE C55",
+   "Decent Sampler library: YE C55."
+  ],
+  [
+   "item-362",
+   "Yellow Bass Keyboard",
+   "Decent Sampler library: Yellow Bass Keyboard. Tags: bass."
+  ],
+  [
+   "item-363",
+   "Yogurt",
+   "# [Yogurt] Version: [1.1] ## Included formats - Decent Sampler ## The Story One day, I was eating a yogurt. I hit the bottom of the plastic pot with my spoon, and it made a lovely, percussive sound. I decided to record it and then I tried to give it more shape by layering a sine wave and a square wave, with some ADSR and LFO shenanigans. Many hours later, the original sound has been sent through several reverb and modulation pedals to give birth to six different flavors, going from the cleanest to the weirdest. I hope you have as much fun playing with Yogurt as I had making it !"
+  ],
+  [
+   "item-247",
+   "\u00d6ld Jokul - Glaciar Pad",
+   "Decent Sampler library: \u00d6ld Jokul - Glaciar Pad. Tags: pad."
+  ],
+  [
+   "item-364",
+   "Autumn Piano Bundle",
+   "Decent Sampler library: Autumn Piano Bundle."
+  ],
+  [
+   "item-365",
+   "Festive Celeste",
+   "# Festive Celeste Version: 1.0 ## Included formats - Kontakt 7 ## Release notes -Detailed sampling of a 5.5 octave Schiedmayer celeste and set of Adams orchestral chimes -four velocity layers for the celeste close mics, 3 velocity layers for the other arrays -four round. ### New EVERYTHING! ### Bugfixes NA ## Using the instrument The instrument settings are organized in three panels. The top panel (keyboard icon) are your main mic, dynamic scaling, tone shaping and crossfade knobs for both instruments. The settings (cog icon) offer per-mic-array adjustments for dynamics, attack, release, reverb send, width and panning."
+  ],
+  [
+   "item-366",
+   "Impactos Hybrid Percussion",
+   "Instrument Name: IMPACTOS - Version: 1.0 Format: Decent Sampler Audio Resolution: 96 kHz / 48 kHz Total Samples: 1800 samples Developed by: Samuel Eduardo Flores Mora Release Date: June 2025 - Decent Sampler This hybrid percussion library is the result of a graduation project. It combines orchestral percussion elements with processed industrial sounds, creating a distinctive hybrid palette. The library is primarily designed for action cues, such as trailers, combat sequences, and high-intensity moments in film, TV, and video games. However, its wide range of timbres and textures allows for creative use in other genres as well. Percussionists: Juan Rafael Moreno Echeverry, Juan David Agudelo, Ricardo Mor\u00e1n Mar\u00edn (@by.r4m), Santiago G\u00f3mez R\u00edos, Juan David Posada Jaramillo, Juan Pablo Mesa Garc\u00eda."
+  ]
+ ],
+ "kt": [
+  [
+   "item-1",
+   "5 Elements",
+   "Native Instruments library: 5Elements."
+  ],
+  [
+   "item-2",
+   "Amati Viola",
+   "Native Instruments library: Amati Viola. Tags: viola, amati."
+  ],
+  [
+   "item-3",
+   "Balinese Gamelan",
+   "Native Instruments library: Balinese Gamelan. Tags: gamelan."
+  ],
+  [
+   "item-4",
+   "Bowls",
+   "Native Instruments library: Bowls."
+  ],
+  [
+   "item-5",
+   "Butch Vig Drums",
+   "Native Instruments library: Butch Vig Drums. Tags: drums."
+  ],
+  [
+   "item-6",
+   "Cloud Supply",
+   "Native Instruments library: Cloud Supply."
+  ],
+  [
+   "item-15",
+   "Drumforge Ultimate",
+   "Native Instruments library: Kontakt."
+  ],
+  [
+   "item-7",
+   "East Asia",
+   "Native Instruments library: East Asia."
+  ],
+  [
+   "item-8",
+   "Ethereal Earth",
+   "Native Instruments library: Ethereal Earth. Tags: ethereal."
+  ],
+  [
+   "item-9",
+   "Exhale",
+   "Native Instruments library: EXHALE."
+  ],
+  [
+   "item-10",
+   "Grove Bass",
+   "Native Instruments library: GroveBass."
+  ],
+  [
+   "item-11",
+   "Guarneri Violin",
+   "Native Instruments library: Guarneri Violin. Tags: violin, guarneri."
+  ],
+  [
+   "item-12",
+   "Hybrid Keys",
+   "Native Instruments library: Hybrid Keys. Tags: keys, hybrid."
+  ],
+  [
+   "item-13",
+   "Iconic Violin",
+   "Native Instruments library: Iconic Violin. Tags: violin."
+  ],
+  [
+   "item-14",
+   "India",
+   "Native Instruments library: India."
+  ],
+  [
+   "item-16",
+   "Mass",
+   "Native Instruments library: Mass."
+  ],
+  [
+   "item-17",
+   "Melodies",
+   "Native Instruments library: MELODIES."
+  ],
+  [
+   "item-18",
+   "Middle East",
+   "Native Instruments library: Middle East."
+  ],
+  [
+   "item-19",
+   "Pharlight",
+   "Native Instruments library: Pharlight."
+  ],
+  [
+   "item-20",
+   "Piano Colors",
+   "Native Instruments library: Piano Colors. Tags: piano."
+  ],
+  [
+   "item-21",
+   "Play Series Selection",
+   "Native Instruments library: Play Series Selection."
+  ],
+  [
+   "item-22",
+   "Session Guitarist - Electric Vintage",
+   "Native Instruments library: Session Guitarist - Electric Vintage. Tags: guitarist, vintage."
+  ],
+  [
+   "item-23",
+   "Session Guitarist - Picked Acoustic",
+   "Native Instruments library: Session Guitarist - Picked Acoustic. Tags: guitarist."
+  ],
+  [
+   "item-24",
+   "Soul Sessions",
+   "Native Instruments library: Soul Sessions. Tags: soul."
+  ],
+  [
+   "item-25",
+   "Stradivari Cello",
+   "Native Instruments library: Stradivari Cello. Tags: cello, stradivari."
+  ],
+  [
+   "item-26",
+   "Stradivari Violin",
+   "Native Instruments library: Stradivari Violin. Tags: violin, stradivari."
+  ],
+  [
+   "item-27",
+   "Straylight",
+   "Native Instruments library: Straylight."
+  ],
+  [
+   "item-28",
+   "Tablas",
+   "Native Instruments library: Tablas. Tags: tablas."
+  ],
+  [
+   "item-29",
+   "Ultimate Pro Oriental Strings",
+   "Native Instruments library: Ultimate Pro Oriental Strings. Tags: strings."
+  ],
+  [
+   "item-30",
+   "West Africa",
+   "Introduction Thank you very much for choosing WEST AFRICA! In this document you will find information regarding last-minute additions, compatibility issues and possible problem causes. Pro Tools users are advised to edit their WEST AFRICA grooves in the standalone version of KONTAK or KONTAKT Player."
+  ],
+  [
+   "item-31",
+   "Analog Strings",
+   "Native Instruments library: ANALOG STRINGS. Tags: strings, analog."
+  ],
+  [
+   "item-32",
+   "GetGood Drums - Modern and Massive Pack",
+   "Native Instruments library: GetGood Drums - Modern and Massive Pack. Tags: drums."
+  ],
+  [
+   "item-33",
+   "Mysteria",
+   "Native Instruments library: Mysteria."
+  ],
+  [
+   "item-34",
+   "Palette",
+   "Native Instruments library: Palette."
+  ],
+  [
+   "item-35",
+   "The Orchestra Complete",
+   "Native Instruments library: The Orchestra Complete. Tags: orchestra."
+  ],
+  [
+   "item-36",
+   "World Percussion",
+   "Native Instruments library: World Percussion 2.0. Tags: percussion, world."
+  ],
+  [
+   "item-37",
+   "Cinebrass",
+   "Native Instruments library: Cinebrass."
+  ],
+  [
+   "item-38",
+   "Damage",
+   "Native Instruments library: Damage."
+  ],
+  [
+   "item-39",
+   "Elite Orchestral Percussion",
+   "Native Instruments library: Elite Orchestral Percussion. Tags: percussion, orchestral."
+  ],
+  [
+   "item-40",
+   "Evolve Mutations 2",
+   "Native Instruments library: Evolve Mutations 2."
+  ],
+  [
+   "item-41",
+   "LA Scoring Strings",
+   "Native Instruments library: LA Scoring Strings. Tags: strings."
+  ],
+  [
+   "item-42",
+   "Orchestral Brass Classic",
+   "Native Instruments library: Orchestral Brass Classic. Tags: brass, orchestral."
+  ],
+  [
+   "item-43",
+   "Orchestral String Runs",
+   "Native Instruments library: Orchestral String Runs. Tags: orchestral, string."
+  ],
+  [
+   "item-44",
+   "Symphobia",
+   "Native Instruments library: Symphobia."
+  ],
+  [
+   "item-45",
+   "Symphobia 2",
+   "Native Instruments library: Symphobia 2."
+  ],
+  [
+   "item-46",
+   "Voxos",
+   "Native Instruments library: Voxos."
+  ]
+ ]
+}

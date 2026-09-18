@@ -41,3 +41,16 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# editor
+.cursor/
+
+# kiro patch-script scratch/QA output (not source)
+__pycache__/
+kiro/_patch/verify_*.json
+kiro/_patch/probe_*.json
+kiro/_patch/analyze_*.json
+kiro/_patch/dump_*.json
+kiro/_patch/*.png
+kiro/_patch/ui-pos-shots/
+kiro/_*.json

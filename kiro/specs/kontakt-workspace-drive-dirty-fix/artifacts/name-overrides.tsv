@@ -1,0 +1,210 @@
+# raw folder/library name<TAB>clean display name
+# Maintained by tools/apply_name_cleanup.py / tools/update_catalog.py.
+# Consumed by build-ds-catalog-html.sh and build-kontakt-catalog-html.sh
+# via name_override() so a rebuild keeps these clean names instead of
+1065349_NativeFluteOriginal_ChristianHenson_DecentSampler	Native Flute Original
+1217_v4_WinterPianoNR_ChristianHenson_DecentSampler	Winter Piano NR
+1417838_ClaustrophobicPianoV2_ChristianHenson	Claustrophobic Piano V2
+1445258_12OscillatorDoomDrone_ChristianHenson_DS	12 Oscillator Doom Drone
+1445643_TheCoolPiano_ChristianHenson	The Cool Piano
+1450796_MGSteelStringHarmonics_MikeGeorgiades_DS	MG Steel String Harmonics Mike Georgiades
+1452835_NFOAlternativeChamberStringsLongs_MarcoIannello	NFO Alternative Chamber Strings Longs Marco Iannello
+1453143_TheGaffer_ChristianHenson	The Gaffer
+1984 Elec. Bass Vantage X-99B 1.0 Lite	1984 Elec. Bass Vantage X-99B Lite
+205404_PalmMutedSchimmel_ChristianHenson_DecentSampler	Palm Muted Schimmel
+3485_PitchedElectricCeleste_christian-henson_20220303-060600	Pitched Electric Celeste Christian Henson
+381243_TheSummerPiano_ChristianHenson_DecentSampler	The Summer Piano
+381249_SummerFelt_ChristianHenson_DecentSampler	Summer Felt
+381264_TheHebrideanKnight_ChristianHenson_DecentSampler	The Hebridean Knight
+3832_Steinway_JonMeyer_DecentSampler	Steinway Jon Meyer
+3881_FrozenGlock_dan-keen_DS	Frozen Glock Dan Keen
+3dPrintedOcarina_0.0.0	3d Printed Ocarina
+40 voices	40 Voices
+4390_ElectricSparkles_ChristianHenson_20211220-182300	Electric Sparkles
+4833_ShiveringWaves_fred-poirier_20220127-021013	Shivering Waves Fred Poirier
+486995_FlannelPiano_ChristianHenson_DecentSampler	Flannel Piano
+4877_WartyDulcitone_christianhenson_20220131-150308	Warty Dulcitone
+5544_PoshCR78_christianhenson_20220322-090000	Posh CR 78
+564663_AutumnPianoBundle_ChristianHenson	Autumn Piano Bundle
+5Elements	5 Elements
+60 Clock Ticks (DS)	60 Clock Ticks
+626458_TunnelBodhran_ChristianHenson_DecentSampler	Tunnel Bodhran
+657490_FamilyGrandV3_ChristianHenson	Family Grand V3
+67047_SystemsGrand_ChristianHenson_DecentSampler	Systems Grand
+850_v6_SpringPiano_ChristianHenson_DecentSampler	Spring Piano
+851_v2_AirPianoClean_ChristianHenson_DecentSampler	Air Piano Clean
+855_v2_The9000ftPiano_ChristianHenson_DecentSampler	The 9000ft Piano
+856_TrackedPiano_ChristianHenson_DecentSampler	Tracked Piano
+857_v2_MaxsBentley_ChristianHenson_DecentSampler	Maxs Bentley
+858_CHTapeDelayExperiment_ChristianHenson_DecentSampler	CH Tape Delay Experiment
+872_v6_IceChoir_ChristianHenson_DecentSampler	Ice Choir
+ANALOG STRINGS	Analog Strings
+Accordion-LaMelodiosa	Accordion La Melodiosa
+Acoustic Cassette Drums (DS)	Acoustic Cassette Drums
+Aeon Guitar (DS)	Aeon Guitar
+AfriXilo	Afri Xilo
+Afterglow Demo (DS)	Afterglow Demo
+Albi's Sound Toolbox (DS)	Albi's Sound Toolbox
+Aleatory V1_3	Aleatory 3
+Alto-Recorder	Alto Recorder
+Amazonia 1.1	Amazonia
+Antique Harmonium (DS)	Antique Harmonium
+Antz Decent Sampler 1.0 2	Antz Decent Sampler 2
+Archive Found Strings 001 DS	Archive Found Strings 001
+Bandola_Andina_Colombiana	Bandola Andina Colombiana
+BassForge_Demo	Bass Forge Demo
+Bass_Dean_5	Bass Dean
+Beyond the Strings (DS)	Beyond the Strings
+Bilhorn Reed V2	Bilhorn Reed
+Blown Feedback (DS)	Blown Feedback
+Bombo_de_Guancho_(Decent_Sampler)	Bombo De Guancho
+Bosque(v1.0)	Bosque
+Bottle-O-Phone_Decent_Sampler-1.0	Bottle O Phone
+Broken Cassette Piano (v1.1.1)	Broken Cassette Piano
+Bruno_Drums_(Decent_Sampler)	Bruno Drums
+BurdigalaAudio-Takoda-Lite	Burdigala Audio Takoda Lite
+CH Foogered Piano DS	CH Foogered Piano
+CH Grumpy Strings DS	CH Grumpy Strings
+CH Hand Dryer Bass DS	CH Hand Dryer Bass
+CH Octodrums DS	CH Octodrums
+ChingKluay DS v1.0.0	ChingKluay
+Choir of the Fallen (DS)	Choir of the Fallen
+Clave Frog (& Friends)	Clave Frog & Friends
+Contact Mic Piano v2	Contact Mic Piano
+Crafter 6 steel strings (DC)	Crafter 6 steel strings DC
+Cymbalum_Decent_Sampler-1.0	Cymbalum
+DBass	D Bass
+DFAM Hard Sync Bass	Dfam Hard Sync Bass
+DFAM Moving Back Alarm Lead	Dfam Moving Back Alarm Lead
+DacrMicrosynth	Dacr Microsynth
+DacrShaker	Dacr Shaker
+Dark Drums (DS)	Dark Drums
+DecenTron 1.0.0	DecenTron
+Decent_Oboe	Oboe
+Delta_v1	Delta
+Destinys Agent - Zitherone [DS]	Destinys Agent - Zitherone
+Drone_Organ_v2_(Decent_Sampler)	Drone Organ
+E Bass Studio Stomps DS	E Bass Studio Stomps
+EXHALE	Exhale
+EjIm Piano v0.2.1	EjIm Piano
+Electric Mandolin (DS)	Electric Mandolin
+Electro Acoustic Piano (DS)	Electro Acoustic Piano
+FM-Little-Module	FM Little Module
+Fallout_Organ	Fallout Organ
+Felt & Fog [Free]	Felt & Fog Free
+FluteOrgan(1.1)	Flute Organ
+Forest (DS)	Forest
+Fullbore Synth (DS)	Fullbore Synth
+G3Grand(DS)	G3 Grand
+GEM-Jumbo61	GEM Jumbo 61
+Gaita_Do	Gaita Do
+Gankogui_Decent_Sampler-1.0	Gankogui
+Garland Music Box Marimba (DS)	Garland Music Box Marimba
+Garv_Babblings_Sampler	Garv Babblings
+GjallarHorn	Gjallar Horn
+Grandpas Piano (DS)	Grandpas Piano
+Gretsch Catalina Ash - Decent Sampler	Gretsch Catalina Ash
+GroveBass	Grove Bass
+Guitar Precussion 1.1	Guitar Precussion
+Helsinkii1967 DecentSampler v.1.411	Helsinkii1967
+HomePercussions	Home Percussions
+IMPACTOS HYBRID PERCUSSION	Impactos Hybrid Percussion
+IrishTinWhistle	Irish Tin Whistle
+Italian Typewriter (DS)1.0	Italian Typewriter
+Jon's Cajons v1.0	Jon's Cajons
+Jouhikko-TheFinnishBowedLyre	Jouhikko The Finnish Bowed Lyre
+Junost 21 _ Soviet Virtual Synth FREE (DS_EXS)	Junost 21 Soviet Virtual Synth Free
+Kalimba (G Pygmy)	Kalimba G Pygmy
+Kalimba_by_Lasiurus	Kalimba By Lasiurus
+Kantele-TheFinnishZither	Kantele The Finnish Zither
+Kosmosky Tongue Drum(v1.0)	Kosmosky Tongue Drum
+Legacy Knight Piano v1.0	Legacy Knight Piano
+MELODIES	Melodies
+MORE Violin Experiments v1.1	More Violin Experiments
+Maracas_by_Estudios Ivcame	Maracas by Estudios Ivcame
+MicroGuitar	Micro Guitar
+Milk Factory - jd cheetham	Milk Factory - Jd Cheetham
+Mini Drum Lone Singer (DS)	Mini Drum Lone Singer
+Mini Drum Magic Ladder (DS)	Mini Drum Magic Ladder
+Mini Kalimba v1.1	Mini Kalimba
+Mixing Bowl DS	Mixing Bowl
+Modern Acoustic Guitar V2	Modern Acoustic Guitar
+MorphoLute_by_Magisk	Morpho Lute By Magisk
+Murky Roads (DS)	Murky Roads
+MyDuduk	My Duduk
+NT Angelic Dramatic v2	NT Angelic Dramatic
+NT Subharmonic Memory Unit v1	NT Subharmonic Memory Unit
+Nicks-LP-Studio	Nicks LP Studio
+OOTG Piano DS	Ootg Piano
+Organ of the Damned (DS)	Organ of the Damned
+Orgel Unterhaus 2.1	Orgel Unterhaus
+PAMAHA	Pamaha
+PD_Big_Brother	PD Big Brother
+Paweł Lewicki - Birdy Kalimba (DS)	Paweł Lewicki - Birdy Kalimba
+PencilGuitar-V2	Pencil Guitar
+Phobos - Canvas [ESSENTIAL EDITION] (0.8.9)	Phobos - Canvas Essential Edition
+Piano Percussions_v1.0	Piano Percussions
+Polaroid CL635 (DS)	Polaroid CL635
+RGBwaves	RGB Waves
+RJS Classic Electric v1_1	RJS Classic Electric 1
+RJS LoFi Nylon v1_1	RJS LoFi Nylon 1
+RJS Vocal Pads v1_1	RJS Vocal Pads 1
+Rain Choir V1.1	Rain Choir
+Rain Choir V1.1 (1)	Rain Choir (1)
+Reluctant Autoharp (DS)	Reluctant Autoharp
+Roaring Saxophone (DS)	Roaring Saxophone
+Rosedale_Cortina_Virtuoso	Rosedale Cortina Virtuoso
+Schlagwerk_U78_Side_Skin_Udu	Schlagwerk U78 Side Skin Udu
+Seaside Transistor Organ (DS)	Seaside Transistor Organ
+Sewers 1.0.2	Sewers
+Shoal Audio - Tongue Drum (1.1)	Shoal Audio - Tongue Drum
+Snaps n Claps[DS]	Snaps n Claps
+Solitary Choir (DS)	Solitary Choir
+Sonus Lucis - Cymbalon [DS]	Sonus Lucis - Cymbalon
+Stratmosphere v1.1	Stratmosphere
+Studio Doctor_Sweet_pads	Studio Doctor Sweet pads
+Tea from HELL (DS)	Tea from Hell
+The Pad - kulek records	The Pad - Kulek Records
+The-Claustrophobic-Toy-Piano	The Claustrophobic Toy Piano
+The-Viking-Log-Lyre	The Viking Log Lyre
+TheDiArchtop	The Di Archtop
+ThorsBrother	Thors Brother
+Thunder (DS)	Thunder
+Tongue_Bottle_Glass	Tongue Bottle Glass
+Toy Accordion (DS)	Toy Accordion
+Toy Xylophone (DS)	Toy Xylophone
+Tribal Percussion (DS)	Tribal Percussion
+TripleBox	Triple Box
+Tubular-bells_Decent_Sampler	Tubular Bells
+Tuned_Gongs	Tuned Gongs
+Ukulele of Doom (DS)	Ukulele of Doom
+UnknownHomePianoSE	Unknown Home Piano SE
+VSSVolcaFluteLoFiSamples	VSS Volca Flute Lo Fi Samples
+Vinyl Player (DS)	Vinyl Player
+Violin Experiments v1_2	Violin Experiments 2
+Wild Percussion (DS)	Wild Percussion
+Wooden Church of St. Nepomucen Free Edition (DS_EXS)	Wooden Church of St. Nepomucen Free Edition
+World Percussion 2.0	World Percussion
+World's Biggest Braaam (DS)	World's Biggest Braaam
+YE_C55	YE C55
+Yogurt(DS)	Yogurt
+ZauberwindsSoloFloete_v1	Zauberwinds Solo Floete
+ampco-v1-dspreset	Ampco
+arnBottles	Arn Bottles
+arnLofiChorus	Arn Lofi Chorus
+cp10-piano	cp10 Piano
+curly - electric piano	Curly - Electric Piano
+dspreset-Clockworks-V1	Clockworks
+elements	Elements
+grandmas-beachhouse-piano	Grandmas Beachhouse Piano
+healingBOWL	Healing Bowl
+lapsteel-articulations	Lapsteel Articulations
+luapselREVGUITAR	Luapsel Revguitar
+my_cheap_bass	My Cheap Bass
+odyssea v3	Odyssea
+pop	Pop
+prehispanic flute v3	Prehispanic Flute
+purplehero	Purplehero
+syntheticstrings	Syntheticstrings
+the_stranger-ethereal_fountain-v1	The Stranger Ethereal Fountain
+wiedergesichts-wurli	Wiedergesichts Wurli

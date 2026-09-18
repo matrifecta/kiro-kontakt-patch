@@ -22789,6 +22789,8 @@ function openCardSearchEmbed(type,popupUrl){
   if(typeof cardSearchBindFrameNav==='function')cardSearchBindFrameNav(document.getElementById('cardSearchFrame'));
   cardSearchEnableBack();
   if(wrap.host.parentNode!==card)card.appendChild(wrap.host);
+  /* fix-MEDIA-OWNER-v1: the single embed host now belongs to this card; a pin that parked it loses its media */
+  if(window.cardMinMediaOwnerId&&window.cardMinMediaOwnerId!==card.id){window.cardMinMediaOwnerId='';if(typeof cardMinRender==='function')cardMinRender();}
   wrap.host.hidden=false;
   document.body.classList.add('card-embed-open');
   if(typeof window.parkSearchBehindOverlay==='function')window.parkSearchBehindOverlay();
@@ -28352,7 +28354,8 @@ function cardMinMediaPlaying(){
   var src=f.getAttribute('src')||'';
   if(!src||src==='about:blank')return false;
   if(f.classList.contains('is-hidden'))return false;
-  return !!(document.body.classList.contains('card-embed-open')||(window.cardSearchState&&(cardSearchState.ytId||cardSearchState.embedUrl||src)));
+  /* fix-MEDIA-OWNER-v1: only a loaded video counts as playing media; a results list / web page in the frame is not parked */
+  return !!(window.cardSearchState&&(cardSearchState.ytId||(cardSearchState.embedUrl&&/\/embed\//.test(String(cardSearchState.embedUrl)))));
 }
 function cardMinMediaBelongs(entry){
   if(!entry||!entry.id)return false;

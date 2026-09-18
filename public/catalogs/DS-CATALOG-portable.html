@@ -1053,7 +1053,11 @@ body:not(.ac-fs-open) .search-ac-shell.toolbar-scroll-collapsed>.search-strip{
   body.display-sides #catalogMain .catalog-body,body.display-sides #catalogMain .entry,body.display-sides #catalogMain .path,body.display-sides #catalogMain .path code{min-width:0;max-width:100%;overflow-wrap:anywhere;word-break:break-word}
   body.display-sides #catalogMain .path .folder{white-space:normal;overflow-wrap:anywhere}
   body.display-sides #catalogMain .catalog-body{padding-left:1rem;padding-right:1rem}
-  body.display-sides > p,body.display-sides #searchHeight,body.display-sides .search-height{display:none!important}
+  body.display-sides > p{display:none!important}
+  /* fix-SEARCH-DRAG-v1: mirror #kwShadeHeight -- the Search pane gets the same
+     draggable height line as Keywords while Customize (layout-edit) is on */
+  body.display-sides:not(.layout-edit) #searchHeight,body.display-sides:not(.layout-edit) .search-height{display:none!important}
+  body.display-sides.layout-edit #searchHeight,body.display-sides.layout-edit .search-height{display:block!important;position:absolute;left:0;right:0;bottom:0;z-index:6}
   body.display-sides:not(.layout-edit) #kwShadeHeight{display:none!important}
   body.display-sides.layout-edit #kwShadeHeight{display:block!important;position:absolute;left:0;right:0;bottom:0;z-index:6}
   body.display-sides #filterWrap{height:100%!important;max-height:none!important;align-self:stretch}
@@ -4209,7 +4213,7 @@ body.catalog-portable #catalogMain .catalog-body>#catalogIndex.is-embedded{
 #catalogMain>.catalog-body>#catalogIndex.is-embedded.is-collapsed,
 body.display-sides #catalogMain .catalog-body>#catalogIndex.is-embedded.is-collapsed,
 body.display-middle #catalogMain .catalog-body>#catalogIndex.is-embedded.is-collapsed,
-body.catalog-portable #catalogMain .catalog-body>#catalogIndex.is-embedded.is-collapsed{border-top-color:transparent!important}
+body.catalog-portable #catalogMain .catalog-body>#catalogIndex.is-embedded.is-collapsed{border-color:transparent!important}
 #catalogMain>.catalog-body>#catalogIndex.is-embedded:not(.is-collapsed),
 #catalogMain>.catalog-body>#catalogIndex.is-embedded:not(.is-collapsed) .index,
 #catalogMain>.catalog-body>#catalogIndex.is-embedded:not(.is-collapsed) #catalogIndexList{

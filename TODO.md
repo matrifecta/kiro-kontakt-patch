@@ -16,9 +16,13 @@ Applies to all four catalogs in `public/catalogs/` (DS / Kontakt, desktop + port
    instead of a pill-level flex sibling, so playback can no longer add/remove
    a flex item from the pill. Needs a manual live check with a real YouTube
    video to confirm the spinner is fully clipped in-browser.
-3c. **Pinned card not displaying when hidden by filter** — restore from the dock
+3c. ~~**Pinned card not displaying when hidden by filter** — restore from the dock
    sometimes shows nothing when the content window does not contain the card.
-   Not reproduced headless yet; needs exact steps.
+   Not reproduced headless yet; needs exact steps.~~ done (`869fdc9`) —
+   `cardMinRestore` now directly clears `.is-hidden`/inline `display:none` on
+   the card and `.is-hidden`/`hidden` on its `.loc-group` before reopening,
+   instead of depending on the `:has()` CSS override to reassert visibility.
+   Needs a manual check restoring a pin while the active filter excludes it.
 
 ## Embedded content (YouTube) inside the expanded card
 

@@ -17003,7 +17003,7 @@ body.catalog-portable #hdrToolsMorePop{display:none!important}
           <li><b>Path</b> — three icons under the cover (FS | copy | folder), not an expandable path field. FS opens the reader for the full location.</li>
           <li><b>Description</b> — blurb on the card; tap / wheel to open the description reader instead of stretching the grid.</li>
           <li><b>Patch search / Patches</b> — Patch category in Keywords, plus nested patch tree on the card (DS: grouped by subfolder). Kontakt stays library-level; Patch pills still match preset-name tokens when present. Collapse evens card heights.</li>
-          <li><b>Card Search</b> — in-card Google / YouTube / image search when a card is expanded (embed vs popup depends on portable).</li>
+          <li><b>Card Search</b> — in-card Google / YouTube / image search when a card is expanded (embed vs popup depends on portable). A YouTube result adds a <b>comments pane</b> beside (wide) or under (split) the video; a thin seam tab toggles it away and back. Collapsing the pane while the layout has room lets the video stage expand into the freed space; the tab still works the same in fullscreen.</li>
         </ul>
       </details>
       <details open>
@@ -17013,7 +17013,7 @@ body.catalog-portable #hdrToolsMorePop{display:none!important}
           <li><b>Covers</b> — banner art. Tap for gallery / image focus. Desktop hover can enlarge the cover without leaving the grid.</li>
           <li><b>Index (alphabetical)</b> — name list. Closed until the Index arrow. Window fills down to About until Collapse and does not overlay an expanded/front card. Embed scrolls with cards. Click a name to jump.</li>
           <li><b>About / Document</b> — generation stamp and rebuild note at the foot. Window docks it under Index; Embed scrolls it with the cards. Legend / Guide keys sit above it, not on top of it.</li>
-          <li><b>Pinned pyramid</b> — minimized cards dock at the bottom of the content window (Save on Middle).</li>
+          <li><b>Pinned pyramid</b> — minimized cards dock at the bottom of the content window (Save on Middle). A cover-sized frame holds the still cover and, while playing, the video in the same spot, so the pill keeps its width and the name / close button never shift. Reopening a pinned card always shows it, even if a filter or search would otherwise have hidden it.</li>
           <li><b>Skip icons</b> — bottom-right of this pane, just left of the scrollbar gutter.</li>
         </ul>
       </details>
@@ -17307,6 +17307,17 @@ body.catalog-portable #hdrToolsMorePop{display:none!important}
           <li><b>Kontakt.</b> Registered libraries come from <code>komplete.db3</code> (Kontakt Portable UserData, <code>content_type=2</code>). Rebuild with <code>build-kontakt-catalog-html.sh</code> only when that database is the real studio file — this patch tree cannot see <code>/mnt/workspace</code> from every machine.</li>
           <li>Builders write artifact HTML. Copy the new files into <code>public/catalogs/</code> (<code>KONTAKT-CATALOG.html</code>, <code>DS-CATALOG.html</code>, and the matching <code>*-portable.html</code>), then reload. Serve from <code>http://127.0.0.1:8797/</code>.</li>
           <li>A rebuild refreshes cards, covers, descriptions, and Index. It does not wipe <code>localStorage</code> theme, layouts, or profiles.</li>
+        </ul>
+      </details>
+      <details>
+        <summary>Recent changes (this week)</summary>
+        <ul>
+          <li><b>YouTube comments pane</b> — a card search video result now carries a collapsible comments list beside it (wide layouts) or under it (split/narrow), with a seam tab to hide/show, and the video stage expands to fill the space when the pane is collapsed. Works the same fullscreened.</li>
+          <li><b>Pinned-dock pill fix</b> — the minimized-card pill no longer reflows or misaligns its name / close button when a video starts or stops playing; the cover and the video now share one fixed-size frame instead of the video pushing a new item into the pill row.</li>
+          <li><b>Pinned-card restore fix</b> — reopening a card from the pinned dock while a filter/search had it hidden now always shows it, instead of occasionally opening to nothing until the filter changed again.</li>
+          <li><b>Smoother custom scrollbar</b> — the hover-scroll thumb (the shadow scrollbar beside the native one) is now positioned with a compositor-only transform instead of a layout-triggering style, so it should not lag behind fast scrolling on long columns.</li>
+          <li><b>Quick toolbar (phone)</b> — remembers a separate dock/position per orientation and per combination of visible menus (Search / Keywords / Flip / Middle); see <i>Place the quick toolbar</i> in the User guide.</li>
+          <li><b>English keyword aliases</b>, a Middle-mode Keywords bottom border, centred mobile hide/show tabs, and note-button alignment/UX polish also landed this week.</li>
         </ul>
       </details>
       <details>

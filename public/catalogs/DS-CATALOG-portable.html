@@ -28968,6 +28968,13 @@ function cardMinRestore(id,kind){
   var item=cardMinDockItems[i];
   var el=document.getElementById(item.id);
   if(!el){cardMinDockItems.splice(i,1);cardMinRender();return;}
+  /* fix-DOCK-RESTORE-VIS-v1: clear any filter-driven hidden state so the
+     restored card is visible unconditionally, not dependent on a CSS :has()
+     override reasserting itself in time. */
+  el.classList.remove('is-hidden');
+  el.style.display='';
+  var restoreGroup=el.closest('.loc-group');
+  if(restoreGroup){restoreGroup.classList.remove('is-hidden');restoreGroup.hidden=false;}
   var cur=cardMinExpanded();
   var wantKind=item.kind||(item.mode==='highlight'?'highlight':'preview');
   if(cur){

@@ -41,6 +41,15 @@ Applies to all four catalogs in `public/catalogs/` (DS / Kontakt, desktop + port
 
 ## Open / logged for later
 
-- Shadow scrollbar occasionally lagging under the content window scrollbar
-  (Sides/Middle layouts); tied to the custom `hover-scroll-stripe` indicator.
-- Residual ~1px note-button misalignment (sub-pixel rounding).
+- ~~Shadow scrollbar occasionally lagging under the content window scrollbar
+  (Sides/Middle layouts); tied to the custom `hover-scroll-stripe` indicator.~~
+  done (`862c312`) — the thumb was positioned via `style.top`, which forces
+  layout+paint every scroll frame; switched to a `--thumb-y` custom property
+  consumed by `transform:translateY()` so moving it is compositor-only, like
+  the browser's own scrollbar. Needs a manual check on a long content column
+  with a fast wheel/trackpad scroll to confirm the lag is gone.
+- Residual ~1px note-button misalignment (sub-pixel rounding) — reviewed: the
+  `.note-balloon` offset chain (`--card-chrome-inset` + 2×`--card-chrome-btn`
+  + 2×`--card-chrome-gap`) resolves to an exact `7rem`/112px with no
+  fractional rem, so this isn't our calc() math; it's browser subpixel
+  rendering at non-100% zoom/DPR, which isn't fixable from CSS. Left as-is.

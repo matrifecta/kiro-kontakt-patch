@@ -3220,6 +3220,12 @@ html.is-browser-fs,body.catalog-portable.is-browser-fs{
   body.catalog-portable #hdrLayoutBtns .layout-presets-pop:not([hidden]){
     display:flex!important;position:fixed!important;z-index:430!important
   }
+  /* fix-LAYOUTS-POP-BODY-DETACH-v1: same rule, unscoped -- the popup is now moved to
+     be a direct child of <body> (see ensureLayoutChromeBtns), so it is no longer a
+     descendant of the always-hidden #hdrLayoutBtns and needs its own selector. */
+  body.catalog-portable #layoutPresetsPop:not([hidden]){
+    display:flex!important;position:fixed!important;z-index:430!important
+  }
   body.catalog-portable #hdrLayoutBtns .layout-presets-tab[hidden]{display:none!important}
   body.catalog-portable #hdrMenuBtns #portraitFlipBtn,
   body.catalog-portable #hdrCluster #portraitFlipBtn,
@@ -20904,6 +20910,14 @@ function ensureLayoutChromeBtns(){
     var el=document.getElementById(id);
     if(el&&el.parentElement!==host)host.appendChild(el);
   });
+  /* fix-LAYOUTS-POP-BODY-DETACH-v1: #hdrLayoutBtns is deliberately display:none on
+     portable (it's just a relocation host for header/more controls), so a popup left
+     nested inside it can never be shown no matter what display value the popup
+     itself is given -- an ancestor's display:none removes the whole subtree from
+     rendering. Detach the popup itself to <body> so its own position:fixed +
+     display:flex actually takes effect regardless of where its trigger button lives. */
+  var lpPopDetach=document.getElementById('layoutPresetsPop');
+  if(lpPopDetach&&lpPopDetach.parentElement!==document.body)document.body.appendChild(lpPopDetach);
   var def=document.getElementById('layoutDefaultBtn');
   if(def)def.hidden=true;
   var strip=document.getElementById('searchStrip');
@@ -22132,6 +22146,24 @@ function syncDisplayForOrientation(){
     if(typeof syncHdrMenuBtns==='function')syncHdrMenuBtns();
     if(typeof syncPortableLayoutChrome==='function')syncPortableLayoutChrome();
   }
+  /* fix-PORTRAIT-ORIENT-COMBO-RESTORE-v1: the landscape branch above restores which
+     menus were open and reapplies sizing/placement after rotating; the portrait
+     direction (rotating back) had no equivalent, so the Middle-mode menu lost its
+     open/closed combo and its persisted size ("contracted") on landscape->portrait. */
+  if(window.CATALOG_PORTABLE&&o==='portrait'&&next==='middle'){
+    try{currentDisplay='middle';}catch(ePortCur){}
+    if(!hold){
+    if(combo&&typeof portableRestoreMenuCombo==='function')portableRestoreMenuCombo(combo);
+    if(combo&&combo.searchOn&&typeof expandSearchMenu==='function')expandSearchMenu();
+    if(combo&&combo.kwOn&&typeof expandKwMenu==='function')expandKwMenu();
+    if(combo&&!combo.searchOn&&typeof collapseSearchMenu==='function')collapseSearchMenu();
+    if(combo&&!combo.kwOn&&typeof collapseKwMenu==='function')collapseKwMenu();
+    }
+    if(typeof applyMiddleLayout==='function')applyMiddleLayout();
+    if(typeof placeMenusForDisplay==='function')placeMenusForDisplay('middle');
+    if(typeof syncHdrMenuBtns==='function')syncHdrMenuBtns();
+    if(typeof syncPortableLayoutChrome==='function')syncPortableLayoutChrome();
+  }
   if(hold&&typeof portableRestoreHeldFs==='function')portableRestoreHeldFs();
   if(typeof portableRelayoutChrome==='function')portableRelayoutChrome('orient');
   // #region agent log
@@ -23091,6 +23123,11 @@ function setDisplayMode(mode,opts){
     if(typeof placePortableHandles==='function')placePortableHandles();
     if(typeof placeCatalogJumpStack==='function')placeCatalogJumpStack();
     if(typeof bindPortablePathHits==='function')bindPortablePathHits();
+    /* fix-LAYOUTS-CONTENT-MODE-CHROME-v1: content-only mode returns early above and
+       used to skip ensureLayoutChromeBtns(), so #layoutPresets (Layouts popup) stayed
+       parked inside the now-hidden Keywords panel (#filterWrap display:none) instead
+       of being relocated into the always-visible header host (#hdrLayoutBtns). */
+    try{if(typeof ensureLayoutChromeBtns==='function')ensureLayoutChromeBtns();}catch(errLayC){}
     return;
   }
   try{lastDisplayOrient=typeof displayOrientId==='function'?displayOrientId():lastDisplayOrient;}catch(err){}

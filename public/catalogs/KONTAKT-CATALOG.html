@@ -173,6 +173,8 @@ html[data-ui-scale="133"] .index,html[data-ui-scale="140"] .index,html[data-ui-s
  .fav-recs-label{display:none;grid-column:1/-1;order:-20;font-size:.9375rem;color:var(--text-muted);letter-spacing:.06em;text-transform:uppercase;opacity:.9;padding:.35rem 0 .15rem;border-bottom:1px dashed var(--border);margin:0 0 .25rem}
  .index li.selected{background:var(--accent-instrument-bg);border-radius:3px;box-shadow:inset 0 0 0 1px var(--accent-instrument)}
  .hl-backdrop{display:none;position:fixed;inset:0;z-index:900;background:var(--hl-backdrop)}
+/* fix-HL-BACKDROP-Z-INDEX-v1: keep the backdrop under the fullscreen card (z-index:860), not above it -- it was blocking every click and darkening the card with its own dim layer once hl-open makes the card fill the full viewport */
+body.hl-open .hl-backdrop{z-index:850}
  .hl-backdrop.open{display:block}
  .hl-ph{visibility:hidden;pointer-events:none}
  body.hl-open{overflow:hidden}

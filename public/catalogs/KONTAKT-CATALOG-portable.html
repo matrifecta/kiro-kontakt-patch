@@ -4493,9 +4493,16 @@ body.hdr-bar-hidden .catalog-header{
 }
 body.hdr-bar-hidden .catalog-header>:not(#hdrBarToggle){display:none!important;visibility:hidden!important;pointer-events:none!important}
 body.hdr-bar-hidden .catalog-header::after{content:none!important;display:none!important}
+/* HDR-BAR-EDGE-STICK-v1: arrow sticks further out of the true top edge/border when
+   collapsed, and body top padding shrinks to just clear it so content,
+   search and keywords panes move up flush under it (no visible outline). */
+body.hdr-bar-hidden{
+  padding-top:calc(env(safe-area-inset-top,0px) + .8rem)!important
+}
 body.hdr-bar-hidden .hdr-bar-toggle{
   position:fixed!important;left:50%!important;right:auto!important;bottom:auto!important;
-  transform:translateX(-50%) translateY(-.45rem)!important;margin:0;z-index:321
+  top:env(safe-area-inset-top,0px)!important;
+  transform:translateX(-50%) translateY(-.15rem)!important;margin:0;z-index:321
 }
 body:is(.hl-open,.chosen-preview-open,.card-embed-open).hdr-bar-hidden .hdr-bar-toggle{z-index:40}
 body.hl-open .catalog-header{visibility:hidden!important;pointer-events:none!important}

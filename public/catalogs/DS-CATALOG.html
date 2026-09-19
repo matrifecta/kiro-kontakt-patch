@@ -596,6 +596,8 @@ body.catalog-help-kind-guide .catalog-help-title{display:none}
 .card-search-stage.yt-wide .card-yt-comments{flex-direction:row;flex:0 0 clamp(14rem,34%,24rem);width:auto;max-width:none;border-left:0}
 .card-search-stage.yt-split .card-yt-comments{flex-direction:column;flex:1 1 auto;width:100%;border-top:0}
 .card-search-stage.yt-split .card-search-frame{flex:0 0 auto;height:min(46vh,56%);min-height:160px;max-height:64%}
+/* fix-CARD-SWITCH-VS-COMMENTS-v1: float the mode switch over the video, not over the comments pane below it */
+.card-search-stage.yt-split .card-search-switch{bottom:auto;top:max(10px,calc(min(46vh,56%) - clamp(3.25rem,9vh,4.25rem) - 10px))}
 .card-yt-comments .card-yt-comments-strip{flex:1 1 auto;min-height:0;min-width:0;overflow:auto}
 .card-yt-comments .card-yt-list-toggle{flex:0 0 12px;min-height:0;width:auto;height:auto;padding:0;border:0;border-radius:0;font-size:0;line-height:0;color:transparent;background:var(--accent-instrument,#e8c84a);opacity:.85;cursor:pointer;position:relative;writing-mode:horizontal-tb}
 .card-yt-comments .card-yt-list-toggle::after{content:"";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);border-radius:2px;background:rgba(0,0,0,.45)}
@@ -2277,6 +2279,13 @@ body:not(.catalog-portable):not(.chosen-preview-open) .entry:not(.highlight) .se
 }
 body:not(.catalog-portable):not(.chosen-preview-open) .entry:not(.highlight) .fav-btn{
   right:.8rem!important;bottom:.8rem!important;top:auto!important;left:auto!important;
+  width:var(--card-chrome-btn)!important;height:var(--card-chrome-btn)!important;
+  min-width:var(--card-chrome-btn)!important;min-height:var(--card-chrome-btn)!important;
+  border-radius:8px!important
+}
+/* fix-NOTE-FAV-ALIGN-v1: note-view-btn sits left of fav-btn and must nudge by the same .8rem base, not the .5rem it inherits from its default rule, or the two buttons go out of alignment */
+body:not(.catalog-portable):not(.chosen-preview-open) .entry:not(.highlight) .note-view-btn{
+  right:calc(.8rem + var(--card-chrome-btn) + .5rem)!important;bottom:.8rem!important;top:auto!important;left:auto!important;
   width:var(--card-chrome-btn)!important;height:var(--card-chrome-btn)!important;
   min-width:var(--card-chrome-btn)!important;min-height:var(--card-chrome-btn)!important;
   border-radius:8px!important

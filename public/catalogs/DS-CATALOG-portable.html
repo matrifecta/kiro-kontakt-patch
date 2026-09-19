@@ -19842,7 +19842,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
           <li><b>Flip</b> — <code>catalog-sides-portrait-flip-*</code> per catalog namespace and layout scope.</li>
           <li><b>Index Embed</b> — remembered Window vs Embed.</li>
           <li><b>Profiles</b> — <code>catalog-user-profiles-*</code>, max 12.</li>
-          <li><b>Header bar</b> — hide/show document header. While it is hidden (or Customize is on) a small floating <b>quick toolbar</b> appears with S (Search), K (Keywords), ⇄ Flip, layout and a collapse arrow.</li><li><b>Quick toolbar docking (phone)</b> — long-press the toolbar (about 3 s) to drag it; dock markers appear on the screen edges and on every seam between two panes (menu | menu, or menu | content window). Drop it on a seam and it stays glued there, following the separator when you resize. Each layout combination — orientation, which of Search / Keywords is up, Flip — remembers its own position separately, so once you have placed the toolbar for a combination it comes back there automatically whenever that combination returns. Dropping it away from a seam remembers that free spot for the current combination instead.</li>
+          <li><b>Header bar</b> — hide/show document header. While it is hidden (or Customize is on) a small floating <b>quick toolbar</b> appears with S (Search), K (Keywords), ⇄ Flip, layout and a collapse arrow.</li><li><b>Quick toolbar docking (phone)</b> — long-press the toolbar (about 3 s) to drag it; dock markers appear on the screen edges and on every seam between two panes (menu | menu, or menu | content window). Drop it on a seam and it stays glued there, following the separator when you resize. Each layout combination — orientation, which of Search / Keywords is up, Flip — remembers its own position separately, so once you have placed the toolbar for a combination it comes back there automatically whenever that combination returns. Dropping it away from a seam remembers that free spot for the current combination instead. Docked to a side edge, the bar turns into a vertical column and its <b>⇄ Flip</b> glyph rotates 90° to match.</li>
           <li>Clearing site data for this origin resets chrome. Rebuilding HTML does not.</li>
         </ul>
       </details>
@@ -34824,7 +34824,7 @@ body.hdr-bar-hidden .quick-bar,body.layout-edit .quick-bar{display:flex}
 .quick-bar.is-hold{outline:1px dashed var(--accent-instrument,#3ecfbf);outline-offset:3px}
 .qb-btn{min-width:1.95rem;height:1.95rem;padding:0 .5rem;border-radius:999px;border:1px solid var(--border,#333);background:var(--bg-surface,#16181c);color:var(--text,#eee);font:600 .78rem/1 inherit;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;touch-action:manipulation}
 .qb-btn.is-on{background:var(--accent-instrument-bg,rgba(62,207,191,.18));color:var(--accent-instrument,#3ecfbf);border-color:var(--accent-instrument,#3ecfbf)}
-#qbFlip{position:absolute;left:50%;top:-2px;transform:translate(-50%,-100%);width:2.15rem;min-width:2.15rem;height:1.25rem;min-height:1.25rem;padding:0;border-radius:8px 8px 0 0;border-bottom:0;font-size:.8rem;line-height:1;z-index:2}
+#qbFlip{position:absolute;left:50%;top:-2px;transform:translate(-50%,-100%);width:2.15rem;min-width:2.15rem;height:1.25rem;min-height:1.25rem;padding:0;border-radius:8px 8px 0 0;border-bottom:0;font-size:.8rem;line-height:1;z-index:2}#qbFlip .qb-flip-ico{display:inline-block;transition:transform .14s ease}.quick-bar.qb-side #qbFlip .qb-flip-ico{transform:rotate(90deg)}
 .quick-bar.qb-flip-low #qbFlip{top:auto;bottom:-2px;transform:translate(-50%,100%);border-radius:0 0 8px 8px;border-top:0;border-bottom:1px solid var(--border,#333)}
 #qbLayout{position:absolute;left:50%;top:auto;bottom:-2px;transform:translate(-50%,100%);width:2.15rem;min-width:2.15rem;height:1.25rem;min-height:1.25rem;padding:0;border-radius:0 0 8px 8px;border-top:0;line-height:1;z-index:2}
 .quick-bar.qb-flip-low #qbLayout{bottom:auto;top:-2px;transform:translate(-50%,-100%);border-radius:8px 8px 0 0;border-top:1px solid var(--border,#333);border-bottom:0}
@@ -34915,7 +34915,7 @@ var bar=document.createElement('div');
 bar.id='quickBar';bar.className='quick-bar';bar.setAttribute('role','toolbar');bar.setAttribute('aria-label','Quick menus');
 function mk(id,txt,label,fn){var b=document.createElement('button');b.type='button';b.id=id;b.className='qb-btn';b.textContent=txt;b.title=label;b.setAttribute('aria-label',label);b.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();fn();});return b;}
 var bS=mk('qbSearch','S','Search menu',function(){if(typeof toggleHdrSearch==='function')toggleHdrSearch();});
-var bF=mk('qbFlip','\u21C4','Swap panes',function(){if(typeof togglePortraitSidesFlip==='function')togglePortraitSidesFlip();});
+var bF=mk('qbFlip','\u21C4','Swap panes',function(){if(typeof togglePortraitSidesFlip==='function')togglePortraitSidesFlip();});bF.innerHTML='<span class="qb-flip-ico">\u21C4</span>';
 var bK=mk('qbKw','K','Keywords menu',function(){if(typeof toggleHdrKw==='function')toggleHdrKw();});
 var bL=mk('qbLayout','','Layout: Middle / Sides',function(){
   var mid=document.body.classList.contains('display-middle');

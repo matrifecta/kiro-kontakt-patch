@@ -35223,7 +35223,7 @@ function endDrag(e){
 var p=loadPos(),o=orient();var sd=drag.snapDock;
 if(window.CATALOG_PORTABLE){
   p.states=p.states||{};var sig=stateSig(),en={pos:fin,dock:null};
-  if(sd&&(sd.e==='seam'||sd.e==='vseam')){var dk={e:sd.e};if(sd.pane)dk.pane=sd.pane;if(sd.panes)dk.panes=sd.panes.slice();en.dock=dk;}
+  /* CWDOCK-FLIP-PERSIST-v1 */if(sd&&(sd.e==='seam'||sd.e==='vseam'||sd.e==='cwtop'||sd.e==='cwbottom'||sd.e==='cwleft'||sd.e==='cwright')){var dk={e:sd.e};if(sd.pane)dk.pane=sd.pane;if(sd.panes)dk.panes=sd.panes.slice();en.dock=dk;}
   p.states[sig]=en;
 }else{
   p[o]=fin;

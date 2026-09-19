@@ -23932,10 +23932,10 @@ body:not(.catalog-portable).hdr-aux-hidden #clearMissBtn,body:not(.catalog-porta
 #qbDocks.on{display:block}
 .qb-dock{position:absolute;width:30px;height:20px;transform:translate(-50%,-50%);background:var(--accent-instrument,#3ecfbf);opacity:.4;transition:opacity .12s ease,transform .12s ease}
 .qb-dock.is-target{opacity:.95;transform:translate(-50%,-50%) scale(1.35)}
-.qb-dock-top{clip-path:polygon(0 0,100% 0,50% 100%)}
-.qb-dock-bottom{clip-path:polygon(50% 0,0 100%,100% 100%)}
-.qb-dock-left{clip-path:polygon(0 0,0 100%,100% 50%)}
-.qb-dock-right{clip-path:polygon(100% 0,100% 100%,0 50%)}
+.qb-dock-top,.qb-dock-cwtop{clip-path:polygon(0 0,100% 0,50% 100%)}
+.qb-dock-bottom,.qb-dock-cwbottom{clip-path:polygon(50% 0,0 100%,100% 100%)}
+.qb-dock-left,.qb-dock-cwleft{clip-path:polygon(0 0,0 100%,100% 50%)}
+.qb-dock-right,.qb-dock-cwright{clip-path:polygon(100% 0,100% 100%,0 50%)}
 .qb-dock-seam{width:22px;height:22px;clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%)}
 
 /* quick-bar vertical (side/vertical-seam dock) */
@@ -24121,6 +24121,26 @@ function docksFor(){
       if(id!=='catalogMain'&&rr.bottom>bh/2+m+36&&rr.bottom<vh-bh/2-m-14)ds.push({x:vw/2,y:rr.bottom,e:'seam',pane:id});
     }
   });
+  /* CONTENT-WINDOW-DOCK-POINTS-v1: 4 edge-centered docks on the content window's own
+     border, resolved live from its current rect so they persist and flip together
+     with the content window in every layout/orientation combo. */
+  var cwEl=document.getElementById('catalogMain');
+  if(cwEl&&cwEl.offsetParent!==null){
+    var cw=cwEl.getBoundingClientRect();
+    if(cw.width>40&&cw.height>40){
+      var cwPts=[
+        {x:clX((cw.left+cw.right)/2),y:cw.top,e:'cwtop'},
+        {x:clX((cw.left+cw.right)/2),y:cw.bottom,e:'cwbottom'},
+        {x:cw.left,y:clYv((cw.top+cw.bottom)/2),e:'cwleft',v:'left'},
+        {x:cw.right,y:clYv((cw.top+cw.bottom)/2),e:'cwright',v:'right'}
+      ];
+      cwPts.forEach(function(p){
+        var dupe=false;
+        for(var di=0;di<ds.length;di++){if(Math.hypot(ds[di].x-p.x,ds[di].y-p.y)<28){dupe=true;break;}}
+        if(!dupe){p.pane='catalogMain';ds.push(p);}
+      });
+    }
+  }
   for(var pi=0;pi<panes.length;pi++)for(var pj=0;pj<panes.length;pj++){
     if(pi===pj)continue;
     var ra=panes[pi].r,rb=panes[pj].r;

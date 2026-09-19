@@ -4977,13 +4977,16 @@ html body.catalog-portable #catalogIndex.is-embedded:not(.is-collapsed) #catalog
   }
 }
 
-/* fix-CARD-EMBED-TOOLBAR-HIDE-v1: centered chevron in the card's top
-   toolbar (row 1) hides/shows the card-search-embed second-row toolbar
+/* fix-CARD-EMBED-TOOLBAR-HIDE-v2: small tab hanging off the bottom-center
+   edge of the card's top toolbar (row 1, between the fav and fullscreen
+   buttons) hides/shows the card-search-embed second-row toolbar
    (.card-search-chrome); a small edge arrow (like #hdrBarToggle) hides/
    shows the whole top toolbar row. Both only show while the embed is
-   open, in portrait and landscape alike. */
-.card-chrome-mid{display:none;position:absolute;top:max(var(--card-chrome-inset),env(safe-area-inset-top));left:50%;transform:translateX(-50%);z-index:841;align-items:center}
-.card-row2-toggle{box-sizing:border-box;width:var(--card-chrome-btn);height:var(--card-chrome-btn);min-width:var(--card-chrome-btn);min-height:var(--card-chrome-btn);display:inline-flex;align-items:center;justify-content:center;padding:0;background:var(--bg-surface);color:var(--text);border:1px solid var(--border);border-radius:8px;cursor:pointer;touch-action:manipulation;font-size:1.1rem;line-height:1}
+   open, in portrait and landscape alike. Styled like .card-chrome-fold
+   (which hangs off the top edge) but mirrored to hang off the bottom
+   edge, so it never sits inline with/overlaps the row-1 icon buttons. */
+.card-chrome-mid{display:none;position:absolute;left:50%;top:calc(max(var(--card-chrome-inset),env(safe-area-inset-top)) + var(--card-chrome-btn));transform:translateX(-50%) translateY(-.15rem);z-index:842;align-items:center}
+.card-row2-toggle{box-sizing:border-box;width:2.15rem;height:1.15rem;min-width:2.15rem;min-height:1.15rem;display:inline-flex;align-items:center;justify-content:center;padding:0;margin:0;border:1px solid var(--border);border-top:0;border-radius:0 0 8px 8px;background:var(--bg-surface);color:var(--text);cursor:pointer;touch-action:manipulation;font:inherit;line-height:1}
 .card-row2-toggle:hover{color:var(--accent-instrument);border-color:var(--accent-instrument);background:var(--accent-instrument-bg)}
 .card-row2-toggle .toggle-arrow{display:inline-block;transition:transform .2s;font-size:.85rem;line-height:1}
 body.card-row2-hidden .card-row2-toggle .toggle-arrow{transform:rotate(180deg)}

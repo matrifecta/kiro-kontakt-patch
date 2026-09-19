@@ -4217,6 +4217,12 @@ body.catalog-portable #catalogMain .catalog-body>#catalogIndex.is-embedded{
   height:auto!important;max-height:none!important;overflow:visible!important;flex:0 0 auto!important
 }
 #catalogMain>#catalogIndex:not(.is-embedded){flex:0 0 auto;z-index:16}
+/* SIDES-INDEX-EMBED-TOP-FLUSH-v1: embedded Index flush with Search/Keywords tops in Sides */
+body.display-sides #catalogMain>.catalog-body>#catalogIndex.is-embedded:first-child,
+body.display-middle #catalogMain>.catalog-body>#catalogIndex.is-embedded:first-child,
+body.catalog-portable #catalogMain>.catalog-body>#catalogIndex.is-embedded:first-child{
+  margin-top:0!important
+}
 /* fix-INDEX-WINDOW-HOVER: Window Index overlays the content pane; cards scroll underneath */
 body.index-window-open:not(.index-fill-doc) #catalogMain,
 body.display-sides.index-window-open:not(.index-fill-doc) #catalogMain,

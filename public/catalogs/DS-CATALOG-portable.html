@@ -4223,6 +4223,12 @@ body.display-middle #catalogMain>.catalog-body>#catalogIndex.is-embedded:first-c
 body.catalog-portable #catalogMain>.catalog-body>#catalogIndex.is-embedded:first-child{
   margin-top:0!important
 }
+/* SIDES-INDEX-EMBED-TOP-FLUSH-v2: .catalog-body's own top margin doesn't collapse away, so zero it too when the embedded Index is its first child */
+body.display-sides #catalogMain>.catalog-body:has(>#catalogIndex.is-embedded:first-child),
+body.display-middle #catalogMain>.catalog-body:has(>#catalogIndex.is-embedded:first-child),
+body.catalog-portable #catalogMain>.catalog-body:has(>#catalogIndex.is-embedded:first-child){
+  margin-top:0!important
+}
 /* fix-INDEX-WINDOW-HOVER: Window Index overlays the content pane; cards scroll underneath */
 body.index-window-open:not(.index-fill-doc) #catalogMain,
 body.display-sides.index-window-open:not(.index-fill-doc) #catalogMain,

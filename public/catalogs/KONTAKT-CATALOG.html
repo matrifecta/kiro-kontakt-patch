@@ -13864,10 +13864,9 @@ function openOverlay(el){
   syncViewportLock();
   if(typeof logCardFsEmbedScroll==='function')logCardFsEmbedScroll('overlay-open');
 }
-/* fix-NAME-CLICK-v2: the name opens the expanded card (desktop) or the fullscreen popup (phone); no embed */
+/* fix-NAME-CLICK-MOBILE-EXPAND-v1: the name always opens the expanded card, on desktop and mobile alike; an already-open fullscreen popup stays fullscreen */
 function openCardFromName(el){
   if(!el)return;
-  if(typeof useMobileFocus==='function'&&useMobileFocus()){openOverlay(el);return;}
   if(document.body.classList.contains('hl-open')||el.classList.contains('highlight')){openOverlay(el);return;}
   if(document.body.classList.contains('chosen-preview-open')&&el.classList.contains('selected'))return;
   if(typeof openChosenPreview==='function')openChosenPreview(el);else openOverlay(el);
@@ -19718,11 +19717,17 @@ function endDrag(e){
   bar.classList.remove('is-drag','is-hold');
   hideDocks();
   var fin=drag.snap||drag.cur||curPos();fin=clampPos(fin.dx,fin.dy,fin.v);
-  var p=loadPos(),o=orient();p[o]=fin;var sd=drag.snapDock;
+  /* fix-QB-COMBO-LEAK-v1: on portable, the shared per-orientation slot is a
+   read-only legacy fallback -- writing it on every drag let one layout
+   combination's position leak into every other not-yet-customised
+   combination via curPos()'s fallback chain. */
+var p=loadPos(),o=orient();var sd=drag.snapDock;
 if(window.CATALOG_PORTABLE){
   p.states=p.states||{};var sig=stateSig(),en={pos:fin,dock:null};
   if(sd&&(sd.e==='seam'||sd.e==='vseam')){var dk={e:sd.e};if(sd.pane)dk.pane=sd.pane;if(sd.panes)dk.panes=sd.panes.slice();en.dock=dk;}
   p.states[sig]=en;
+}else{
+  p[o]=fin;
 }
 savePos(p);
   drag=null;applyPos();

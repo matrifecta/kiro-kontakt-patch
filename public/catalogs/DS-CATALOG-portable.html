@@ -5839,6 +5839,9 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
 /* keep the search-autocomplete's own custom scroll indicator, no native scrollbar there */
 .search-autocomplete,#acList.search-autocomplete{scrollbar-width:none!important;-ms-overflow-style:none!important}
 .search-autocomplete::-webkit-scrollbar,#acList.search-autocomplete::-webkit-scrollbar{display:none!important;width:0!important;height:0!important}
+/* fix-CATALOGMAIN-DUPE-SCROLLBAR-v1: #catalogMain already has its own custom hover-scroll thumb (see .hover-scroll-thumb / #catalogMainHoverStripe); its still-styled native ::-webkit-scrollbar was rendering alongside it as a second, always-on 10px scrollbar (a visible "dupe"/shadow bar). Suppress the native one here the same way search-autocomplete's is suppressed above. */
+#catalogMain{scrollbar-width:none!important;-ms-overflow-style:none!important}
+#catalogMain::-webkit-scrollbar{display:none!important;width:0!important;height:0!important}
 .desc-user-note{color:var(--accent-note);display:block}
 .desc-note-sep{border:none;border-top:1px dashed var(--border);margin:.6em 0}
 

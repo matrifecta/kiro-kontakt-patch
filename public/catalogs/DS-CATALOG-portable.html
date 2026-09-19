@@ -3764,6 +3764,13 @@ body.chosen-preview-open .entry.selected:not(.highlight) .path.is-expanded{
     max-height:min(86dvh,calc(100dvh - 2.5rem))!important;
     padding-top:3.5rem!important
   }
+  /* LANDSCAPE-PREVIEW-WIDTH-v1: the 36rem cap above was clamping the dialog to a
+     narrow centered box with large empty side margins on wide landscape screens.
+     Widen it to use most of the available width there, matching the desktop
+     dialog's own 70rem cap. Vertical sizing/margins are unchanged. */
+  body.catalog-portable.portable-landscape.chosen-preview-open .entry.selected:not(.highlight){
+    width:min(92vw,70rem)!important;max-width:min(92vw,70rem)!important
+  }
   body.catalog-portable.card-embed-open.chosen-preview-open .entry.selected:not(.highlight){
     height:min(86dvh,calc(100dvh - 2.5rem))!important;
     max-height:min(86dvh,calc(100dvh - 2.5rem))!important;

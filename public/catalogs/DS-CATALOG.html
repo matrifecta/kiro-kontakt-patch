@@ -864,7 +864,8 @@ body.catalog-help-kind-guide .catalog-help-title{display:none}
 .hover-scroll-stripe[hidden]{display:none!important}
 .hover-scroll-host.has-hover-overflow>.hover-scroll-stripe:not([hidden]){display:block;pointer-events:auto}
 /* fix-SCROLL-THUMB-COMPOSITE-v1: position via translateY(--thumb-y) so moving the thumb is compositor-only, not a layout+paint top animation */
-.hover-scroll-thumb{position:absolute;top:0;right:1px;width:3px;min-height:1.15rem;border-radius:999px;background:var(--accent-instrument);opacity:.4;box-shadow:0 0 0 1px var(--border);cursor:grab;touch-action:none;transform-origin:right center;translate:0 var(--thumb-y,0px);scale:1 1;will-change:translate;transition:width .14s ease,opacity .14s ease,scale .14s ease}
+/* fix-SCROLL-THUMB-NO-RING-v1: dropped the 1px box-shadow ring around the semi-transparent thumb -- at low opacity, the faded ring rendered as a second faint outline hugging the thumb, reading as a duplicated/"shadow" scrollbar. The thumb's own fill + border-radius is enough to read as a scrollbar without it. */
+.hover-scroll-thumb{position:absolute;top:0;right:1px;width:3px;min-height:1.15rem;border-radius:999px;background:var(--accent-instrument);opacity:.4;cursor:grab;touch-action:none;transform-origin:right center;translate:0 var(--thumb-y,0px);scale:1 1;will-change:translate;transition:width .14s ease,opacity .14s ease,scale .14s ease}
 .hover-scroll-host.has-hover-overflow>.hover-scroll-stripe:hover .hover-scroll-thumb,.hover-scroll-host.has-hover-overflow>.hover-scroll-stripe.is-dragging .hover-scroll-thumb{width:7px;opacity:.92;scale:1 1.08;cursor:grabbing}
 #catalogMain>.hover-scroll-stripe{z-index:8;top:4px}
 #catalogMainHoverStripe.hover-scroll-fixed{position:fixed!important;z-index:24;width:12px;margin:0;display:none;pointer-events:none}

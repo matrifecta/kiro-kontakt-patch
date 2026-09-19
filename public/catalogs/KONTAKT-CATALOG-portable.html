@@ -857,12 +857,13 @@ body.catalog-help-kind-guide .catalog-help-title{display:none}
 .hover-scroll-stripe{position:absolute;top:4px;right:3px;bottom:4px;width:12px;z-index:28;display:none;pointer-events:none;touch-action:none;-webkit-user-select:none;user-select:none;box-sizing:border-box}
 .hover-scroll-stripe[hidden]{display:none!important}
 .hover-scroll-host.has-hover-overflow>.hover-scroll-stripe:not([hidden]){display:block;pointer-events:auto}
-.hover-scroll-thumb{position:absolute;right:1px;width:3px;min-height:1.15rem;border-radius:999px;background:var(--accent-instrument);opacity:.4;box-shadow:0 0 0 1px var(--border);cursor:grab;touch-action:none;transform-origin:right center;transition:width .14s ease,opacity .14s ease,transform .14s ease}
-.hover-scroll-host.has-hover-overflow>.hover-scroll-stripe:hover .hover-scroll-thumb,.hover-scroll-host.has-hover-overflow>.hover-scroll-stripe.is-dragging .hover-scroll-thumb{width:7px;opacity:.92;transform:scaleY(1.08);cursor:grabbing}
+/* fix-SCROLL-THUMB-COMPOSITE-v1: position via translateY(--thumb-y) so moving the thumb is compositor-only, not a layout+paint top animation */
+.hover-scroll-thumb{position:absolute;top:0;right:1px;width:3px;min-height:1.15rem;border-radius:999px;background:var(--accent-instrument);opacity:.4;box-shadow:0 0 0 1px var(--border);cursor:grab;touch-action:none;transform-origin:right center;transform:translateY(var(--thumb-y,0px));will-change:transform;transition:width .14s ease,opacity .14s ease,transform .14s ease}
+.hover-scroll-host.has-hover-overflow>.hover-scroll-stripe:hover .hover-scroll-thumb,.hover-scroll-host.has-hover-overflow>.hover-scroll-stripe.is-dragging .hover-scroll-thumb{width:7px;opacity:.92;transform:translateY(var(--thumb-y,0px)) scaleY(1.08);cursor:grabbing}
 #catalogMain>.hover-scroll-stripe{z-index:8;top:4px}
 #catalogMainHoverStripe.hover-scroll-fixed{position:fixed!important;z-index:24;width:12px;margin:0;display:none;pointer-events:none}
 body.has-hover-overflow-content #catalogMainHoverStripe.hover-scroll-fixed:not([hidden]){display:block;pointer-events:auto}
-body.has-hover-overflow-content.is-content-hover #catalogMainHoverStripe .hover-scroll-thumb,#catalogMainHoverStripe.hover-scroll-fixed:hover .hover-scroll-thumb,#catalogMainHoverStripe.hover-scroll-fixed.is-dragging .hover-scroll-thumb{width:7px;opacity:.92;transform:scaleY(1.08);cursor:grabbing}
+body.has-hover-overflow-content.is-content-hover #catalogMainHoverStripe .hover-scroll-thumb,#catalogMainHoverStripe.hover-scroll-fixed:hover .hover-scroll-thumb,#catalogMainHoverStripe.hover-scroll-fixed.is-dragging .hover-scroll-thumb{width:7px;opacity:.92;transform:translateY(var(--thumb-y,0px)) scaleY(1.08);cursor:grabbing}
 #catalogIndex>.hover-scroll-stripe{top:var(--index-bar-h,2.75rem);z-index:10}
 #cardMinDock{position:fixed}
 #cardMinDock .card-min-save{pointer-events:auto;position:absolute;right:.75rem;bottom:max(.85rem,env(safe-area-inset-bottom));display:inline-flex;align-items:center;justify-content:center;min-height:2.85rem;padding:0 .8rem;border:1px solid var(--accent-instrument);border-radius:999px;background:var(--bg-card);color:var(--accent-instrument);font:inherit;font-size:.9rem;font-weight:650;cursor:pointer;touch-action:manipulation;box-shadow:0 8px 28px rgba(0,0,0,.38);z-index:1}
@@ -13737,7 +13738,7 @@ if(typeof searchListShouldStay==='function'&&searchListShouldStay())opts.force=t
       if(thumbH>trackH)thumbH=trackH;
       var range=Math.max(1,trackH-thumbH);
       n.th.style.height=thumbH+'px';
-      n.th.style.top=Math.round((sc.scrollTop/Math.max(1,max))*range)+'px';
+      n.th.style.setProperty('--thumb-y',Math.round((sc.scrollTop/Math.max(1,max))*range)+'px');
       // #region agent log
       try{
         var kHs='_dbgHs_'+mark;

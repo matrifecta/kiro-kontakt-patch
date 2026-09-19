@@ -18,17 +18,18 @@ Applies to all four catalogs in `public/catalogs/` (DS / Kontakt, desktop + port
 
 ## Embedded content (YouTube) inside the expanded card
 
-4. **Comments pane** must show the real YouTube comments for the video, with the
-   comment content scrollable.
-5. **Pane placement** — before the video starts playing the comments pane sits in
+4. ~~**Comments pane** must show the real YouTube comments for the video, with the
+   comment content scrollable.~~ done (`loadCardYtComments`/`fillYtCommentsStrip`).
+5. ~~**Pane placement** — before the video starts playing the comments pane sits in
    a vertical window on the right of the video; once the video plays it moves to
-   the bottom. Applies in both orientations.
-6. **Collapsible pane** — a small yellow bar on the seam between the video window
+   the bottom. Applies in both orientations.~~ done, `fix-YT-PANE-v1` (yt-wide/yt-split).
+6. ~~**Collapsible pane** — a small yellow bar on the seam between the video window
    and the comments window marks the designated area and toggles the pane
-   (hide/show) in both orientations.
-7. **Video expand** — offer the video an expand option when the pane is hidden,
-   where possible.
-8. Items 4–7 must also apply when the embedded view is fullscreened.
+   (hide/show) in both orientations.~~ done, `fix-YT-PANE-v1` (`.card-yt-list-toggle`).
+7. ~~**Video expand** — offer the video an expand option when the pane is hidden,
+   where possible.~~ done, `fix-YT-PANE-v1` (collapsed pane -> stage frame expands).
+8. ~~Items 4–7 must also apply when the embedded view is fullscreened.~~ done, same
+   CSS/JS applies regardless of fullscreen state — needs a manual fullscreen re-check.
 
 ## Open / logged for later
 

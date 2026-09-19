@@ -35162,6 +35162,14 @@ function resolveDock(dk){
   if(!hit)return null;
   return clampPos(hit.x-vw/2,hit.y-vh/2,hit.v);
 }
+function flipLowFor(by){
+  var cwEl=document.getElementById('catalogMain');
+  if(cwEl&&cwEl.offsetParent!==null){
+    var cw=cwEl.getBoundingClientRect();
+    if(cw.height>10)return by<(cw.top+cw.bottom)/2;
+  }
+  return by<(window.innerHeight||600)/2;
+}
 function curPos(){
   var st=loadPos();
   var en=window.CATALOG_PORTABLE?stateFor(st):null;
@@ -35197,7 +35205,7 @@ function updLayout(){
   var lbl=mid?'Middle layout \u2014 click for Sides':'Sides layout \u2014 click for Middle';
   bL.title=lbl;bL.setAttribute('aria-label',lbl);
 }
-function applyPos(){var c=curPos();setSide(c.v||0);bar.style.setProperty('--qb-dx',Math.round(c.dx)+'px');bar.style.setProperty('--qb-dy',Math.round(c.dy)+'px');bar.classList.toggle('qb-flip-low',c.dy<0);bF.style.display=flipOk()?'':'none';updCollapse();updLayout();}
+function applyPos(){var c=curPos();setSide(c.v||0);bar.style.setProperty('--qb-dx',Math.round(c.dx)+'px');bar.style.setProperty('--qb-dy',Math.round(c.dy)+'px');bar.classList.toggle('qb-flip-low',flipLowFor((window.innerHeight||600)/2+c.dy));bF.style.display=flipOk()?'':'none';updCollapse();updLayout();}
 
 
 var dockBox=null;
@@ -35299,7 +35307,7 @@ bar.addEventListener('pointermove',function(e){
   drag.cur=c;
   bar.style.setProperty('--qb-dx',Math.round(c.dx)+'px');
   bar.style.setProperty('--qb-dy',Math.round(c.dy)+'px');
-  bar.classList.toggle('qb-flip-low',c.dy<0);
+  bar.classList.toggle('qb-flip-low',flipLowFor(e.clientY));
   updCollapse();
   var ds=docksFor();drag.docks=ds;
   var t=-1,best=92;

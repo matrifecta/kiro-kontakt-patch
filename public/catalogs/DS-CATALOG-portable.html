@@ -3427,7 +3427,7 @@ html.is-browser-fs,body.catalog-portable.is-browser-fs{
   }
   body.catalog-portable.display-sides.display-middle:not(.ac-fs-open):not(.kw-fs-open):not(.search-chrome-collapsed) #searchChrome,
   body.catalog-portable.display-sides.display-middle.search-chrome-collapsed.kw-open:not(.kw-chrome-collapsed):not(.kw-fs-open) #filterWrap{
-    height:var(--portable-menu-h,min(44dvh,22rem))!important;
+    height:var(--middle-menu-h,min(44dvh,22rem))!important;
     max-height:min(52dvh,28rem)!important
   }
 }
@@ -3499,11 +3499,11 @@ html.is-browser-fs,body.catalog-portable.is-browser-fs{
     display:none!important;pointer-events:none!important
   }
   body.catalog-portable.display-sides.display-middle:not(.ac-fs-open):not(.kw-fs-open):not(.search-chrome-collapsed) #searchChrome{
-    height:var(--portable-menu-h,min(44dvh,22rem))!important;
+    height:var(--middle-menu-h,min(44dvh,22rem))!important;
     max-height:min(52dvh,28rem)!important;flex:0 0 auto!important;overflow:hidden!important
   }
   body.catalog-portable.display-sides.display-middle.search-chrome-collapsed.kw-open:not(.kw-chrome-collapsed):not(.kw-fs-open) #filterWrap{
-    height:var(--portable-menu-h,min(44dvh,22rem))!important;
+    height:var(--middle-menu-h,min(44dvh,22rem))!important;
     max-height:min(52dvh,28rem)!important;flex:0 0 auto!important;overflow:hidden!important
   }
   body.catalog-portable.display-sides:not(.display-middle).search-chrome-collapsed.kw-open:not(.kw-chrome-collapsed):not(.kw-fs-open){
@@ -3520,7 +3520,7 @@ html.is-browser-fs,body.catalog-portable.is-browser-fs{
 @media(orientation:portrait){
   body.catalog-portable.display-sides.display-middle:not(.ac-fs-open):not(.kw-fs-open):not(.search-chrome-collapsed) #searchChrome,
   body.catalog-portable.display-sides.display-middle.search-chrome-collapsed.kw-open:not(.kw-chrome-collapsed):not(.kw-fs-open) #filterWrap{
-    height:var(--portable-menu-h,min(44dvh,22rem))!important;
+    height:var(--middle-menu-h,min(44dvh,22rem))!important;
     max-height:min(52dvh,28rem)!important;flex:0 0 auto!important
   }
 }
@@ -5773,7 +5773,7 @@ html body.catalog-portable.portable-portrait.display-sides.display-middle.search
 html body.catalog-portable.layout-edit.portable-portrait.display-middle.search-chrome-collapsed.kw-open:not(.kw-chrome-collapsed):not(.kw-fs-open) #filterWrap,
 html body.catalog-portable.layout-edit.portable-portrait.display-sides.display-middle.search-chrome-collapsed.kw-open:not(.kw-chrome-collapsed):not(.kw-fs-open) #filterWrap{
   display:flex!important;flex-direction:column!important;visibility:visible!important;
-  height:var(--portable-menu-h,min(44dvh,22rem))!important;
+  height:var(--middle-menu-h,min(44dvh,22rem))!important;
   max-height:min(70dvh,36rem)!important;min-height:96px!important;
   flex:0 0 auto!important;width:100%!important;max-width:none!important;
   overflow:hidden!important;position:relative!important;inset:auto!important;
@@ -5794,7 +5794,7 @@ html body.catalog-portable.layout-edit.portable-portrait.display-middle.search-c
 html body.catalog-portable.portable-portrait.display-middle:not(.search-chrome-collapsed):not(.ac-fs-open) #searchChrome,
 html body.catalog-portable.portable-portrait.display-sides.display-middle:not(.search-chrome-collapsed):not(.ac-fs-open) #searchChrome,
 html body.catalog-portable.layout-edit.portable-portrait.display-middle:not(.search-chrome-collapsed):not(.ac-fs-open) #searchChrome{
-  height:var(--portable-menu-h,min(44dvh,22rem))!important;
+  height:var(--middle-menu-h,min(44dvh,22rem))!important;
   max-height:min(70dvh,36rem)!important;min-height:96px!important;
   flex:0 0 auto!important;overflow:hidden!important;z-index:6!important;
   width:100%!important;grid-column:auto!important;grid-row:auto!important
@@ -32187,7 +32187,12 @@ function applyLayoutBucket(id){
     if(b.pmh){
       var pmhC=Math.max(56,Math.min(Math.max(56,vhP-120),parseInt(b.pmh,10)));
       document.documentElement.style.setProperty('--portable-menu-h',pmhC+'px');
-      document.documentElement.style.setProperty('--middle-menu-h',pmhC+'px');
+      /* fix-MID-PANEL-H-DEDICATED-VAR-v1: this branch is the phone/landscape-stacked (non-Middle)
+         bucket - it must not also write --middle-menu-h, which is Middle mode's
+         own dedicated variable (managed by applyMiddleLayout()/writeMiddleLayout()/
+         the 'middle-*' bucket branch below). Writing it here caused Middle mode's
+         panel height to get silently clobbered by this unrelated bucket during
+         a portrait->landscape->portrait rotation. */
     }
   }else{
     var d=typeof portraitSidesDefaults==='function'?portraitSidesDefaults():null;
@@ -34908,7 +34913,7 @@ body.catalog-portable.display-middle:not(.display-sides).kw-chrome-collapsed #fi
 body.catalog-portable.display-middle:not(.display-sides).kw-open:not(.kw-chrome-collapsed) #searchChrome,
 body.catalog-portable.display-middle:not(.display-sides).search-chrome-collapsed #searchChrome{display:none!important}
 body.catalog-portable.display-middle:not(.display-sides):not(.kw-open):not(.search-chrome-collapsed) #searchChrome,
-body.catalog-portable.display-middle:not(.display-sides).kw-open:not(.kw-chrome-collapsed) #filterWrap{height:var(--portable-menu-h,min(44dvh,22rem))!important;max-height:min(52dvh,28rem)!important;flex:0 0 auto!important;overflow:hidden!important}
+body.catalog-portable.display-middle:not(.display-sides).kw-open:not(.kw-chrome-collapsed) #filterWrap{height:var(--middle-menu-h,min(44dvh,22rem))!important;max-height:min(52dvh,28rem)!important;flex:0 0 auto!important;overflow:hidden!important}
 
 /* --- desktop toolbar tweaks --- */
 body:not(.catalog-portable) #catalogJumpStack>a.top,body:not(.catalog-portable) #catalogJumpStack>a.bottom{width:1.7rem;height:1.7rem;min-width:26px;min-height:26px}

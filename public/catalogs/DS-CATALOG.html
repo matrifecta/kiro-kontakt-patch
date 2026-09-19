@@ -17014,7 +17014,7 @@ body.catalog-portable #hdrToolsMorePop{display:none!important}
           <li><b>Path</b> — three icons under the cover (FS | copy | folder), not an expandable path field. FS opens the reader for the full location.</li>
           <li><b>Description</b> — blurb on the card; tap / wheel to open the description reader instead of stretching the grid.</li>
           <li><b>Patch search / Patches</b> — Patch category in Keywords, plus nested patch tree on the card (DS: grouped by subfolder). Kontakt stays library-level; Patch pills still match preset-name tokens when present. Collapse evens card heights.</li>
-          <li><b>Card Search</b> — in-card Google / YouTube / image search when a card is expanded (embed vs popup depends on portable). A YouTube result adds a <b>comments pane</b> beside (wide) or under (split) the video; a thin seam tab toggles it away and back. Collapsing the pane while the layout has room lets the video stage expand into the freed space; the tab still works the same in fullscreen.</li>
+          <li><b>Card Search</b> — in-card Google / YouTube / image search when a card is expanded (embed vs popup depends on portable). A YouTube result adds a <b>comments pane</b> beside (wide) or under (split) the video; a thin seam tab toggles it away and back. In landscape it always sits beside the video (wide), even while playing; portrait drops it below (split) once a video is playing. Collapsing the pane while the layout has room lets the video stage expand into the freed space; the tab still works the same in fullscreen.</li>
         </ul>
       </details>
       <details open>
@@ -19748,8 +19748,12 @@ function syncCardSearchLayout(){
   var yt=cardSearchState.type==='yt'&&document.body.classList.contains('card-embed-open');
   /* fix-YT-PANE-v1: list state -> pane on the right (yt-wide); a loaded video -> pane below it (yt-split) */
   var playing=!!(yt&&cardSearchState.ytId);
-  stage.classList.toggle('yt-split',playing);
-  stage.classList.toggle('yt-wide',!!yt&&!playing);
+  /* fix-YT-PANE-LANDSCAPE-v1: landscape has the width to spare, so keep the
+     comments/related pane on the right even while a video plays; portrait
+     keeps dropping it below the video. */
+  var landscape=typeof cardSearchIsLandscape==='function'&&cardSearchIsLandscape();
+  stage.classList.toggle('yt-split',playing&&!landscape);
+  stage.classList.toggle('yt-wide',!!yt&&(!playing||landscape));
   if(yt){fillYtCommentsStrip();cardRestoreYtListState();}
 }
 var _YT_LIST_KEY='catalog-yt-list-hidden-'+(window.CATALOG_NS||'catalog');

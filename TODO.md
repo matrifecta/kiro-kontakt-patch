@@ -7,11 +7,15 @@ Applies to all four catalogs in `public/catalogs/` (DS / Kontakt, desktop + port
 1. ~~**Pinned cards missing from the bottom dock**~~ — done (`21fa68f`).
 2. ~~**No duplicate pins of the same card**~~ — done (`f88b6ab`).
 3. ~~**Name click opens the expanded card**~~ — done (`4902555`).
-3b. **Playing pill layout** — while an embedded YouTube video plays in a pinned
+3b. ~~**Playing pill layout** — while an embedded YouTube video plays in a pinned
    card, the pill loses its cover image and shows a large buffering spinner in
    the media disc that knocks the name/image out of alignment (see pill
    "Clave Frog & Fri..." with the spinner). The disc must stay 2.15rem, keep
-   the cover visible or a clean thumbnail, and never reflow the pill.
+   the cover visible or a clean thumbnail, and never reflow the pill.~~ done
+   (`bd2012e`) — media is now an overlay inside a fixed `.card-min-cover` box
+   instead of a pill-level flex sibling, so playback can no longer add/remove
+   a flex item from the pill. Needs a manual live check with a real YouTube
+   video to confirm the spinner is fully clipped in-browser.
 3c. **Pinned card not displaying when hidden by filter** — restore from the dock
    sometimes shows nothing when the content window does not contain the card.
    Not reproduced headless yet; needs exact steps.

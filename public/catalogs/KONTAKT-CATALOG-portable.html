@@ -4999,6 +4999,16 @@ body.card-chrome-folded.chosen-preview-open .entry.selected:not(.highlight) .car
 body.card-chrome-folded.chosen-preview-open .entry.selected:not(.highlight) .card-chrome-mid,
 body.card-chrome-folded.chosen-preview-open .entry.selected:not(.highlight) .card-chrome-end{display:none!important}
 
+/* fix-NO-PIN-WHILE-EMBEDDED-v1: pinning (minimizing) a card while its
+   search embed (YouTube/Web/Image) is open leaves the restored pin
+   showing a blank card, because the embed host is one shared DOM node
+   that gets parked/reparented rather than duplicated per pinned card.
+   Hide the pin/minimize button while the embed is open on this card so
+   the conflict can't be triggered from the UI; minimizeExpandedCard()
+   also refuses the action itself as a second line of defense. */
+body.card-embed-open .entry.highlight .hl-min,
+body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) .hl-min{display:none!important}
+
 /* fix-INDEX-EMBED-FULL-v1: Embed expanded is full list height; catalog-body scrolls; Window keeps inner scroll */
 html body #catalogIndex.is-embedded:not(.is-collapsed),
 html body.display-sides #catalogMain>.catalog-body>#catalogIndex.is-embedded:not(.is-collapsed),
@@ -18157,6 +18167,14 @@ function cardMinRender(){
 function minimizeExpandedCard(entry){
   entry=entry||cardMinExpanded();
   if(!entry||!entry.id)return;
+  /* fix-NO-PIN-WHILE-EMBEDDED-v1: pinning/minimizing a card that currently
+     has its search embed (YouTube/Web/Image) open leaves the pin's tin
+     showing a blank card body next time it's restored, because the embed
+     host is a single shared DOM node that gets parked/reparented rather
+     than duplicated per card. Disallow the whole minimize action while
+     this card owns an open embed, instead of only hiding the button, so
+     any other code path that calls this function is covered too. */
+  if(document.body.classList.contains('card-embed-open')&&(entry.classList.contains('highlight')||(document.body.classList.contains('chosen-preview-open')&&entry.classList.contains('selected'))))return;
   var mode=cardMinMode(entry);
   var kind=cardMinTinKind(entry,mode);
   var i=cardMinIndex(entry.id,kind);

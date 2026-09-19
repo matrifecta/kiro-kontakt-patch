@@ -631,7 +631,8 @@ body.catalog-help-kind-guide .catalog-help-title{display:none}
  body.card-embed-open.card-switch-bar-hidden .card-search-reader.open{padding-bottom:12px}
  body.card-embed-open .card-img-exit{bottom:calc(12px + clamp(52px,9vh,68px));z-index:6}
  body.card-embed-open.card-switch-bar-hidden .card-img-exit{bottom:12px}
- .card-search-switch-toggle{flex:0 0 auto;min-width:2.75rem;padding:0;display:inline-flex;align-items:center;justify-content:center}
+/* fix-NOTCH-TITLE-LABEL-v1: title label removed from the embed toolbar (kept it out from under a side notch in landscape); switch-toggle now pushes the remaining right-side buttons to the end of the row */
+ .card-search-switch-toggle{flex:0 0 auto;min-width:2.75rem;padding:0;display:inline-flex;align-items:center;justify-content:center;margin-left:auto}
  .card-search-switch-toggle svg{width:1.25rem;height:1.25rem;display:block}
  .card-search-switch-toggle[aria-pressed="false"]{color:var(--text-muted)}
  .card-search-switch-toggle[aria-pressed="true"]{color:var(--accent-instrument);border-color:var(--accent-instrument);background:var(--accent-instrument-bg)}
@@ -9009,7 +9010,6 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
   <div class="card-search-chrome">
     <button type="button" class="card-search-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();cardSearchBack()">&#x2190;</button>
     <button type="button" class="card-search-reload" aria-label="Reload" onclick="event.preventDefault();event.stopPropagation();cardSearchReload()">&#x21BB;</button>
-    <span class="card-search-title" id="cardSearchTitle">Search</span>
     <button type="button" class="card-search-switch-toggle" id="cardSearchSwitchToggle" aria-label="Hide mode bar" aria-pressed="true" title="Hide mode bar" onclick="event.preventDefault();event.stopPropagation();cardSearchToggleSwitchBar()">
       <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.2" y="15.2" width="17.6" height="4.4" rx="1.4" fill="none" stroke="currentColor" stroke-width="1.6"/><rect x="5" y="16.6" width="3.2" height="1.6" rx=".4" fill="currentColor"/><rect x="10.4" y="16.6" width="3.2" height="1.6" rx=".4" fill="currentColor"/><rect x="15.8" y="16.6" width="3.2" height="1.6" rx=".4" fill="currentColor"/><path d="M6 5.5h12M6 9h12M6 12.5h8" fill="none" stroke="currentColor" stroke-width="1.45" stroke-linecap="round"/></svg>
     </button>

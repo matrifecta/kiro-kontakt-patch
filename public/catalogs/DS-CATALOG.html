@@ -502,7 +502,8 @@ body.catalog-help-kind-guide .catalog-help-title{display:none}
  body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) .card-actions,
  body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) .hl-body{display:none!important}
  body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) .card-search-embed{display:flex;flex:1 1 auto;min-height:0;margin-top:8px}
- .card-search-chrome{display:flex;align-items:center;gap:var(--card-chrome-gap);flex-shrink:0;padding:.5rem .625rem;background:var(--bg-surface);border-bottom:1px solid var(--border);color:var(--text)}
+/* fix-NOTCH-CHROME-v1: card-search-chrome respects left/right safe-area (notch) insets; "Open in popup" removed from the embed toolbar (redundant once the embed itself is showing) */
+ .card-search-chrome{display:flex;align-items:center;gap:var(--card-chrome-gap);flex-shrink:0;padding:.5rem max(.625rem,env(safe-area-inset-right,0px)) .5rem max(.625rem,env(safe-area-inset-left,0px));background:var(--bg-surface);border-bottom:1px solid var(--border);color:var(--text)}
  .card-search-chrome button{box-sizing:border-box;min-width:2.75rem;min-height:2.75rem;padding:0 12px;border:1px solid var(--border);border-radius:8px;background:var(--bg-card);color:var(--text);font:inherit;cursor:pointer;touch-action:manipulation}
  .card-search-chrome button:hover{border-color:var(--accent-instrument);color:var(--accent-instrument);background:var(--accent-instrument-bg)}
  .card-search-chrome button:disabled{opacity:.35;pointer-events:none}
@@ -17476,7 +17477,6 @@ body.catalog-portable #hdrToolsMorePop{display:none!important}
     <button type="button" class="card-search-switch-toggle" id="cardSearchSwitchToggle" aria-label="Hide mode bar" aria-pressed="true" title="Hide mode bar" onclick="event.preventDefault();event.stopPropagation();cardSearchToggleSwitchBar()">
       <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.2" y="15.2" width="17.6" height="4.4" rx="1.4" fill="none" stroke="currentColor" stroke-width="1.6"/><rect x="5" y="16.6" width="3.2" height="1.6" rx=".4" fill="currentColor"/><rect x="10.4" y="16.6" width="3.2" height="1.6" rx=".4" fill="currentColor"/><rect x="15.8" y="16.6" width="3.2" height="1.6" rx=".4" fill="currentColor"/><path d="M6 5.5h12M6 9h12M6 12.5h8" fill="none" stroke="currentColor" stroke-width="1.45" stroke-linecap="round"/></svg>
     </button>
-    <button type="button" class="card-search-popup" onclick="event.preventDefault();event.stopPropagation();cardSearchOpenPopup()">Open in popup</button>
     <button type="button" class="card-search-fs" id="cardSearchFsBtn" aria-label="Fullscreen" aria-pressed="false" title="Fullscreen" onclick="event.preventDefault();event.stopPropagation();cardSearchToggleFullscreen()">&#x2922;</button>
   </div>
   <div class="card-search-stage" id="cardSearchStage">

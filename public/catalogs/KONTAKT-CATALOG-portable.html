@@ -5031,7 +5031,24 @@ body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#ca
    the top one takes over automatically once row 2 is hidden. */
 body.card-embed-open:not(.card-row2-hidden-hl) .entry.highlight:has(#cardSearchEmbed) .card-chrome-notes,
 body.card-embed-open.chosen-preview-open:not(.card-row2-hidden-pv) .entry.selected:not(.highlight):has(#cardSearchEmbed) .card-chrome-notes{display:none!important}
-.card-chrome-toggles{display:none;position:absolute;left:50%;top:0;transform:translateX(-50%) translateY(-72%);z-index:843;align-items:center;gap:1rem}
+/* fix-CARD-FULLSCREEN-NOTES-ICON-v1: in the fullscreen/"expanded-stretched"
+   card toolbar (.entry.highlight, e.g. landscape with a screen notch to
+   work around) the notes button was rendered at the same full button size/
+   chrome (background+border box) as every other toolbar control, taking up
+   more room than needed next to the notch. Shrink it to a bare icon glyph
+   (no background, no border, no fixed button box) only in that state, so
+   it reads as a small pencil rather than a full-size button; its normal
+   full-button appearance elsewhere (embedded-view row1/row2 toolbars) is
+   untouched. */
+body.card-embed-open .entry.highlight:has(#cardSearchEmbed) .card-chrome-notes{
+  width:auto!important;height:auto!important;min-width:0!important;min-height:0!important;
+  padding:2px!important;background:transparent!important;border:0!important;box-shadow:none!important;
+  font-size:1rem!important;color:var(--text-muted)
+}
+body.card-embed-open .entry.highlight:has(#cardSearchEmbed) .card-chrome-notes:hover{
+  background:transparent!important;color:var(--accent-instrument)
+}
+.card-chrome-toggles{display:none;position:absolute;left:50%;top:0;transform:translateX(-50%) translateY(-20%);z-index:843;align-items:center;gap:1rem}
 body.card-embed-open .entry.highlight:has(#cardSearchEmbed) .card-chrome-toggles,
 body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed) .card-chrome-toggles{display:flex}
 .card-chrome-fold,.card-row2-toggle{box-sizing:border-box;width:2.15rem;height:1.15rem;min-width:2.15rem;min-height:1.15rem;display:inline-flex;align-items:center;justify-content:center;padding:0;margin:0;border:1px solid var(--accent-instrument);border-top:0;border-radius:0 0 8px 8px;background:var(--accent-instrument);color:#fff;cursor:pointer;touch-action:manipulation;font:inherit;line-height:1;transition:background-color .15s,color .15s,border-color .15s}

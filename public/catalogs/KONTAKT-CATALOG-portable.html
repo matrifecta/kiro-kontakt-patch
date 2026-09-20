@@ -12343,7 +12343,24 @@ window.cardSearchExitImage=function(){
   }
 };
 (function(){
-  function onOrient(){if(typeof window.syncCardSearchLayout==='function')window.syncCardSearchLayout();}
+  /* fix-CAT-HEADER-H-STALE-v1: --cat-header-h (used to center/size the
+     extended card dialog "below the header" - see fix-PREVIEW-BELOW-HDR)
+     was only ever recalculated from syncHdrBar()/toggleHdrBar(), i.e. when
+     the user explicitly hid/showed the document header bar. It was never
+     recalculated on resize/orientationchange, so rotating the device (or
+     any other reflow that changes the real header's height) left this
+     variable stale from whatever orientation/layout was active when it was
+     last set. The extended card's centering math (top/max-height, both
+     derived from this variable) then used a wrong header height until the
+     next explicit header-bar toggle happened to refresh it - producing a
+     dialog that renders too small/contracted or with the wrong top offset
+     (sometimes appearing to "self-correct" once something else happened to
+     call updateCatHeaderH again). Recalculate it on every resize/orientation
+     change alongside the existing embed-layout sync. */
+  function onOrient(){
+    if(typeof window.syncCardSearchLayout==='function')window.syncCardSearchLayout();
+    if(typeof window.updateCatHeaderH==='function')window.updateCatHeaderH();
+  }
   window.addEventListener('orientationchange',onOrient);
   window.addEventListener('resize',onOrient);
   if(window.visualViewport)window.visualViewport.addEventListener('resize',onOrient);

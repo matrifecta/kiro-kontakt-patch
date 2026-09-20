@@ -636,6 +636,13 @@ body.catalog-help-kind-guide .catalog-help-title{display:none}
  .card-search-switch-toggle svg{width:1.25rem;height:1.25rem;display:block}
  .card-search-switch-toggle[aria-pressed="false"]{color:var(--text-muted)}
  .card-search-switch-toggle[aria-pressed="true"]{color:var(--accent-instrument);border-color:var(--accent-instrument);background:var(--accent-instrument-bg)}
+ /* fix-CARD-EMBED-NOTES-BTN-v1: shortcut to this card's note editor, placed
+    in the middle of the embed nav toolbar (auto margins on both sides center
+    it in the gap left between the back/reload cluster and the mode-bar/
+    fullscreen cluster, which is pushed right by .card-search-switch-toggle's
+    own margin-left:auto) so it doesn't compete for space with either cluster
+    or the row2-hide notch tab centered below this same row. */
+ .card-search-notes-btn{flex:0 0 auto;margin:0 auto;padding:0;min-width:2.75rem;min-height:2.75rem;display:inline-flex;align-items:center;justify-content:center;font-size:1.125rem}
  .card-search-popup{flex:0 0 auto;white-space:nowrap}
  .card-search-fs{flex:0 0 auto;padding:0;min-width:2.75rem;min-height:2.75rem;display:inline-flex;align-items:center;justify-content:center;font-size:1.125rem}
  .card-search-fs[aria-pressed="true"]{color:var(--accent-instrument);border-color:var(--accent-instrument);background:var(--accent-instrument-bg)}
@@ -4970,35 +4977,38 @@ html body.catalog-portable #catalogIndex.is-embedded:not(.is-collapsed) #catalog
   }
 }
 
-/* fix-CARD-EMBED-TOOLBAR-HIDE-v5: v4 gave the two toggle tabs only a
-   .35rem gap, which read as one crowded double-arrow blob easy to
-   mis-tap; and the fold/row2-hidden states were single shared body
-   classes so hiding a toolbar in one card view (fullscreen vs the
-   expanded/preview view) left it hidden for the other view too. Widen
-   the gap between the tabs so they're clearly two separate, equally
-   spaced controls, and suffix the state classes per view (-hl for the
-   fullscreen .hl-open view, -pv for the expanded chosen-preview-open
-   view) so each view's toolbar-hide state is independent; toggled and
-   persisted separately via cardChromeApplyViewState()/toggleCardRow2()/
-   toggleCardChromeFold() in script. Both tabs still nest flush against
-   row 1's own bottom edge (top offset = row-1 button height) so they
-   read as attached to that toolbar's border rather than floating tabs. */
-.card-chrome-toggles{display:none;position:absolute;left:50%;top:calc(max(var(--card-chrome-inset),env(safe-area-inset-top)) + var(--card-chrome-btn));transform:translateX(-50%) translateY(-.15rem);z-index:843;align-items:center;gap:1rem}
+/* fix-CARD-EMBED-TOOLBAR-HIDE-v6: v5's row-1-hide rule wasn't gated by
+   card-embed-open, so once a user folded row 1 while an embed was open,
+   the same -hl/-pv folded class (persisted in localStorage) silently
+   hid the back/fav/fullscreen buttons on every later fullscreen/expanded
+   card too, even plain ones with no embed - breaking normal navigation.
+   Gate all three fold/row2 hide rules to only apply while this card's
+   embed is actually open. Also stop repositioning the toggle tabs when
+   folded: keep them pinned to the exact same spot straddling row 1's
+   top edge in every combination of row1/row2 shown-or-hidden, instead of
+   hopping down to a smaller offset once row 1 collapses (this doesn't
+   affect the separate, already-correct embed/document fullscreen toggle
+   button). */
+.card-chrome-notes{display:none;box-sizing:border-box;width:var(--card-chrome-btn);height:var(--card-chrome-btn);min-width:var(--card-chrome-btn);min-height:var(--card-chrome-btn);align-items:center;justify-content:center;padding:0;background:var(--bg-surface);color:var(--text-muted);border:1px solid var(--border);border-radius:8px;cursor:pointer;touch-action:manipulation;font-size:1.125rem;line-height:1}
+.card-chrome-notes:hover{color:var(--accent-instrument);border-color:var(--accent-instrument);background:var(--accent-instrument-bg)}
+body.card-embed-open .entry.highlight .card-chrome-notes,
+body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) .card-chrome-notes{display:inline-flex}
+.card-chrome-toggles{display:none;position:absolute;left:50%;top:0;transform:translateX(-50%) translateY(-50%);z-index:843;align-items:center;gap:1rem}
 body.card-embed-open .entry.highlight .card-chrome-toggles,
 body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) .card-chrome-toggles{display:flex}
 .card-chrome-fold,.card-row2-toggle{box-sizing:border-box;width:2.15rem;height:1.15rem;min-width:2.15rem;min-height:1.15rem;display:inline-flex;align-items:center;justify-content:center;padding:0;margin:0;border:1px solid var(--border);border-top:0;border-radius:0 0 8px 8px;background:var(--bg-surface);color:var(--text);cursor:pointer;touch-action:manipulation;font:inherit;line-height:1}
 .card-chrome-fold:hover,.card-row2-toggle:hover{color:var(--accent-instrument);border-color:var(--accent-instrument);background:var(--accent-instrument-bg)}
 .card-chrome-fold .toggle-arrow,.card-row2-toggle .toggle-arrow{display:inline-block;transition:transform .2s;font-size:.85rem;line-height:1}
-body.card-row2-hidden-hl .card-row2-toggle .toggle-arrow,
-body.card-row2-hidden-pv .card-row2-toggle .toggle-arrow{transform:rotate(180deg)}
-body.card-row2-hidden-hl #cardSearchEmbed .card-search-chrome,
-body.card-row2-hidden-pv #cardSearchEmbed .card-search-chrome{display:none!important}
-body.card-chrome-folded-hl .card-chrome-fold .toggle-arrow,
-body.card-chrome-folded-pv .card-chrome-fold .toggle-arrow{transform:rotate(180deg)}
-body.card-chrome-folded-hl .entry.highlight .card-chrome-start,
-body.card-chrome-folded-hl .entry.highlight .card-chrome-end,
-body.card-chrome-folded-pv.chosen-preview-open .entry.selected:not(.highlight) .card-chrome-start,
-body.card-chrome-folded-pv.chosen-preview-open .entry.selected:not(.highlight) .card-chrome-end{display:none!important}
+body.card-row2-hidden-hl.card-embed-open #cardSearchEmbed .card-search-chrome,
+body.card-row2-hidden-pv.card-embed-open #cardSearchEmbed .card-search-chrome{display:none!important}
+body.card-row2-hidden-hl.card-embed-open .card-row2-toggle .toggle-arrow,
+body.card-row2-hidden-pv.card-embed-open .card-row2-toggle .toggle-arrow{transform:rotate(180deg)}
+body.card-chrome-folded-hl.card-embed-open .card-chrome-fold .toggle-arrow,
+body.card-chrome-folded-pv.card-embed-open .card-chrome-fold .toggle-arrow{transform:rotate(180deg)}
+body.card-chrome-folded-hl.card-embed-open .entry.highlight .card-chrome-start,
+body.card-chrome-folded-hl.card-embed-open .entry.highlight .card-chrome-end,
+body.card-chrome-folded-pv.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) .card-chrome-start,
+body.card-chrome-folded-pv.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) .card-chrome-end{display:none!important}
 /* fix-CARD-CHROME-FOLD-RECLAIM-v1: row 1 (.card-chrome-start/.card-chrome-end)
    is an absolute overlay on top of the card, so the card reserves space for
    it via padding-top instead of normal flex flow. Hiding the row-1 buttons
@@ -5007,19 +5017,14 @@ body.card-chrome-folded-pv.chosen-preview-open .entry.selected:not(.highlight) .
    open, so a stray localStorage flag can't shrink a normal card's padding
    and cause its back/fav/fullscreen buttons to overlap the cover), shrink
    the padding down to a safe-area-only sliver so the video/content below
-   expands upward to fill the reclaimed space. The toggle tabs move up to
-   the same reduced offset so they stay nested flush against that new,
-   collapsed top edge instead of hanging in mid-air over the video at the
-   old (now-empty) row-1 boundary. */
+   expands upward to fill the reclaimed space. The toggle tabs stay pinned
+   to row 1's original top edge (see fix-CARD-EMBED-TOOLBAR-HIDE-v6 above)
+   rather than following this reclaimed padding down. */
 body.card-chrome-folded-hl.card-embed-open .entry.highlight{
   padding-top:max(8px,calc(env(safe-area-inset-top) + 4px))!important
 }
 body.card-chrome-folded-pv.card-embed-open.chosen-preview-open .entry.selected:not(.highlight){
   padding-top:max(8px,calc(env(safe-area-inset-top) + 4px))!important
-}
-body.card-chrome-folded-hl.card-embed-open .entry.highlight .card-chrome-toggles,
-body.card-chrome-folded-pv.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) .card-chrome-toggles{
-  top:max(8px,calc(env(safe-area-inset-top) + 4px))
 }
 
 /* fix-LANDSCAPE-PREVIEW-FULLSCREEN-v2: only the embedded (video/search)
@@ -9124,6 +9129,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
   <div class="card-search-chrome">
     <button type="button" class="card-search-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();cardSearchBack()">&#x2190;</button>
     <button type="button" class="card-search-reload" aria-label="Reload" onclick="event.preventDefault();event.stopPropagation();cardSearchReload()">&#x21BB;</button>
+    <button type="button" class="card-search-notes-btn" aria-label="My notes" title="My notes" onclick="event.preventDefault();event.stopPropagation();window.openCardNotesFromToolbar(this);">&#x1F4DD;</button>
     <button type="button" class="card-search-switch-toggle" id="cardSearchSwitchToggle" aria-label="Hide mode bar" aria-pressed="true" title="Hide mode bar" onclick="event.preventDefault();event.stopPropagation();cardSearchToggleSwitchBar()">
       <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.2" y="15.2" width="17.6" height="4.4" rx="1.4" fill="none" stroke="currentColor" stroke-width="1.6"/><rect x="5" y="16.6" width="3.2" height="1.6" rx=".4" fill="currentColor"/><rect x="10.4" y="16.6" width="3.2" height="1.6" rx=".4" fill="currentColor"/><rect x="15.8" y="16.6" width="3.2" height="1.6" rx=".4" fill="currentColor"/><path d="M6 5.5h12M6 9h12M6 12.5h8" fill="none" stroke="currentColor" stroke-width="1.45" stroke-linecap="round"/></svg>
     </button>
@@ -17663,10 +17669,37 @@ function cardMinClose(id,fromOpen,kind){
   }
   cardMinRender();
 }
+/* fix-CARD-EMBED-NOTES-BTN-v1: the existing per-card note editor
+   (.note-balloon/.note-pop under .lib-notes) sits below the cover, out
+   of reach while an embed (video/search) is open and the toolbar is the
+   only thing on screen. Add a shortcut button beside the fav/heart
+   button in row 1 that opens that same note editor for this card and
+   scrolls it into view, so notes stay reachable without leaving the
+   embedded view. Only shown while this card's embed is open (see CSS
+   gating below), so normal (non-embed) cards are unaffected. */
+window.openCardNotesFromToolbar=function(el){
+  var entry=el&&el.closest?el.closest('.entry'):null;
+  if(!entry)return;
+  var balloon=entry.querySelector('.note-balloon');
+  if(balloon&&typeof window.openNotePop==='function')window.openNotePop(balloon);
+  var pop=entry.querySelector('.note-pop.open')||entry.querySelector('.note-pop');
+  if(pop&&pop.scrollIntoView)try{pop.scrollIntoView({block:'center',behavior:'smooth'});}catch(eSc){}
+};
 function cardChromeEnsureBtns(entry){
   if(!entry)return;
   var start=entry.querySelector('.card-chrome-start');
   if(!start)return;
+  if(!start.querySelector('.card-chrome-notes')){
+    var n=document.createElement('button');
+    n.type='button';
+    n.className='card-chrome-notes';
+    n.setAttribute('aria-label','My notes');
+    n.title='My notes';
+    n.innerHTML='&#x1F4DD;';
+    n.onclick=function(e){e.preventDefault();e.stopPropagation();window.openCardNotesFromToolbar(this);};
+    var fav=start.querySelector('.fav-btn');
+    if(fav)fav.parentNode.insertBefore(n,fav.nextSibling);else start.appendChild(n);
+  }
   var grp=entry.querySelector('.card-chrome-toggles');
   if(!grp){
     grp=document.createElement('div');

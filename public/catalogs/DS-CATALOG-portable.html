@@ -6069,8 +6069,8 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
 <div class="dual-fs-sep" id="dualFsSep" role="separator" aria-label="Drag to resize panels"><button type="button" class="dual-fs-sep-pin" id="dualFsSepPin" aria-label="Lock separator" aria-pressed="false" title="Lock separator" onclick="event.preventDefault();event.stopPropagation();toggleDualFsPin()">&#x1F4CC;</button></div>
 <div class="filter-wrap" id="filterWrap"><div class="filter-top" id="filterTop"><button type="button" class="kw-fs-back" id="kwFsBack" aria-label="Exit fullscreen Keywords" title="Exit fullscreen" onclick="event.preventDefault();event.stopPropagation();toggleKwFullscreen()">&#x2190;</button><button class="filter-toggle" id="filterToggle" onclick="if(window.CATALOG_PORTABLE){event.preventDefault();return;}toggleFilter()" aria-expanded="false"><span class="toggle-arrow">&#9660;</span> Keywords</button><button type="button" class="kw-strip-hide" id="kwStripHide" onclick="event.preventDefault();event.stopPropagation();toggleKwChrome()" aria-expanded="true">Hide</button><div class="fs-mode-nav" id="kwFsModeNav" role="navigation" aria-label="Mode"><button type="button" class="mode-btn" data-mode="pick" onclick="event.preventDefault();event.stopPropagation();setMode(&#x27;pick&#x27;)">Pick</button><button type="button" class="mode-btn" data-mode="search" onclick="event.preventDefault();event.stopPropagation();setMode(&#x27;search&#x27;)">Search</button></div><button type="button" class="ac-companion-btn" id="acCompanionBtn" aria-label="Search side-by-side" aria-pressed="false" title="Search" onclick="event.preventDefault();event.stopPropagation();toggleAcFsCompanion()">&#x1F50D;</button><button type="button" class="kw-strip-clear" id="kwStripClear" onclick="event.preventDefault();event.stopPropagation();clearAllFilters()" aria-label="Clear" title="Clear"><svg class="clear-sweep-ico" viewBox="0 0 24 24" width="1.2em" height="1.2em" aria-hidden="true" focusable="false"><path fill="currentColor" fill-rule="evenodd" d="M9.2 2.2h5.6v3.4h6.1c.42 0 .7.42.58.82L18.5 20.2c-.09.4-.45.7-.86.7H6.36c-.41 0-.77-.3-.86-.7L2.52 6.42c-.12-.4.16-.82.58-.82H9.2V2.2zm1.7 1.7v3.2H4.72L7.22 18.9h9.56l2.5-11.8h-6.38V3.9h-1.7zM7.85 14.4h1.55v3.5H7.85v-3.5z"/></svg></button><button type="button" class="kw-strip-more" id="kwStripMore" aria-expanded="false" aria-haspopup="true" title="More keyword controls" onclick="event.preventDefault();event.stopPropagation();toggleKwStripMore()">&#x22EF;</button><div class="kw-strip-more-pop" id="kwStripMorePop" hidden></div><button type="button" class="kw-fs-btn" id="kwStripFs" aria-pressed="false" aria-label="Fullscreen Keywords" title="Fullscreen Keywords" onclick="event.preventDefault();event.stopPropagation();toggleKwFullscreen()">&#x26F6;</button><div class="fs-stripe-wrap"><button type="button" class="fs-stripe-trigger" id="kwStripeTrigger" aria-label="Expand controls" title="Expand controls" onclick="event.preventDefault();event.stopPropagation();toggleFsStripe(&#x27;kw&#x27;)">&#x203a;</button><div class="fs-stripe-panel" id="kwFsStripePanel"><button type="button" class="fs-snap-btn" id="kwSnapBtn" style="display:none" aria-label="Snap 50/50" title="Snap 50/50" onclick="event.preventDefault();event.stopPropagation();snapDualFsTo50()">&#x229e; 50/50</button><div class="fs-stripe-scale for-kw" aria-label="Scale"><button type="button" class="fs-stripe-scale-btn" aria-label="Smaller UI" title="Smaller UI" onclick="event.preventDefault();event.stopPropagation();if(typeof stepUiScale===&#x27;function&#x27;)stepUiScale(-1)">&#x2212;</button><button type="button" class="fs-stripe-scale-btn" aria-label="Larger UI" title="Larger UI" onclick="event.preventDefault();event.stopPropagation();if(typeof stepUiScale===&#x27;function&#x27;)stepUiScale(1)">+</button></div></div></div></div><div class="filter-panel" id="filterPanel"><div class="filter-kw-tools" id="filterKwTools"><button type="button" class="collapse-cards-btn" id="collapseCardsBtn" title="Collapse open patch lists and even card sizes" onclick="event.preventDefault();event.stopPropagation();if(typeof collapseAllPatchTrees==='function')collapseAllPatchTrees()">Collapse</button><button type="button" class="layout-edit-btn" id="layoutEditBtn" aria-pressed="false" title="Show drag edges to resize Search, Keywords, Index, and menu height" onclick="event.preventDefault();event.stopPropagation();toggleLayoutEdit()">Customize</button><button type="button" class="layout-default-btn" id="layoutDefaultBtn" title="Reset layout sizes to defaults." onclick="event.preventDefault();event.stopPropagation();resetLayoutDefaults()">Default</button><div class="layout-presets" id="layoutPresets"><button type="button" class="layout-presets-btn" id="layoutPresetsBtn" aria-expanded="false" aria-haspopup="true" title="Save and apply named menu layouts">Layouts</button><div class="layout-presets-pop" id="layoutPresetsPop" hidden><div class="layout-presets-tabs" role="tablist" aria-label="Layout store"><button type="button" class="layout-presets-tab" id="layoutTabKeywords" data-layout-scope="keywords" role="tab" aria-selected="true">Search + Keywords</button><button type="button" class="layout-presets-tab" id="layoutTabSearch" data-layout-scope="search" role="tab" aria-selected="false">Search</button></div><p class="layout-presets-store" id="layoutPresetsStoreLabel">Search + Keywords</p><div class="layout-presets-list" id="layoutPresetsList"></div><div class="layout-presets-save"><input id="layoutPresetsName" type="text" maxlength="40" placeholder="Name (e.g. Studio)" autocomplete="off"><button type="button" id="layoutPresetsSave">Save Keywords layout</button><button type="button" id="layoutPresetsUpdate">Update Keywords layout</button><p class="layout-presets-flash" id="layoutPresetsFlash" aria-live="polite"></p></div></div><div class="ui-scale" id="uiScale"><button type="button" class="ui-scale-step" id="uiScaleDown" aria-label="Smaller UI">−</button><button type="button" class="ui-scale-readout" id="uiScaleReadout" aria-expanded="false" aria-haspopup="true" title="Interface scale">100%</button><button type="button" class="ui-scale-step" id="uiScaleUp" aria-label="Larger UI">+</button><div class="ui-scale-pop" id="uiScalePop" hidden></div></div></div></div><div class="mode-switch"><button class="mode-btn" data-mode="pick" onclick="setMode(this.dataset.mode)">Pick</button><button class="mode-btn active" data-mode="search" onclick="setMode(this.dataset.mode)">Search</button></div><div class="cat-switch" id="catSwitch"><button class="cat-btn active" data-cat="all" onclick="setCat(this.dataset.cat)">All</button><button class="cat-btn" data-cat="instrument" onclick="setCat(this.dataset.cat)">Instrument</button><button class="cat-btn" data-cat="brand" onclick="setCat(this.dataset.cat)">Brand</button><button class="cat-btn" data-cat="model" onclick="setCat(this.dataset.cat)">Model</button><button class="cat-btn" data-cat="vibe" onclick="setCat(this.dataset.cat)">Vibe</button><button class="cat-btn" data-cat="patch" onclick="setCat(this.dataset.cat)">Patch</button></div><div id="kwbar" lang="en"></div><p id="kwstatus" class="kwstatus"></p></div><button type="button" class="kw-shade-height" id="kwShadeHeight" aria-label="Resize Keywords height" aria-orientation="horizontal" tabindex="-1"></button></div><button type="button" class="search-height" id="searchHeight" aria-label="Resize Search height" aria-orientation="horizontal" tabindex="-1"></button></div>
 <div class="catalog-index is-collapsed" id="catalogIndex"><div class="catalog-index-head"><button type="button" class="catalog-index-toggle" id="catalogIndexToggle" aria-label="Expand index" aria-expanded="false" title="Expand index" onclick="event.preventDefault();event.stopPropagation();toggleCatalogIndex()"><span class="toggle-arrow">&#9660;</span></button><h2 class="catalog-index-title">Index (alphabetical)</h2><button type="button" class="catalog-index-embed" id="catalogIndexEmbed" aria-pressed="false" title="Embed index above the catalog cards" onclick="event.preventDefault();event.stopPropagation();toggleIndexEmbed()">Embed</button></div><ul class="index" id="catalogIndexList">
-<li data-kw=""><a href="#item-8">12 Oscillator Doom Drone</a></li>
-<li data-kw=""><a href="#item-6">12 String Acoustic</a></li>
+<li data-kw="drone"><a href="#item-8">12 Oscillator Doom Drone</a></li>
+<li data-kw="string"><a href="#item-6">12 String Acoustic</a></li>
 <li data-kw="piano bass broadwood"><a href="#item-13">1781 - Ganer Square Piano</a></li>
 <li data-kw="piano bass broadwood"><a href="#item-14">1796 - Broadwood Piano</a></li>
 <li data-kw="piano wurlitzer strings harp"><a href="#item-15">1930s Wurlitzer Upright</a></li>
@@ -6084,11 +6084,11 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
 <li data-kw="bowl"><a href="#item-64">A Singing Bowl From New Hampshire</a></li>
 <li data-kw="accordion"><a href="#item-45">Accordion</a></li>
 <li data-kw="voice bass accordion"><a href="#item-44">Accordion La Melodiosa</a></li>
-<li data-kw=""><a href="#item-47">Acoustic Cassette Drums</a></li>
+<li data-kw="drums"><a href="#item-47">Acoustic Cassette Drums</a></li>
 <li data-kw="guitar"><a href="#item-48">Aeon Guitar</a></li>
 <li data-kw="xylophone percussion"><a href="#item-49">Afri Xilo</a></li>
 <li data-kw=""><a href="#item-50">Afterglow Demo</a></li>
-<li data-kw=""><a href="#item-38">Air Piano Clean</a></li>
+<li data-kw="piano"><a href="#item-38">Air Piano Clean</a></li>
 <li data-kw="percussion saxophone"><a href="#item-51">Albi's Sound Toolbox</a></li>
 <li data-kw="violin cello texture fx ethereal"><a href="#item-52">Aleatory 3</a></li>
 <li data-kw="voice cello recorder"><a href="#item-53">Alto Recorder</a></li>
@@ -6104,13 +6104,13 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
 <li data-kw=""><a href="#item-62">Arn Bottles</a></li>
 <li data-kw="vocal lofi"><a href="#item-63">Arn Lofi Chorus</a></li>
 <li data-kw="harp jaw"><a href="#item-65">Austrian Jaw Harp</a></li>
-<li data-kw="bell"><a href="#item-66">Authentic Sleigh Bells and One Fake Bell</a></li>
+<li data-kw="bell bells"><a href="#item-66">Authentic Sleigh Bells and One Fake Bell</a></li>
 <li data-kw="guitar pad"><a href="#item-67">Automotive Junk</a></li>
-<li data-kw=""><a href="#item-364">Autumn Piano Bundle</a></li>
+<li data-kw="piano"><a href="#item-364">Autumn Piano Bundle</a></li>
 <li data-kw="piano"><a href="#item-68">Baby Grand Piano</a></li>
 <li data-kw="strings bandola"><a href="#item-69">Bandola Andina Colombiana</a></li>
 <li data-kw="strings bass"><a href="#item-70">Bass Dean</a></li>
-<li data-kw=""><a href="#item-71">Bass Forge Demo</a></li>
+<li data-kw="bass"><a href="#item-71">Bass Forge Demo</a></li>
 <li data-kw="bass"><a href="#item-72">Bass Tromb one two</a></li>
 <li data-kw="strings violin guitar bass synth pad"><a href="#item-73">Beyond the Strings</a></li>
 <li data-kw="organ recorder reed drone melodica"><a href="#item-74">Bilhorn Reed</a></li>
@@ -6123,11 +6123,11 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
 <li data-kw=""><a href="#item-81">Bosque</a></li>
 <li data-kw=""><a href="#item-82">Bottle O Phone</a></li>
 <li data-kw="piano"><a href="#item-83">Broken Cassette Piano</a></li>
-<li data-kw="drum ambient"><a href="#item-84">Bruno Drums</a></li>
+<li data-kw="ambient drum drums"><a href="#item-84">Bruno Drums</a></li>
 <li data-kw=""><a href="#item-85">Burdigala Audio Takoda Lite</a></li>
 <li data-kw=""><a href="#item-108">C Pops</a></li>
 <li data-kw="piano keys synth noise roland casio casiotone"><a href="#item-86">Casioclone</a></li>
-<li data-kw=""><a href="#item-87">Cat Toy Drums Free</a></li>
+<li data-kw="drums"><a href="#item-87">Cat Toy Drums Free</a></li>
 <li data-kw="violin cello bass synth drone fx"><a href="#item-88">Cello Drone</a></li>
 <li data-kw="piano"><a href="#item-90">CH Foogered Piano</a></li>
 <li data-kw="strings"><a href="#item-91">CH Grumpy Strings</a></li>
@@ -6136,7 +6136,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
 <li data-kw=""><a href="#item-42">CH Tape Delay Experiment</a></li>
 <li data-kw="ukulele"><a href="#item-89">Charlie's Baritone Uke</a></li>
 <li data-kw="chimes"><a href="#item-93">Chimes</a></li>
-<li data-kw=""><a href="#item-94">Chinese door bells</a></li>
+<li data-kw="bells"><a href="#item-94">Chinese door bells</a></li>
 <li data-kw="drum flute cymbal"><a href="#item-95">ChingKluay</a></li>
 <li data-kw="harpsichord strings lute recorder"><a href="#item-96">Chloe's Spinet</a></li>
 <li data-kw="choir voice"><a href="#item-98">Choir of the Fallen</a></li>
@@ -6144,7 +6144,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
 <li data-kw="kalimba"><a href="#item-100">Chromatic Flatboard Kalimba</a></li>
 <li data-kw="synth texture granular cinematic emu"><a href="#item-101">Cinematic Granular Synthesizer</a></li>
 <li data-kw="whistle"><a href="#item-102">Classic Slide Whistle</a></li>
-<li data-kw=""><a href="#item-7">Claustrophobic Piano V2</a></li>
+<li data-kw="piano"><a href="#item-7">Claustrophobic Piano V2</a></li>
 <li data-kw="percussion chimes clave granular"><a href="#item-103">Clave Frog &amp; Friends</a></li>
 <li data-kw="piano clavinova choir flute pad fm yamaha dx7"><a href="#item-104">Clavinova Warm Pad</a></li>
 <li data-kw="pad bowed"><a href="#item-132">Clockworks</a></li>
@@ -6160,20 +6160,20 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
 <li data-kw="cymbal percussion"><a href="#item-115">Cymbalum</a></li>
 <li data-kw="bass"><a href="#item-119">D Bass</a></li>
 <li data-kw="synth"><a href="#item-116">Dacr Microsynth</a></li>
-<li data-kw=""><a href="#item-117">Dacr Shaker</a></li>
-<li data-kw="ambient fx"><a href="#item-118">Dark Drums</a></li>
+<li data-kw="shaker"><a href="#item-117">Dacr Shaker</a></li>
+<li data-kw="ambient drums fx"><a href="#item-118">Dark Drums</a></li>
 <li data-kw="piano cello harp"><a href="#item-120">Dead Line</a></li>
 <li data-kw="organ choir cello bassoon noise accordion mellotron"><a href="#item-122">DecenTron</a></li>
 <li data-kw="pad lofi"><a href="#item-123">Delta</a></li>
 <li data-kw="zither strings"><a href="#item-124">Destinys Agent - Zitherone</a></li>
 <li data-kw="bass synth moog dfam"><a href="#item-125">Dfam Hard Sync Bass</a></li>
 <li data-kw="synth moog dfam"><a href="#item-126">Dfam Moving Back Alarm Lead</a></li>
-<li data-kw="piano violin clarinet kalimba ukulele"><a href="#item-127">Dictaphone Orchestra</a></li>
+<li data-kw="clarinet kalimba orchestra piano ukulele violin"><a href="#item-127">Dictaphone Orchestra</a></li>
 <li data-kw="cinematic atmospheric emu"><a href="#item-128">Dima Koltsov - Some Pads and Stuff</a></li>
 <li data-kw=""><a href="#item-129">Divine Errors Part 1 Demo</a></li>
 <li data-kw="dobro"><a href="#item-130">Dobro Slide</a></li>
 <li data-kw="organ bass drone bagpipe"><a href="#item-131">Drone Organ</a></li>
-<li data-kw="reed flute woodwind"><a href="#item-133">Duduk</a></li>
+<li data-kw="duduk flute reed woodwind"><a href="#item-133">Duduk</a></li>
 <li data-kw="strings guitar"><a href="#item-134">Dynamic Overtone Guitar</a></li>
 <li data-kw="bass"><a href="#item-135">E Bass Studio Stomps</a></li>
 <li data-kw="piano"><a href="#item-136">EjIm Piano</a></li>
@@ -6189,7 +6189,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
 <li data-kw=""><a href="#item-34">Family Grand V3</a></li>
 <li data-kw=""><a href="#item-145">Felt &amp; Fog Free</a></li>
 <li data-kw="celeste chimes orchestral"><a href="#item-365">Festive Celeste</a></li>
-<li data-kw=""><a href="#item-29">Flannel Piano</a></li>
+<li data-kw="piano"><a href="#item-29">Flannel Piano</a></li>
 <li data-kw="piano"><a href="#item-146">Florence Upright</a></li>
 <li data-kw="organ flute"><a href="#item-147">Flute Organ</a></li>
 <li data-kw="flute recorder noise flutina accordion"><a href="#item-148">Flutina</a></li>
@@ -6198,7 +6198,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
 <li data-kw="keys bass melodica"><a href="#item-151">Forest melodica</a></li>
 <li data-kw="bagpipe"><a href="#item-152">Forgotten Bagpipes</a></li>
 <li data-kw="keys strings guitar bass noise"><a href="#item-153">Fresh GuitarV2</a></li>
-<li data-kw=""><a href="#item-24">Frozen Glock Dan Keen</a></li>
+<li data-kw="glock"><a href="#item-24">Frozen Glock Dan Keen</a></li>
 <li data-kw="bass harp synth pad"><a href="#item-154">Fullbore Synth</a></li>
 <li data-kw="piano yamaha"><a href="#item-155">G3 Grand</a></li>
 <li data-kw="bass drone bagpipe casio"><a href="#item-156">Gaita Do</a></li>
@@ -6216,7 +6216,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
 <li data-kw="piano keys recorder"><a href="#item-168">Grandmas Beachhouse Piano</a></li>
 <li data-kw="piano"><a href="#item-169">Grandmas Piano</a></li>
 <li data-kw="piano steinway"><a href="#item-170">Grandpas Piano</a></li>
-<li data-kw="drum"><a href="#item-171">Greenwood Drums</a></li>
+<li data-kw="drum drums"><a href="#item-171">Greenwood Drums</a></li>
 <li data-kw="gretsch"><a href="#item-172">Gretsch Catalina Ash</a></li>
 <li data-kw="guitar percussion"><a href="#item-173">Guitar percussion and noises</a></li>
 <li data-kw="guitar percussion"><a href="#item-174">Guitar Precussion</a></li>
@@ -6224,7 +6224,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
 <li data-kw="harmonica"><a href="#item-177">Harmonica</a></li>
 <li data-kw="keys organ synth harmonica"><a href="#item-176">Harmonica Americana</a></li>
 <li data-kw="harpsichord strings bass lute noise"><a href="#item-178">Harpsimachord</a></li>
-<li data-kw=""><a href="#item-179">Healing Bowl</a></li>
+<li data-kw="bowl"><a href="#item-179">Healing Bowl</a></li>
 <li data-kw=""><a href="#item-180">Heaven and Hell 002</a></li>
 <li data-kw="synth"><a href="#item-181">Hellscape Synth</a></li>
 <li data-kw="piano strings noise roland yamaha"><a href="#item-182">Helsinkii1967</a></li>
@@ -6233,12 +6233,12 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
 <li data-kw="drum"><a href="#item-184">Homemade Ceramic Udo</a></li>
 <li data-kw="lofi"><a href="#item-185">Homemade Oscillator and Speaker Circuit</a></li>
 <li data-kw="hurdy strings bowed"><a href="#item-187">Hurdy Gurdy</a></li>
-<li data-kw=""><a href="#item-43">Ice Choir</a></li>
+<li data-kw="choir"><a href="#item-43">Ice Choir</a></li>
 <li data-kw="drum percussion orchestral hybrid"><a href="#item-366">Impactos Hybrid Percussion</a></li>
 <li data-kw="flute drum pad glitch"><a href="#item-188">Inanimate Glitches</a></li>
 <li data-kw="didgeridoo"><a href="#item-189">Indonesian Didgeridoo</a></li>
 <li data-kw=""><a href="#item-2">Interlaced Free Edition</a></li>
-<li data-kw=""><a href="#item-190">Irish Tin Whistle</a></li>
+<li data-kw="whistle"><a href="#item-190">Irish Tin Whistle</a></li>
 <li data-kw="keys drum vintage"><a href="#item-191">Italian Typewriter</a></li>
 <li data-kw="harp"><a href="#item-192">Jew`s Harp F#</a></li>
 <li data-kw="cajon"><a href="#item-193">Jon's Cajons</a></li>
@@ -6269,11 +6269,11 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
 <li data-kw="maracas percussion shaker"><a href="#item-218">Maracas by Estudios Ivcame</a></li>
 <li data-kw="pad"><a href="#item-219">Massive Pad</a></li>
 <li data-kw=""><a href="#item-41">Maxs Bentley</a></li>
-<li data-kw=""><a href="#item-220">MB Analogue Drums</a></li>
+<li data-kw="drums"><a href="#item-220">MB Analogue Drums</a></li>
 <li data-kw="piano harmonica"><a href="#item-221">Melody Maker</a></li>
 <li data-kw="keys strings guitar guitarron"><a href="#item-222">Mexican Guitarron</a></li>
-<li data-kw=""><a href="#item-10">MG Steel String Harmonics Mike Georgiades</a></li>
-<li data-kw=""><a href="#item-223">Micro Guitar</a></li>
+<li data-kw="string"><a href="#item-10">MG Steel String Harmonics Mike Georgiades</a></li>
+<li data-kw="guitar"><a href="#item-223">Micro Guitar</a></li>
 <li data-kw="recorder percussion noise ukulele"><a href="#item-224">Milk Factory - Jd Cheetham</a></li>
 <li data-kw="drum"><a href="#item-225">Mini African Drum</a></li>
 <li data-kw="voice bass drum synth vintage"><a href="#item-226">Mini Drum Lone Singer</a></li>
@@ -6289,19 +6289,19 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
 <li data-kw="bass noise"><a href="#item-236">Murky Roads</a></li>
 <li data-kw="bass"><a href="#item-237">My Cheap Bass</a></li>
 <li data-kw="duduk reed flute woodwind"><a href="#item-238">My Duduk</a></li>
-<li data-kw=""><a href="#item-4">Native Flute Original</a></li>
+<li data-kw="flute"><a href="#item-4">Native Flute Original</a></li>
 <li data-kw="choir strings drone ambient glitch"><a href="#item-11">NFO Alternative Chamber Strings Longs Marco Iannello</a></li>
 <li data-kw="guitar ambient"><a href="#item-239">Nicks LP Studio</a></li>
-<li data-kw="noise"><a href="#item-240">Noise Drums</a></li>
+<li data-kw="drums noise"><a href="#item-240">Noise Drums</a></li>
 <li data-kw="organ vocal bass synth drone texture cinematic"><a href="#item-241">NT Agnostic Drone</a></li>
 <li data-kw="guitar bass synth ambient texture"><a href="#item-242">NT Angelic Dramatic</a></li>
-<li data-kw="flute clarinet synth noise"><a href="#item-243">NT Bionic Brass and Winds</a></li>
+<li data-kw="brass clarinet flute noise synth"><a href="#item-243">NT Bionic Brass and Winds</a></li>
 <li data-kw=""><a href="#item-245">NT Subharmonic Memory Unit</a></li>
 <li data-kw="synth lofi korg"><a href="#item-244">NTS-2 An Oscilloscope Turned Synth</a></li>
 <li data-kw="oboe yamaha hammond"><a href="#item-121">Oboe</a></li>
 <li data-kw="organ bell"><a href="#item-246">Odyssea</a></li>
 <li data-kw="gretsch"><a href="#item-248">OMS-1 Gretsch Feedback</a></li>
-<li data-kw=""><a href="#item-249">Only drums</a></li>
+<li data-kw="drums"><a href="#item-249">Only drums</a></li>
 <li data-kw="piano"><a href="#item-250">Ootg Piano</a></li>
 <li data-kw=""><a href="#item-251">Optical Fibre</a></li>
 <li data-kw="organ flute"><a href="#item-252">Orange Soda Super Flute</a></li>
@@ -6319,7 +6319,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
 <li data-kw="bell korg"><a href="#item-263">Phobos - Canvas Essential Edition</a></li>
 <li data-kw="piano"><a href="#item-264">Piano Percussions</a></li>
 <li data-kw="drum"><a href="#item-265">Pipe Drum</a></li>
-<li data-kw=""><a href="#item-19">Pitched Electric Celeste Christian Henson</a></li>
+<li data-kw="celeste"><a href="#item-19">Pitched Electric Celeste Christian Henson</a></li>
 <li data-kw="kalimba drone"><a href="#item-266">Plasma Drive Kalimba</a></li>
 <li data-kw="ambient vintage"><a href="#item-267">Playwatch</a></li>
 <li data-kw=""><a href="#item-268">Polaroid CL635</a></li>
@@ -6359,9 +6359,9 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
 <li data-kw="choir"><a href="#item-300">Solitary Choir</a></li>
 <li data-kw="strings harp dulcimer"><a href="#item-301">Sonus Lucis - Cymbalon</a></li>
 <li data-kw="drum"><a href="#item-302">Souvenir Tunisian Drum</a></li>
-<li data-kw=""><a href="#item-37">Spring Piano</a></li>
+<li data-kw="piano"><a href="#item-37">Spring Piano</a></li>
 <li data-kw=""><a href="#item-303">Stacked It - E Devey</a></li>
-<li data-kw=""><a href="#item-23">Steinway Jon Meyer</a></li>
+<li data-kw="steinway"><a href="#item-23">Steinway Jon Meyer</a></li>
 <li data-kw="organ recorder"><a href="#item-304">Stratford Tony Organ</a></li>
 <li data-kw="strings guitar"><a href="#item-305">Stratmosphere</a></li>
 <li data-kw="ambient korg"><a href="#item-306">Studio Doctor Sweet pads</a></li>
@@ -6375,10 +6375,10 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
 <li data-kw=""><a href="#item-35">Systems Grand</a></li>
 <li data-kw="bass ibanez"><a href="#item-313">Talman Bass</a></li>
 <li data-kw=""><a href="#item-314">Tea from Hell</a></li>
-<li data-kw=""><a href="#item-39">The 9000ft Piano</a></li>
+<li data-kw="piano"><a href="#item-39">The 9000ft Piano</a></li>
 <li data-kw="organ"><a href="#item-315">The Bjorgan</a></li>
 <li data-kw="piano"><a href="#item-316">The Claustrophobic Toy Piano</a></li>
-<li data-kw=""><a href="#item-9">The Cool Piano</a></li>
+<li data-kw="piano"><a href="#item-9">The Cool Piano</a></li>
 <li data-kw=""><a href="#item-317">The Di Archtop</a></li>
 <li data-kw="flute"><a href="#item-318">The Forest Flute</a></li>
 <li data-kw=""><a href="#item-12">The Gaffer</a></li>
@@ -6387,7 +6387,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
 <li data-kw="pad ambient texture"><a href="#item-320">The Pad - Kulek Records</a></li>
 <li data-kw=""><a href="#item-321">The Spellsinger</a></li>
 <li data-kw="ethereal"><a href="#item-322">The Stranger Ethereal Fountain</a></li>
-<li data-kw=""><a href="#item-20">The Summer Piano</a></li>
+<li data-kw="piano"><a href="#item-20">The Summer Piano</a></li>
 <li data-kw="drum glitch yamaha"><a href="#item-323">The Superstar - Complete Edition</a></li>
 <li data-kw="bass fx"><a href="#item-324">The Terracotta Ball</a></li>
 <li data-kw="lyre"><a href="#item-325">The Viking Log Lyre</a></li>
@@ -6397,16 +6397,16 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
 <li data-kw="piano"><a href="#item-329">Thru Zero E-Piano</a></li>
 <li data-kw=""><a href="#item-330">Thunder</a></li>
 <li data-kw="drone"><a href="#item-331">Thunder &amp; Wine</a></li>
-<li data-kw="drum"><a href="#item-332">Tin Can Drums</a></li>
+<li data-kw="drum drums"><a href="#item-332">Tin Can Drums</a></li>
 <li data-kw=""><a href="#item-333">Tones From The Deep</a></li>
 <li data-kw="tongue"><a href="#item-334">Tongue Bottle Glass</a></li>
 <li data-kw="keys accordion"><a href="#item-335">Toy Accordion</a></li>
 <li data-kw="xylophone"><a href="#item-336">Toy Xylophone</a></li>
-<li data-kw=""><a href="#item-40">Tracked Piano</a></li>
-<li data-kw=""><a href="#item-337">Trash Drums</a></li>
+<li data-kw="piano"><a href="#item-40">Tracked Piano</a></li>
+<li data-kw="drums"><a href="#item-337">Trash Drums</a></li>
 <li data-kw="drum percussion djembe"><a href="#item-338">Tribal Percussion</a></li>
 <li data-kw=""><a href="#item-339">Triple Box</a></li>
-<li data-kw=""><a href="#item-340">Tubular Bells</a></li>
+<li data-kw="bells"><a href="#item-340">Tubular Bells</a></li>
 <li data-kw=""><a href="#item-341">Tuned Gongs</a></li>
 <li data-kw="bodhran drum percussion"><a href="#item-33">Tunnel Bodhran</a></li>
 <li data-kw="ukulele"><a href="#item-342">Uke Swarm</a></li>
@@ -6425,11 +6425,11 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
 <li data-kw="piano wurlitzer keys"><a href="#item-354">Wiedergesichts Wurli</a></li>
 <li data-kw="percussion"><a href="#item-355">Wild Percussion</a></li>
 <li data-kw="chimes"><a href="#item-356">Wind Chimes</a></li>
-<li data-kw=""><a href="#item-5">Winter Piano NR</a></li>
+<li data-kw="piano"><a href="#item-5">Winter Piano NR</a></li>
 <li data-kw="choir"><a href="#item-357">Women 4 syllables Choir</a></li>
 <li data-kw="choir vocal strings pad"><a href="#item-358">Wooden Church of St. Nepomucen Free Edition</a></li>
 <li data-kw=""><a href="#item-359">Wooden Flute1</a></li>
-<li data-kw="keys"><a href="#item-360">World's Biggest Braaam</a></li>
+<li data-kw="keys world"><a href="#item-360">World's Biggest Braaam</a></li>
 <li data-kw=""><a href="#item-361">YE C55</a></li>
 <li data-kw="bass"><a href="#item-362">Yellow Bass Keyboard</a></li>
 <li data-kw=""><a href="#item-363">Yogurt</a></li>
@@ -6564,7 +6564,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
 <div class="loc-group">
 <h2>2. Via FILE BROWSER - BTRFS drive</h2>
 <p class="loc-hint">FILE BROWSER &rarr; <b>btrfs</b> &rarr; <code>DS Libraries</code> &mdash; Root: <code>/mnt/btrfs_disk/DS Libraries</code></p>
-<div class="entry" id="item-8" data-kw="" data-gear="" data-name="12 Oscillator Doom Drone" data-other="1445258 12oscillatordoomdrone christianhenson" data-patch="oscillator doom drone" data-patch-count="1">
+<div class="entry" id="item-8" data-kw="drone" data-gear="" data-name="12 Oscillator Doom Drone" data-other="1445258 12oscillatordoomdrone christianhenson" data-patch="oscillator doom drone" data-patch-count="1">
   <div class="card-chrome card-chrome-start">
   <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
@@ -6599,7 +6599,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
     </div>
   </div>
 </div>
-<div class="entry" id="item-6" data-kw="" data-gear="" data-name="12 String Acoustic" data-other="string acoustic" data-patch="string acoustic" data-patch-count="1">
+<div class="entry" id="item-6" data-kw="string" data-gear="" data-name="12 String Acoustic" data-other="string acoustic" data-patch="string acoustic" data-patch-count="1">
   <div class="card-chrome card-chrome-start">
   <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
@@ -7092,7 +7092,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
     </div>
   </div>
 </div>
-<div class="entry" id="item-47" data-kw="" data-gear="" data-name="Acoustic Cassette Drums" data-other="acoustic cassette drums" data-patch="acoustic cassette drums" data-patch-count="1">
+<div class="entry" id="item-47" data-kw="drums" data-gear="" data-name="Acoustic Cassette Drums" data-other="acoustic cassette drums" data-patch="acoustic cassette drums" data-patch-count="1">
   <div class="card-chrome card-chrome-start">
   <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
@@ -7232,7 +7232,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
     </div>
   </div>
 </div>
-<div class="entry" id="item-38" data-kw="" data-gear="" data-name="Air Piano Clean" data-other="851 airpianoclean christianhenson decentsampler" data-patch="air piano close fron cond ribbon stereo tight mix big ribon sustains alt ambient tree all mixes back boundary gallery" data-patch-count="17">
+<div class="entry" id="item-38" data-kw="piano" data-gear="" data-name="Air Piano Clean" data-other="851 airpianoclean christianhenson decentsampler" data-patch="air piano close fron cond ribbon stereo tight mix big ribon sustains alt ambient tree all mixes back boundary gallery" data-patch-count="17">
   <div class="card-chrome card-chrome-start">
   <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
@@ -7789,7 +7789,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
     </div>
   </div>
 </div>
-<div class="entry" id="item-66" data-kw="bell" data-gear="" data-name="Authentic Sleigh Bells and One Fake Bell" data-other="authentic sleigh bells one fake" data-patch="authentic sleigh bells one fake bell" data-patch-count="1">
+<div class="entry" id="item-66" data-kw="bell bells" data-gear="" data-name="Authentic Sleigh Bells and One Fake Bell" data-other="authentic sleigh bells one fake" data-patch="authentic sleigh bells one fake bell" data-patch-count="1">
   <div class="card-chrome card-chrome-start">
   <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
@@ -7965,7 +7965,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
     </div>
   </div>
 </div>
-<div class="entry" id="item-71" data-kw="" data-gear="" data-name="Bass Forge Demo" data-other="bassforge" data-patch="bass fingers sus synth picked" data-patch-count="4">
+<div class="entry" id="item-71" data-kw="bass" data-gear="" data-name="Bass Forge Demo" data-other="bassforge" data-patch="bass fingers sus synth picked" data-patch-count="4">
   <div class="card-chrome card-chrome-start">
   <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
@@ -8431,7 +8431,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
     </div>
   </div>
 </div>
-<div class="entry" id="item-84" data-kw="drum ambient" data-gear="" data-name="Bruno Drums" data-other="bruno drums decent sampler" data-patch="bruno drums" data-patch-count="1">
+<div class="entry" id="item-84" data-kw="ambient drum drums" data-gear="" data-name="Bruno Drums" data-other="bruno drums decent sampler" data-patch="bruno drums" data-patch-count="1">
   <div class="card-chrome card-chrome-start">
   <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
@@ -8577,7 +8577,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
     </div>
   </div>
 </div>
-<div class="entry" id="item-87" data-kw="" data-gear="" data-name="Cat Toy Drums Free" data-other="cat toy drums" data-patch="ctd lite dry" data-patch-count="1">
+<div class="entry" id="item-87" data-kw="drums" data-gear="" data-name="Cat Toy Drums Free" data-other="cat toy drums" data-patch="ctd lite dry" data-patch-count="1">
   <div class="card-chrome card-chrome-start">
   <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
@@ -8892,7 +8892,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
     </div>
   </div>
 </div>
-<div class="entry" id="item-94" data-kw="" data-gear="" data-name="Chinese door bells" data-other="chinese door bells" data-patch="chinese bells" data-patch-count="1">
+<div class="entry" id="item-94" data-kw="bells" data-gear="" data-name="Chinese door bells" data-other="chinese door bells" data-patch="chinese bells" data-patch-count="1">
   <div class="card-chrome card-chrome-start">
   <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
@@ -9174,7 +9174,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
     </div>
   </div>
 </div>
-<div class="entry" id="item-7" data-kw="" data-gear="" data-name="Claustrophobic Piano V2" data-other="1417838 claustrophobicpianov2 christianhenson" data-patch="claustrophobic piano ku100 m149 mix456" data-patch-count="3">
+<div class="entry" id="item-7" data-kw="piano" data-gear="" data-name="Claustrophobic Piano V2" data-other="1417838 claustrophobicpianov2 christianhenson" data-patch="claustrophobic piano ku100 m149 mix456" data-patch-count="3">
   <div class="card-chrome card-chrome-start">
   <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
@@ -9744,7 +9744,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
     </div>
   </div>
 </div>
-<div class="entry" id="item-117" data-kw="" data-gear="" data-name="Dacr Shaker" data-other="dacrshaker" data-patch="dacrshaker" data-patch-count="1">
+<div class="entry" id="item-117" data-kw="shaker" data-gear="" data-name="Dacr Shaker" data-other="dacrshaker" data-patch="dacrshaker" data-patch-count="1">
   <div class="card-chrome card-chrome-start">
   <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
@@ -9779,7 +9779,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
     </div>
   </div>
 </div>
-<div class="entry" id="item-118" data-kw="ambient fx" data-gear="" data-name="Dark Drums" data-other="dark drums" data-patch="dark drums" data-patch-count="1">
+<div class="entry" id="item-118" data-kw="ambient drums fx" data-gear="" data-name="Dark Drums" data-other="dark drums" data-patch="dark drums" data-patch-count="1">
   <div class="card-chrome card-chrome-start">
   <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
@@ -10048,7 +10048,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
     </div>
   </div>
 </div>
-<div class="entry" id="item-127" data-kw="piano violin clarinet kalimba ukulele" data-gear="" data-name="Dictaphone Orchestra" data-other="dictaphone orchestra" data-patch="dictaphone clarinet trumpet rajao violin plucks bows kalimba toy piano" data-patch-count="7">
+<div class="entry" id="item-127" data-kw="clarinet kalimba orchestra piano ukulele violin" data-gear="" data-name="Dictaphone Orchestra" data-other="dictaphone orchestra" data-patch="dictaphone clarinet trumpet rajao violin plucks bows kalimba toy piano" data-patch-count="7">
   <div class="card-chrome card-chrome-start">
   <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
@@ -10243,7 +10243,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
     </div>
   </div>
 </div>
-<div class="entry" id="item-133" data-kw="reed flute woodwind" data-gear="" data-name="Duduk" data-other="duduk" data-patch="duduk" data-patch-count="1">
+<div class="entry" id="item-133" data-kw="duduk flute reed woodwind" data-gear="" data-name="Duduk" data-other="duduk" data-patch="duduk" data-patch-count="1">
   <div class="card-chrome card-chrome-start">
   <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
@@ -10792,7 +10792,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
     </div>
   </div>
 </div>
-<div class="entry" id="item-29" data-kw="" data-gear="" data-name="Flannel Piano" data-other="486995 flannelpiano christianhenson decentsampler" data-patch="flannel piano" data-patch-count="1">
+<div class="entry" id="item-29" data-kw="piano" data-gear="" data-name="Flannel Piano" data-other="486995 flannelpiano christianhenson decentsampler" data-patch="flannel piano" data-patch-count="1">
   <div class="card-chrome card-chrome-start">
   <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
@@ -11112,7 +11112,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
     </div>
   </div>
 </div>
-<div class="entry" id="item-24" data-kw="" data-gear="" data-name="Frozen Glock Dan Keen" data-other="3881 frozenglock dan keen" data-patch="frozen glock" data-patch-count="1">
+<div class="entry" id="item-24" data-kw="glock" data-gear="" data-name="Frozen Glock Dan Keen" data-other="3881 frozenglock dan keen" data-patch="frozen glock" data-patch-count="1">
   <div class="card-chrome card-chrome-start">
   <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
@@ -11755,7 +11755,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
     </div>
   </div>
 </div>
-<div class="entry" id="item-171" data-kw="drum" data-gear="" data-name="Greenwood Drums" data-other="greenwood drums" data-patch="greenwood drums" data-patch-count="1">
+<div class="entry" id="item-171" data-kw="drum drums" data-gear="" data-name="Greenwood Drums" data-other="greenwood drums" data-patch="greenwood drums" data-patch-count="1">
   <div class="card-chrome card-chrome-start">
   <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
@@ -12041,7 +12041,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
     </div>
   </div>
 </div>
-<div class="entry" id="item-179" data-kw="" data-gear="" data-name="Healing Bowl" data-other="healingbowl" data-patch="healingbowl" data-patch-count="1">
+<div class="entry" id="item-179" data-kw="bowl" data-gear="" data-name="Healing Bowl" data-other="healingbowl" data-patch="healingbowl" data-patch-count="1">
   <div class="card-chrome card-chrome-start">
   <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
@@ -12361,7 +12361,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
     </div>
   </div>
 </div>
-<div class="entry" id="item-43" data-kw="" data-gear="" data-name="Ice Choir" data-other="872 icechoir christianhenson decentsampler" data-patch="ice choir pack mw4 mw2 mw3 birds mw1" data-patch-count="15">
+<div class="entry" id="item-43" data-kw="choir" data-gear="" data-name="Ice Choir" data-other="872 icechoir christianhenson decentsampler" data-patch="ice choir pack mw4 mw2 mw3 birds mw1" data-patch-count="15">
   <div class="card-chrome card-chrome-start">
   <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
@@ -12480,7 +12480,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
     </div>
   </div>
 </div>
-<div class="entry" id="item-190" data-kw="" data-gear="" data-name="Irish Tin Whistle" data-other="irishtinwhistle" data-patch="irishtinwhistle" data-patch-count="1">
+<div class="entry" id="item-190" data-kw="whistle" data-gear="" data-name="Irish Tin Whistle" data-other="irishtinwhistle" data-patch="irishtinwhistle" data-patch-count="1">
   <div class="card-chrome card-chrome-start">
   <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
@@ -13583,7 +13583,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
     </div>
   </div>
 </div>
-<div class="entry" id="item-220" data-kw="" data-gear="" data-name="MB Analogue Drums" data-other="mb analogue drums" data-patch="mbanaloguedrums" data-patch-count="1">
+<div class="entry" id="item-220" data-kw="drums" data-gear="" data-name="MB Analogue Drums" data-other="mb analogue drums" data-patch="mbanaloguedrums" data-patch-count="1">
   <div class="card-chrome card-chrome-start">
   <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
@@ -13688,7 +13688,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
     </div>
   </div>
 </div>
-<div class="entry" id="item-10" data-kw="" data-gear="" data-name="MG Steel String Harmonics Mike Georgiades" data-other="1450796 mgsteelstringharmonics mikegeorgiades" data-patch="steel string harmonics" data-patch-count="1">
+<div class="entry" id="item-10" data-kw="string" data-gear="" data-name="MG Steel String Harmonics Mike Georgiades" data-other="1450796 mgsteelstringharmonics mikegeorgiades" data-patch="steel string harmonics" data-patch-count="1">
   <div class="card-chrome card-chrome-start">
   <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
@@ -13723,7 +13723,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
     </div>
   </div>
 </div>
-<div class="entry" id="item-223" data-kw="" data-gear="" data-name="Micro Guitar" data-other="microguitar" data-patch="microguitar" data-patch-count="1">
+<div class="entry" id="item-223" data-kw="guitar" data-gear="" data-name="Micro Guitar" data-other="microguitar" data-patch="microguitar" data-patch-count="1">
   <div class="card-chrome card-chrome-start">
   <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
@@ -14297,7 +14297,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
     </div>
   </div>
 </div>
-<div class="entry" id="item-4" data-kw="" data-gear="" data-name="Native Flute Original" data-other="1065349 nativefluteoriginal christianhenson decentsampler" data-patch="flutes ebows ebow less fundamental fast att nflute choir native flute" data-patch-count="5">
+<div class="entry" id="item-4" data-kw="flute" data-gear="" data-name="Native Flute Original" data-other="1065349 nativefluteoriginal christianhenson decentsampler" data-patch="flutes ebows ebow less fundamental fast att nflute choir native flute" data-patch-count="5">
   <div class="card-chrome card-chrome-start">
   <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
@@ -14408,7 +14408,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
     </div>
   </div>
 </div>
-<div class="entry" id="item-240" data-kw="noise" data-gear="" data-name="Noise Drums" data-other="drums" data-patch="drum bart hvac pinknoise whitenoise" data-patch-count="4">
+<div class="entry" id="item-240" data-kw="drums noise" data-gear="" data-name="Noise Drums" data-other="drums" data-patch="drum bart hvac pinknoise whitenoise" data-patch-count="4">
   <div class="card-chrome card-chrome-start">
   <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
@@ -14516,7 +14516,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
     </div>
   </div>
 </div>
-<div class="entry" id="item-243" data-kw="flute clarinet synth noise" data-gear="" data-name="NT Bionic Brass and Winds" data-other="nt bionic brass winds" data-patch="bionic brass winds" data-patch-count="1">
+<div class="entry" id="item-243" data-kw="brass clarinet flute noise synth" data-gear="" data-name="NT Bionic Brass and Winds" data-other="nt bionic brass winds" data-patch="bionic brass winds" data-patch-count="1">
   <div class="card-chrome card-chrome-start">
   <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
@@ -14730,7 +14730,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
     </div>
   </div>
 </div>
-<div class="entry" id="item-249" data-kw="" data-gear="" data-name="Only drums" data-other="only drums" data-patch="only drums" data-patch-count="1">
+<div class="entry" id="item-249" data-kw="drums" data-gear="" data-name="Only drums" data-other="only drums" data-patch="only drums" data-patch-count="1">
   <div class="card-chrome card-chrome-start">
   <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
@@ -15370,7 +15370,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
     </div>
   </div>
 </div>
-<div class="entry" id="item-19" data-kw="" data-gear="" data-name="Pitched Electric Celeste Christian Henson" data-other="3485 pitchedelectricceleste christian henson 20220303 060600" data-patch="pitched electric celeste" data-patch-count="1">
+<div class="entry" id="item-19" data-kw="celeste" data-gear="" data-name="Pitched Electric Celeste Christian Henson" data-other="3485 pitchedelectricceleste christian henson 20220303 060600" data-patch="pitched electric celeste" data-patch-count="1">
   <div class="card-chrome card-chrome-start">
   <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
@@ -16803,7 +16803,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
     </div>
   </div>
 </div>
-<div class="entry" id="item-37" data-kw="" data-gear="" data-name="Spring Piano" data-other="850 springpiano christianhenson decentsampler" data-patch="spring piano" data-patch-count="1">
+<div class="entry" id="item-37" data-kw="piano" data-gear="" data-name="Spring Piano" data-other="850 springpiano christianhenson decentsampler" data-patch="spring piano" data-patch-count="1">
   <div class="card-chrome card-chrome-start">
   <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
@@ -16873,7 +16873,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
     </div>
   </div>
 </div>
-<div class="entry" id="item-23" data-kw="" data-gear="" data-name="Steinway Jon Meyer" data-other="3832 steinway jonmeyer decentsampler" data-patch="steinway grand" data-patch-count="1">
+<div class="entry" id="item-23" data-kw="steinway" data-gear="" data-name="Steinway Jon Meyer" data-other="3832 steinway jonmeyer decentsampler" data-patch="steinway grand" data-patch-count="1">
   <div class="card-chrome card-chrome-start">
   <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
@@ -17385,7 +17385,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
     </div>
   </div>
 </div>
-<div class="entry" id="item-39" data-kw="" data-gear="" data-name="The 9000ft Piano" data-other="855 the9000ftpiano christianhenson decentsampler" data-patch="9000ft piano ambient fake stereo 414s coles" data-patch-count="6">
+<div class="entry" id="item-39" data-kw="piano" data-gear="" data-name="The 9000ft Piano" data-other="855 the9000ftpiano christianhenson decentsampler" data-patch="9000ft piano ambient fake stereo 414s coles" data-patch-count="6">
   <div class="card-chrome card-chrome-start">
   <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
@@ -17501,7 +17501,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
     </div>
   </div>
 </div>
-<div class="entry" id="item-9" data-kw="" data-gear="" data-name="The Cool Piano" data-other="1445643 thecoolpiano christianhenson" data-patch="cool piano" data-patch-count="1">
+<div class="entry" id="item-9" data-kw="piano" data-gear="" data-name="The Cool Piano" data-other="1445643 thecoolpiano christianhenson" data-patch="cool piano" data-patch-count="1">
   <div class="card-chrome card-chrome-start">
   <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
@@ -17816,7 +17816,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
     </div>
   </div>
 </div>
-<div class="entry" id="item-20" data-kw="" data-gear="" data-name="The Summer Piano" data-other="381243 thesummerpiano christianhenson decentsampler" data-patch="summer felt tight response" data-patch-count="2">
+<div class="entry" id="item-20" data-kw="piano" data-gear="" data-name="The Summer Piano" data-other="381243 thesummerpiano christianhenson decentsampler" data-patch="summer felt tight response" data-patch-count="2">
   <div class="card-chrome card-chrome-start">
   <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
@@ -18176,7 +18176,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
     </div>
   </div>
 </div>
-<div class="entry" id="item-332" data-kw="drum" data-gear="" data-name="Tin Can Drums" data-other="tin can drums" data-patch="tin can drums" data-patch-count="1">
+<div class="entry" id="item-332" data-kw="drum drums" data-gear="" data-name="Tin Can Drums" data-other="tin can drums" data-patch="tin can drums" data-patch-count="1">
   <div class="card-chrome card-chrome-start">
   <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
@@ -18353,7 +18353,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
     </div>
   </div>
 </div>
-<div class="entry" id="item-40" data-kw="" data-gear="" data-name="Tracked Piano" data-other="856 trackedpiano christianhenson decentsampler" data-patch="tracked piano velocity take" data-patch-count="3">
+<div class="entry" id="item-40" data-kw="piano" data-gear="" data-name="Tracked Piano" data-other="856 trackedpiano christianhenson decentsampler" data-patch="tracked piano velocity take" data-patch-count="3">
   <div class="card-chrome card-chrome-start">
   <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
@@ -18390,7 +18390,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
     </div>
   </div>
 </div>
-<div class="entry" id="item-337" data-kw="" data-gear="" data-name="Trash Drums" data-other="trash drums" data-patch="trash drums" data-patch-count="1">
+<div class="entry" id="item-337" data-kw="drums" data-gear="" data-name="Trash Drums" data-other="trash drums" data-patch="trash drums" data-patch-count="1">
   <div class="card-chrome card-chrome-start">
   <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
@@ -18495,7 +18495,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
     </div>
   </div>
 </div>
-<div class="entry" id="item-340" data-kw="" data-gear="" data-name="Tubular Bells" data-other="tubular bells decent sampler" data-patch="tubular bells" data-patch-count="1">
+<div class="entry" id="item-340" data-kw="bells" data-gear="" data-name="Tubular Bells" data-other="tubular bells decent sampler" data-patch="tubular bells" data-patch-count="1">
   <div class="card-chrome card-chrome-start">
   <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
@@ -19190,7 +19190,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
     </div>
   </div>
 </div>
-<div class="entry" id="item-5" data-kw="" data-gear="" data-name="Winter Piano NR" data-other="1217 winterpianonr christianhenson decentsampler" data-patch="winter piano" data-patch-count="1">
+<div class="entry" id="item-5" data-kw="piano" data-gear="" data-name="Winter Piano NR" data-other="1217 winterpianonr christianhenson decentsampler" data-patch="winter piano" data-patch-count="1">
   <div class="card-chrome card-chrome-start">
   <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
@@ -19336,7 +19336,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
     </div>
   </div>
 </div>
-<div class="entry" id="item-360" data-kw="keys" data-gear="" data-name="World's Biggest Braaam" data-other="world biggest braaam" data-patch="wbb" data-patch-count="1">
+<div class="entry" id="item-360" data-kw="keys world" data-gear="" data-name="World's Biggest Braaam" data-other="world biggest braaam" data-patch="wbb" data-patch-count="1">
   <div class="card-chrome card-chrome-start">
   <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
@@ -19521,7 +19521,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
 <div class="loc-group">
 <h2>3. Via FILE BROWSER - WD_BLACK drive</h2>
 <p class="loc-hint">FILE BROWSER &rarr; <b>wd_black</b> &rarr; <code>DS Libraries</code> &mdash; Root: <code>/mnt/wd_black/DS Libraries</code></p>
-<div class="entry" id="item-364" data-kw="" data-gear="" data-name="Autumn Piano Bundle" data-other="564663 autumnpianobundle christianhenson" data-patch="autumn piano" data-patch-count="2">
+<div class="entry" id="item-364" data-kw="piano" data-gear="" data-name="Autumn Piano Bundle" data-other="564663 autumnpianobundle christianhenson" data-patch="autumn piano" data-patch-count="2">
   <div class="card-chrome card-chrome-start">
   <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
@@ -20033,6 +20033,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
           <li><b>Pinned-card restore fix</b> — reopening a card from the pinned dock while a filter/search had it hidden now always shows it, instead of occasionally opening to nothing until the filter changed again.</li>
           <li><b>Smoother custom scrollbar</b> — the hover-scroll thumb (the shadow scrollbar beside the native one) is now positioned with a compositor-only transform instead of a layout-triggering style, so it should not lag behind fast scrolling on long columns.</li>
           <li><b>Quick toolbar (phone)</b> — remembers a separate dock/position per orientation and per combination of visible menus (Search / Keywords / Flip / Middle); see <i>Place the quick toolbar</i> in the User guide.</li>
+          <li><b>Expanded keyword vocabulary</b> — Instrument/Brand pills now also cover ethnic/world instruments (oud, sitar, koto, guzheng, pipa, shamisen, darbuka, vibraphone, timpani, tambourine, and more) and additional real library vendors (Soundiron, Sonokinetic, SubMission Audio, Output, Soniccouture, GetGood Drums, FluffyAudio, Nami Audio, EarthMoments, 8Dio, Streamtech Music), auto-matched from each library's own name against the same rule set (no invented categories). The library updater and live builder scripts tag new libraries with this expanded set automatically going forward.</li>
           <li><b>English keyword aliases</b>, a Middle-mode Keywords bottom border, centred mobile hide/show tabs, and note-button alignment/UX polish also landed this week.</li>
         </ul>
       </details>
@@ -23978,7 +23979,7 @@ window.saveNotePop=function(btn){
 };
 syncAllMeta();
 
-var KW_CATS={"cymbal":"instrument","dulcimer":"instrument","maracas":"instrument","shaker":"instrument","glockenspiel":"instrument","zither":"instrument","duduk":"instrument","piano":"instrument","keys":"instrument","organ":"instrument","harmonium":"instrument","celeste":"instrument","harpsichord":"instrument","clavinova":"model","wurlitzer":"instrument","choir":"instrument","vocal":"instrument","voice":"instrument","strings":"instrument","string":"instrument","violin":"instrument","cello":"instrument","viola":"instrument","domra":"instrument","guitar":"instrument","bass":"instrument","bassoon":"instrument","harp":"instrument","mandolin":"instrument","lute":"instrument","flute":"instrument","recorder":"instrument","ocarina":"instrument","whistle":"instrument","woodwind":"instrument","reed":"instrument","clarinet":"instrument","oboe":"instrument","drum":"instrument","drums":"instrument","percussion":"instrument","kalimba":"instrument","bell":"instrument","bells":"instrument","glock":"instrument","chimes":"instrument","bodhran":"instrument","tabla":"instrument","tablas":"instrument","xylophone":"instrument","marimba":"instrument","synth":"instrument","pad":"instrument","bowed":"instrument","accordion":"instrument","saxophone":"instrument","harmonica":"instrument","melodica":"instrument","bagpipe":"instrument","didgeridoo":"instrument","flutina":"instrument","ukulele":"instrument","autoharp":"instrument","lapsteel":"instrument","dobro":"instrument","hurdy":"instrument","lyre":"instrument","erhu":"instrument","kantele":"instrument","gusli":"instrument","bandola":"instrument","guitarron":"instrument","jaw":"instrument","tongue":"instrument","bowl":"instrument","cajon":"instrument","djembe":"instrument","udu":"instrument","clave":"instrument","brass":"instrument","horn":"instrument","gamelan":"instrument","orchestra":"instrument","guitarist":"instrument","mellotron":"instrument","rhodes":"instrument","hammond":"instrument","optigan":"instrument","chamberlin":"instrument","fairlight":"instrument","synclavier":"instrument","gretsch":"brand","moog":"brand","oberheim":"brand","korg":"brand","roland":"brand","yamaha":"brand","casio":"brand","arp":"instrument","emu":"brand","ppg":"brand","steinway":"brand","broadwood":"brand","ensoniq":"brand","ibanez":"brand","digitech":"brand","selmer":"brand","stradivari":"brand","amati":"brand","guarneri":"brand","808":"model","909":"model","707":"model","606":"model","727":"model","cr-78":"model","cr78":"model","tr-808":"model","tr-909":"model","linndrum":"model","juno":"model","jupiter":"model","minimoog":"model","prophet":"model","dx7":"model","sh-101":"model","ms-20":"model","op-1":"model","volca":"model","leslie":"model","dfam":"model","casiotone":"model","tx81z":"model","drone":"vibe","ambient":"vibe","texture":"vibe","noise":"vibe","fx":"vibe","fm":"vibe","granular":"vibe","glitch":"vibe","lofi":"vibe","vintage":"vibe","cinematic":"vibe","orchestral":"vibe","ethereal":"vibe","atmospheric":"vibe","hybrid":"vibe","world":"vibe","analog":"vibe","soul":"vibe"};
+var KW_CATS={"cymbal":"instrument","dulcimer":"instrument","maracas":"instrument","shaker":"instrument","glockenspiel":"instrument","zither":"instrument","duduk":"instrument","piano":"instrument","keys":"instrument","organ":"instrument","harmonium":"instrument","celeste":"instrument","harpsichord":"instrument","clavinova":"model","wurlitzer":"instrument","choir":"instrument","vocal":"instrument","voice":"instrument","strings":"instrument","string":"instrument","violin":"instrument","cello":"instrument","viola":"instrument","domra":"instrument","guitar":"instrument","bass":"instrument","bassoon":"instrument","harp":"instrument","mandolin":"instrument","lute":"instrument","flute":"instrument","recorder":"instrument","ocarina":"instrument","whistle":"instrument","woodwind":"instrument","reed":"instrument","clarinet":"instrument","oboe":"instrument","drum":"instrument","drums":"instrument","percussion":"instrument","kalimba":"instrument","bell":"instrument","bells":"instrument","glock":"instrument","chimes":"instrument","bodhran":"instrument","tabla":"instrument","tablas":"instrument","xylophone":"instrument","marimba":"instrument","synth":"instrument","pad":"instrument","bowed":"instrument","accordion":"instrument","saxophone":"instrument","harmonica":"instrument","melodica":"instrument","bagpipe":"instrument","didgeridoo":"instrument","flutina":"instrument","ukulele":"instrument","autoharp":"instrument","lapsteel":"instrument","dobro":"instrument","hurdy":"instrument","lyre":"instrument","erhu":"instrument","kantele":"instrument","gusli":"instrument","bandola":"instrument","guitarron":"instrument","jaw":"instrument","tongue":"instrument","bowl":"instrument","cajon":"instrument","djembe":"instrument","udu":"instrument","clave":"instrument","brass":"instrument","horn":"instrument","gamelan":"instrument","orchestra":"instrument","guitarist":"instrument","mellotron":"instrument","rhodes":"instrument","hammond":"instrument","optigan":"instrument","chamberlin":"instrument","fairlight":"instrument","synclavier":"instrument","gretsch":"brand","moog":"brand","oberheim":"brand","korg":"brand","roland":"brand","yamaha":"brand","casio":"brand","arp":"instrument","emu":"brand","ppg":"brand","steinway":"brand","broadwood":"brand","ensoniq":"brand","ibanez":"brand","digitech":"brand","selmer":"brand","stradivari":"brand","amati":"brand","guarneri":"brand","808":"model","909":"model","707":"model","606":"model","727":"model","cr-78":"model","cr78":"model","tr-808":"model","tr-909":"model","linndrum":"model","juno":"model","jupiter":"model","minimoog":"model","prophet":"model","dx7":"model","sh-101":"model","ms-20":"model","op-1":"model","volca":"model","leslie":"model","dfam":"model","casiotone":"model","tx81z":"model","drone":"vibe","ambient":"vibe","texture":"vibe","noise":"vibe","fx":"vibe","fm":"vibe","granular":"vibe","glitch":"vibe","lofi":"vibe","vintage":"vibe","cinematic":"vibe","orchestral":"vibe","ethereal":"vibe","atmospheric":"vibe","hybrid":"vibe","world":"vibe","analog":"vibe","soul":"vibe","ajaeng":"instrument","dizi":"instrument","daegeum":"instrument","hichiriki":"instrument","sho":"instrument","oud":"instrument","sitar":"instrument","koto":"instrument","guzheng":"instrument","guqin":"instrument","pipa":"instrument","shamisen":"instrument","yangqin":"instrument","gayageum":"instrument","darbuka":"instrument","vibraphone":"instrument","gong":"instrument","clavinet":"instrument","timpani":"instrument","tambourine":"instrument","cowbell":"instrument","conga":"instrument","bongo":"instrument","shakuhachi":"instrument","soundiron":"brand","sonokinetic":"brand","submission":"brand","streamtech":"brand","output":"brand","soniccouture":"brand","getgood":"brand","fluffyaudio":"brand","nami":"brand","earthmoments":"brand","8dio":"brand"};
 (function(){
 var entries=[].slice.call(document.querySelectorAll('.entry')),idx=[].slice.call(document.querySelectorAll('.index li'));
 function entryForIdx(li){var a=li.querySelector('a[href^="#"]');return a?document.getElementById(a.getAttribute('href').slice(1)):null;}

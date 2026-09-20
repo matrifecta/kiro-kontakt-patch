@@ -255,6 +255,19 @@ body.catalog-help-kind-guide .catalog-help-title{display:none}
  #cardMinDock .card-min-pill.is-front{background:var(--accent-instrument-bg);border-color:var(--accent-instrument-active);color:var(--accent-instrument-active);box-shadow:0 10px 32px rgba(0,0,0,.45);opacity:1}
  body.hl-open #cardMinDock,body.chosen-preview-open #cardMinDock,body.gallery-open #cardMinDock,body.img-focus-open #cardMinDock,body.desc-reader-open #cardMinDock,body.path-reader-open #cardMinDock,body.desc-focus-open #cardMinDock,body.path-focus-open #cardMinDock{visibility:hidden!important;pointer-events:none!important}
  .entry.highlight{position:fixed;inset:0;top:0;left:0;right:0;bottom:0;width:100vw;width:100dvw;height:100vh;height:100dvh;height:100svh;max-width:none;max-height:none;z-index:860;display:flex;flex-direction:column;overflow:hidden;padding:max(52px,calc(env(safe-area-inset-top) + 8px)) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);box-sizing:border-box;grid-column:unset;transform:none;border-radius:0;outline:2px solid var(--accent-instrument);outline-offset:-2px;background:var(--bg-card);border:1px solid var(--border);box-shadow:var(--hl-shadow)}
+ /* fix-HL-LANDSCAPE-NARROW-v1: expanded (fullscreen) card stays only as wide as it
+    would naturally be in portrait (screen height == portrait width on a rotated
+    phone/tablet), instead of stretching edge-to-edge across the wider landscape
+    screen. Left/right margins reveal #hlBackdrop, mirroring the "no wasted side
+    space" framing already true in portrait. Desktop/tablet-wide landscape (>1023px)
+    keeps the existing full-bleed layout. */
+ @media (orientation:landscape) and (max-width:1023px){
+  .entry.highlight{
+    left:50%!important;right:auto!important;
+    width:min(100dvh,100dvw)!important;
+    transform:translateX(-50%)!important
+  }
+ }
  .hl-body{min-width:0}
  .entry.highlight .hl-body{flex:1 1 auto;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:12px 16px 24px}
  .cover{flex:0 0 auto;flex-shrink:0;width:100%;max-width:100%;min-height:clamp(4.5rem,12vw,7.5rem);max-height:clamp(7.5rem,18vw,12.5rem);margin:.3rem 0;display:flex;align-items:center;justify-content:center;overflow:hidden;border:1px solid var(--border);border-radius:4px;background:var(--bg-surface);box-sizing:border-box;cursor:pointer}

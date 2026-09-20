@@ -5018,9 +5018,23 @@ body.card-embed-open.chosen-preview-open:not(.card-row2-hidden-pv) .entry.select
 .card-chrome-toggles{display:none;position:absolute;left:50%;top:0;transform:translateX(-50%) translateY(-50%);z-index:843;align-items:center;gap:1rem}
 body.card-embed-open .entry.highlight:has(#cardSearchEmbed) .card-chrome-toggles,
 body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed) .card-chrome-toggles{display:flex}
-.card-chrome-fold,.card-row2-toggle{box-sizing:border-box;width:2.15rem;height:1.15rem;min-width:2.15rem;min-height:1.15rem;display:inline-flex;align-items:center;justify-content:center;padding:0;margin:0;border:1px solid var(--border);border-top:0;border-radius:0 0 8px 8px;background:var(--bg-surface);color:var(--text);cursor:pointer;touch-action:manipulation;font:inherit;line-height:1}
+.card-chrome-fold,.card-row2-toggle{box-sizing:border-box;width:2.15rem;height:1.15rem;min-width:2.15rem;min-height:1.15rem;display:inline-flex;align-items:center;justify-content:center;padding:0;margin:0;border:1px solid var(--accent-instrument);border-top:0;border-radius:0 0 8px 8px;background:var(--accent-instrument);color:#fff;cursor:pointer;touch-action:manipulation;font:inherit;line-height:1;transition:background-color .15s,color .15s,border-color .15s}
 .card-chrome-fold:hover,.card-row2-toggle:hover{color:var(--accent-instrument);border-color:var(--accent-instrument);background:var(--accent-instrument-bg)}
 .card-chrome-fold .toggle-arrow,.card-row2-toggle .toggle-arrow{display:inline-block;transition:transform .2s;font-size:.85rem;line-height:1}
+/* fix-CARD-CHROME-TOGGLE-STATE-INDICATOR-v1: the fold/row2-toggle buttons
+   looked identical whether the toolbar they control was shown or hidden,
+   making the collapsed/expanded state hard to tell apart at a glance.
+   aria-pressed already tracks "toolbar hidden" (see syncCardRow2/
+   syncCardChromeFold above), so use it to switch the button's own look:
+   filled with the accent color while the toolbar it controls is showing,
+   and an empty/outline-only button (transparent background, border only)
+   once that toolbar has been hidden. Scoped only to the embedded-card
+   toolbars (.card-chrome-toggles is itself only shown while
+   card-embed-open :has(#cardSearchEmbed) matches, never in the plain
+   expanded/preview card view without an embed), so this never affects
+   the expanded card view's own toolbar. */
+.card-chrome-fold[aria-pressed="true"],.card-row2-toggle[aria-pressed="true"]{background:transparent;color:var(--accent-instrument)}
+.card-chrome-fold[aria-pressed="true"]:hover,.card-row2-toggle[aria-pressed="true"]:hover{background:var(--accent-instrument-bg)}
 body.card-row2-hidden-hl.card-embed-open #cardSearchEmbed .card-search-chrome,
 body.card-row2-hidden-pv.card-embed-open #cardSearchEmbed .card-search-chrome{display:none!important}
 /* fix-CARD-ROW2-HIDE-SPECIFICITY-v1: the portable dialog layout

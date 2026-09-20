@@ -485,19 +485,33 @@ body.catalog-help-kind-guide .catalog-help-title{display:none}
  .search-modal-hint{font-size:.75rem;color:var(--text-muted);text-align:center;margin-top:clamp(8px,1.2vw,12px);opacity:0.7}
  .card-search-embed{display:none;grid-column:1/-1;flex:1 1 auto;min-height:0;flex-direction:column;background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:8px;overflow:hidden;isolation:isolate}
  body.card-embed-open .card-search-embed{display:flex}
- body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight){display:flex;flex-direction:column;align-items:stretch;height:min(88vh,860px);max-height:min(88vh,860px);overflow:hidden}
- body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) .cover,
- body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) .lib-name,
- body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) .lib-notes,
- body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) .note-text,
- body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) .noart,
- body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) .summary-panel,
- body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) .path,
- body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) details.patches,
- body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) .patches,
- body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) .card-actions,
- body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) .hl-body{display:none!important}
- body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) .card-search-embed{display:flex;flex:1 1 auto;min-height:0;margin-top:8px}
+/* fix-CARD-EMBED-OWNER-SCOPE-v1: card-embed-open is a single global body
+   class, but when a card's embed is pinned/parked (browsing another card
+   while the first card's embed keeps playing in the background dock),
+   card-embed-open stays true even though the card now on screen has no
+   embed. Every rule below that changes a card's layout "because its embed
+   is open" (fullscreen/dialog sizing, hiding cover/notes/patches, fold
+   state, notes-shortcut button, toggle tabs) must only apply to the card
+   that actually contains #cardSearchEmbed as a live child, not to whichever
+   card merely happens to be highlighted/selected while some other card's
+   embed is pinned elsewhere - hence the :has(#cardSearchEmbed) qualifier
+   added throughout. Without it, folding one card's toolbar, or simply
+   browsing a different card while an embed is parked, incorrectly hid that
+   other card's toolbar/content or forced it into fullscreen landscape
+   sizing meant only for the actual embed owner. */
+ body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed){display:flex;flex-direction:column;align-items:stretch;height:min(88vh,860px);max-height:min(88vh,860px);overflow:hidden}
+ body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed) .cover,
+ body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed) .lib-name,
+ body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed) .lib-notes,
+ body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed) .note-text,
+ body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed) .noart,
+ body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed) .summary-panel,
+ body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed) .path,
+ body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed) details.patches,
+ body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed) .patches,
+ body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed) .card-actions,
+ body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed) .hl-body{display:none!important}
+ body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed) .card-search-embed{display:flex;flex:1 1 auto;min-height:0;margin-top:8px}
 /* fix-NOTCH-CHROME-v1: card-search-chrome respects left/right safe-area (notch) insets; "Open in popup" removed from the embed toolbar (redundant once the embed itself is showing) */
  .card-search-chrome{display:flex;align-items:center;gap:var(--card-chrome-gap);flex-shrink:0;padding:.5rem max(.625rem,env(safe-area-inset-right,0px)) .5rem max(.625rem,env(safe-area-inset-left,0px));background:var(--bg-surface);border-bottom:1px solid var(--border);color:var(--text)}
  .card-search-chrome button{box-sizing:border-box;min-width:2.75rem;min-height:2.75rem;padding:0 12px;border:1px solid var(--border);border-radius:8px;background:var(--bg-card);color:var(--text);font:inherit;cursor:pointer;touch-action:manipulation}
@@ -3778,17 +3792,17 @@ body.chosen-preview-open .entry.selected:not(.highlight) .path.is-expanded{
   body.catalog-portable.portable-landscape.chosen-preview-open .entry.selected:not(.highlight){
     width:min(92vw,70rem)!important;max-width:min(92vw,70rem)!important
   }
-  body.catalog-portable.card-embed-open.chosen-preview-open .entry.selected:not(.highlight){
+  body.catalog-portable.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed){
     height:min(86dvh,calc(100dvh - 2.5rem))!important;
     max-height:min(86dvh,calc(100dvh - 2.5rem))!important;
     overflow:hidden!important;
     display:flex!important;flex-direction:column!important
   }
-  body.catalog-portable.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) .card-search-embed{
+  body.catalog-portable.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed) .card-search-embed{
     position:relative!important;inset:auto!important;flex:1 1 auto!important;min-height:0!important;
     margin-top:0!important;order:2
   }
-  body.catalog-portable.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) .card-search-chrome{
+  body.catalog-portable.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed) .card-search-chrome{
     position:relative!important;top:auto!important;left:auto!important;right:auto!important;bottom:auto!important;
     display:flex!important;flex:0 0 auto!important;z-index:5!important
   }
@@ -4556,8 +4570,8 @@ body.catalog-portable.chosen-preview-open .entry.selected:not(.highlight){
   top:calc(var(--cat-header-h,0px) + (100dvh - var(--cat-header-h,0px))/2)!important;
   max-height:calc(100dvh - var(--cat-header-h,0px) - 1.25rem)!important
 }
-body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight),
-body.catalog-portable.card-embed-open.chosen-preview-open .entry.selected:not(.highlight){
+body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed),
+body.catalog-portable.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed){
   height:calc(100dvh - var(--cat-header-h,0px) - 1.25rem)!important;
   max-height:calc(100dvh - var(--cat-header-h,0px) - 1.25rem)!important
 }
@@ -4678,7 +4692,7 @@ body.catalog-portable #catalogIndex.is-embedded:not(.is-collapsed) #catalogIndex
   .entry.highlight,
   body.hl-open .entry.highlight,
   body.catalog-portable .entry.highlight,
-  body.card-embed-open .entry.highlight{
+  body.card-embed-open .entry.highlight:has(#cardSearchEmbed){
     overflow-x:hidden!important;overflow-y:auto!important;
     overscroll-behavior:contain!important;-webkit-overflow-scrolling:touch!important;
     display:flex!important;flex-direction:column!important;align-items:stretch!important
@@ -4690,7 +4704,7 @@ body.catalog-portable #catalogIndex.is-embedded:not(.is-collapsed) #catalogIndex
   .entry.highlight .hl-body,
   body.hl-open .entry.highlight .hl-body,
   body.catalog-portable .entry.highlight .hl-body,
-  body.card-embed-open .entry.highlight .hl-body{
+  body.card-embed-open .entry.highlight:has(#cardSearchEmbed) .hl-body{
     flex:0 0 auto!important;flex-shrink:0!important;
     min-height:auto!important;max-height:none!important;
     overflow:visible!important;overflow-x:visible!important;overflow-y:visible!important
@@ -4704,26 +4718,26 @@ body.catalog-portable #catalogIndex.is-embedded:not(.is-collapsed) #catalogIndex
   .entry.highlight .card-chrome-end{margin-left:auto!important;margin-top:-2.85rem!important;align-self:flex-end!important}
   body.chosen-preview-open .entry.selected:not(.highlight),
   body.catalog-portable.chosen-preview-open .entry.selected:not(.highlight),
-  body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight),
-  body.catalog-portable.card-embed-open.chosen-preview-open .entry.selected:not(.highlight){
+  body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed),
+  body.catalog-portable.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed){
     overflow-x:hidden!important;overflow-y:auto!important;
     overscroll-behavior:contain!important;-webkit-overflow-scrolling:touch!important
   }
-  body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) .cover,
-  body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) .lib-name,
-  body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) .lib-notes,
-  body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) .noart,
-  body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) .summary-panel,
-  body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) .path,
-  body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) details.patches,
-  body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) .patches,
-  body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) .card-actions{
+  body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed) .cover,
+  body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed) .lib-name,
+  body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed) .lib-notes,
+  body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed) .noart,
+  body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed) .summary-panel,
+  body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed) .path,
+  body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed) details.patches,
+  body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed) .patches,
+  body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed) .card-actions{
     display:block!important
   }
-  body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) .cover{display:flex!important;flex:0 0 auto!important}
-  body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) .card-actions{display:flex!important;flex:0 0 auto!important}
-  body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) .note-text.has-note{display:block!important}
-  body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) .hl-body{
+  body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed) .cover{display:flex!important;flex:0 0 auto!important}
+  body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed) .card-actions{display:flex!important;flex:0 0 auto!important}
+  body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed) .note-text.has-note{display:block!important}
+  body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed) .hl-body{
     display:flex!important;flex-direction:column!important;align-items:stretch!important;
     flex:0 0 auto!important;overflow:visible!important;min-height:auto!important;max-height:none!important
   }
@@ -4737,22 +4751,22 @@ body.catalog-portable #catalogIndex.is-embedded:not(.is-collapsed) #catalogIndex
   }
   body.hl-open .entry.highlight #cardSearchEmbed,
   body.hl-open .entry.highlight .card-search-embed,
-  body.card-embed-open .entry.highlight #cardSearchEmbed,
-  body.card-embed-open .entry.highlight .card-search-embed,
-  body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) #cardSearchEmbed,
-  body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) .card-search-embed{
+  body.card-embed-open .entry.highlight:has(#cardSearchEmbed) #cardSearchEmbed,
+  body.card-embed-open .entry.highlight:has(#cardSearchEmbed) .card-search-embed,
+  body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed) #cardSearchEmbed,
+  body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed) .card-search-embed{
     display:flex!important;flex:1 1 auto!important;flex-shrink:0!important;
     min-height:min(42vh,20rem)!important;max-height:none!important;
     overflow:hidden!important;position:relative!important;inset:auto!important;order:8
   }
 }
 @media(orientation:portrait){
-  body.catalog-portable.card-embed-open.chosen-preview-open .entry.selected:not(.highlight){
+  body.catalog-portable.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed){
     overflow-x:hidden!important;overflow-y:auto!important;-webkit-overflow-scrolling:touch!important
   }
-  body.catalog-portable.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) .preview-back,
-  body.catalog-portable.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) .fs-btn,
-  body.catalog-portable.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) .hl-min{
+  body.catalog-portable.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed) .preview-back,
+  body.catalog-portable.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed) .fs-btn,
+  body.catalog-portable.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed) .hl-min{
     position:fixed!important
   }
 }
@@ -4875,44 +4889,44 @@ html body.catalog-portable #catalogIndex.is-embedded:not(.is-collapsed) #catalog
 
 /* fix-CARD-EMBED-SEPARATE-v1: embed is its own window; card fields stay parked/hidden */
 @media all{
-  body.card-embed-open .entry.highlight,
-  body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight),
-  body.catalog-portable.card-embed-open.chosen-preview-open .entry.selected:not(.highlight){
+  body.card-embed-open .entry.highlight:has(#cardSearchEmbed),
+  body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed),
+  body.catalog-portable.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed){
     overflow:hidden!important;overflow-x:hidden!important;overflow-y:hidden!important;
     display:flex!important;flex-direction:column!important;align-items:stretch!important
   }
-  body.card-embed-open .entry.highlight .cover,
-  body.card-embed-open .entry.highlight .lib-name,
-  body.card-embed-open .entry.highlight .lib-notes,
-  body.card-embed-open .entry.highlight .note-text,
-  body.card-embed-open .entry.highlight .noart,
-  body.card-embed-open .entry.highlight .summary-panel,
-  body.card-embed-open .entry.highlight .path,
-  body.card-embed-open .entry.highlight details.patches,
-  body.card-embed-open .entry.highlight .patches,
-  body.card-embed-open .entry.highlight .card-actions,
-  body.card-embed-open .entry.highlight .hl-body,
-  body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) .cover,
-  body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) .lib-name,
-  body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) .lib-notes,
-  body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) .note-text,
-  body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) .noart,
-  body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) .summary-panel,
-  body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) .path,
-  body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) details.patches,
-  body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) .patches,
-  body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) .card-actions,
-  body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) .hl-body{
+  body.card-embed-open .entry.highlight:has(#cardSearchEmbed) .cover,
+  body.card-embed-open .entry.highlight:has(#cardSearchEmbed) .lib-name,
+  body.card-embed-open .entry.highlight:has(#cardSearchEmbed) .lib-notes,
+  body.card-embed-open .entry.highlight:has(#cardSearchEmbed) .note-text,
+  body.card-embed-open .entry.highlight:has(#cardSearchEmbed) .noart,
+  body.card-embed-open .entry.highlight:has(#cardSearchEmbed) .summary-panel,
+  body.card-embed-open .entry.highlight:has(#cardSearchEmbed) .path,
+  body.card-embed-open .entry.highlight:has(#cardSearchEmbed) details.patches,
+  body.card-embed-open .entry.highlight:has(#cardSearchEmbed) .patches,
+  body.card-embed-open .entry.highlight:has(#cardSearchEmbed) .card-actions,
+  body.card-embed-open .entry.highlight:has(#cardSearchEmbed) .hl-body,
+  body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed) .cover,
+  body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed) .lib-name,
+  body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed) .lib-notes,
+  body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed) .note-text,
+  body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed) .noart,
+  body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed) .summary-panel,
+  body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed) .path,
+  body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed) details.patches,
+  body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed) .patches,
+  body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed) .card-actions,
+  body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed) .hl-body{
     display:none!important
   }
   body.hl-open:not(.card-embed-open) .entry.highlight,
   body.chosen-preview-open:not(.card-embed-open) .entry.selected:not(.highlight){
     overflow-x:hidden!important;overflow-y:auto!important
   }
-  body.card-embed-open .entry.highlight #cardSearchEmbed,
-  body.card-embed-open .entry.highlight .card-search-embed,
-  body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) #cardSearchEmbed,
-  body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) .card-search-embed{
+  body.card-embed-open .entry.highlight:has(#cardSearchEmbed) #cardSearchEmbed,
+  body.card-embed-open .entry.highlight:has(#cardSearchEmbed) .card-search-embed,
+  body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed) #cardSearchEmbed,
+  body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed) .card-search-embed{
     display:flex!important;flex:1 1 auto!important;flex-shrink:1!important;
     min-height:0!important;max-height:none!important;
     overflow-x:hidden!important;overflow-y:auto!important;
@@ -4942,8 +4956,8 @@ html body.catalog-portable #catalogIndex.is-embedded:not(.is-collapsed) #catalog
   body.chosen-preview-open .entry.selected:not(.highlight) .card-chrome-end,
   body.catalog-portable.chosen-preview-open .entry.selected:not(.highlight) .card-chrome-start,
   body.catalog-portable.chosen-preview-open .entry.selected:not(.highlight) .card-chrome-end,
-  body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) .card-chrome-start,
-  body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) .card-chrome-end{
+  body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed) .card-chrome-start,
+  body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed) .card-chrome-end{
     position:absolute!important;top:var(--card-chrome-inset)!important;bottom:auto!important;
     margin:0!important;margin-top:0!important;margin-left:0!important;transform:none!important;
     display:flex!important;flex-direction:row!important;align-items:center!important;
@@ -4976,10 +4990,10 @@ html body.catalog-portable #catalogIndex.is-embedded:not(.is-collapsed) #catalog
   .entry.highlight .hl-close{
     position:static!important;top:auto!important;left:auto!important;right:auto!important;bottom:auto!important
   }
-  body.catalog-portable.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) .preview-back,
-  body.catalog-portable.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) .fs-btn,
-  body.catalog-portable.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) .hl-min,
-  body.catalog-portable.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) .fav-btn{
+  body.catalog-portable.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed) .preview-back,
+  body.catalog-portable.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed) .fs-btn,
+  body.catalog-portable.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed) .hl-min,
+  body.catalog-portable.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed) .fav-btn{
     position:static!important;top:auto!important;left:auto!important;right:auto!important;bottom:auto!important
   }
 }
@@ -4998,24 +5012,48 @@ html body.catalog-portable #catalogIndex.is-embedded:not(.is-collapsed) #catalog
    button). */
 .card-chrome-notes{display:none;box-sizing:border-box;width:var(--card-chrome-btn);height:var(--card-chrome-btn);min-width:var(--card-chrome-btn);min-height:var(--card-chrome-btn);align-items:center;justify-content:center;padding:0;background:var(--bg-surface);color:var(--text-muted);border:1px solid var(--border);border-radius:8px;cursor:pointer;touch-action:manipulation;font-size:1.125rem;line-height:1}
 .card-chrome-notes:hover{color:var(--accent-instrument);border-color:var(--accent-instrument);background:var(--accent-instrument-bg)}
-body.card-embed-open .entry.highlight .card-chrome-notes,
-body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) .card-chrome-notes{display:inline-flex}
+body.card-embed-open .entry.highlight:has(#cardSearchEmbed) .card-chrome-notes,
+body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed) .card-chrome-notes{display:inline-flex}
+/* fix-CARD-EMBED-NOTES-BTN-DEDUPE-v1: the embed nav toolbar (row 2) has its
+   own notes-shortcut button centered in it; showing the top-toolbar one at
+   the same time is a redundant duplicate control. Hide the top-toolbar
+   notes button whenever row 2 is actually visible (i.e. not folded/hidden
+   via the row2 toggle), so only one notes button is ever on screen at once -
+   the top one takes over automatically once row 2 is hidden. */
+body.card-embed-open:not(.card-row2-hidden-hl) .entry.highlight:has(#cardSearchEmbed) .card-chrome-notes,
+body.card-embed-open.chosen-preview-open:not(.card-row2-hidden-pv) .entry.selected:not(.highlight):has(#cardSearchEmbed) .card-chrome-notes{display:none!important}
 .card-chrome-toggles{display:none;position:absolute;left:50%;top:0;transform:translateX(-50%) translateY(-50%);z-index:843;align-items:center;gap:1rem}
-body.card-embed-open .entry.highlight .card-chrome-toggles,
-body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) .card-chrome-toggles{display:flex}
+body.card-embed-open .entry.highlight:has(#cardSearchEmbed) .card-chrome-toggles,
+body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed) .card-chrome-toggles{display:flex}
 .card-chrome-fold,.card-row2-toggle{box-sizing:border-box;width:2.15rem;height:1.15rem;min-width:2.15rem;min-height:1.15rem;display:inline-flex;align-items:center;justify-content:center;padding:0;margin:0;border:1px solid var(--border);border-top:0;border-radius:0 0 8px 8px;background:var(--bg-surface);color:var(--text);cursor:pointer;touch-action:manipulation;font:inherit;line-height:1}
 .card-chrome-fold:hover,.card-row2-toggle:hover{color:var(--accent-instrument);border-color:var(--accent-instrument);background:var(--accent-instrument-bg)}
 .card-chrome-fold .toggle-arrow,.card-row2-toggle .toggle-arrow{display:inline-block;transition:transform .2s;font-size:.85rem;line-height:1}
 body.card-row2-hidden-hl.card-embed-open #cardSearchEmbed .card-search-chrome,
 body.card-row2-hidden-pv.card-embed-open #cardSearchEmbed .card-search-chrome{display:none!important}
+/* fix-CARD-ROW2-HIDE-SPECIFICITY-v1: the portable dialog layout
+   (fix-PORTABLE-PREVIEW-CENTER, ~line 3805) has its own
+   "body.catalog-portable.card-embed-open.chosen-preview-open
+   .entry.selected:not(.highlight):has(#cardSearchEmbed) .card-search-chrome
+   {display:flex!important}" rule to lay out the embed toolbar in that
+   dialog. Because it qualifies the ancestor with :has(#cardSearchEmbed)
+   (an ID selector, same specificity tier as our #cardSearchEmbed
+   descendant selector above) plus several more classes, its selector is
+   MORE specific overall and silently overrode our display:none!important
+   whenever row 2 was hidden inside the portable expanded/preview dialog -
+   the toolbar stayed visible and the embed content never reclaimed the
+   space. Match that same ancestor chain (plus our own row2-hidden class)
+   so ours is guaranteed to be at least as specific and always wins when
+   row 2 is actually hidden. */
+body.catalog-portable.card-embed-open.chosen-preview-open.card-row2-hidden-pv .entry.selected:not(.highlight):has(#cardSearchEmbed) .card-search-chrome{display:none!important}
+body.card-row2-hidden-hl.card-embed-open .entry.highlight:has(#cardSearchEmbed) .card-search-chrome{display:none!important}
 body.card-row2-hidden-hl.card-embed-open .card-row2-toggle .toggle-arrow,
 body.card-row2-hidden-pv.card-embed-open .card-row2-toggle .toggle-arrow{transform:rotate(180deg)}
 body.card-chrome-folded-hl.card-embed-open .card-chrome-fold .toggle-arrow,
 body.card-chrome-folded-pv.card-embed-open .card-chrome-fold .toggle-arrow{transform:rotate(180deg)}
-body.card-chrome-folded-hl.card-embed-open .entry.highlight .card-chrome-start,
-body.card-chrome-folded-hl.card-embed-open .entry.highlight .card-chrome-end,
-body.card-chrome-folded-pv.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) .card-chrome-start,
-body.card-chrome-folded-pv.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) .card-chrome-end{display:none!important}
+body.card-chrome-folded-hl.card-embed-open .entry.highlight:has(#cardSearchEmbed) .card-chrome-start,
+body.card-chrome-folded-hl.card-embed-open .entry.highlight:has(#cardSearchEmbed) .card-chrome-end,
+body.card-chrome-folded-pv.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed) .card-chrome-start,
+body.card-chrome-folded-pv.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed) .card-chrome-end{display:none!important}
 /* fix-CARD-CHROME-FOLD-RECLAIM-v1: row 1 (.card-chrome-start/.card-chrome-end)
    is an absolute overlay on top of the card, so the card reserves space for
    it via padding-top instead of normal flex flow. Hiding the row-1 buttons
@@ -5027,10 +5065,10 @@ body.card-chrome-folded-pv.card-embed-open.chosen-preview-open .entry.selected:n
    expands upward to fill the reclaimed space. The toggle tabs stay pinned
    to row 1's original top edge (see fix-CARD-EMBED-TOOLBAR-HIDE-v6 above)
    rather than following this reclaimed padding down. */
-body.card-chrome-folded-hl.card-embed-open .entry.highlight{
+body.card-chrome-folded-hl.card-embed-open .entry.highlight:has(#cardSearchEmbed){
   padding-top:max(8px,calc(env(safe-area-inset-top) + 4px))!important
 }
-body.card-chrome-folded-pv.card-embed-open.chosen-preview-open .entry.selected:not(.highlight){
+body.card-chrome-folded-pv.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed){
   padding-top:max(8px,calc(env(safe-area-inset-top) + 4px))!important
 }
 
@@ -5042,7 +5080,7 @@ body.card-chrome-folded-pv.card-embed-open.chosen-preview-open .entry.selected:n
    (min(92vw,70rem) wide, capped height, centered) rather than stretching
    to fill the whole screen - v1 mistakenly applied fullscreen sizing to
    both cases. */
-body.catalog-portable.portable-landscape.card-embed-open.chosen-preview-open .entry.selected:not(.highlight){
+body.catalog-portable.portable-landscape.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed){
   position:fixed!important;inset:0!important;left:0!important;top:0!important;right:0!important;bottom:0!important;
   transform:none!important;-webkit-transform:none!important;margin:0!important;
   width:100vw!important;width:100dvw!important;height:100vh!important;height:100dvh!important;height:100svh!important;
@@ -5057,8 +5095,8 @@ body.catalog-portable.portable-landscape.card-embed-open.chosen-preview-open .en
    Hide the pin/minimize button while the embed is open on this card so
    the conflict can't be triggered from the UI; minimizeExpandedCard()
    also refuses the action itself as a second line of defense. */
-body.card-embed-open .entry.highlight .hl-min,
-body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) .hl-min{display:none!important}
+body.card-embed-open .entry.highlight:has(#cardSearchEmbed) .hl-min,
+body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed) .hl-min{display:none!important}
 
 /* fix-INDEX-EMBED-FULL-v1: Embed expanded is full list height; catalog-body scrolls; Window keeps inner scroll */
 html body #catalogIndex.is-embedded:not(.is-collapsed),
@@ -29433,7 +29471,7 @@ function overlayCoversSearch(){
   var b=document.body.classList;
   if(overlayFocusOpen()||b.contains('hl-open')||b.contains('search-modal-open'))return true;
   if(b.contains('display-sides'))return false;
-  return b.contains('chosen-preview-open')||b.contains('card-embed-open')||!!document.querySelector('.entry.highlight');
+  return b.contains('chosen-preview-open')||b.contains('card-embed-open')||!!document.querySelector('.entry.highlight:has(#cardSearchEmbed)');
 }
 function parkSearchBehindOverlay(){
   if(typeof window.hideSearchAc==='function')window.hideSearchAc();

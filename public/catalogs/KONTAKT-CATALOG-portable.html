@@ -166,6 +166,12 @@ html[data-ui-scale="133"] .index,html[data-ui-scale="140"] .index,html[data-ui-s
  .entry.highlight .note-balloon{display:inline-flex;align-items:center;justify-content:center;width:2.75rem;height:2.75rem;min-width:2.75rem;min-height:2.75rem;background:var(--bg-surface);color:var(--text-muted);border:1px solid var(--border);border-radius:8px;cursor:pointer;touch-action:manipulation;font-size:1.125rem;line-height:1}
  .note-pop{display:none;position:absolute;z-index:6;left:0;top:48px;width:min(90vw,360px);max-width:min(90vw,360px);background:var(--bg-card);color:var(--text);border:1px solid var(--border);border-radius:8px;padding:10px;box-shadow:var(--hl-shadow)}
  .note-pop.open{display:block}
+ /* fix-CARD-EMBED-NOTES-POPUP-VISIBILITY-v1: when the popup is reparented
+    directly onto .entry (see openNotePop/window.saveNotePop above) because
+    its normal .hl-body/.lib-notes home is hidden while an embed is open,
+    override its position to a simple centered overlay so it doesn't rely
+    on any of the positioning rules meant for its original location. */
+ .note-pop.note-pop-embed-float{position:absolute!important;left:50%!important;right:auto!important;top:50%!important;bottom:auto!important;transform:translate(-50%,-50%)!important;z-index:850!important;width:min(90vw,360px)!important;max-width:min(90vw,360px)!important;box-shadow:0 12px 32px rgba(0,0,0,.45)}
  .note-ta{width:100%;min-height:88px;resize:vertical;background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:6px;padding:8px;font:inherit}
  .note-pop-actions{display:flex;gap:8px;margin-top:8px;justify-content:flex-end}
  .note-save,.note-cancel{min-height:2.75rem;min-width:4.5rem;padding:0 14px;border-radius:6px;cursor:pointer;touch-action:manipulation;border:1px solid var(--border);background:var(--bg-surface);color:var(--text);font:inherit}
@@ -3789,17 +3795,18 @@ body.chosen-preview-open .entry.selected:not(.highlight) .path.is-expanded{
     height:min(86dvh,calc(100dvh - 2.5rem))!important;
     max-height:min(86dvh,calc(100dvh - 2.5rem))!important;
     overflow:hidden!important;
-    display:flex!important;flex-direction:column!important;
-    /* fix-CARD-EMBED-PORTRAIT-FILL-v1: the 3.5rem padding-top above is
-       reserved so the non-embed card's cover/name aren't hidden behind the
-       absolutely-positioned row1 buttons (fav/notes/fs) that float over the
-       top edge. Once an embed is actually showing, row2's own toolbar (and
-       the video/search content below it) can safely start right under that
-       floating button strip instead of leaving it as empty background -
-       the row1 buttons stay visible on top via their own z-index, they
-       don't need dedicated layout space reserved for them here. */
-    padding-top:max(8px,calc(env(safe-area-inset-top) + 4px))!important
+    display:flex!important;flex-direction:column!important
   }
+  /* fix-CARD-EMBED-PORTRAIT-FILL-v2: the 3.5rem padding-top above is
+     reserved so row1's absolutely-positioned buttons (fav/notes/fs), which
+     float over the top edge, don't sit on top of/overlap row2's toolbar or
+     the embed content below it. That space is only safe to reclaim once
+     row1 has actually been folded away (card-chrome-folded-pv) - reclaiming
+     it unconditionally (regardless of row1's own visibility) made row1's
+     floating buttons overlap directly onto row2's toolbar whenever row1
+     was still showing. Only shrink the padding when row1 is folded; the
+     matching rule below (fix-CARD-EMBED-TOOLBAR-HIDE-v6) already does
+     exactly this. */
   body.catalog-portable.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed) .card-search-embed{
     position:relative!important;inset:auto!important;flex:1 1 auto!important;min-height:0!important;
     margin-top:0!important;order:2
@@ -12872,8 +12879,27 @@ window.toggleFav=function(src){
   }
 };
 window.closeAllNotePops=function(){
-  document.querySelectorAll('.note-pop').forEach(function(p){p.hidden=true;p.classList.remove('open');});
+  document.querySelectorAll('.note-pop').forEach(function(p){p.hidden=true;p.classList.remove('open');restoreNotePopHome(p);});
 };
+/* fix-CARD-EMBED-NOTES-POPUP-VISIBILITY-v1: .note-balloon/.note-pop live
+   inside .lib-notes, a descendant of .hl-body - but .hl-body is force-hidden
+   (display:none!important) for whichever card actually owns the open embed
+   (see fix-CARD-EMBED-OWNER-SCOPE-v1). A hidden ancestor hides ALL of its
+   descendants regardless of their own display/hidden state, so toggling
+   .note-pop's own visibility from the row1/row2 notes-shortcut buttons had
+   no visible effect - the popup was open in the DOM but still invisible.
+   Reparent the popup out of .hl-body onto the .entry itself (which stays
+   visible) while it's open in an embedded card, and move it back to its
+   original spot once closed so the normal non-embed layout/positioning is
+   unaffected. */
+function restoreNotePopHome(pop){
+  if(pop&&pop._embedHomeParent){
+    if(pop._embedHomeNext&&pop._embedHomeNext.parentNode===pop._embedHomeParent)pop._embedHomeParent.insertBefore(pop,pop._embedHomeNext);
+    else pop._embedHomeParent.appendChild(pop);
+    pop.classList.remove('note-pop-embed-float');
+    pop._embedHomeParent=null;pop._embedHomeNext=null;
+  }
+}
 window.openNotePop=function(btn){
   var wrap=btn&&btn.closest?btn.closest('.lib-notes'):null;
   var el=btn&&btn.closest?btn.closest('.entry'):null;
@@ -12882,18 +12908,27 @@ window.openNotePop=function(btn){
   var pop=wrap.querySelector('.note-pop');
   var ta=wrap.querySelector('.note-ta');
   if(ta)ta.value=notesMap[entryName(el)]||'';
-  if(pop){pop.hidden=false;pop.classList.add('open');}
+  if(pop){
+    pop.hidden=false;pop.classList.add('open');
+    if(el&&el.querySelector('#cardSearchEmbed')&&pop.parentNode!==el){
+      pop._embedHomeParent=pop.parentNode;
+      pop._embedHomeNext=pop.nextSibling;
+      el.appendChild(pop);
+      pop.classList.add('note-pop-embed-float');
+    }
+  }
   if(ta)try{ta.focus();}catch(err){}
 };
 window.cancelNotePop=function(btn){
   var pop=btn&&btn.closest?btn.closest('.note-pop'):null;
-  if(pop){pop.hidden=true;pop.classList.remove('open');}
+  if(pop){pop.hidden=true;pop.classList.remove('open');restoreNotePopHome(pop);}
 };
 window.saveNotePop=function(btn){
-  var wrap=btn&&btn.closest?btn.closest('.lib-notes'):null;
+  var pop=btn&&btn.closest?btn.closest('.note-pop'):null;
+  var wrap=(btn&&btn.closest?btn.closest('.lib-notes'):null)||(pop&&pop._embedHomeParent&&pop._embedHomeParent.closest?pop._embedHomeParent.closest('.lib-notes'):null)||pop&&pop._embedHomeParent;
   var el=btn&&btn.closest?btn.closest('.entry'):null;
   var name=entryName(el);
-  var ta=wrap&&wrap.querySelector('.note-ta');
+  var ta=(wrap&&wrap.querySelector&&wrap.querySelector('.note-ta'))||(pop&&pop.querySelector('.note-ta'));
   if(!name)return;
   var val=ta?String(ta.value||'').replace(/^\s+|\s+$/g,''):'';
   if(val)notesMap[name]=val;else delete notesMap[name];

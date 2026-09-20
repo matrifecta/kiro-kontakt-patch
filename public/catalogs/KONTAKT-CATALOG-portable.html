@@ -4970,22 +4970,21 @@ html body.catalog-portable #catalogIndex.is-embedded:not(.is-collapsed) #catalog
   }
 }
 
-/* fix-CARD-EMBED-TOOLBAR-HIDE-v3: the fold (hide row-1 toolbar) and mid
-   (hide the embed's own row-2 toolbar) buttons used to be separate
-   absolutely-positioned "tabs" hung off the card's top edge with
-   magic-number offsets; they visually happened to line up with the real
-   toolbar rows only by coincidence and drifted/detached whenever state
-   changed. Both buttons now live in a single real, in-flow-styled group
-   (.card-chrome-toggles) centered on the SAME row as row 1's own
-   back/fav/fullscreen/minimize/close buttons (top:var(--card-chrome-inset)),
-   sized and styled like those icon buttons instead of as hanging tabs, so
-   they read as nested inside the expanded card's own top toolbar rather
-   than the embedded content's toolbar. Both only show while the embed is
-   open, in portrait and landscape alike. */
-.card-chrome-toggles{display:none;position:absolute;left:50%;top:max(var(--card-chrome-inset),env(safe-area-inset-top));transform:translateX(-50%);z-index:843;align-items:center;gap:var(--card-chrome-gap)}
+/* fix-CARD-EMBED-TOOLBAR-HIDE-v4: v3 sized these buttons like the row-1
+   icon buttons (2.75rem) and placed them inline in that same icon row,
+   between the fav and fullscreen buttons - visually indistinguishable
+   from "real" toolbar controls and far too prominent for a hide/show
+   affordance. Restyle both as the small hanging arrow-tab used elsewhere
+   in the document UI (see .hdr-bar-toggle, which hides the whole document
+   header the same way): a slim 2.15rem x 1.15rem tab straddling the
+   bottom edge of the row it collapses, rounded only on its bottom corners,
+   so it reads as an unobtrusive nested affordance instead of a full-size
+   button competing with back/fav/fullscreen. Both only show while the
+   embed is open, in portrait and landscape alike. */
+.card-chrome-toggles{display:none;position:absolute;left:50%;top:calc(max(var(--card-chrome-inset),env(safe-area-inset-top)) + var(--card-chrome-btn));transform:translateX(-50%) translateY(-.15rem);z-index:843;align-items:center;gap:.35rem}
 body.card-embed-open .entry.highlight .card-chrome-toggles,
 body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) .card-chrome-toggles{display:flex}
-.card-chrome-fold,.card-row2-toggle{box-sizing:border-box;width:var(--card-chrome-btn);height:var(--card-chrome-btn);min-width:var(--card-chrome-btn);min-height:var(--card-chrome-btn);display:inline-flex;align-items:center;justify-content:center;padding:0;margin:0;border:1px solid var(--border);border-radius:8px;background:var(--bg-surface);color:var(--text);cursor:pointer;touch-action:manipulation;font:inherit;font-size:1.15rem;line-height:1}
+.card-chrome-fold,.card-row2-toggle{box-sizing:border-box;width:2.15rem;height:1.15rem;min-width:2.15rem;min-height:1.15rem;display:inline-flex;align-items:center;justify-content:center;padding:0;margin:0;border:1px solid var(--border);border-top:0;border-radius:0 0 8px 8px;background:var(--bg-surface);color:var(--text);cursor:pointer;touch-action:manipulation;font:inherit;line-height:1}
 .card-chrome-fold:hover,.card-row2-toggle:hover{color:var(--accent-instrument);border-color:var(--accent-instrument);background:var(--accent-instrument-bg)}
 .card-chrome-fold .toggle-arrow,.card-row2-toggle .toggle-arrow{display:inline-block;transition:transform .2s;font-size:.85rem;line-height:1}
 body.card-row2-hidden .card-row2-toggle .toggle-arrow{transform:rotate(180deg)}
@@ -5003,13 +5002,19 @@ body.card-chrome-folded.chosen-preview-open .entry.selected:not(.highlight) .car
    open, so a stray localStorage flag can't shrink a normal card's padding
    and cause its back/fav/fullscreen buttons to overlap the cover), shrink
    the padding down to a safe-area-only sliver so the video/content below
-   expands upward to fill the reclaimed space; the toggle group itself
-   stays pinned via its own absolute top offset, so it does not move. */
+   expands upward to fill the reclaimed space. The toggle tabs move up to
+   the same reduced offset so they stay nested flush against that new,
+   collapsed top edge instead of hanging in mid-air over the video at the
+   old (now-empty) row-1 boundary. */
 body.card-chrome-folded.card-embed-open .entry.highlight{
   padding-top:max(8px,calc(env(safe-area-inset-top) + 4px))!important
 }
 body.card-chrome-folded.card-embed-open.chosen-preview-open .entry.selected:not(.highlight){
   padding-top:max(8px,calc(env(safe-area-inset-top) + 4px))!important
+}
+body.card-chrome-folded.card-embed-open .entry.highlight .card-chrome-toggles,
+body.card-chrome-folded.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) .card-chrome-toggles{
+  top:max(8px,calc(env(safe-area-inset-top) + 4px))
 }
 
 /* fix-LANDSCAPE-PREVIEW-FULLSCREEN-v1: portrait's expanded card fills the

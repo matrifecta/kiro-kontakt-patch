@@ -5102,15 +5102,28 @@ body.card-chrome-folded-pv.card-embed-open.chosen-preview-open .entry.selected:n
    spot. When folded (and only while the embed that owns these buttons is
    open, so a stray localStorage flag can't shrink a normal card's padding
    and cause its back/fav/fullscreen buttons to overlap the cover), shrink
-   the padding down to a safe-area-only sliver so the video/content below
-   expands upward to fill the reclaimed space. The toggle tabs stay pinned
-   to row 1's original top edge (see fix-CARD-EMBED-TOOLBAR-HIDE-v6 above)
-   rather than following this reclaimed padding down. */
+   the padding down so the video/content below expands upward to fill the
+   reclaimed space. The toggle tabs stay pinned to row 1's original top edge
+   (see fix-CARD-EMBED-TOOLBAR-HIDE-v6 above) rather than following this
+   reclaimed padding down.
+   fix-CARD-CHROME-FOLD-RECLAIM-NOTCH-v1: the padding above included
+   env(safe-area-inset-top), so on a notched phone (where that inset is
+   ~44-47px) the "collapsed" gap stayed nearly as tall as the toolbar it
+   was supposed to remove, leaving a large dead strip between the
+   hide/show toggle pill and the content below it - never caught by any
+   headless test since desktop/non-iOS browsers always resolve that env()
+   to 0. The .card-chrome-toggles pill itself (position:absolute;top:0)
+   already ignores the safe area and sits flush with the card's top edge
+   regardless of any notch, so there is no reason for the *content* to
+   keep reserving room for one either once row 1 is actually hidden: size
+   the reclaimed padding to just clear the toggle pill's own footprint
+   (~1.15rem tall, shifted up 20% of its height) instead of the device's
+   safe-area inset, so content always moves up flush to the toggles. */
 body.card-chrome-folded-hl.card-embed-open .entry.highlight:has(#cardSearchEmbed){
-  padding-top:max(8px,calc(env(safe-area-inset-top) + 4px))!important
+  padding-top:1.35rem!important
 }
 body.card-chrome-folded-pv.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed){
-  padding-top:max(8px,calc(env(safe-area-inset-top) + 4px))!important
+  padding-top:1.35rem!important
 }
 
 /* fix-LANDSCAPE-PREVIEW-FULLSCREEN-v2: only the embedded (video/search)

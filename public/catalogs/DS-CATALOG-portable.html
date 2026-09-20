@@ -4977,34 +4977,66 @@ html body.catalog-portable #catalogIndex.is-embedded:not(.is-collapsed) #catalog
   }
 }
 
-/* fix-CARD-EMBED-TOOLBAR-HIDE-v2: small tab hanging off the bottom-center
-   edge of the card's top toolbar (row 1, between the fav and fullscreen
-   buttons) hides/shows the card-search-embed second-row toolbar
-   (.card-search-chrome); a small edge arrow (like #hdrBarToggle) hides/
-   shows the whole top toolbar row. Both only show while the embed is
-   open, in portrait and landscape alike. Styled like .card-chrome-fold
-   (which hangs off the top edge) but mirrored to hang off the bottom
-   edge, so it never sits inline with/overlaps the row-1 icon buttons. */
-.card-chrome-mid{display:none;position:absolute;left:50%;top:calc(max(var(--card-chrome-inset),env(safe-area-inset-top)) + var(--card-chrome-btn));transform:translateX(-50%) translateY(-.15rem);z-index:842;align-items:center}
-.card-row2-toggle{box-sizing:border-box;width:2.15rem;height:1.15rem;min-width:2.15rem;min-height:1.15rem;display:inline-flex;align-items:center;justify-content:center;padding:0;margin:0;border:1px solid var(--border);border-top:0;border-radius:0 0 8px 8px;background:var(--bg-surface);color:var(--text);cursor:pointer;touch-action:manipulation;font:inherit;line-height:1}
-.card-row2-toggle:hover{color:var(--accent-instrument);border-color:var(--accent-instrument);background:var(--accent-instrument-bg)}
-.card-row2-toggle .toggle-arrow{display:inline-block;transition:transform .2s;font-size:.85rem;line-height:1}
+/* fix-CARD-EMBED-TOOLBAR-HIDE-v3: the fold (hide row-1 toolbar) and mid
+   (hide the embed's own row-2 toolbar) buttons used to be separate
+   absolutely-positioned "tabs" hung off the card's top edge with
+   magic-number offsets; they visually happened to line up with the real
+   toolbar rows only by coincidence and drifted/detached whenever state
+   changed. Both buttons now live in a single real, in-flow-styled group
+   (.card-chrome-toggles) centered on the SAME row as row 1's own
+   back/fav/fullscreen/minimize/close buttons (top:var(--card-chrome-inset)),
+   sized and styled like those icon buttons instead of as hanging tabs, so
+   they read as nested inside the expanded card's own top toolbar rather
+   than the embedded content's toolbar. Both only show while the embed is
+   open, in portrait and landscape alike. */
+.card-chrome-toggles{display:none;position:absolute;left:50%;top:max(var(--card-chrome-inset),env(safe-area-inset-top));transform:translateX(-50%);z-index:843;align-items:center;gap:var(--card-chrome-gap)}
+body.card-embed-open .entry.highlight .card-chrome-toggles,
+body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) .card-chrome-toggles{display:flex}
+.card-chrome-fold,.card-row2-toggle{box-sizing:border-box;width:var(--card-chrome-btn);height:var(--card-chrome-btn);min-width:var(--card-chrome-btn);min-height:var(--card-chrome-btn);display:inline-flex;align-items:center;justify-content:center;padding:0;margin:0;border:1px solid var(--border);border-radius:8px;background:var(--bg-surface);color:var(--text);cursor:pointer;touch-action:manipulation;font:inherit;font-size:1.15rem;line-height:1}
+.card-chrome-fold:hover,.card-row2-toggle:hover{color:var(--accent-instrument);border-color:var(--accent-instrument);background:var(--accent-instrument-bg)}
+.card-chrome-fold .toggle-arrow,.card-row2-toggle .toggle-arrow{display:inline-block;transition:transform .2s;font-size:.85rem;line-height:1}
 body.card-row2-hidden .card-row2-toggle .toggle-arrow{transform:rotate(180deg)}
-body.card-embed-open .entry.highlight .card-chrome-mid,
-body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) .card-chrome-mid{display:flex}
 body.card-row2-hidden #cardSearchEmbed .card-search-chrome{display:none!important}
-.card-chrome-fold{display:none;position:absolute;left:50%;top:0;transform:translateX(-50%) translateY(-.15rem);z-index:842;box-sizing:border-box;width:2.15rem;height:1.15rem;min-width:2.15rem;min-height:1.15rem;padding:0;margin:0;align-items:center;justify-content:center;border:1px solid var(--border);border-top:0;border-radius:0 0 8px 8px;background:var(--bg-surface);color:var(--text);cursor:pointer;touch-action:manipulation;font:inherit;line-height:1}
-.card-chrome-fold:hover{border-color:var(--accent-instrument);color:var(--accent-instrument);background:var(--accent-instrument-bg)}
-.card-chrome-fold .toggle-arrow{display:inline-block;transform:rotate(180deg);transition:transform .2s;font-size:.85rem;line-height:1}
-body.card-chrome-folded .card-chrome-fold .toggle-arrow{transform:none}
-body.card-embed-open .entry.highlight .card-chrome-fold,
-body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) .card-chrome-fold{display:inline-flex}
+body.card-chrome-folded .card-chrome-fold .toggle-arrow{transform:rotate(180deg)}
 body.card-chrome-folded .entry.highlight .card-chrome-start,
-body.card-chrome-folded .entry.highlight .card-chrome-mid,
 body.card-chrome-folded .entry.highlight .card-chrome-end,
 body.card-chrome-folded.chosen-preview-open .entry.selected:not(.highlight) .card-chrome-start,
-body.card-chrome-folded.chosen-preview-open .entry.selected:not(.highlight) .card-chrome-mid,
 body.card-chrome-folded.chosen-preview-open .entry.selected:not(.highlight) .card-chrome-end{display:none!important}
+/* fix-CARD-CHROME-FOLD-RECLAIM-v1: row 1 (.card-chrome-start/.card-chrome-end)
+   is an absolute overlay on top of the card, so the card reserves space for
+   it via padding-top instead of normal flex flow. Hiding the row-1 buttons
+   alone left that padding reserved and the embed content sitting in the same
+   spot. When folded (and only while the embed that owns these buttons is
+   open, so a stray localStorage flag can't shrink a normal card's padding
+   and cause its back/fav/fullscreen buttons to overlap the cover), shrink
+   the padding down to a safe-area-only sliver so the video/content below
+   expands upward to fill the reclaimed space; the toggle group itself
+   stays pinned via its own absolute top offset, so it does not move. */
+body.card-chrome-folded.card-embed-open .entry.highlight{
+  padding-top:max(8px,calc(env(safe-area-inset-top) + 4px))!important
+}
+body.card-chrome-folded.card-embed-open.chosen-preview-open .entry.selected:not(.highlight){
+  padding-top:max(8px,calc(env(safe-area-inset-top) + 4px))!important
+}
+
+/* fix-LANDSCAPE-PREVIEW-FULLSCREEN-v1: portrait's expanded card fills the
+   screen edge-to-edge via .entry.highlight; landscape's counterpart
+   (chosen-preview-open .entry.selected) was left as a centered dialog
+   capped well under full viewport size, with visible backdrop bleeding in
+   around it and no reliable scroll for taller content (comments, embed +
+   description). Make it fill the viewport the same way portrait does,
+   for both embedded (video/search) and plain description previews, while
+   keeping its own vertical scroll for content taller than the screen. */
+body.catalog-portable.portable-landscape.chosen-preview-open .entry.selected:not(.highlight){
+  position:fixed!important;inset:0!important;left:0!important;top:0!important;right:0!important;bottom:0!important;
+  transform:none!important;-webkit-transform:none!important;margin:0!important;
+  width:100vw!important;width:100dvw!important;height:100vh!important;height:100dvh!important;height:100svh!important;
+  max-width:none!important;max-height:none!important;min-height:0!important;border-radius:0!important;
+  overflow-x:hidden!important;overflow-y:auto!important;-webkit-overflow-scrolling:touch!important
+}
+body.catalog-portable.portable-landscape.card-embed-open.chosen-preview-open .entry.selected:not(.highlight){
+  height:100dvh!important;max-height:100dvh!important
+}
 
 /* fix-NO-PIN-WHILE-EMBEDDED-v1: pinning (minimizing) a card while its
    search embed (YouTube/Web/Image) is open leaves the restored pin
@@ -28552,7 +28584,13 @@ function cardChromeEnsureBtns(entry){
   if(!entry)return;
   var start=entry.querySelector('.card-chrome-start');
   if(!start)return;
-  if(!entry.querySelector('.card-chrome-fold')){
+  var grp=entry.querySelector('.card-chrome-toggles');
+  if(!grp){
+    grp=document.createElement('div');
+    grp.className='card-chrome card-chrome-toggles';
+    start.parentNode.insertBefore(grp,start.nextSibling);
+  }
+  if(!grp.querySelector('.card-chrome-fold')){
     var f=document.createElement('button');
     f.type='button';
     f.className='card-chrome-fold';
@@ -28561,11 +28599,9 @@ function cardChromeEnsureBtns(entry){
     f.title='Hide toolbar';
     f.innerHTML='<span class="toggle-arrow">&#9660;</span>';
     f.onclick=function(e){e.preventDefault();e.stopPropagation();toggleCardChromeFold();};
-    entry.insertBefore(f,start);
+    grp.appendChild(f);
   }
-  if(!entry.querySelector('.card-chrome-mid')){
-    var mid=document.createElement('div');
-    mid.className='card-chrome card-chrome-mid';
+  if(!grp.querySelector('.card-row2-toggle')){
     var b=document.createElement('button');
     b.type='button';
     b.className='card-row2-toggle';
@@ -28574,8 +28610,7 @@ function cardChromeEnsureBtns(entry){
     b.title='Hide toolbar row';
     b.innerHTML='<span class="toggle-arrow">&#9660;</span>';
     b.onclick=function(e){e.preventDefault();e.stopPropagation();toggleCardRow2();};
-    mid.appendChild(b);
-    start.parentNode.insertBefore(mid,start.nextSibling);
+    grp.appendChild(b);
   }
 }
 function cardChromeEnsureAllBtns(){document.querySelectorAll('.entry').forEach(cardChromeEnsureBtns);}

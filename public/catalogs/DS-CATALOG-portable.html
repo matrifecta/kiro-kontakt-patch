@@ -3796,7 +3796,16 @@ body.chosen-preview-open .entry.selected:not(.highlight) .path.is-expanded{
     height:min(86dvh,calc(100dvh - 2.5rem))!important;
     max-height:min(86dvh,calc(100dvh - 2.5rem))!important;
     overflow:hidden!important;
-    display:flex!important;flex-direction:column!important
+    display:flex!important;flex-direction:column!important;
+    /* fix-CARD-EMBED-PORTRAIT-FILL-v1: the 3.5rem padding-top above is
+       reserved so the non-embed card's cover/name aren't hidden behind the
+       absolutely-positioned row1 buttons (fav/notes/fs) that float over the
+       top edge. Once an embed is actually showing, row2's own toolbar (and
+       the video/search content below it) can safely start right under that
+       floating button strip instead of leaving it as empty background -
+       the row1 buttons stay visible on top via their own z-index, they
+       don't need dedicated layout space reserved for them here. */
+    padding-top:max(8px,calc(env(safe-area-inset-top) + 4px))!important
   }
   body.catalog-portable.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed) .card-search-embed{
     position:relative!important;inset:auto!important;flex:1 1 auto!important;min-height:0!important;
@@ -5022,7 +5031,7 @@ body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#ca
    the top one takes over automatically once row 2 is hidden. */
 body.card-embed-open:not(.card-row2-hidden-hl) .entry.highlight:has(#cardSearchEmbed) .card-chrome-notes,
 body.card-embed-open.chosen-preview-open:not(.card-row2-hidden-pv) .entry.selected:not(.highlight):has(#cardSearchEmbed) .card-chrome-notes{display:none!important}
-.card-chrome-toggles{display:none;position:absolute;left:50%;top:0;transform:translateX(-50%) translateY(-50%);z-index:843;align-items:center;gap:1rem}
+.card-chrome-toggles{display:none;position:absolute;left:50%;top:0;transform:translateX(-50%) translateY(-72%);z-index:843;align-items:center;gap:1rem}
 body.card-embed-open .entry.highlight:has(#cardSearchEmbed) .card-chrome-toggles,
 body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed) .card-chrome-toggles{display:flex}
 .card-chrome-fold,.card-row2-toggle{box-sizing:border-box;width:2.15rem;height:1.15rem;min-width:2.15rem;min-height:1.15rem;display:inline-flex;align-items:center;justify-content:center;padding:0;margin:0;border:1px solid var(--accent-instrument);border-top:0;border-radius:0 0 8px 8px;background:var(--accent-instrument);color:#fff;cursor:pointer;touch-action:manipulation;font:inherit;line-height:1;transition:background-color .15s,color .15s,border-color .15s}
@@ -28673,8 +28682,9 @@ window.openCardNotesFromToolbar=function(el){
 function cardChromeEnsureBtns(entry){
   if(!entry)return;
   var start=entry.querySelector('.card-chrome-start');
-  if(!start)return;
-  if(!start.querySelector('.card-chrome-notes')){
+  var end=entry.querySelector('.card-chrome-end');
+  if(!start||!end)return;
+  if(!end.querySelector('.card-chrome-notes')){
     var n=document.createElement('button');
     n.type='button';
     n.className='card-chrome-notes';
@@ -28682,8 +28692,8 @@ function cardChromeEnsureBtns(entry){
     n.title='My notes';
     n.innerHTML='&#x1F4DD;';
     n.onclick=function(e){e.preventDefault();e.stopPropagation();window.openCardNotesFromToolbar(this);};
-    var fav=start.querySelector('.fav-btn');
-    if(fav)fav.parentNode.insertBefore(n,fav.nextSibling);else start.appendChild(n);
+    var fs=end.querySelector('.fs-btn');
+    if(fs)end.insertBefore(n,fs);else end.appendChild(n);
   }
   var grp=entry.querySelector('.card-chrome-toggles');
   if(!grp){

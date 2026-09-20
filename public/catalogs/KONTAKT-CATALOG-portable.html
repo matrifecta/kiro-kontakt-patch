@@ -12367,13 +12367,36 @@ window.cardSearchExitImage=function(){
      itself. Coalesce bursts into a single requestAnimationFrame callback,
      matching the same rAF-debounce pattern already used for the other
      resize-driven relayout below (window.__catApplyRaf). */
+  /* fix-ORIENT-DVH-SETTLE-v1: on a real device, the address/URL bar
+     shows or hides as part of the rotation animation, and the browser
+     keeps re-resolving `100dvh` (and firing extra visualViewport resize
+     events) for several hundred ms AFTER the first 'resize'/
+     'orientationchange' event already fired - a delay that a static,
+     instantly-resized headless viewport cannot reproduce. Since the
+     extended-card CSS sizes itself off both `100dvh` and --cat-header-h,
+     recalculating --cat-header-h only once (on the first event) can end
+     up paired against a `100dvh` value that keeps changing afterwards,
+     leaving the dialog mis-sized until something else happens to trigger
+     another recalculation ("self-correcting" later). Re-run the same
+     update a few more times over the following ~500ms to catch that
+     trailing settle so the dialog stays in sync with the still-animating
+     viewport instead of only ever reacting to the first event. */
   var _orientRaf=0;
+  var _orientSettleTimers=[];
+  function _orientApply(){
+    if(typeof window.syncCardSearchLayout==='function')window.syncCardSearchLayout();
+    if(typeof window.updateCatHeaderH==='function')window.updateCatHeaderH();
+  }
   function onOrient(){
     if(_orientRaf)cancelAnimationFrame(_orientRaf);
+    for(var i=0;i<_orientSettleTimers.length;i++)clearTimeout(_orientSettleTimers[i]);
+    _orientSettleTimers.length=0;
     _orientRaf=requestAnimationFrame(function(){
       _orientRaf=0;
-      if(typeof window.syncCardSearchLayout==='function')window.syncCardSearchLayout();
-      if(typeof window.updateCatHeaderH==='function')window.updateCatHeaderH();
+      _orientApply();
+      [80,180,320,500].forEach(function(delay){
+        _orientSettleTimers.push(setTimeout(_orientApply,delay));
+      });
     });
   }
   window.addEventListener('orientationchange',onOrient);

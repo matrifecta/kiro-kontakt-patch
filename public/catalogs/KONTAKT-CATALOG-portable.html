@@ -4970,30 +4970,35 @@ html body.catalog-portable #catalogIndex.is-embedded:not(.is-collapsed) #catalog
   }
 }
 
-/* fix-CARD-EMBED-TOOLBAR-HIDE-v4: v3 sized these buttons like the row-1
-   icon buttons (2.75rem) and placed them inline in that same icon row,
-   between the fav and fullscreen buttons - visually indistinguishable
-   from "real" toolbar controls and far too prominent for a hide/show
-   affordance. Restyle both as the small hanging arrow-tab used elsewhere
-   in the document UI (see .hdr-bar-toggle, which hides the whole document
-   header the same way): a slim 2.15rem x 1.15rem tab straddling the
-   bottom edge of the row it collapses, rounded only on its bottom corners,
-   so it reads as an unobtrusive nested affordance instead of a full-size
-   button competing with back/fav/fullscreen. Both only show while the
-   embed is open, in portrait and landscape alike. */
-.card-chrome-toggles{display:none;position:absolute;left:50%;top:calc(max(var(--card-chrome-inset),env(safe-area-inset-top)) + var(--card-chrome-btn));transform:translateX(-50%) translateY(-.15rem);z-index:843;align-items:center;gap:.35rem}
+/* fix-CARD-EMBED-TOOLBAR-HIDE-v5: v4 gave the two toggle tabs only a
+   .35rem gap, which read as one crowded double-arrow blob easy to
+   mis-tap; and the fold/row2-hidden states were single shared body
+   classes so hiding a toolbar in one card view (fullscreen vs the
+   expanded/preview view) left it hidden for the other view too. Widen
+   the gap between the tabs so they're clearly two separate, equally
+   spaced controls, and suffix the state classes per view (-hl for the
+   fullscreen .hl-open view, -pv for the expanded chosen-preview-open
+   view) so each view's toolbar-hide state is independent; toggled and
+   persisted separately via cardChromeApplyViewState()/toggleCardRow2()/
+   toggleCardChromeFold() in script. Both tabs still nest flush against
+   row 1's own bottom edge (top offset = row-1 button height) so they
+   read as attached to that toolbar's border rather than floating tabs. */
+.card-chrome-toggles{display:none;position:absolute;left:50%;top:calc(max(var(--card-chrome-inset),env(safe-area-inset-top)) + var(--card-chrome-btn));transform:translateX(-50%) translateY(-.15rem);z-index:843;align-items:center;gap:1rem}
 body.card-embed-open .entry.highlight .card-chrome-toggles,
 body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) .card-chrome-toggles{display:flex}
 .card-chrome-fold,.card-row2-toggle{box-sizing:border-box;width:2.15rem;height:1.15rem;min-width:2.15rem;min-height:1.15rem;display:inline-flex;align-items:center;justify-content:center;padding:0;margin:0;border:1px solid var(--border);border-top:0;border-radius:0 0 8px 8px;background:var(--bg-surface);color:var(--text);cursor:pointer;touch-action:manipulation;font:inherit;line-height:1}
 .card-chrome-fold:hover,.card-row2-toggle:hover{color:var(--accent-instrument);border-color:var(--accent-instrument);background:var(--accent-instrument-bg)}
 .card-chrome-fold .toggle-arrow,.card-row2-toggle .toggle-arrow{display:inline-block;transition:transform .2s;font-size:.85rem;line-height:1}
-body.card-row2-hidden .card-row2-toggle .toggle-arrow{transform:rotate(180deg)}
-body.card-row2-hidden #cardSearchEmbed .card-search-chrome{display:none!important}
-body.card-chrome-folded .card-chrome-fold .toggle-arrow{transform:rotate(180deg)}
-body.card-chrome-folded .entry.highlight .card-chrome-start,
-body.card-chrome-folded .entry.highlight .card-chrome-end,
-body.card-chrome-folded.chosen-preview-open .entry.selected:not(.highlight) .card-chrome-start,
-body.card-chrome-folded.chosen-preview-open .entry.selected:not(.highlight) .card-chrome-end{display:none!important}
+body.card-row2-hidden-hl .card-row2-toggle .toggle-arrow,
+body.card-row2-hidden-pv .card-row2-toggle .toggle-arrow{transform:rotate(180deg)}
+body.card-row2-hidden-hl #cardSearchEmbed .card-search-chrome,
+body.card-row2-hidden-pv #cardSearchEmbed .card-search-chrome{display:none!important}
+body.card-chrome-folded-hl .card-chrome-fold .toggle-arrow,
+body.card-chrome-folded-pv .card-chrome-fold .toggle-arrow{transform:rotate(180deg)}
+body.card-chrome-folded-hl .entry.highlight .card-chrome-start,
+body.card-chrome-folded-hl .entry.highlight .card-chrome-end,
+body.card-chrome-folded-pv.chosen-preview-open .entry.selected:not(.highlight) .card-chrome-start,
+body.card-chrome-folded-pv.chosen-preview-open .entry.selected:not(.highlight) .card-chrome-end{display:none!important}
 /* fix-CARD-CHROME-FOLD-RECLAIM-v1: row 1 (.card-chrome-start/.card-chrome-end)
    is an absolute overlay on top of the card, so the card reserves space for
    it via padding-top instead of normal flex flow. Hiding the row-1 buttons
@@ -5006,34 +5011,31 @@ body.card-chrome-folded.chosen-preview-open .entry.selected:not(.highlight) .car
    the same reduced offset so they stay nested flush against that new,
    collapsed top edge instead of hanging in mid-air over the video at the
    old (now-empty) row-1 boundary. */
-body.card-chrome-folded.card-embed-open .entry.highlight{
+body.card-chrome-folded-hl.card-embed-open .entry.highlight{
   padding-top:max(8px,calc(env(safe-area-inset-top) + 4px))!important
 }
-body.card-chrome-folded.card-embed-open.chosen-preview-open .entry.selected:not(.highlight){
+body.card-chrome-folded-pv.card-embed-open.chosen-preview-open .entry.selected:not(.highlight){
   padding-top:max(8px,calc(env(safe-area-inset-top) + 4px))!important
 }
-body.card-chrome-folded.card-embed-open .entry.highlight .card-chrome-toggles,
-body.card-chrome-folded.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) .card-chrome-toggles{
+body.card-chrome-folded-hl.card-embed-open .entry.highlight .card-chrome-toggles,
+body.card-chrome-folded-pv.card-embed-open.chosen-preview-open .entry.selected:not(.highlight) .card-chrome-toggles{
   top:max(8px,calc(env(safe-area-inset-top) + 4px))
 }
 
-/* fix-LANDSCAPE-PREVIEW-FULLSCREEN-v1: portrait's expanded card fills the
-   screen edge-to-edge via .entry.highlight; landscape's counterpart
-   (chosen-preview-open .entry.selected) was left as a centered dialog
-   capped well under full viewport size, with visible backdrop bleeding in
-   around it and no reliable scroll for taller content (comments, embed +
-   description). Make it fill the viewport the same way portrait does,
-   for both embedded (video/search) and plain description previews, while
-   keeping its own vertical scroll for content taller than the screen. */
-body.catalog-portable.portable-landscape.chosen-preview-open .entry.selected:not(.highlight){
+/* fix-LANDSCAPE-PREVIEW-FULLSCREEN-v2: only the embedded (video/search)
+   landscape preview needs to fill the viewport edge-to-edge like
+   portrait's .entry.highlight, because the embed content itself wants
+   maximum space and reliable scroll. A plain (non-embedded) landscape
+   preview should stay sized like the portrait expanded-card dialog
+   (min(92vw,70rem) wide, capped height, centered) rather than stretching
+   to fill the whole screen - v1 mistakenly applied fullscreen sizing to
+   both cases. */
+body.catalog-portable.portable-landscape.card-embed-open.chosen-preview-open .entry.selected:not(.highlight){
   position:fixed!important;inset:0!important;left:0!important;top:0!important;right:0!important;bottom:0!important;
   transform:none!important;-webkit-transform:none!important;margin:0!important;
   width:100vw!important;width:100dvw!important;height:100vh!important;height:100dvh!important;height:100svh!important;
   max-width:none!important;max-height:none!important;min-height:0!important;border-radius:0!important;
   overflow-x:hidden!important;overflow-y:auto!important;-webkit-overflow-scrolling:touch!important
-}
-body.catalog-portable.portable-landscape.card-embed-open.chosen-preview-open .entry.selected:not(.highlight){
-  height:100dvh!important;max-height:100dvh!important
 }
 
 /* fix-NO-PIN-WHILE-EMBEDDED-v1: pinning (minimizing) a card while its
@@ -12001,6 +12003,7 @@ function openCardSearchEmbed(type,popupUrl){
   if(window.cardMinMediaOwnerId&&window.cardMinMediaOwnerId!==card.id){window.cardMinMediaOwnerId='';if(typeof cardMinRender==='function')cardMinRender();}
   wrap.host.hidden=false;
   document.body.classList.add('card-embed-open');
+  if(typeof cardChromeApplyViewState==='function')cardChromeApplyViewState();
   if(typeof window.parkSearchBehindOverlay==='function')window.parkSearchBehindOverlay();
   wrap.host.classList.toggle('is-img',type==='img');
   var title=document.getElementById('cardSearchTitle');
@@ -17241,6 +17244,7 @@ function openChosenPreview(el){
   pinSelectedForPreview(el);
   document.body.classList.add('chosen-preview-open');
   setOverlayFocus('preview');
+  if(typeof cardChromeApplyViewState==='function')cardChromeApplyViewState();
   if(typeof logCardFsEmbedScroll==='function')logCardFsEmbedScroll('preview-open');
 }
 function setOverlayFocus(which){
@@ -17377,6 +17381,7 @@ function openOverlay(el){
     if(bd)bd.classList.add('open');
     document.body.classList.add('hl-open');
     syncViewportLock();
+    if(typeof cardChromeApplyViewState==='function')cardChromeApplyViewState();
     if(typeof logCardFsEmbedScroll==='function')logCardFsEmbedScroll('overlay-already');
     return;
   }
@@ -17387,13 +17392,18 @@ function openOverlay(el){
   if(backdrop)backdrop.classList.add('open');
   document.body.classList.add('hl-open');
   syncViewportLock();
+  if(typeof cardChromeApplyViewState==='function')cardChromeApplyViewState();
   if(typeof logCardFsEmbedScroll==='function')logCardFsEmbedScroll('overlay-open');
 }
-/* fix-NAME-CLICK-MOBILE-EXPAND-v1: the name always opens the expanded card, on desktop and mobile alike; an already-open fullscreen popup stays fullscreen */
+/* fix-NAME-CLICK-MOBILE-EXPAND-v2: clicking the name in the fullscreen card
+   view now switches to the expanded (chosen-preview-open) card view instead
+   of just re-triggering fullscreen; clicking it while already in the
+   expanded card view now refreshes that same expanded view (re-runs the
+   preview-open setup: pin/scroll position, focus, hit-tracking) instead of
+   being a silent no-op. Both cases funnel through openChosenPreview, which
+   already closes any open fullscreen overlay first. */
 function openCardFromName(el){
   if(!el)return;
-  if(document.body.classList.contains('hl-open')||el.classList.contains('highlight')){openOverlay(el);return;}
-  if(document.body.classList.contains('chosen-preview-open')&&el.classList.contains('selected'))return;
   if(typeof openChosenPreview==='function'){openChosenPreview(el);}else{openOverlay(el);}
 }
 /* fix-NAME-CLICK-v3: fallback to ensure card opens even if function chain fails */
@@ -17618,6 +17628,7 @@ function cardMinRestoreMedia(id){
   if(window.cardMinMediaOwnerId===id&&card){
     host.hidden=false;
     document.body.classList.add('card-embed-open');
+    if(typeof cardChromeApplyViewState==='function')cardChromeApplyViewState();
     if(host.parentElement!==card)card.appendChild(host);
     cardMinPlayMedia();
   }else{
@@ -17687,41 +17698,60 @@ function cardChromeEnsureBtns(entry){
 }
 function cardChromeEnsureAllBtns(){document.querySelectorAll('.entry').forEach(cardChromeEnsureBtns);}
 function cardChromePrefKey(name){return 'catalog-'+name+'-'+(window.CATALOG_NS||'catalog');}
+/* fix-CARD-CHROME-PER-VIEW-STATE-v1: the fullscreen card view (.hl-open,
+   .entry.highlight) and the expanded/preview card view (.chosen-preview-open
+   .entry.selected:not(.highlight)) are two distinct views a card can be
+   shown in with its embed open, but the fold/row2-hidden state was a single
+   shared body class - hiding the toolbar in one view left it hidden when
+   the same or another card was later opened in the other view. Suffix the
+   state class and its localStorage key by which view is currently active
+   so each view remembers its own toolbar visibility independently. */
+function cardChromeViewSuffix(){return document.body.classList.contains('hl-open')?'-hl':'-pv';}
+function cardChromeApplyViewState(){
+  var suf=cardChromeViewSuffix();
+  var otherSuf=suf==='-hl'?'-pv':'-hl';
+  document.body.classList.remove('card-row2-hidden'+otherSuf,'card-chrome-folded'+otherSuf);
+  var row2On=false,foldOn=false;
+  try{row2On=localStorage.getItem(cardChromePrefKey('card-row2-hidden'+suf))==='1';}catch(eR2S){}
+  try{foldOn=localStorage.getItem(cardChromePrefKey('card-chrome-folded'+suf))==='1';}catch(eCFS){}
+  document.body.classList.toggle('card-row2-hidden'+suf,row2On);
+  document.body.classList.toggle('card-chrome-folded'+suf,foldOn);
+  syncCardRow2();
+  syncCardChromeFold();
+}
+window.cardChromeApplyViewState=cardChromeApplyViewState;
 function syncCardRow2(){
-  var hide=document.body.classList.contains('card-row2-hidden');
+  var hide=document.body.classList.contains('card-row2-hidden'+cardChromeViewSuffix());
   document.querySelectorAll('.card-row2-toggle').forEach(function(b){
     b.setAttribute('aria-pressed',hide?'true':'false');
     b.title=hide?'Show toolbar row':'Hide toolbar row';
   });
 }
 function toggleCardRow2(force){
-  var hide=(force===true||force===false)?!!force:!document.body.classList.contains('card-row2-hidden');
-  document.body.classList.toggle('card-row2-hidden',hide);
-  try{localStorage.setItem(cardChromePrefKey('card-row2-hidden'),hide?'1':'0');}catch(eR2){}
+  var suf=cardChromeViewSuffix();
+  var cls='card-row2-hidden'+suf;
+  var hide=(force===true||force===false)?!!force:!document.body.classList.contains(cls);
+  document.body.classList.toggle(cls,hide);
+  try{localStorage.setItem(cardChromePrefKey(cls),hide?'1':'0');}catch(eR2){}
   syncCardRow2();
 }
 window.toggleCardRow2=toggleCardRow2;
 function syncCardChromeFold(){
-  var hide=document.body.classList.contains('card-chrome-folded');
+  var hide=document.body.classList.contains('card-chrome-folded'+cardChromeViewSuffix());
   document.querySelectorAll('.card-chrome-fold').forEach(function(b){
     b.setAttribute('aria-pressed',hide?'true':'false');
     b.title=hide?'Show toolbar':'Hide toolbar';
   });
 }
 function toggleCardChromeFold(force){
-  var hide=(force===true||force===false)?!!force:!document.body.classList.contains('card-chrome-folded');
-  document.body.classList.toggle('card-chrome-folded',hide);
-  try{localStorage.setItem(cardChromePrefKey('card-chrome-folded'),hide?'1':'0');}catch(eCF){}
+  var suf=cardChromeViewSuffix();
+  var cls='card-chrome-folded'+suf;
+  var hide=(force===true||force===false)?!!force:!document.body.classList.contains(cls);
+  document.body.classList.toggle(cls,hide);
+  try{localStorage.setItem(cardChromePrefKey(cls),hide?'1':'0');}catch(eCF){}
   syncCardChromeFold();
 }
 window.toggleCardChromeFold=toggleCardChromeFold;
-(function restoreCardChromeToggles(){
-  try{
-    if(localStorage.getItem(cardChromePrefKey('card-row2-hidden'))==='1')document.body.classList.add('card-row2-hidden');
-    if(localStorage.getItem(cardChromePrefKey('card-chrome-folded'))==='1')document.body.classList.add('card-chrome-folded');
-  }catch(eRest){}
-})();
-
 function cardMinEnsureBtn(entry){
   if(!entry)return;
   var end=entry.querySelector('.card-chrome-end');

@@ -168,7 +168,7 @@
     its normal .hl-body/.lib-notes home is hidden while an embed is open,
     override its position to a simple centered overlay so it doesn't rely
     on any of the positioning rules meant for its original location. */
- .note-pop.note-pop-embed-float{position:absolute!important;left:50%!important;right:auto!important;top:50%!important;bottom:auto!important;transform:translate(-50%,-50%)!important;z-index:850!important;width:min(90vw,360px)!important;max-width:min(90vw,360px)!important;box-shadow:0 12px 32px rgba(0,0,0,.45)}
+ .note-pop.note-pop-embed-float{position:fixed!important;left:50%!important;right:auto!important;top:50%!important;bottom:auto!important;transform:translate(-50%,-50%)!important;z-index:850!important;width:min(90vw,360px)!important;max-width:min(90vw,360px)!important;max-height:80vh!important;overflow:auto!important;box-shadow:0 12px 32px rgba(0,0,0,.45)}
  .note-ta{width:100%;min-height:88px;resize:vertical;background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:6px;padding:8px;font:inherit}
  .note-pop-actions{display:flex;gap:8px;margin-top:8px;justify-content:flex-end}
  .note-save,.note-cancel{min-height:2.75rem;min-width:4.5rem;padding:0 14px;border-radius:6px;cursor:pointer;touch-action:manipulation;border:1px solid var(--border);background:var(--bg-surface);color:var(--text);font:inherit}
@@ -658,7 +658,7 @@ body.catalog-help-kind-guide .catalog-help-title{display:none}
     fullscreen cluster, which is pushed right by .card-search-switch-toggle's
     own margin-left:auto) so it doesn't compete for space with either cluster
     or the row2-hide notch tab centered below this same row. */
- .card-search-notes-btn{flex:0 0 auto;margin:0 auto;padding:0;min-width:2.75rem;min-height:2.75rem;display:inline-flex;align-items:center;justify-content:center;font-size:1.125rem}
+ .card-search-notes-btn{flex:0 0 auto;margin:0 auto;padding:0!important;min-width:2.75rem;min-height:2.75rem;display:inline-flex;align-items:center;justify-content:center;font-size:1.125rem}
  .card-search-popup{flex:0 0 auto;white-space:nowrap}
  .card-search-fs{flex:0 0 auto;padding:0;min-width:2.75rem;min-height:2.75rem;display:inline-flex;align-items:center;justify-content:center;font-size:1.125rem}
  .card-search-fs[aria-pressed="true"]{color:var(--accent-instrument);border-color:var(--accent-instrument);background:var(--accent-instrument-bg)}
@@ -23849,10 +23849,18 @@ window.closeAllNotePops=function(){
    descendants regardless of their own display/hidden state, so toggling
    .note-pop's own visibility from the row1/row2 notes-shortcut buttons had
    no visible effect - the popup was open in the DOM but still invisible.
-   Reparent the popup out of .hl-body onto the .entry itself (which stays
-   visible) while it's open in an embedded card, and move it back to its
-   original spot once closed so the normal non-embed layout/positioning is
-   unaffected. */
+   Reparent the popup out of .hl-body while it's open in an embedded card,
+   and move it back to its original spot once closed so the normal
+   non-embed layout/positioning is unaffected.
+   fix-CARD-EMBED-NOTES-POPUP-FULLSCREEN-v1: reparenting onto .entry (the
+   card) instead of the actual #cardSearchEmbed element broke the popup
+   again specifically when the embed's own "expand/stretch" button was
+   used, because that calls the real Fullscreen API on #cardSearchEmbed -
+   once an element is the browser's fullscreen element, only ITS OWN
+   descendants render (everything outside it, including its own former
+   .entry ancestor, is hidden behind the UA's fullscreen top layer). Always
+   reparent onto #cardSearchEmbed itself (a descendant-safe target both
+   in and out of fullscreen) instead of .entry. */
 function restoreNotePopHome(pop){
   if(pop&&pop._embedHomeParent){
     if(pop._embedHomeNext&&pop._embedHomeNext.parentNode===pop._embedHomeParent)pop._embedHomeParent.insertBefore(pop,pop._embedHomeNext);
@@ -23871,10 +23879,11 @@ window.openNotePop=function(btn){
   if(ta)ta.value=notesMap[entryName(el)]||'';
   if(pop){
     pop.hidden=false;pop.classList.add('open');
-    if(el&&el.querySelector('#cardSearchEmbed')&&pop.parentNode!==el){
+    var embedHost=el&&el.querySelector('#cardSearchEmbed');
+    if(embedHost&&pop.parentNode!==embedHost){
       pop._embedHomeParent=pop.parentNode;
       pop._embedHomeNext=pop.nextSibling;
-      el.appendChild(pop);
+      embedHost.appendChild(pop);
       pop.classList.add('note-pop-embed-float');
     }
   }

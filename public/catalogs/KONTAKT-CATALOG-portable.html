@@ -12356,10 +12356,25 @@ window.cardSearchExitImage=function(){
      dialog that renders too small/contracted or with the wrong top offset
      (sometimes appearing to "self-correct" once something else happened to
      call updateCatHeaderH again). Recalculate it on every resize/orientation
-     change alongside the existing embed-layout sync. */
+     change alongside the existing embed-layout sync.
+     fix-ORIENT-RESIZE-FLICKER-v1: this ran synchronously on every single
+     'resize'/visualViewport 'resize' event with no batching. The on-screen
+     keyboard opening/closing (and the real Fullscreen API entering/exiting)
+     both fire a burst of several resize events in quick succession while
+     the viewport height animates, so every intermediate frame was forcing
+     a synchronous getBoundingClientRect()+layout read/write here, visible
+     as flicker/jank layered on top of the keyboard/fullscreen transition
+     itself. Coalesce bursts into a single requestAnimationFrame callback,
+     matching the same rAF-debounce pattern already used for the other
+     resize-driven relayout below (window.__catApplyRaf). */
+  var _orientRaf=0;
   function onOrient(){
-    if(typeof window.syncCardSearchLayout==='function')window.syncCardSearchLayout();
-    if(typeof window.updateCatHeaderH==='function')window.updateCatHeaderH();
+    if(_orientRaf)cancelAnimationFrame(_orientRaf);
+    _orientRaf=requestAnimationFrame(function(){
+      _orientRaf=0;
+      if(typeof window.syncCardSearchLayout==='function')window.syncCardSearchLayout();
+      if(typeof window.updateCatHeaderH==='function')window.updateCatHeaderH();
+    });
   }
   window.addEventListener('orientationchange',onOrient);
   window.addEventListener('resize',onOrient);

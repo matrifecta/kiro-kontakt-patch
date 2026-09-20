@@ -5023,14 +5023,15 @@ html body.catalog-portable #catalogIndex.is-embedded:not(.is-collapsed) #catalog
 .card-chrome-notes:hover{color:var(--accent-instrument);border-color:var(--accent-instrument);background:var(--accent-instrument-bg)}
 body.card-embed-open .entry.highlight:has(#cardSearchEmbed) .card-chrome-notes,
 body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed) .card-chrome-notes{display:inline-flex}
-/* fix-CARD-EMBED-NOTES-BTN-DEDUPE-v1: the embed nav toolbar (row 2) has its
-   own notes-shortcut button centered in it; showing the top-toolbar one at
-   the same time is a redundant duplicate control. Hide the top-toolbar
-   notes button whenever row 2 is actually visible (i.e. not folded/hidden
-   via the row2 toggle), so only one notes button is ever on screen at once -
-   the top one takes over automatically once row 2 is hidden. */
-body.card-embed-open:not(.card-row2-hidden-hl) .entry.highlight:has(#cardSearchEmbed) .card-chrome-notes,
-body.card-embed-open.chosen-preview-open:not(.card-row2-hidden-pv) .entry.selected:not(.highlight):has(#cardSearchEmbed) .card-chrome-notes{display:none!important}
+/* fix-CARD-EMBED-NOTES-BTN-REMOVE-v1: the embed nav toolbar (row 2) used to
+   have its own notes-shortcut button, but user notes are a "card" concept,
+   not an "embedded browser" one - it was removed from the embed toolbar
+   markup entirely so the option only exists while the card itself is
+   displayed/active, never inside the embedded view. The top-toolbar notes
+   button (.card-chrome-notes, shown just above) is therefore now the only
+   notes control and stays visible regardless of row2's shown/hidden state -
+   the old dedupe-hide rule that hid it whenever row2 was visible no longer
+   applies since row2 has nothing left to duplicate. */
 /* fix-CARD-FULLSCREEN-NOTES-ICON-v1: in the fullscreen/"expanded-stretched"
    card toolbar (.entry.highlight, e.g. landscape with a screen notch to
    work around) the notes button was rendered at the same full button size/
@@ -9214,7 +9215,6 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
   <div class="card-search-chrome">
     <button type="button" class="card-search-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();cardSearchBack()">&#x2190;</button>
     <button type="button" class="card-search-reload" aria-label="Reload" onclick="event.preventDefault();event.stopPropagation();cardSearchReload()">&#x21BB;</button>
-    <button type="button" class="card-search-notes-btn" aria-label="My notes" title="My notes" onclick="event.preventDefault();event.stopPropagation();window.openCardNotesFromToolbar(this);">&#x1F4DD;</button>
     <button type="button" class="card-search-switch-toggle" id="cardSearchSwitchToggle" aria-label="Hide mode bar" aria-pressed="true" title="Hide mode bar" onclick="event.preventDefault();event.stopPropagation();cardSearchToggleSwitchBar()">
       <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.2" y="15.2" width="17.6" height="4.4" rx="1.4" fill="none" stroke="currentColor" stroke-width="1.6"/><rect x="5" y="16.6" width="3.2" height="1.6" rx=".4" fill="currentColor"/><rect x="10.4" y="16.6" width="3.2" height="1.6" rx=".4" fill="currentColor"/><rect x="15.8" y="16.6" width="3.2" height="1.6" rx=".4" fill="currentColor"/><path d="M6 5.5h12M6 9h12M6 12.5h8" fill="none" stroke="currentColor" stroke-width="1.45" stroke-linecap="round"/></svg>
     </button>

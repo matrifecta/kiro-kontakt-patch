@@ -23257,12 +23257,23 @@ window.cardSearchToggleFullscreen=function(){
 (function(){
   function _syncCardFsBtn(){
     var btn=document.getElementById('cardSearchFsBtn');
-    if(!btn)return;
     var host=document.getElementById('cardSearchEmbed');
     var active=!!(host&&(document.fullscreenElement===host||document.webkitFullscreenElement===host));
-    btn.setAttribute('aria-pressed',active?'true':'false');
-    btn.title=active?'Exit fullscreen':'Fullscreen';
-    btn.setAttribute('aria-label',active?'Exit fullscreen':'Fullscreen');
+    if(btn){
+      btn.setAttribute('aria-pressed',active?'true':'false');
+      btn.title=active?'Exit fullscreen':'Fullscreen';
+      btn.setAttribute('aria-label',active?'Exit fullscreen':'Fullscreen');
+    }
+    /* fix-HL-CARDSEARCH-FS-STALE-v1: toggling the nested Card Search embed's
+       own fullscreen (the diamond NE/SW icon) in/out while the parent card
+       is the .entry.highlight overlay can leave that overlay sized from a
+       stale mid-transition measurement. Re-clear the same stale-sizing
+       overrides placeHighlight() clears at open time, on every fullscreen
+       transition, not just the initial open. */
+    if(!active&&typeof clearHighlightStaleSizing==='function'){
+      var hl=document.querySelector('.entry.highlight');
+      if(hl)clearHighlightStaleSizing(hl);
+    }
   }
   document.addEventListener('fullscreenchange',_syncCardFsBtn);
   document.addEventListener('webkitfullscreenchange',_syncCardFsBtn);
@@ -28527,6 +28538,11 @@ function placeHighlight(el){
      no such bug because that path already clears the equivalent inline
      sizing. Clear it here too, right before entering "highlight", so every
      way of opening a card starts fullscreen from a clean size.  */
+  clearHighlightStaleSizing(el);
+  el.classList.add('highlight');
+}
+function clearHighlightStaleSizing(el){
+  if(!el)return;
   el.style.minHeight='';
   var _hlCov=el.querySelector('.cover');
   if(_hlCov)_hlCov.style.minHeight='';
@@ -28534,8 +28550,8 @@ function placeHighlight(el){
   if(_hlSp){_hlSp.style.marginTop='';_hlSp.style.minHeight='';}
   var _hlHb=el.querySelector('.hl-body');
   if(_hlHb){_hlHb.style.paddingTop='';_hlHb.style.minHeight='';}
-  el.classList.add('highlight');
 }
+window.clearHighlightStaleSizing=clearHighlightStaleSizing;
 
 function cardFsEmbedScrollEl(){
   if(document.body.classList.contains('card-embed-open')){

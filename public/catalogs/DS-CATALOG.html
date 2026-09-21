@@ -24764,6 +24764,11 @@ function placeHighlight(el){
      no such bug because that path already clears the equivalent inline
      sizing. Clear it here too, right before entering "highlight", so every
      way of opening a card starts fullscreen from a clean size.  */
+  clearHighlightStaleSizing(el);
+  el.classList.add('highlight');
+}
+function clearHighlightStaleSizing(el){
+  if(!el)return;
   el.style.minHeight='';
   var _hlCov=el.querySelector('.cover');
   if(_hlCov)_hlCov.style.minHeight='';
@@ -24771,8 +24776,8 @@ function placeHighlight(el){
   if(_hlSp){_hlSp.style.marginTop='';_hlSp.style.minHeight='';}
   var _hlHb=el.querySelector('.hl-body');
   if(_hlHb){_hlHb.style.paddingTop='';_hlHb.style.minHeight='';}
-  el.classList.add('highlight');
 }
+window.clearHighlightStaleSizing=clearHighlightStaleSizing;
 
 function cardFsEmbedScrollEl(){
   if(document.body.classList.contains('card-embed-open')){

@@ -275,9 +275,14 @@ body.catalog-help-kind-guide .catalog-help-title{display:none}
     keeps the existing full-bleed layout. True browser/device fullscreen
     (html.is-browser-fs, entered via the on-page Fullscreen button) is excluded:
     there is no browser chrome left to compensate for once fullscreen, so the
-    card should use the whole widescreen width there instead of narrowing. */
+    card should use the whole widescreen width there instead of narrowing.
+    fix-HL-FS-NATIVE-v1: also exclude genuine native Fullscreen API state
+    (html:fullscreen / -webkit-full-screen), since .is-browser-fs alone only
+    marks the CSS-simulated fallback (native FS unavailable/pending) and gets
+    removed once the real Fullscreen API succeeds - without this, a card
+    opened via real device/browser fullscreen still got narrowed. */
  @media (orientation:landscape) and (max-width:1023px){
-  html:not(.is-browser-fs) .entry.highlight{
+  html:not(.is-browser-fs):not(:fullscreen):not(:-webkit-full-screen) .entry.highlight{
     left:50%!important;right:auto!important;
     width:min(100dvh,100dvw)!important;
     transform:translateX(-50%)!important

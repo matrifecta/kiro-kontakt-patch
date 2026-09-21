@@ -13821,6 +13821,27 @@ function placeHighlight(el){
     ph.style.minHeight=Math.max(0,el.offsetHeight)+'px';
     el.parentNode.insertBefore(ph,el);
   }
+  /* fix-HL-STALE-MINHEIGHT-v1: the catalog-grid row equalizer
+     (equalizeCatalogCardRows) writes an inline min-height onto each grid
+     card so rows line up, and deliberately skips entries that already
+     have the "highlight" class on later passes so it doesn't fight the
+     fullscreen card's own sizing. That means a card opened straight from
+     the grid (e.g. tapping its cover art) carries whatever min-height the
+     equalizer last gave it into the fullscreen view, since nothing ever
+     clears it once "highlight" is added - the fixed-position fullscreen
+     card ends up at least that tall (e.g. 578px in a 390px-tall landscape
+     window), stretching past the top/bottom screen edges. Opening via the
+     name label first (which goes through the expanded-preview card) had
+     no such bug because that path already clears the equivalent inline
+     sizing. Clear it here too, right before entering "highlight", so every
+     way of opening a card starts fullscreen from a clean size.  */
+  el.style.minHeight='';
+  var _hlCov=el.querySelector('.cover');
+  if(_hlCov)_hlCov.style.minHeight='';
+  var _hlSp=el.querySelector('.summary-panel');
+  if(_hlSp){_hlSp.style.marginTop='';_hlSp.style.minHeight='';}
+  var _hlHb=el.querySelector('.hl-body');
+  if(_hlHb){_hlHb.style.paddingTop='';_hlHb.style.minHeight='';}
   el.classList.add('highlight');
 }
 

@@ -170,6 +170,27 @@ body.chosen-preview-open .entry.selected:not(.highlight) .note-view-btn{display:
  .entry.highlight .note-text.has-note{display:block}
  .note-balloon{display:none}
  .entry.highlight .note-balloon{display:inline-flex;align-items:center;justify-content:center;width:2.75rem;height:2.75rem;min-width:2.75rem;min-height:2.75rem;background:var(--bg-surface);color:var(--text-muted);border:1px solid var(--border);border-radius:8px;cursor:pointer;touch-action:manipulation;font-size:1.125rem;line-height:1}
+/* fix-HL-NOTE-BALLOON-TOOLBAR-v1: move the user-notes editor button
+   (.note-balloon) out of the in-flow spot below the card label/name and up
+   into the top-left toolbar row, next to the Favorite button - matching
+   where it already lives in the embedded/expanded preview card
+   (body.chosen-preview-open .entry.selected:not(.highlight) below). Same
+   display:contents trick: it unwraps .lib-notes from the box tree so the
+   button's position:absolute is relative to .entry.highlight itself
+   instead of the (now boxless) .lib-notes wrapper. Only one button
+   (fav-btn) precedes it in the highlight card's start toolbar (preview-back
+   is hidden there), so it sits right after that single button - unlike the
+   embedded card, which has two. Applies in both orientations. */
+ .entry.highlight .lib-notes{display:contents}
+ .entry.highlight .note-balloon{
+  position:absolute;z-index:841;margin:0;
+  top:max(.5rem,env(safe-area-inset-top));right:auto;bottom:auto;
+  left:calc(max(.5rem,env(safe-area-inset-left)) + var(--card-chrome-btn) + var(--card-chrome-gap))
+ }
+ .entry.highlight .note-pop{
+  position:absolute;left:max(.5rem,env(safe-area-inset-left));right:auto;
+  top:calc(max(.5rem,env(safe-area-inset-top)) + var(--card-chrome-btn) + var(--card-chrome-gap))
+ }
  .note-pop{display:none;position:absolute;z-index:6;left:0;top:48px;width:min(90vw,360px);max-width:min(90vw,360px);background:var(--bg-card);color:var(--text);border:1px solid var(--border);border-radius:8px;padding:10px;box-shadow:var(--hl-shadow)}
  .note-pop.open{display:block}
  /* fix-CARD-EMBED-NOTES-POPUP-VISIBILITY-v1: when the popup is reparented
@@ -21382,13 +21403,29 @@ window.portableToolbarFsWanted=portableToolbarFsWanted;
    min(innerWidth,innerHeight) in JS instead and expose it as a CSS var so
    both rules share one exact, consistent pixel value. */
 function syncHlNarrowDim(){
-  var dim=Math.min(window.innerWidth||0,window.innerHeight||0);
+  var vv=window.visualViewport;
+  var w=(vv&&vv.width)||window.innerWidth||0;
+  var h=(vv&&vv.height)||window.innerHeight||0;
+  var dim=Math.min(w,h);
   if(dim>0)document.documentElement.style.setProperty('--hl-narrow-dim',dim+'px');
 }
 window.syncHlNarrowDim=syncHlNarrowDim;
 (function(){
-  var _t=null;
-  function _sched(){if(_t)clearTimeout(_t);_t=setTimeout(function(){_t=null;syncHlNarrowDim();},60);}
+  var _t=null,_settleTimers=[];
+  function _clearSettle(){for(var i=0;i<_settleTimers.length;i++)clearTimeout(_settleTimers[i]);_settleTimers.length=0;}
+  function _sched(){
+    if(_t)clearTimeout(_t);
+    _t=setTimeout(function(){_t=null;syncHlNarrowDim();},60);
+    // Mobile browser chrome (URL bar/toolbar) can keep animating in/out for a
+    // few hundred ms after the first resize/orientationchange fires, during
+    // which window.innerWidth/innerHeight (and visualViewport) can briefly
+    // report a transitional size. Re-check a few more times so --hl-narrow-dim
+    // ends up at the final settled value instead of a mid-animation one.
+    _clearSettle();
+    [150,300,500,800].forEach(function(ms){
+      _settleTimers.push(setTimeout(syncHlNarrowDim,ms));
+    });
+  }
   syncHlNarrowDim();
   window.addEventListener('resize',_sched,{passive:true});
   window.addEventListener('orientationchange',_sched);

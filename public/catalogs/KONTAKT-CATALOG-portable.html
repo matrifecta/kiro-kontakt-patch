@@ -144,7 +144,13 @@ html[data-ui-scale="133"] .index,html[data-ui-scale="140"] .index,html[data-ui-s
  .fs-btn{display:none;position:absolute;top:var(--card-chrome-inset);right:var(--card-chrome-inset);left:auto;z-index:4;box-sizing:border-box;width:var(--card-chrome-btn);height:var(--card-chrome-btn);min-width:var(--card-chrome-btn);min-height:var(--card-chrome-btn);align-items:center;justify-content:center;padding:0;background:var(--bg-surface);color:var(--accent-instrument);border:1px solid var(--accent-instrument);border-radius:8px;cursor:pointer;touch-action:manipulation;font-size:1.25rem;line-height:1}
  .entry.selected:not(.highlight) .fs-btn{display:flex}
  .entry.highlight .fs-btn{display:none!important}
- .entry.highlight .preview-back{display:none!important}
+/* fix-HL-BACK-BTN-TOOLBAR-v1: show the Back button in the fullscreen
+   card's top-left toolbar too (previously hidden entirely there), so the
+   toolbar order matches the expanded/preview card: Back, Favorite, Notes.
+   cardBackClick() (see below) routes it to openChosenPreview() instead of
+   closeChosenPreview() while the card is .highlight, so "back" always
+   lands on the expanded card, never straight to the grid. */
+ .entry.highlight .preview-back{display:flex!important;z-index:841}
  .fs-btn:hover{color:var(--accent-instrument-active);border-color:var(--accent-instrument-active);background:var(--accent-instrument-bg)}
  .fav-btn{position:absolute;right:.5rem;bottom:.5rem;top:auto;left:auto;z-index:4;box-sizing:border-box;width:var(--card-chrome-btn);height:var(--card-chrome-btn);min-width:var(--card-chrome-btn);min-height:var(--card-chrome-btn);display:flex;align-items:center;justify-content:center;padding:0;background:var(--bg-surface);color:var(--text-muted);border:1px solid var(--border);border-radius:8px;cursor:pointer;touch-action:manipulation;font-size:1.25rem;line-height:1}
  .fav-btn.on{color:var(--accent-gear);border-color:var(--accent-gear)}
@@ -180,15 +186,15 @@ body.chosen-preview-open .entry.selected:not(.highlight) .note-view-btn{display:
    (body.chosen-preview-open .entry.selected:not(.highlight) below). Same
    display:contents trick: it unwraps .lib-notes from the box tree so the
    button's position:absolute is relative to .entry.highlight itself
-   instead of the (now boxless) .lib-notes wrapper. Only one button
-   (fav-btn) precedes it in the highlight card's start toolbar (preview-back
-   is hidden there), so it sits right after that single button - unlike the
-   embedded card, which has two. Applies in both orientations. */
+   instead of the (now boxless) .lib-notes wrapper. Back and Favorite both
+   precede it in the highlight card's start toolbar now, so it sits after
+   both (same double-button offset as the embedded card). Applies in both
+   orientations. */
  .entry.highlight .lib-notes{display:contents}
  .entry.highlight .note-balloon{
   position:absolute;z-index:841;margin:0;
   top:max(.5rem,env(safe-area-inset-top));right:auto;bottom:auto;
-  left:calc(max(.5rem,env(safe-area-inset-left)) + var(--card-chrome-btn) + var(--card-chrome-gap))
+  left:calc(max(.5rem,env(safe-area-inset-left)) + var(--card-chrome-btn) + var(--card-chrome-gap) + var(--card-chrome-btn) + var(--card-chrome-gap))
  }
  .entry.highlight .note-pop{
   position:absolute;left:max(.5rem,env(safe-area-inset-left));right:auto;
@@ -6182,7 +6188,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
 <p class="loc-hint">Root: <code>/mnt/btrfs_disk</code></p>
 <div class="entry" id="item-1" data-kw="" data-name="5 Elements" data-other="5elements" data-patch="5elements concert pitch original ananda hard strum phrase pluck tremolo hall golden plates mallet stick healing bed stroke fast slow litophone harmonic octave tubes wobble silver plate singing stones ring sustain long short tubular bells beating bellz belladona blue moon crystal jar detubed eye eater feet earth fifth plan whom bell tolls friend abroad funky fork grains salt heavenly clown journey rhea osaka reaching jupiter small victory tinkle weird bass kalimba bellsaphone presents burnt skies dark mist deep space binaural pulled utensils cup eclipse mallets green gardens life time medicine balzak rain drops rabbitless rogues sun scottish garden shimmering powder sticking around vertical thrust winter fairy daring ends deer lake glory eyes groomsday here hidden mirror hope pass houses stone order wonder plucka pad breath struma banished citadel lighthouse white sand danger peak daytime job frozen temptress gateway running glass balloon hardwoodz james jackal patrol little steps magic wall popcorn psychic log seven calls duke jars wiffle tube casual alaskan alien strummers autumn oracle beehive don jump koto esque layered asia voices" data-patch-count="2">
   <div class="card-chrome card-chrome-start">
-  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
+  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();cardBackClick(this)">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
   </div>
   <div class="card-chrome card-chrome-end">
@@ -6218,7 +6224,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
 </div>
 <div class="entry" id="item-2" data-kw="viola amati" data-name="Amati Viola" data-other="" data-patch="amati viola longs shorts orchestral seating quartet" data-patch-count="2">
   <div class="card-chrome card-chrome-start">
-  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
+  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();cardBackClick(this)">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
   </div>
   <div class="card-chrome card-chrome-end">
@@ -6254,7 +6260,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
 </div>
 <div class="entry" id="item-3" data-kw="gamelan percussion" data-name="Balinese Gamelan" data-other="balinese" data-patch="balinese gamelan core instruments gangsa kettle gongs synth bali ghosts rain jammer ubud lilypads liquid metal monkey forest pad tanah lot uluwatu wobbulator" data-patch-count="13">
   <div class="card-chrome card-chrome-start">
-  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
+  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();cardBackClick(this)">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
   </div>
   <div class="card-chrome card-chrome-end">
@@ -6311,7 +6317,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
 </div>
 <div class="entry" id="item-4" data-kw="" data-name="Bowls" data-other="bowls" data-patch="bowls" data-patch-count="1">
   <div class="card-chrome card-chrome-start">
-  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
+  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();cardBackClick(this)">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
   </div>
   <div class="card-chrome card-chrome-end">
@@ -6346,7 +6352,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
 </div>
 <div class="entry" id="item-5" data-kw="drums" data-name="Butch Vig Drums" data-other="butch vig" data-patch="butch vig drums bit gelato crunch 112 bpm dunn 128 bonzophonic 80s 110 candyassed 118 dead room disruptor 100 down baby 160 fargo 162 grey velvet 157 half speed heartbeat holy house lsd 120 narcotics squad 1977 136 2020 psych red swirl 116 emperor nasty 140 vinyl beast chemical wild antelope 114" data-patch-count="1">
   <div class="card-chrome card-chrome-start">
-  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
+  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();cardBackClick(this)">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
   </div>
   <div class="card-chrome card-chrome-end">
@@ -6381,7 +6387,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
 </div>
 <div class="entry" id="item-6" data-kw="" data-name="Cloud Supply" data-other="cloud supply" data-patch="cloud supply gretel insobordinate ranger spheres spooked stargate 7th heaven bahumbug balkim basalamic bow church disconnected lights citel coast check creased croise discovery enemies feed festivites frozen ocean garretson grainger grilo haymaker hazed helms hendu henyika hero injection king corner major issues mammoth possum poster sheep horn slinky sommelier sovoy sulfer swaze syna tampered shelter traction traveling scottboro trigger sappy walk apollo wun bleecher indon kensen langli nino obliterating philli radar skim sole speechless tap dancer wales whine aliens downstairs blanche chordless etheral haagen hansel hengi himbaki horizon howling hye kilmo mezza midas minky mystery van pacific panhandle port pull sandsburg sour skip tripped bell chip five gee gank iccu mengi pans cave silicone slinger steel man pitter patter scion sofitel switzerlamd grey valley tinker unikaraine aceramo bally aero pulse circling orbit dreams fear hazards helium javelin jimba lift off lindleu geaux mason meskin amigos minor national geo open air pad thai paddock paku puddle sea water rocket rose cup seahorse silo inner stacato dist starting line street sweeper suflex swarm titus triumph vicerio zalkyre harrison kimbre picalow" data-patch-count="1">
   <div class="card-chrome card-chrome-start">
-  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
+  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();cardBackClick(this)">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
   </div>
   <div class="card-chrome card-chrome-end">
@@ -6416,7 +6422,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
 </div>
 <div class="entry" id="item-15" data-kw="" data-name="Drumforge Ultimate" data-other="kontakt" data-patch="sabian holy china room choke zildjian" data-patch-count="123">
   <div class="card-chrome card-chrome-start">
-  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
+  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();cardBackClick(this)">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
   </div>
   <div class="card-chrome card-chrome-end">
@@ -6591,7 +6597,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
 </div>
 <div class="entry" id="item-7" data-kw="" data-name="East Asia" data-other="east asia" data-patch="east asia percussion china japan korea dizi erhu guqin guzheng pipa yangqin hichiriki koto shakuhachi shamisen sho ajaeng daegeum gayageum bangu bangzi dabo daluo hua pen naobo xiao tanggu xiaoluo kakko kane tsuzumi miya daiko okedo shime shoko tsuri buk samul sori janggu sanjo jing kkwaenggwari sogo brown white golden waves gyomanhan late autumn royal loyal soda bow bamboo forest cicada paean gyeongsang crying hum lotus lake tiger timbre dancing fish dizzo got dizzy gusu lan aiko arisa bosozoku keisaku rise early throwback tides nakdong beaked whale ready fukanona homesick kongshan over mountain bora dandelion fields gaya heart broken seoul tet spring picnic warrior air mood anjing chang gurgling water yangguan blossom densetsu sakura love spirit fingers taikang road falling leaves harukaze heian diki myojo empty ground genroku himitsu dento humble bee kanhizakura days beijing opera quiet night traditional gendai taiketsu gilgunak hwimori jajinmori change seasons purple field sky snow traveller wang zhaojun frikihachi komuso ryu densu samurai wabisabi aranami dust rain honchosi kuro mori memory shiosai travelogue fenghuang honeycomb samidare spiraling phoenix utsoroi" data-patch-count="42">
   <div class="card-chrome card-chrome-start">
-  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
+  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();cardBackClick(this)">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
   </div>
   <div class="card-chrome card-chrome-end">
@@ -6693,7 +6699,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
 </div>
 <div class="entry" id="item-8" data-kw="ethereal" data-name="Ethereal Earth" data-other="earth" data-patch="ethereal earth ambabass buzz bass cutlery echo thunder gusty growl ominous things ornery pipe slow creeper steel stubby throaty tuvan singer vox warbles brasso logic broken horn celestial ensemble neon dreams talking brass air vibrations airy bells aluminum echoes breath ping dreamy plucks electro whistles hollow trees lush memento perc lead plectrumism plucky springs resonant wind retro shorts rustling iron slithery string time chrome lights cyclic behavior dreaded chopper eternity exploring darkness flowing harmonics forest etheria minor impressions monuments ice obelisk pad omnipresence distant shores organic undulation polar moods radiant organ resolve solar winds summoning depths twilight water therapy angelic whispers arctic behind mirror ceremony clocking bows darkened strings earthy evolving lows fluttering molecules frost drone glass gutsy mellow arcs nautical auras rezostrings stellar wheel toy alternating current ascension cave crickets circling sweeps deep space comms distressed ramblings flickering shadow gongology icey spinner illuminate monk hill orbiting titan resobells smearing textures journey ancient secrets copper breeze fluffiana flutes low overblows mountain origins northern shepherds nightmare tundra chimes bad house city industry fades dream runner dreamworld find fog glare glow awe lost stratos outer fields reverse stab shimmer siddhis sub summer sea beneath transit arise automaton control group feed kirlian photography pyramidian seance hefty xenau veridical bang piper high maya metal calm outerim signalus response bias there vortex any subway europe big dumb eastern flutey harpsi katana magenta floaters sitar out shy soft cell sixt extinction windaloo" data-patch-count="2">
   <div class="card-chrome card-chrome-start">
-  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
+  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();cardBackClick(this)">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
   </div>
   <div class="card-chrome card-chrome-end">
@@ -6729,7 +6735,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
 </div>
 <div class="entry" id="item-9" data-kw="" data-name="Exhale" data-other="exhale" data-patch="exhale legacy 50s diner pad abnormalities acapella aerosky airpipes reception autumn chill big dirty flux breaking thru clarity cloud chatter cold dram confession air cyborg cyclone plate damp tape divine drudge choir electric chair exposure fading glow fall falling psyche feedback flautist daze floor forever hum glimmer gloomisphere great plains halo saturn harmon harm held tongue burst hummer hummingway hzmat habitat junkyard lady pulse last gasp left alone longing love faze luminous liliy mellow yellow mermaids monk swirls moto vation natures hymn nice hmm open tundra paradise waves penchant run phase pretty ambient prime mech queasy animal radio fling ransom razor chorus reminiscence remorse replicance sacred energy sanctuary sands time scifi shimmer shivering signs life skip song skipping blue slim canyon soft pipes soul wave speak easy spearmint spinning out steady move stolen breath stretch yawn sunburst stain support swamp mess sweep 16ths talking templar almighty thought ufo vacuum swell vortextual warped limit wash cycle washed wet circuits wheeze whisp bounce world chimes 144p singr 1940s lullaby after airwaves airy finish pluck amp check analog vox asynchronous bokeh brilliant broken flutter shout callback callow chordal skim crowd dark disohpoint double take dynamix election day elegy eviver evensong fatale float fluffy stabs flumes fog whom forsaken fractals frozen dream future cinema gallop grimey bass grit grime hard high times hipster indie summer indieana jones island swells" data-patch-count="2">
   <div class="card-chrome card-chrome-start">
-  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
+  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();cardBackClick(this)">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
   </div>
   <div class="card-chrome card-chrome-end">
@@ -6765,7 +6771,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
 </div>
 <div class="entry" id="item-10" data-kw="bass" data-name="Grove Bass" data-other="grovebass" data-patch="grovebass cln super bright thick dark dist cranked low gain rock lead dry too much ambience hot scooped thin brittle" data-patch-count="1">
   <div class="card-chrome card-chrome-start">
-  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
+  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();cardBackClick(this)">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
   </div>
   <div class="card-chrome card-chrome-end">
@@ -6800,7 +6806,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
 </div>
 <div class="entry" id="item-11" data-kw="violin guarneri" data-name="Guarneri Violin" data-other="" data-patch="guarneri violin longs shorts orchestral seating quartet" data-patch-count="2">
   <div class="card-chrome card-chrome-start">
-  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
+  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();cardBackClick(this)">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
   </div>
   <div class="card-chrome card-chrome-end">
@@ -6836,7 +6842,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
 </div>
 <div class="entry" id="item-12" data-kw="keys hybrid" data-name="Hybrid Keys" data-other="" data-patch="hybrid keys 90s anthems atmospheric broken heart chemtrails cinema dark tremors emotional piano harmonic haunting score modern house pop movie ether muted jazz rave saltwater sleepy time softly stac grand tresor ambient aphex works big ballad rhodes pad classic rnb crunchy eyes down gentle midnight pace cowboy rotating sadboys soft softest taped whurli tiney tremolo twin peak 7th harps harp runner lambo nonsense harmonics antique toy bright mallets concert marimba dusty mansion futurebells horrorshow hot tropics infinite horror shimmer punchy snapped swirling bells middle shimmers tropical mallet tropififth vibes world amazing organ boards toronto character eccentric gods plan homeward bound infinity leslie stack muffled feelings donor organic tech show love synthetic trap wave table planet canada highway chords banada dub techno elected evolver jetskis light box arp olde sphere profound project paperclip selected chores singing glass particles top teenwitch trapped nerve warm wobble afterthought ballads barrelhouse black hat cine noir class filmstrip crackle chord electric sitar ghostly gilgamesh harpomatic horizontal bad lofi moodswing perceptions rattle renaissance run ran duran sepia western rides telepathy vanilla dome above clouds balladium bedtime cold fuzzies deference opening lost sappy seconds stuffed cotton super detuned trailer key underwater worn cellos aged chucky clock gravelbrain ivory layover airport bar limbo locomotive magenta discovery quartz comets" data-patch-count="2">
   <div class="card-chrome card-chrome-start">
-  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
+  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();cardBackClick(this)">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
   </div>
   <div class="card-chrome card-chrome-end">
@@ -6872,7 +6878,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
 </div>
 <div class="entry" id="item-13" data-kw="violin" data-name="Iconic Violin" data-other="iconic" data-patch="iconic violin hqi perfect" data-patch-count="2">
   <div class="card-chrome card-chrome-start">
-  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
+  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();cardBackClick(this)">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
   </div>
   <div class="card-chrome card-chrome-end">
@@ -6914,7 +6920,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
 </div>
 <div class="entry" id="item-14" data-kw="" data-name="India" data-other="india" data-patch="india ensemble dhol dholak ghatam kanjira khol mridangam pakhawaj tabla bansuri harmonium santur sitar tanpura tumbi ambient bhairavi chromatic baldeep bhangra bhoomi diljit gurdeep gurmeet jaswinder kenejhare marut nandan niranjan shymal sukhwinder aarambh akash biswajit chorbazar gautam maatra mangal tatva shivan tanuj tapan tarun abhijit anirudh atulya deepak hari kabir manjul nishi sanket shadaab adarsh aditya eesha junction kaustubh mohit rahman rupaka shivang shobhit srinivasan sundar durga puja ishq bina mishra folk nada brama sindhu taal bhangraloca lakshmi akriti awaken chandan gauri rudra pancham sidereal shuffle abhiraam ahimsa rotation cycle rukmini sneha ujjaini chandrakanth crescent glow fortune prabandh santhosha sarit srijan tanmay prabha vandan vibhor vyaapak amogh chatur durlabh jwala raj sagar swapnil vibhavari atul awinash karthika mantra nandini nitish pradeep ratna prabhat sthir tapas varsha vinodini amrit damini greeshma jegathiswaran krishnan maniraj muddu krishna saket shashank shravani tanav vaaman vaibhav anmol dadra chakra dhwani gyan jhaptal jam keherwa mooksha supermoon komal neeraj nirmanyu rohan shaivi shobhan shridhar" data-patch-count="16">
   <div class="card-chrome card-chrome-start">
-  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
+  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();cardBackClick(this)">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
   </div>
   <div class="card-chrome card-chrome-end">
@@ -6974,7 +6980,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
 </div>
 <div class="entry" id="item-16" data-kw="" data-name="Mass" data-other="mass" data-patch="mass 2600 sine 808 barbershop basic cringethunder crunch4tek cybercrime shok deepmate dphase drilly light drivyway dynamik focus forthecamera fuzzy dstroy highdrive broken dude littledrive lofi shadow mod momibrokmylaptop morphes mustache chill parisbynight pwm safe pwr regular shootinlow short dirty simple rnot smashsimple subb synthyvibes takesomesub tomvibes underwater sharky westy wobbling low classic crunchy driven echoflex fatter shorter lak sub pure rumble hardbass screamin evo bender about blow acidslap bass against clock badguy dirt bubble tea bubbleverb chaine cote deep echoes deepdungeon demon gorgon diktat slapbass week donk ishot surpriz verb drunk signal dynamic phase echorocks evidence brass motorway expressive buzz fat fifth lift fireworks hit funkiest fuzz goofy echo gorrila reese gringemama growly rush modular madness moug4thegroove never one after other optic drive prodigy screaming vcf sidechainme rusty thunder rust saw square triangle afro aladin big acid brassy stab clav celeste keys synth clubgott complex pulse ensemble dreamy 5th squares fastsynky 80s filo organ galactic laser galopa gentle got guit synthar horny horn fatty snappy j6slap therapy" data-patch-count="1">
   <div class="card-chrome card-chrome-start">
-  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
+  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();cardBackClick(this)">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
   </div>
   <div class="card-chrome card-chrome-end">
@@ -7009,7 +7015,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
 </div>
 <div class="entry" id="item-17" data-kw="" data-name="Melodies" data-other="melodies" data-patch="melodies africa zebra after storm atlantic orchestra behind curtains cinematic guitones done winds far away planet forgotten memories guitar landscape heavenly hobbit friendship lutes flutes peace please piano war ultimo wide view always motion circuits electronic maelstorm elektro sci synth house techno forest born walk broken com electric chaos late night conversation positive vibes station puzzle stuck staccato stuttering what hell beats study drums basses playalong good old tapes mod loops debbie morning wind positivity rain bali santana skatepark stabs wonder days secret garden aisha keys black waterfall buddha bar code chilling yokohama ton trip himalaya rest beat snasscio trance iberian alt beatmaker bit byte bite high five brush repetitive bass tin" data-patch-count="1">
   <div class="card-chrome card-chrome-start">
-  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
+  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();cardBackClick(this)">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
   </div>
   <div class="card-chrome card-chrome-end">
@@ -7044,7 +7050,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
 </div>
 <div class="entry" id="item-18" data-kw="" data-name="Middle East" data-other="middle east" data-patch="middle east ensemble percussion strings daf daire darbuka davul frame drum kudum kudu riq tombak kanun kemence ney oud saz tanbur zurna ayoub ciftetelli devine inspiration evfer falaturi maksum saidi balladi malfuf masmudi red sea samai taquil sufimasi yuruk semai baba tahir derwish lizard sarahs words sirens way aisha ajuub maqsuun aali daramara desert gate conjure devils dance liberation farisma hunting muhajjar hafez naderi" data-patch-count="55">
   <div class="card-chrome card-chrome-start">
-  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
+  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();cardBackClick(this)">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
   </div>
   <div class="card-chrome card-chrome-end">
@@ -7155,7 +7161,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
 </div>
 <div class="entry" id="item-19" data-kw="" data-name="Pharlight" data-other="pharlight" data-patch="pharlight again forever ahadditive ahhs gates all full voices alpine landscape amorphic scrape ancestral rise antiretroviral test army crows atlantic beelze bub big room jazz bittersweet duet black hole sun cherry lips chronic echolalia climber cold blue flame cosmic ray therapy creep carver crying bed crystal cave drops portal cursed intercom dangerous dream dark matters desolate world desolation angels digital bazaar dimension door dimensions ding dunes doomed entrance eschaton faerie hive far horizons flutterino pad geisha giant cubus gold flake cluster goodnight earth growing unrest hallucinations high hopes imminence imminent escalation waves incantation theory inferno inoculation labyrinth last rays locust infestation long choir looking back machine whispers modern cinema ensemble murmurations music landscapes mysterious voice cloud niu noise drone touch anymore obelisk ooo bubbles opposites orlando glow orphelion patient zero perfect balance premonition quartal archangel radioactive renaissance gathering safe cut sea bursts shiver timbres slightly nervous slow spheres soaring softly slipping spooky dreams spread wings sturm und drang talhios talkbox oceans sleep god small things light fantastic mystique pharynx zoidbergs thin walls throat show usck clouds voodvind chatter waisted memories wandelbar washed out whisper bath whistled metals wintertime woozy congregation yeti bass vox india spirit interstellar layer uzi affirmation age blurred accapellas compassionate dwarves elves humming pearls pressure raven rhymes stringified vivid volatile hoeh vowel scanning basildon keys bird breathy colors pluck lead concentrate distant memory echoes time other side hey impulsive interference male grit moonquake particles universe phantom pop cycles dude sensitive ohs sequential breathing sophis shattering beauty itself good neighbor tokyo" data-patch-count="1">
   <div class="card-chrome card-chrome-start">
-  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
+  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();cardBackClick(this)">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
   </div>
   <div class="card-chrome card-chrome-end">
@@ -7190,7 +7196,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
 </div>
 <div class="entry" id="item-20" data-kw="piano" data-name="Piano Colors" data-other="colors" data-patch="piano colors analog synth auto pan avant garde back time backwards drive bass body string bowed short bright brushes harp brushed hitz butter soft buzz swell cajon clavi funk click organ compressed damped grand dancing screws dark flageolet smoothie mono stereo vintage experimental felt mallets chorus floating fluffy galactic gramophone harpsichord heavy paper music box oblique other world shakes percussive toy dolce pizzicato pluck wood pure resonance rattle resonant chaos rich rotator rubber scratchonance shake shifting slammed smacking snappy electric spooky touch stick mallet sub taped tight tremolo keys unpedictable harmonics upright ish varying octaves aleatoric sequence filter hit groove chimes pattern percussion buzzing triplets chord cycle clock chords driven filters drops drummer dynamic flow easy motion eighties underground fast keith sticks filtered pumper accents hammererd dance cloud glissando hasty steel drums hot jaw harpmonics little low beat mechanical fabrics moving off straight run organic paddle peal bells ensemble phased quarter notes picked pickup pumped rhythm rattling robo shakin shuffled slow progression smacked smackeroo bottom strummed strummer sustained three over two trimmed picks song vibey rotations virtuoso" data-patch-count="1">
   <div class="card-chrome card-chrome-start">
-  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
+  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();cardBackClick(this)">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
   </div>
   <div class="card-chrome card-chrome-end">
@@ -7225,7 +7231,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
 </div>
 <div class="entry" id="item-21" data-kw="" data-name="Play Series Selection" data-other="play series selection" data-patch="analog dreams ethereal earth hybrid keys how does feel snappy seq bass machine learning journey center oberbrass rattlesnake blurry skies coastline sunset asmr shivers barbie lauper slow creeper broken horn breath ping hollow trees cyclic behavior water therapy ceremony flickering shadow orbiting titan mountain origins atmospheric harmonic ambient crunchy muted harp marimba shimmer swirling bells rotating stack chords banada jetskis" data-patch-count="3">
   <div class="card-chrome card-chrome-start">
-  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
+  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();cardBackClick(this)">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
   </div>
   <div class="card-chrome card-chrome-end">
@@ -7262,7 +7268,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
 </div>
 <div class="entry" id="item-22" data-kw="guitarist vintage" data-name="Session Guitarist - Electric Vintage" data-other="session electric" data-patch="electric vintage melody 16th toolbox 8th ballad picking beautiful waltz cake icing california classic rnb clear all slots cold lake country river crescendos cropped cuba cafe dark club dead muted disco funk edgy echoes electro pop flageolet pack funky ride glasgow gliss flag gritty brit hot summer last exit log fire london mallorca old stage passing time plain octaves ragga party red sky retro reverse long short road trip triplet rock scott simple soul family spaceship spy movie swedish sweet arps beast mixed tree four van life" data-patch-count="2">
   <div class="card-chrome card-chrome-start">
-  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
+  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();cardBackClick(this)">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
   </div>
   <div class="card-chrome card-chrome-end">
@@ -7298,7 +7304,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
 </div>
 <div class="entry" id="item-23" data-kw="guitarist" data-name="Session Guitarist - Picked Acoustic" data-other="session picked acoustic" data-patch="picked acoustic melody autobahn breathing busker clear all slots countryside crescendos driving home fast strum flageolets funky mutes hymn latin pop light shadow mystic old castle street top pawnshop guitar picking ballad power ray right rising sun rnb backbeat scratches simple things standard standing close sunny porch syncopation take higher thinking tonight triplet uphill wanderer west wind" data-patch-count="2">
   <div class="card-chrome card-chrome-start">
-  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
+  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();cardBackClick(this)">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
   </div>
   <div class="card-chrome card-chrome-end">
@@ -7334,7 +7340,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
 </div>
 <div class="entry" id="item-24" data-kw="soul" data-name="Soul Sessions" data-other="sessions" data-patch="soul sessions backroom bass face candy slaps canya digit curly shag field sine fresh bite glovuh happy thumbs knuckle slap leux end mims broth skitso stanley slapper trippy upwritten huffin chuck just like sweets planetarium nylon pluckington puffy guitar reel rainbow scratchy strat watch vintage emotions aggressive kats barry back bedtime stories big hair energy bread hammond brown bag vibes callous tips chuckster collection plate cotton mouth keys dennis roadman dirty danza distant winds dreamy axxe eclipsed passion faulter reed faux bando fluffy frets lovin funkees girls night out give butterflies glass road greasy gucci piano jah roam keep toro liquid lover make wish molded roads eight press pads prohibition grand quadro suave rain brows lite flack ribbon clav ring rodgers entrance roundabout sauce neck seaside views sheeno bee shortcut sky slammed upright smokey drips soda fizz softline stayshin wagu toy keybeds velour stacks wafful iron walky talk tine whoo beloved prynth caterpillar feet classic low luz del sol malleto motherland bell mine transistor belly tronish blast brass stabs bug lites celeen strings junkyard blows betta orchard psycho delic strangs qwik foundashun tronika babylonia trees benediction cozy feelings luna tides picky lead pitchy smith sandman dream velvet toast burtons doogie mays moody lament pillow toppers process padawan purple dreams harping love nuffsho pluck sometimes hit pizz biz bleed fif brandee scape cheap dive cryin too don worry bout dot calm featherwait dubs fingaw aves flu tang get close glue hang gliding headband sweat heddy kain indiana queen kutlass example marsh melmin pro hibbit power say yaaaaaas shocker con snarky vision heavy standing gap take thumper" data-patch-count="1">
   <div class="card-chrome card-chrome-start">
-  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
+  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();cardBackClick(this)">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
   </div>
   <div class="card-chrome card-chrome-end">
@@ -7369,7 +7375,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
 </div>
 <div class="entry" id="item-25" data-kw="cello stradivari" data-name="Stradivari Cello" data-other="" data-patch="stradivari cello longs shorts orchestral seating quartet" data-patch-count="2">
   <div class="card-chrome card-chrome-start">
-  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
+  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();cardBackClick(this)">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
   </div>
   <div class="card-chrome card-chrome-end">
@@ -7405,7 +7411,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
 </div>
 <div class="entry" id="item-26" data-kw="violin stradivari" data-name="Stradivari Violin" data-other="" data-patch="stradivari violin longs shorts orchestral seating quartet" data-patch-count="2">
   <div class="card-chrome card-chrome-start">
-  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
+  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();cardBackClick(this)">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
   </div>
   <div class="card-chrome card-chrome-end">
@@ -7441,7 +7447,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
 </div>
 <div class="entry" id="item-27" data-kw="" data-name="Straylight" data-other="straylight" data-patch="straylight wall glass abandoned subway aetherbells after hours air drops approaching neverland auspicious flutes back bali background scan bad impact bee hive pad blown wide worlds blue whale boba static bowed voices bowl box roll broken suspense beams calabi yau cendence clarion close cold morning dark basement dyne highway disorient dusty membrane dystopia endgame enigmatic needle factory saw fake vega floodlight fluffy clouds foggy trees ghost top floor bell goosebumps grain rain healing highgrounds hemispheres hidden xenolith hiding places honeypenny ignes fatui innocent jade invocation irish banshee iron droplets kurosawa demise landscaping lannister light particles limbus lonely byte lost souls mars colony martian dust storm massive army memory shores mermaids mirrors mist drum modern asia talking monk morphing mandarins nano bugs nate ade nebula nebulae nightshift nostalgia nubia ominous night ouija flex outer scrolls overblown padme palindrome particle patso plodder profound mystery raylight sand planet sanza waves scene scanner secret wish shadows something else song sirens soyacoma sparkling wisconsin spectral concept spectrum breath starbeams starman call stars stripes string arpeggiation submerged subsoniq super surfacing surge inrush syncamore system failure taciturn slack tannhaeuser stomp terracottas bridge tundra tapes tineriwan touring singapur tsunami aftermath tumblin timpanis vibra dreamer vibrawaves wastelands wilderness shapes tension rated zimbelia warning noises blade chalkboard nails cymbomorph path distorted heart downward dreams automata drums doom enter chaos evil wave extinction fall darkness geisterfeld guitars town blowing gungha dune incantation metallurgy noiserotator old elevator" data-patch-count="1">
   <div class="card-chrome card-chrome-start">
-  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
+  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();cardBackClick(this)">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
   </div>
   <div class="card-chrome card-chrome-end">
@@ -7476,7 +7482,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
 </div>
 <div class="entry" id="item-28" data-kw="tablas tabla drum percussion" data-name="Tablas" data-other="" data-patch="tablas loops 070 075 080 090 100 110 120 130 140 160 170 180 190 vocalized 200 tuning bunker neu epic hall front side garage tabla loop" data-patch-count="100">
   <div class="card-chrome card-chrome-start">
-  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
+  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();cardBackClick(this)">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
   </div>
   <div class="card-chrome card-chrome-end">
@@ -7636,7 +7642,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
 </div>
 <div class="entry" id="item-29" data-kw="strings" data-name="Ultimate Pro Oriental Strings" data-other="ultimate pro oriental" data-patch="cello indian mix pro strings viola violins arabic kamanjat legato oriental violin live turkish" data-patch-count="18">
   <div class="card-chrome card-chrome-start">
-  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
+  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();cardBackClick(this)">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
   </div>
   <div class="card-chrome card-chrome-end">
@@ -7698,7 +7704,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
 </div>
 <div class="entry" id="item-30" data-kw="keys" data-name="West Africa" data-other="west africa" data-patch="diabara dundunbe gidamba kadan kakilambe kene foli koma kunding liberte marakadon mendiani sabar soboninkun soko soli sorsonet takonani tiriba woima yankadi baga gine balakulandian danza den naben dunun diagba fefo kassa soro kono kounbe kuku lolo madan rumba sinte sofa sonu calabash djembe dununba kenkeni sangba krin balafon bolon fula flute kora ngoni" data-patch-count="74">
   <div class="card-chrome card-chrome-start">
-  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
+  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();cardBackClick(this)">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
   </div>
   <div class="card-chrome card-chrome-end">
@@ -7828,7 +7834,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
 <p class="loc-hint">Root: <code>/mnt/wd_black</code></p>
 <div class="entry" id="item-31" data-kw="strings analog" data-name="Analog Strings" data-other="" data-patch="analog strings 5strngcharge 9001 punch bit indie abrasive soloists abysmal action soloist aint swell air pumping airy arcs shimmer alien altitude pluck ambivalence ambling reverse bow dreams gates harmonics heaven arp anticipation apparatus arctic noir aristochord arithmetics arpsichord arrival astral projections astronautics atomic crush attic pads aurora borealis autogliss harp bad guy badlands banjo rails barking drop barren basic beach bells beautifully raw bee hive bell belle jar beyond grave big guns bioluminescence bits bitter sweetness blade response blank canvas blown fuse boomscratcher bounce immediately bowed oscillators brittle stab broken pad burning busy bows butterfly ambience effect call deep cascading swells cassette cataclysm celestial mist chain challenger chopper rise cimbalom groove cinema texture circuit vision clangarang glitch classic drama clear day cliffhanger cloud castle col hits comfort vibes complex equations conductive contaminated cool pop corridor pulse cosmic surf creamy vanilla crows wings cruise wave cryo cyber speak dance maker pizz dark angels cave lord scratchy shadow side tower traveler darkness city david goliath wrath deathly deckard grit growl string nine dense deus devils legno digital age dirty echoes myst distant distress signal doppler flux dot line dotted 10ths double swelling drawn swords dream waves dreamscape drops gravy dry ice duck tape lead dueling sords dutch edm islands eighties duo electric sheep electro slash elevator pitch eleven hit emo pacing end era endless fifth epic plucks escalating trouble ethnic fat retro fatigued fickering images filter" data-patch-count="1">
   <div class="card-chrome card-chrome-start">
-  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
+  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();cardBackClick(this)">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
   </div>
   <div class="card-chrome card-chrome-end">
@@ -7863,7 +7869,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
 </div>
 <div class="entry" id="item-32" data-kw="drums getgood" data-name="GetGood Drums - Modern and Massive Pack" data-other="getgood modern massive pack" data-patch="modern massive drums big mono 100 turbo raw dry natural yer face led samurai pop punkers dream" data-patch-count="1">
   <div class="card-chrome card-chrome-start">
-  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
+  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();cardBackClick(this)">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
   </div>
   <div class="card-chrome card-chrome-end">
@@ -7898,7 +7904,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
 </div>
 <div class="entry" id="item-33" data-kw="" data-name="Mysteria" data-other="mysteria" data-patch="mysteria dream abyss angels airy elegy all dense alti melodies alto cluster ambient ancient digeridoo antarctica anthem cloud anxious chant apocalyptic choirs arcane voices arias atonal marcato awakening backward tape backwards basses beautiful dark bees big bad wolf black thoughts blade blue devils quartet body beat breaking breath attack breathy doomsday canonical swarm chamber femmes chaotic tremolo chatter cloister tenors wall women containment zone creepy soprani crowd chants waves frullato period sorrow whispers dazing canon deep crowds growls overtones talk wailing demon dirge descant desert carnage creatures robots despair competition dissonant distorted reality disturbing lullaby doppler double bass choir dragons battle dreamy pad ease anxiety enigma epic fest drama liederfest mass evolving vowels faraway land feedbacked female staccato flurry fogged tremor foghorn formula one freestyle freezing elves frightening clusters gliss texture glissando gloomy chord humming going nuts gregorian pure grieving men heaven hell heavy pattern approaching high highest hum grief variations human siren hummed spheres incubus inner fear intimate introverted joy jubilant darkness latin choral language whisper living dead" data-patch-count="1">
   <div class="card-chrome card-chrome-start">
-  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
+  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();cardBackClick(this)">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
   </div>
   <div class="card-chrome card-chrome-end">
@@ -7933,7 +7939,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
 </div>
 <div class="entry" id="item-34" data-kw="" data-name="Palette" data-other="palette" data-patch="strings chamber woodwinds brass percussion hand trailer drums timpani tubular bells crotales glockenspiel marimba xylophone piano harp choir tools synth braams downers impacts reverses risers sub booms whooshes awash castle sky circuit harmonics dark dripster delayscape dirty leads done dirt cheap mickey nucleus distant pad distanza diverging realities farthest reaches fish fry frog pong galactic breakup incursion inside sphere joystick larger life momentum nausea bell petri poor man hihat pwm quarks remembrance right twix rise fall screamdrum screaming wind serious interference shattered neon small space thunder square bass squarepants sunrise sweeping vintage lead timegrinder troubled waters useless chatter windy wrong universe xtra layer" data-patch-count="20">
   <div class="card-chrome card-chrome-start">
-  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
+  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();cardBackClick(this)">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
   </div>
   <div class="card-chrome card-chrome-end">
@@ -7987,7 +7993,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
 </div>
 <div class="entry" id="item-35" data-kw="orchestra" data-name="The Orchestra Complete" data-other="complete" data-patch="violins core articulations extended staccato sustain marcato legato tremolo pizzicato trills half tone whole sul pont spiccato col legno bartok harmonic violas cellos basses morin khuur high all vib flam low french horns trumpets trombones brass flute clarinet oboe bassoon contrabassoon glockenspiel non pitched percussion orchestral harp timpani tubular bells" data-patch-count="160">
   <div class="card-chrome card-chrome-start">
-  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
+  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();cardBackClick(this)">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
   </div>
   <div class="card-chrome card-chrome-end">
@@ -8259,7 +8265,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
 </div>
 <div class="entry" id="item-36" data-kw="percussion world" data-name="World Percussion" data-other="" data-patch="djembe 14inch seh 13inch 12inch dun set large kenkeni small sangbang medium talking drum trash dhol ghatam group stick hits kendang korean mudang cymbal temple woodblocks rebana samul nori buk janggu jing kkwaenggwari sundanese gamelan gong tabla bayon bass dayon tone bodhran hand claps kick military snare octoban orchestral roto tom suspended timpani mallet 10inch 16inch 18inch darabuka duff finger bells muzhar riq tabal tupan ago bongo brazilian shaker cajon clave conga quinto super tumba hawaiian pandeiro repenique surdo tamborim timba triangle empty template congas full primary only snares cymbals gongs toms percussion afro rock baby steps cat bros incorporated corp fortress gods africa sand worm spirit fight angry native colonial fleet mighty" data-patch-count="101">
   <div class="card-chrome card-chrome-start">
-  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
+  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();cardBackClick(this)">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
   </div>
   <div class="card-chrome card-chrome-end">
@@ -8415,7 +8421,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
 <p class="loc-hint">Root: <code>/mnt/storage</code></p>
 <div class="entry" id="item-37" data-kw="brass orchestral" data-name="Cinebrass" data-other="cinebrass" data-patch="" data-patch-count="3">
   <div class="card-chrome card-chrome-start">
-  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
+  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();cardBackClick(this)">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
   </div>
   <div class="card-chrome card-chrome-end">
@@ -8452,7 +8458,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
 </div>
 <div class="entry" id="item-38" data-kw="" data-name="Damage" data-other="damage" data-patch="" data-patch-count="2">
   <div class="card-chrome card-chrome-start">
-  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
+  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();cardBackClick(this)">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
   </div>
   <div class="card-chrome card-chrome-end">
@@ -8488,7 +8494,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
 </div>
 <div class="entry" id="item-39" data-kw="percussion orchestral" data-name="Elite Orchestral Percussion" data-other="elite" data-patch="" data-patch-count="1">
   <div class="card-chrome card-chrome-start">
-  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
+  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();cardBackClick(this)">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
   </div>
   <div class="card-chrome card-chrome-end">
@@ -8523,7 +8529,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
 </div>
 <div class="entry" id="item-40" data-kw="" data-name="Evolve Mutations 2" data-other="evolve mutations" data-patch="" data-patch-count="1">
   <div class="card-chrome card-chrome-start">
-  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
+  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();cardBackClick(this)">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
   </div>
   <div class="card-chrome card-chrome-end">
@@ -8558,7 +8564,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
 </div>
 <div class="entry" id="item-41" data-kw="strings" data-name="LA Scoring Strings" data-other="la scoring" data-patch="" data-patch-count="2">
   <div class="card-chrome card-chrome-start">
-  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
+  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();cardBackClick(this)">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
   </div>
   <div class="card-chrome card-chrome-end">
@@ -8594,7 +8600,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
 </div>
 <div class="entry" id="item-42" data-kw="brass orchestral" data-name="Orchestral Brass Classic" data-other="classic" data-patch="" data-patch-count="2">
   <div class="card-chrome card-chrome-start">
-  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
+  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();cardBackClick(this)">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
   </div>
   <div class="card-chrome card-chrome-end">
@@ -8630,7 +8636,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
 </div>
 <div class="entry" id="item-43" data-kw="orchestral string" data-name="Orchestral String Runs" data-other="runs" data-patch="" data-patch-count="5">
   <div class="card-chrome card-chrome-start">
-  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
+  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();cardBackClick(this)">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
   </div>
   <div class="card-chrome card-chrome-end">
@@ -8669,7 +8675,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
 </div>
 <div class="entry" id="item-44" data-kw="" data-name="Symphobia" data-other="symphobia" data-patch="" data-patch-count="6">
   <div class="card-chrome card-chrome-start">
-  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
+  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();cardBackClick(this)">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
   </div>
   <div class="card-chrome card-chrome-end">
@@ -8709,7 +8715,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
 </div>
 <div class="entry" id="item-45" data-kw="" data-name="Symphobia 2" data-other="symphobia" data-patch="" data-patch-count="6">
   <div class="card-chrome card-chrome-start">
-  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
+  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();cardBackClick(this)">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
   </div>
   <div class="card-chrome card-chrome-end">
@@ -8749,7 +8755,7 @@ html body.catalog-portable.layout-edit.portable-landscape.display-sides.display-
 </div>
 <div class="entry" id="item-46" data-kw="choir vocal voice" data-name="Voxos" data-other="voxos" data-patch="" data-patch-count="3">
   <div class="card-chrome card-chrome-start">
-  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();closeChosenPreview()">&#x2190;</button>
+  <button type="button" class="preview-back" aria-label="Back" onclick="event.preventDefault();event.stopPropagation();cardBackClick(this)">&#x2190;</button>
   <button type="button" class="fav-btn" aria-label="Favorite" aria-pressed="false" onclick="event.preventDefault();event.stopPropagation();toggleFav(this)">&#x2661;</button>
   </div>
   <div class="card-chrome card-chrome-end">
@@ -17891,6 +17897,23 @@ function switchOverlayTo(el){
   syncViewportLock();
 }
 function clearHighlight(){closeOverlay();}
+/* fix-CARD-BACK-CONTEXT-v1: .preview-back is shared markup between the
+   embedded/expanded preview card (chosen-preview-open, where it means
+   "return to the grid row" via closeChosenPreview) and the fullscreen
+   .entry.highlight card, which is now also showing this button in its
+   toolbar. In the highlight overlay "back" must close the overlay itself
+   (clearHighlight), not just tear down the smaller preview state. */
+function cardBackClick(el){
+  var entry=el&&el.closest('.entry');
+  if(entry&&entry.classList.contains('highlight')){
+    /* Back from the fullscreen card always lands on the expanded (preview)
+       card, never straight to the grid - mirrors the fs-btn transition
+       (expanded -> fullscreen) in reverse. */
+    openChosenPreview(entry);
+  }
+  else{closeChosenPreview();}
+}
+window.cardBackClick=cardBackClick;
 
 var CARD_MIN_MAX=9;
 var CARD_MIN_PHONE_MAX=24;

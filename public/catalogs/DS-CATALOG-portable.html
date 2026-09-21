@@ -269,9 +269,12 @@ body.catalog-help-kind-guide .catalog-help-title{display:none}
     phone/tablet), instead of stretching edge-to-edge across the wider landscape
     screen. Left/right margins reveal #hlBackdrop, mirroring the "no wasted side
     space" framing already true in portrait. Desktop/tablet-wide landscape (>1023px)
-    keeps the existing full-bleed layout. */
+    keeps the existing full-bleed layout. True browser/device fullscreen
+    (html.is-browser-fs, entered via the on-page Fullscreen button) is excluded:
+    there is no browser chrome left to compensate for once fullscreen, so the
+    card should use the whole widescreen width there instead of narrowing. */
  @media (orientation:landscape) and (max-width:1023px){
-  .entry.highlight{
+  html:not(.is-browser-fs) .entry.highlight{
     left:50%!important;right:auto!important;
     width:min(100dvh,100dvw)!important;
     transform:translateX(-50%)!important
@@ -35023,6 +35026,28 @@ function portableRelayoutChrome(reason,fromRaf){
     window._portableRelayoutPendingReason=String(reason||'');
     return;
   }
+  /* fix-RELAYOUT-DEBOUNCE-v1: a rotate or fullscreen toggle fires several
+     native browser events (resize, visualViewport resize, orientationchange)
+     that land as SEPARATE synchronous tasks a few dozen to a few hundred ms
+     apart rather than perfectly back-to-back, so the earlier "piggyback on
+     a pending rAF" coalescing (which only has a ~16ms window right after a
+     pass finishes) often missed them - measured 6 full heavy passes for one
+     rotate with a menu open. A short leading debounce widens that window:
+     the first call in a burst waits ~40ms before actually running (imperceptible
+     to a user), and any further calls arriving in that window just replace
+     the pending reason instead of starting their own run, so one physical
+     action collapses to one real pass (plus the existing trailing rAF
+     settle) regardless of how spread out its underlying events are. */
+  if(!fromRaf){
+    window._portableRelayoutPendingReason=String(reason||'');
+    if(window._portableRelayoutDebounce){return;}
+    window._portableRelayoutDebounce=setTimeout(function(){
+      window._portableRelayoutDebounce=0;
+      var _r=window._portableRelayoutPendingReason||reason;
+      portableRelayoutChrome(String(_r||'')+'-debounced',true);
+    },40);
+    return;
+  }
   if(window._portableRelayoutLock)return;
   window._portableRelayoutLock=true;
   try{
@@ -35326,19 +35351,43 @@ window.toggleAcFullscreen=function(){
     if(typeof applyUpperContain==='function')applyUpperContain();
       // Sides handles all orientations via CSS — no mode coercion on resize
     }
-    if(typeof syncPortableLayoutChrome==='function')syncPortableLayoutChrome();
-    if(window.CATALOG_PORTABLE&&typeof portableRelayoutChrome==='function')portableRelayoutChrome('win-resize');
+    /* fix-RESIZE-DEDUP-v1: portableRelayoutChrome() already runs
+       syncPortableLayoutChrome(), applySidesCols() and
+       portableEnsureScrollMenus() internally as part of its own pass (see
+       its body above), so calling them again right here duplicated that
+       same expensive work on every single resize tick - the plain
+       window 'resize' listener was the one path NOT covered by the
+       relayout-coalescing fix, since it ran these directly instead of
+       going through the coalesced function. Only syncDisplayForOrientation()
+       and applyDualLayout() (fs-only) are NOT covered internally, so those
+       two stay. */
+    if(window.CATALOG_PORTABLE&&typeof portableRelayoutChrome==='function'){
+      portableRelayoutChrome('win-resize');
+    }else if(typeof syncPortableLayoutChrome==='function'){
+      syncPortableLayoutChrome();
+    }
     if(window.CATALOG_PORTABLE&&document.body.classList.contains('portable-kb-open')){
       if(typeof placeAcShell==='function')placeAcShell();
       return;
     }
-    if(typeof applySidesCols==='function')applySidesCols();
     if(currentDisplay==='fs'&&typeof applyDualLayout==='function')applyDualLayout();
     if(typeof syncDisplayForOrientation==='function')syncDisplayForOrientation();
-    if(typeof portableEnsureScrollMenus==='function')portableEnsureScrollMenus();
   },{passive:true});
   // Orientation change applies that orientation's default (or saved pick). Width-only resizes do not coerce.
-  window.addEventListener('orientationchange',function(){setTimeout(function(){if(typeof syncPortableLayoutChrome==='function')syncPortableLayoutChrome();if(typeof syncDisplayForOrientation==='function')syncDisplayForOrientation();if(typeof portableEnsureScrollMenus==='function')portableEnsureScrollMenus();},0);});
+  window.addEventListener('orientationchange',function(){setTimeout(function(){
+    /* fix-RESIZE-DEDUP-v1: route through the coalesced relayout entry
+       point instead of calling syncPortableLayoutChrome()/
+       portableEnsureScrollMenus() directly - orientationchange almost
+       always fires alongside a 'resize' event for the same rotation, and
+       this used to run its own separate, uncoalesced copy of that same
+       work every time. */
+    if(window.CATALOG_PORTABLE&&typeof portableRelayoutChrome==='function'){
+      portableRelayoutChrome('orientationchange');
+    }else if(typeof syncPortableLayoutChrome==='function'){
+      syncPortableLayoutChrome();
+    }
+    if(typeof syncDisplayForOrientation==='function')syncDisplayForOrientation();
+  },0);});
   if(window.matchMedia){
     var mqOrient=window.matchMedia('(orientation: portrait)');
     function onOrientMq(){if(window.CATALOG_PORTABLE&&document.body.classList.contains('portable-kb-open')){if(typeof portableRelayoutChrome==='function')portableRelayoutChrome('orient-mq-kb');return;}if(typeof syncPortableLayoutChrome==='function')syncPortableLayoutChrome();if(typeof syncDisplayForOrientation==='function')syncDisplayForOrientation();}

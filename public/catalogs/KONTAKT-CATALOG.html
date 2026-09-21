@@ -159,6 +159,15 @@ html[data-ui-scale="133"] .index,html[data-ui-scale="140"] .index,html[data-ui-s
  .note-view-btn.has-note:hover{color:var(--accent-instrument);border-color:var(--accent-instrument)}
  .note-view-btn.is-active{background:var(--accent-note);color:#fff;border-color:var(--accent-note)}
  .entry.highlight .note-view-btn{display:none!important}
+/* fix-NOTE-VIEW-BTN-HIDE-EMBEDDED-v1: the description-switch toggle
+   (.note-view-btn) is meant only for the plain grid card - it was
+   already hidden in the full .highlight overlay but had no rule for
+   the embedded/preview card (chosen-preview-open), so it kept
+   showing there (bottom-right, unrelated to the .note-balloon editor
+   entry point next to Favorite, which is unaffected and still
+   shown). Hide it in that state too, including while a Card Search
+   embed is additionally open on top of it. */
+body.chosen-preview-open .entry.selected:not(.highlight) .note-view-btn{display:none!important}
  .lib-notes{position:relative;margin:.15rem 0 .35rem}
  .note-text{display:none;margin:.25rem 0;padding:.5rem .7rem;background:var(--bg-surface);border:1px dashed var(--border);border-radius:6px;color:var(--text);font-size:.9375rem;white-space:pre-wrap;overflow-wrap:anywhere}
  .entry.highlight .note-text.has-note{display:block}
@@ -6184,10 +6193,10 @@ body.catalog-portable #hdrToolsMorePop{display:none!important}
         <ol>
           <li>Open a card (⛶ or tap its name) and tap the 💬 balloon next to the title to write a note, then Save.</li>
           <li>Back in the grid, that card shows a 💬 button next to Favorite. Tap it to swap the description between your note and the library's own text.</li>
-          <li>Words from your note (3+ letters, common words filtered out) become searchable keyword pills automatically, and count toward existing pills where they match.</li>
+          <li>Only catalog-recognized words in your note (the same Instrument / Brand / Model / Vibe / Patch vocabulary used everywhere else) become searchable keyword pills automatically, and count toward existing pills where they match. Write full sentences freely - unrelated words are ignored and never turn into pills.</li>
         </ol>
         <p class="catalog-help-k">You should see</p>
-        <p>The 💬 button only appears when a note is saved. Notes (and the keywords they generate) live in this browser's <code>localStorage</code> and are not part of the HTML file. Erase them from History → <b>User text (notes)</b>.</p>
+        <p>The 💬 button only appears when a note is saved. Notes (and the recognized keywords they contribute) live in this browser's <code>localStorage</code> and are not part of the HTML file. Erase them from History → <b>User text (notes)</b>.</p>
       </details>
       <details>
         <summary>Place the quick toolbar (phone)</summary>
@@ -6441,7 +6450,7 @@ body.catalog-portable #hdrToolsMorePop{display:none!important}
           <li><b>Smoother custom scrollbar</b> — the hover-scroll thumb (the shadow scrollbar beside the native one) is now positioned with a compositor-only transform instead of a layout-triggering style, so it should not lag behind fast scrolling on long columns.</li>
           <li><b>Quick toolbar (phone)</b> — remembers a separate dock/position per orientation and per combination of visible menus (Search / Keywords / Flip / Middle); see <i>Place the quick toolbar</i> in the User guide.</li>
           <li><b>Expanded keyword vocabulary</b> — Instrument/Brand pills now also cover ethnic/world instruments (oud, sitar, koto, guzheng, pipa, shamisen, darbuka, vibraphone, timpani, tambourine, and more) and additional real library vendors (Soundiron, Sonokinetic, SubMission Audio, Output, Soniccouture, GetGood Drums, FluffyAudio, Nami Audio, EarthMoments, 8Dio, Streamtech Music), auto-matched from each library's own name against the same rule set (no invented categories). The library updater and live builder scripts tag new libraries with this expanded set automatically going forward.</li>
-          <li><b>English keyword aliases</b>, a Middle-mode Keywords bottom border, centred mobile hide/show tabs, and note-button alignment/UX polish also landed this week.</li>
+          <li><b>Note keywords now vocabulary-only</b> — free-text notes used to turn almost every 3+ letter word into a searchable pill; a saved note now only contributes pills for words that already exist in the catalog's own Instrument/Brand/Model/Vibe/Patch vocabulary. Write full sentences in a note and only the relevant catalog terms inside them become pills.</li><li><b>English keyword aliases</b>, a Middle-mode Keywords bottom border, centred mobile hide/show tabs, and note-button alignment/UX polish also landed this week.</li>
         </ul>
       </details>
       <details>
@@ -9375,13 +9384,22 @@ function paintFavBtn(btn,fav){
 }
 var NO_DESC_TEXT='No additional description provided.';
 function escHtml(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
-var NOTE_KW_STOP={the:1,a:1,an:1,and:1,or:1,of:1,to:1,in:1,on:1,at:1,by:1,for:1,from:1,with:1,into:1,onto:1,upon:1,is:1,it:1,its:1,this:1,that:1,these:1,those:1,be:1,was:1,were:1,are:1,not:1,no:1,nor:1,but:1,so:1,if:1,then:1,than:1,your:1,my:1,our:1,their:1,you:1,we:1,they:1,he:1,she:1,them:1,us:1,me:1,as:1,has:1,have:1,had:1,will:1,would:1,can:1,could:1,just:1,very:1,really:1,also:1,more:1,most:1,some:1,any:1,all:1,one:1,two:1,been:1,being:1,do:1,does:1,did:1,get:1,got:1,like:1,love:1,made:1,make:1,about:1,there:1,here:1,when:1,where:1,what:1,which:1,who:1,how:1,why:1,out:1,up:1,down:1,over:1,under:1,again:1,still:1,too:1,only:1,own:1,same:1,other:1,such:1,than:1};
+/* fix-NOTE-KW-VOCAB-ONLY-v1: this used to keep every non-stopword token
+   (3-24 letters) from a note, so a free-text sentence like "picked this
+   up for a soundtrack cue, still a bit unsure" turned nearly every word
+   into a searchable pill. Notes should only ever contribute keywords the
+   catalog already recognizes (the same instrument/brand/model/vibe/patch
+   vocabulary in KW_CATS, sourced from the library database and the
+   curated word list) - never arbitrary prose. A word only becomes a
+   pill when it is itself a known KW_CATS key, so typing full sentences
+   is safe: only the catalog-relevant terms inside them are picked out. */
 function noteKeywordsFor(text){
   var seen={}, out=[];
+  if(typeof KW_CATS!=='object'||!KW_CATS)return out;
   String(text||'').toLowerCase().split(/[^a-z0-9'-]+/).forEach(function(w){
     w=w.replace(/^['-]+|['-]+$/g,'');
-    if(!w||w.length<3||w.length>24||NOTE_KW_STOP[w]||seen[w])return;
-    if(/^[0-9'-]+$/.test(w))return;
+    if(!w||seen[w])return;
+    if(!Object.prototype.hasOwnProperty.call(KW_CATS,w))return;
     seen[w]=1;out.push(w);
   });
   return out.slice(0,15);

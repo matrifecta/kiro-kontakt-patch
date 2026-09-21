@@ -288,6 +288,19 @@ body.catalog-help-kind-guide .catalog-help-title{display:none}
     transform:translateX(-50%)!important
   }
  }
+ /* fix-HL-PORTRAIT-NARROW-v1: symmetric counterpart to the landscape fix above -
+    in portrait the expanded card previously always used the full 100dvh height
+    edge-to-edge, with no equivalent top/bottom spacer. Mirror the same treatment
+    (windowed only, never in fullscreen) so both orientations behave the same
+    way: a spacer on the long axis (top/bottom in portrait, left/right in
+    landscape), none at all once actually fullscreen. */
+ @media (orientation:portrait) and (max-height:1023px){
+  html:not(.is-browser-fs):not(:fullscreen):not(:-webkit-full-screen) .entry.highlight{
+    top:50%!important;bottom:auto!important;
+    height:min(100dvh,100dvw)!important;
+    transform:translateY(-50%)!important
+  }
+ }
  .hl-body{min-width:0}
  .entry.highlight .hl-body{flex:1 1 auto;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:12px 16px 24px}
  .cover{flex:0 0 auto;flex-shrink:0;width:100%;max-width:100%;min-height:clamp(4.5rem,12vw,7.5rem);max-height:clamp(7.5rem,18vw,12.5rem);margin:.3rem 0;display:flex;align-items:center;justify-content:center;overflow:hidden;border:1px solid var(--border);border-radius:4px;background:var(--bg-surface);box-sizing:border-box;cursor:pointer}

@@ -264,24 +264,25 @@ body.catalog-help-kind-guide .catalog-help-title{display:none}
  #cardMinDock .card-min-pill.is-front{background:var(--accent-instrument-bg);border-color:var(--accent-instrument-active);color:var(--accent-instrument-active);box-shadow:0 10px 32px rgba(0,0,0,.45);opacity:1}
  body.hl-open #cardMinDock,body.chosen-preview-open #cardMinDock,body.gallery-open #cardMinDock,body.img-focus-open #cardMinDock,body.desc-reader-open #cardMinDock,body.path-reader-open #cardMinDock,body.desc-focus-open #cardMinDock,body.path-focus-open #cardMinDock{visibility:hidden!important;pointer-events:none!important}
  .entry.highlight{position:fixed;inset:0;top:0;left:0;right:0;bottom:0;width:100vw;width:100dvw;height:100vh;height:100dvh;height:100svh;max-width:none;max-height:none;z-index:860;display:flex;flex-direction:column;overflow:hidden;padding:max(52px,calc(env(safe-area-inset-top) + 8px)) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);box-sizing:border-box;grid-column:unset;transform:none;border-radius:0;outline:2px solid var(--accent-instrument);outline-offset:-2px;background:var(--bg-card);border:1px solid var(--border);box-shadow:var(--hl-shadow)}
- /* fix-HL-LANDSCAPE-NARROW-v1: expanded (fullscreen) card stays only as wide as it
+ /* fix-HL-LANDSCAPE-NARROW-v2: expanded (fullscreen) card stays only as wide as it
     would naturally be in portrait (screen height == portrait width on a rotated
     phone/tablet), instead of stretching edge-to-edge across the wider landscape
-    screen. Left/right margins reveal #hlBackdrop, mirroring the "no wasted side
-    space" framing already true in portrait. Desktop/tablet-wide landscape (>1023px)
-    keeps the existing full-bleed layout. True browser/device fullscreen
-    (html.is-browser-fs, entered via the on-page Fullscreen button) is excluded:
-    there is no browser chrome left to compensate for once fullscreen, so the
-    card should use the whole widescreen width there instead of narrowing.
-    fix-HL-FS-NATIVE-v1: also exclude genuine native Fullscreen API state
-    (html:fullscreen / -webkit-full-screen), since .is-browser-fs alone only
-    marks the CSS-simulated fallback (native FS unavailable/pending) and gets
-    removed once the real Fullscreen API succeeds - without this, a card
-    opened via real device/browser fullscreen still got narrowed. */
+    screen. Left/right margins reveal #hlBackdrop, mirroring the equivalent
+    top/bottom spacer in portrait (fix-HL-PORTRAIT-NARROW-v1 below) - both
+    orientations must free up the SAME total amount of space, not just "some"
+    margin. Desktop/tablet-wide landscape (>1023px) keeps the existing
+    full-bleed layout. True browser/device fullscreen (.is-browser-fs, native
+    :fullscreen/-webkit-full-screen) is excluded: no browser chrome is left to
+    compensate for once fullscreen, so the card uses the whole width there.
+    --hl-narrow-dim is set from JS (syncHlNarrowDim) using the real measured
+    min(innerWidth,innerHeight) in px, not the min(100dvh,100dvw) CSS calc -
+    dvh/dvw can disagree with the actual laid-out viewport on mobile browsers
+    while their toolbar/URL bar is animating in/out, which was producing a
+    mismatched, off-center margin instead of the same amount as portrait. */
  @media (orientation:landscape) and (max-width:1023px){
   html:not(.is-browser-fs):not(:fullscreen):not(:-webkit-full-screen) .entry.highlight{
     left:50%!important;right:auto!important;
-    width:min(100dvh,100dvw)!important;
+    width:var(--hl-narrow-dim,min(100dvh,100dvw))!important;
     transform:translateX(-50%)!important
   }
  }
@@ -290,11 +291,12 @@ body.catalog-help-kind-guide .catalog-help-title{display:none}
     edge-to-edge, with no equivalent top/bottom spacer. Mirror the same treatment
     (windowed only, never in fullscreen) so both orientations behave the same
     way: a spacer on the long axis (top/bottom in portrait, left/right in
-    landscape), none at all once actually fullscreen. */
+    landscape), none at all once actually fullscreen. Uses the same
+    --hl-narrow-dim JS-measured value as the landscape rule above. */
  @media (orientation:portrait) and (max-height:1023px){
   html:not(.is-browser-fs):not(:fullscreen):not(:-webkit-full-screen) .entry.highlight{
     top:50%!important;bottom:auto!important;
-    height:min(100dvh,100dvw)!important;
+    height:var(--hl-narrow-dim,min(100dvh,100dvw))!important;
     transform:translateY(-50%)!important
   }
  }
@@ -21372,6 +21374,26 @@ function togglePortableToolbarFs(){
 }
 window.togglePortableToolbarFs=togglePortableToolbarFs;
 window.portableToolbarFsWanted=portableToolbarFsWanted;
+/* fix-HL-NARROW-DIM-JS-v1: the landscape/portrait card-narrowing rules used
+   to size themselves with a CSS min(100dvh,100dvw) calc, but dvh/dvw can
+   disagree with the real laid-out viewport on mobile browsers while the
+   address-bar/toolbar is animating in or out, producing a margin that didn't
+   match between orientations (or wasn't centered). Compute the real
+   min(innerWidth,innerHeight) in JS instead and expose it as a CSS var so
+   both rules share one exact, consistent pixel value. */
+function syncHlNarrowDim(){
+  var dim=Math.min(window.innerWidth||0,window.innerHeight||0);
+  if(dim>0)document.documentElement.style.setProperty('--hl-narrow-dim',dim+'px');
+}
+window.syncHlNarrowDim=syncHlNarrowDim;
+(function(){
+  var _t=null;
+  function _sched(){if(_t)clearTimeout(_t);_t=setTimeout(function(){_t=null;syncHlNarrowDim();},60);}
+  syncHlNarrowDim();
+  window.addEventListener('resize',_sched,{passive:true});
+  window.addEventListener('orientationchange',_sched);
+  if(window.visualViewport)window.visualViewport.addEventListener('resize',_sched,{passive:true});
+})();
 function portableFsApiAvailable(){
   var el=document.documentElement;
   return !!(el&&(el.requestFullscreen||el.webkitRequestFullscreen||el.webkitRequestFullScreen));

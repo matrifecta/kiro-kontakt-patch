@@ -15296,15 +15296,29 @@ function init(){
   window.addEventListener('scroll',placeAcShell,{passive:true});
   if(window.visualViewport){
     var __vvLastW=window.visualViewport.width;
+    /* fix-VV-KB-DEBOUNCE-v1: an animated on-screen keyboard fires many
+       visualViewport 'resize' ticks in quick succession while it slides
+       in/out (one per intermediate height, not just once at the start and
+       end). Each tick used to call syncPortableLayoutChrome()
+       synchronously right away, so the portable-kb-open class (and the
+       CSS layout it drives) could flip on/off/on again for the same
+       keyboard action - a visible flicker. Collapse same-width ticks to
+       at most one sync per animation frame instead of one per tick. */
+    var __vvSyncRaf=0;
+    function __vvSyncScheduled(){
+      if(__vvSyncRaf)return;
+      __vvSyncRaf=requestAnimationFrame(function(){__vvSyncRaf=0;if(typeof syncPortableLayoutChrome==='function')syncPortableLayoutChrome();});
+    }
     window.visualViewport.addEventListener('resize',function(){
       var wNow=window.visualViewport.width;
       var sameW=Math.abs(wNow-__vvLastW)<1;
       __vvLastW=wNow;
-      if(typeof syncPortableLayoutChrome==='function')syncPortableLayoutChrome();
       if(sameW){
+        __vvSyncScheduled();
         if(document.body.classList.contains('portable-kb-open')&&typeof placeAcShell==='function')placeAcShell();
         return;
       }
+      if(typeof syncPortableLayoutChrome==='function')syncPortableLayoutChrome();
       if(typeof portableRelayoutChrome==='function')portableRelayoutChrome('vv-resize');
       if(document.body.classList.contains('portable-kb-open')){
         if(typeof placeAcShell==='function')placeAcShell();
@@ -23987,8 +24001,27 @@ function portableClearMenuFsInline(){
     el.style.removeProperty('flex');
   });
 }
+/* fix-RELAYOUT-COALESCE-v1: rotating/toggling fullscreen fires several
+   independent listeners (resize, visualViewport resize, orientationchange,
+   fullscreenchange/webkitfullscreenchange) for what is really one physical
+   action, and each one called this whole (expensive, whole-grid) relayout
+   directly - plus this function already re-invokes itself once more via
+   requestAnimationFrame every time it runs "for real". That stacked into
+   many redundant full passes for a single rotate/fullscreen toggle
+   (measured ~8 runs for just 4 synthetic resize ticks), which is both the
+   visible flicker (each pass resets then rewrites card/menu sizing) and
+   the multi-second stall on slower devices. Once a pass has run, any
+   further call arriving before its trailing rAF follow-up fires just
+   piggybacks on that same follow-up instead of running the full body
+   again immediately - collapsing N back-to-back calls into at most 2
+   real passes (one now, one settled next frame) regardless of how many
+   listeners fired for the same action. */
 function portableRelayoutChrome(reason,fromRaf){
   if(!window.CATALOG_PORTABLE||!document.body)return;
+  if(window._portableRelayoutPending&&!fromRaf){
+    window._portableRelayoutPendingReason=String(reason||'');
+    return;
+  }
   if(window._portableRelayoutLock)return;
   window._portableRelayoutLock=true;
   try{
@@ -24033,7 +24066,13 @@ function portableRelayoutChrome(reason,fromRaf){
     window._portableRelayoutLock=false;
   }
   if(!fromRaf){
-    requestAnimationFrame(function(){portableRelayoutChrome(String(reason||'')+'-raf',true);});
+    window._portableRelayoutPending=true;
+    window._portableRelayoutPendingReason=String(reason||'');
+    requestAnimationFrame(function(){
+      window._portableRelayoutPending=false;
+      var _r=window._portableRelayoutPendingReason||reason;
+      portableRelayoutChrome(String(_r||'')+'-raf',true);
+    });
   }
 }
 window.portableUsableBox=portableUsableBox;

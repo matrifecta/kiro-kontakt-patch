@@ -21754,9 +21754,14 @@ function applyLayoutBucket(id){
   }
   if(b.indexH)document.body.style.setProperty('--sides-index-h',parseInt(b.indexH,10)+'px');
   if(ix){
-    ix.classList.add('is-collapsed');if(typeof syncIndexToggleUi==='function')syncIndexToggleUi(ix);
+    /* fix-IX-ROTATE-KEEP-v2: applyLayoutBucket() runs on every orientation
+       change (the bucket id itself encodes orientation), so it used to
+       force-collapse an already-expanded Window Index on a plain rotation,
+       even though the user never asked it to close - it just restores this
+       orientation's persisted panel sizes/embed pref, so leave the index's
+       current expand/collapse state alone. */
     if(typeof b.indexEmbed==='boolean'){ix.classList.toggle('is-embedded',!!b.indexEmbed);if(typeof syncIndexEmbedBtn==='function')syncIndexEmbedBtn();}
-
+    if(typeof syncIndexToggleUi==='function')syncIndexToggleUi(ix);
   }
 }
 function syncLayoutBucket(){
@@ -23701,7 +23706,15 @@ function setDisplayMode(mode,opts){
     if(aPre)aPre.textContent='▲';
     if(typeof syncSearchHideBtn==='function')syncSearchHideBtn();
     if(typeof syncKwHideBtn==='function')syncKwHideBtn();
-    if(typeof resetIndexDock==='function')resetIndexDock();
+    /* fix-IX-ROTATE-KEEP-v1: setDisplayMode('sides') also re-runs on every
+       resize/orientationchange while already in Sides mode (rotation, menu
+       fs toggling, etc.), not just on a genuine switch into Sides. Calling
+       resetIndexDock() unconditionally there force-collapsed an already
+       expanded/filled Window Index on every such re-application, so the
+       index lost its "fill down the screen" state on a plain rotation
+       even though nothing the user did asked for it to collapse. Only
+       force it closed when actually entering Sides mode for the first time. */
+    if(!already&&typeof resetIndexDock==='function')resetIndexDock();
     if(typeof syncHdrMenuBtns==='function')syncHdrMenuBtns();
     if(typeof syncIndexEmbedBtn==='function')syncIndexEmbedBtn();
 

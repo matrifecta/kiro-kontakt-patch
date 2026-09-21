@@ -9935,6 +9935,22 @@ function applyIndexFillDocStyles(){
 }
 window.applyIndexFillDocStyles=applyIndexFillDocStyles;
 function syncIndexWindowDock(){
+  /* fix-IXDOCK-COALESCE-v1: called from many sites within a single toggle
+     burst; coalesce into one immediate run + at most one trailing rAF run. */
+  if(syncIndexWindowDock._coalescing){syncIndexWindowDock._dirty=true;return;}
+  syncIndexWindowDock._coalescing=true;
+  syncIndexWindowDockImpl();
+  requestAnimationFrame(function tick(){
+    if(syncIndexWindowDock._dirty){
+      syncIndexWindowDock._dirty=false;
+      syncIndexWindowDockImpl();
+      requestAnimationFrame(tick);
+    }else{
+      syncIndexWindowDock._coalescing=false;
+    }
+  });
+}
+function syncIndexWindowDockImpl(){
   var run=function(){
     var ix=document.getElementById('catalogIndex');
     var windowOk=window.CATALOG_PORTABLE||document.body.classList.contains('display-sides')||document.body.classList.contains('display-middle');
@@ -21027,6 +21043,25 @@ function catalogJumpScrollbarGutter(main){
 }
 window.catalogJumpScrollbarGutter=catalogJumpScrollbarGutter;
 function placeCatalogJumpStack(){
+  /* fix-JUMPSTACK-COALESCE-v1: this is invoked from dozens of call sites, often
+     many times within a single click/resize burst (each call recomputes full
+     geometry). Run the first call immediately (no visible flash), then
+     coalesce every further call in the same burst into at most one trailing
+     run per animation frame until the burst goes quiet. */
+  if(placeCatalogJumpStack._coalescing){placeCatalogJumpStack._dirty=true;return;}
+  placeCatalogJumpStack._coalescing=true;
+  placeCatalogJumpStackImpl();
+  requestAnimationFrame(function tick(){
+    if(placeCatalogJumpStack._dirty){
+      placeCatalogJumpStack._dirty=false;
+      placeCatalogJumpStackImpl();
+      requestAnimationFrame(tick);
+    }else{
+      placeCatalogJumpStack._coalescing=false;
+    }
+  });
+}
+function placeCatalogJumpStackImpl(){
   var stack=document.getElementById('catalogJumpStack');
   var main=document.getElementById('catalogMain');
   if(!stack){

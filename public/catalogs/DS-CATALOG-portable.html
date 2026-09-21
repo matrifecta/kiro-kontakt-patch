@@ -28527,6 +28527,19 @@ function openChosenPreview(el){
   if(!el)return;
   if(typeof closeCatalogHelp==='function')closeCatalogHelp();
   if(typeof recordCardHit==='function')recordCardHit(el);
+  /* fix-CAT-HEADER-H-OPEN-STALE-v1: --cat-header-h (centers/sizes the
+     expanded card - see fix-PREVIEW-BELOW-HDR/fix-CAT-HEADER-H-STALE-v1)
+     was only ever refreshed by header-bar toggles and resize/orientation
+     events, never right before the card that actually depends on it opens.
+     Anything else that changes the real header's height without firing one
+     of those events (a saved UI-scale preference applying late, fonts/
+     images finishing layout, etc.) left it stale until the next such event
+     happened to come along - producing a wrongly sized/positioned expanded
+     card (extending past the viewport, especially in landscape's much
+     shorter available height) on a plain click with no rotation involved.
+     Recompute it unconditionally right here so opening the card always
+     uses the header's real, current height. */
+  if(typeof updateCatHeaderH==='function')updateCatHeaderH();
   parkSearchBehindOverlay();
   var fromFullscreen=el.classList.contains('highlight')||document.body.classList.contains('hl-open');
   if(!document.body.classList.contains('chosen-preview-open')){

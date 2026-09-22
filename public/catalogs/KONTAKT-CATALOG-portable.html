@@ -3914,20 +3914,22 @@ body.chosen-preview-open .entry.selected:not(.highlight) .path.is-expanded{
     transform:translate(-50%,-50%)!important;-webkit-transform:translate(-50%,-50%)!important;
     margin:0!important;
     width:min(92vw,36rem)!important;max-width:min(92vw,36rem)!important;
-    max-height:min(86dvh,calc(100dvh - 2.5rem))!important;
+    max-height:min(86svh,calc(100svh - 2.5rem))!important;
     padding-top:3.5rem!important
   }
-  /* LANDSCAPE-PREVIEW-WIDTH-v2: v1 widened this to min(92vw,70rem), stretching
-     the dialog almost edge-to-edge in landscape with a much thinner side
-     margin than the portrait width above leaves on its own long axis - the
-     opposite of what was asked (equal left/right spacers in landscape as
-     portrait's own margins). Use the same JS-measured --hl-narrow-dim the
-     fullscreen card's landscape spacer already keys off
-     (fix-HL-LANDSCAPE-NARROW-v2), so this dialog leaves the identical
-     amount of free space on both sides in landscape that it does on its
-     narrow axis in portrait. */
+  /* LANDSCAPE-PREVIEW-WIDTH-v3: the base rule above sizes the portrait card
+     to min(92vw,36rem) - i.e. 92% of the phone's SHORT dimension, capped.
+     In landscape the short dimension is the viewport HEIGHT, so mirror that
+     exactly with min(92svh,36rem): the landscape card is then physically the
+     same width the portrait card is, leaving identical left/right spacers,
+     with the content simply reflowed for the wider screen. This is pure CSS
+     (svh, not the JS-measured --hl-narrow-dim v2 used) so it can't fall back
+     to a too-wide value if that variable isn't set yet when the card opens
+     on a real device - which is what the wide landscape card in the reports
+     actually was. svh (small viewport) also means the width tracks the same
+     visible-area basis the svh-based height clamp below uses. */
   body.catalog-portable.portable-landscape.chosen-preview-open .entry.selected:not(.highlight){
-    width:var(--hl-narrow-dim,min(92vw,70rem))!important;max-width:var(--hl-narrow-dim,min(92vw,70rem))!important
+    width:min(92svh,36rem)!important;max-width:min(92svh,36rem)!important
   }
   body.catalog-portable.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed){
     height:min(86dvh,calc(100dvh - 2.5rem))!important;
@@ -4714,8 +4716,8 @@ body:is(.chosen-preview-open,.card-embed-open,.hl-open) #catalogIndex{
 /* fix-PREVIEW-BELOW-HDR: center extended card in the space under the document header */
 body.chosen-preview-open .entry.selected:not(.highlight),
 body.catalog-portable.chosen-preview-open .entry.selected:not(.highlight){
-  top:calc(var(--cat-header-h,0px) + (100dvh - var(--cat-header-h,0px))/2)!important;
-  max-height:calc(100dvh - var(--cat-header-h,0px) - 1.25rem)!important
+  top:calc(var(--cat-header-h,0px) + (100svh - var(--cat-header-h,0px))/2)!important;
+  max-height:calc(100svh - var(--cat-header-h,0px) - 1.25rem)!important
 }
 body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed),
 body.catalog-portable.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed){

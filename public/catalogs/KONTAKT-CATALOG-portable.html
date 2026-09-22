@@ -178,11 +178,6 @@ body.chosen-preview-open .entry.selected:not(.highlight) .note-view-btn{display:
  .note-text{display:none;margin:.25rem 0;padding:.5rem .7rem;background:var(--bg-surface);border:1px dashed var(--border);border-radius:6px;color:var(--text);font-size:.9375rem;white-space:pre-wrap;overflow-wrap:anywhere}
  .entry.highlight .note-text.has-note{display:block}
  .note-balloon{display:none}
-/* fix-NOTE-BALLOON-PENCIL-ICON-v1: swap the speech-balloon glyph for a
-   pencil, and force it to lie perfectly horizontal (in line with the
-   other flat/level toolbar glyphs) regardless of the emoji font's own
-   default diagonal orientation for U+270F. */
- .note-balloon-ic{display:inline-block;transform:rotate(-45deg)}
  .entry.highlight .note-balloon{display:inline-flex;align-items:center;justify-content:center;width:2.75rem;height:2.75rem;min-width:2.75rem;min-height:2.75rem;background:var(--bg-surface);color:var(--text-muted);border:1px solid var(--border);border-radius:8px;cursor:pointer;touch-action:manipulation;font-size:1.125rem;line-height:1}
 /* fix-HL-NOTE-BALLOON-TOOLBAR-v1: move the user-notes editor button
    (.note-balloon) out of the in-flow spot below the card label/name and up
@@ -201,6 +196,30 @@ body.chosen-preview-open .entry.selected:not(.highlight) .note-view-btn{display:
   top:max(.5rem,env(safe-area-inset-top));right:auto;bottom:auto;
   left:calc(max(.5rem,env(safe-area-inset-left)) + var(--card-chrome-btn) + var(--card-chrome-gap) + var(--card-chrome-btn) + var(--card-chrome-gap))
  }
+/* fix-HL-PORTRAIT-NOTES-PENCIL-v1: fullscreen card, portrait only - swap the
+   speech-balloon emoji for a themed (currentColor-mask) pencil icon, shrunk
+   to half the normal toolbar-button size so it sits centered in the row
+   without adding its own height (never stretches the toolbar), and stays
+   clear of a screen notch (top offset still keys off the same
+   safe-area-inset-top as Back/Favorite, just re-centered around it). Every
+   other .note-balloon (grid card, expanded/preview card, landscape
+   fullscreen) is untouched - still the plain speech-balloon glyph. */
+@media (orientation:portrait){
+ .entry.highlight .note-balloon{
+  width:calc(var(--card-chrome-btn) / 2)!important;height:calc(var(--card-chrome-btn) / 2)!important;
+  min-width:calc(var(--card-chrome-btn) / 2)!important;min-height:calc(var(--card-chrome-btn) / 2)!important;
+  top:calc(max(.5rem,env(safe-area-inset-top)) + var(--card-chrome-btn) / 4)!important;
+  font-size:0
+ }
+ .entry.highlight .note-balloon::before{
+  content:"";position:absolute;inset:0;
+  background-color:var(--text-muted);
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z'/%3E%3C/svg%3E") center/70% no-repeat;
+  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z'/%3E%3C/svg%3E") center/70% no-repeat;
+  transform:rotate(-45deg) scaleX(-1)
+ }
+ .entry.highlight .note-balloon:hover::before{background-color:var(--accent-instrument)}
+}
  .entry.highlight .note-pop{
   position:absolute;left:max(.5rem,env(safe-area-inset-left));right:auto;
   top:calc(max(.5rem,env(safe-area-inset-top)) + var(--card-chrome-btn) + var(--card-chrome-gap))
@@ -6209,7 +6228,7 @@ body:not(.catalog-portable):not(.cat-fouc-fail){visibility:hidden!important}
     <h3 class="lib-name" onclick="event.preventDefault();event.stopPropagation();if(typeof openCardFromName==='function')openCardFromName(this.closest('.entry'))">5 Elements</h3>
     <div class="lib-notes">
       <p class="note-text" hidden></p>
-      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)"><span class="note-balloon-ic">&#x270F;&#xFE0F;</span></button>
+      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)">&#x1F4AC;</button>
       <div class="note-pop" hidden role="dialog" aria-label="Library note">
         <textarea class="note-ta" rows="4" placeholder="Your notes..."></textarea>
         <div class="note-pop-actions"><button type="button" class="note-save" onclick="event.preventDefault();event.stopPropagation();saveNotePop(this)">Save</button><button type="button" class="note-cancel" onclick="event.preventDefault();event.stopPropagation();cancelNotePop(this)">Cancel</button></div>
@@ -6245,7 +6264,7 @@ body:not(.catalog-portable):not(.cat-fouc-fail){visibility:hidden!important}
     <h3 class="lib-name" onclick="event.preventDefault();event.stopPropagation();if(typeof openCardFromName==='function')openCardFromName(this.closest('.entry'))">Amati Viola</h3>
     <div class="lib-notes">
       <p class="note-text" hidden></p>
-      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)"><span class="note-balloon-ic">&#x270F;&#xFE0F;</span></button>
+      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)">&#x1F4AC;</button>
       <div class="note-pop" hidden role="dialog" aria-label="Library note">
         <textarea class="note-ta" rows="4" placeholder="Your notes..."></textarea>
         <div class="note-pop-actions"><button type="button" class="note-save" onclick="event.preventDefault();event.stopPropagation();saveNotePop(this)">Save</button><button type="button" class="note-cancel" onclick="event.preventDefault();event.stopPropagation();cancelNotePop(this)">Cancel</button></div>
@@ -6281,7 +6300,7 @@ body:not(.catalog-portable):not(.cat-fouc-fail){visibility:hidden!important}
     <h3 class="lib-name" onclick="event.preventDefault();event.stopPropagation();if(typeof openCardFromName==='function')openCardFromName(this.closest('.entry'))">Balinese Gamelan</h3>
     <div class="lib-notes">
       <p class="note-text" hidden></p>
-      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)"><span class="note-balloon-ic">&#x270F;&#xFE0F;</span></button>
+      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)">&#x1F4AC;</button>
       <div class="note-pop" hidden role="dialog" aria-label="Library note">
         <textarea class="note-ta" rows="4" placeholder="Your notes..."></textarea>
         <div class="note-pop-actions"><button type="button" class="note-save" onclick="event.preventDefault();event.stopPropagation();saveNotePop(this)">Save</button><button type="button" class="note-cancel" onclick="event.preventDefault();event.stopPropagation();cancelNotePop(this)">Cancel</button></div>
@@ -6338,7 +6357,7 @@ body:not(.catalog-portable):not(.cat-fouc-fail){visibility:hidden!important}
     <h3 class="lib-name" onclick="event.preventDefault();event.stopPropagation();if(typeof openCardFromName==='function')openCardFromName(this.closest('.entry'))">Bowls</h3>
     <div class="lib-notes">
       <p class="note-text" hidden></p>
-      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)"><span class="note-balloon-ic">&#x270F;&#xFE0F;</span></button>
+      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)">&#x1F4AC;</button>
       <div class="note-pop" hidden role="dialog" aria-label="Library note">
         <textarea class="note-ta" rows="4" placeholder="Your notes..."></textarea>
         <div class="note-pop-actions"><button type="button" class="note-save" onclick="event.preventDefault();event.stopPropagation();saveNotePop(this)">Save</button><button type="button" class="note-cancel" onclick="event.preventDefault();event.stopPropagation();cancelNotePop(this)">Cancel</button></div>
@@ -6373,7 +6392,7 @@ body:not(.catalog-portable):not(.cat-fouc-fail){visibility:hidden!important}
     <h3 class="lib-name" onclick="event.preventDefault();event.stopPropagation();if(typeof openCardFromName==='function')openCardFromName(this.closest('.entry'))">Butch Vig Drums</h3>
     <div class="lib-notes">
       <p class="note-text" hidden></p>
-      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)"><span class="note-balloon-ic">&#x270F;&#xFE0F;</span></button>
+      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)">&#x1F4AC;</button>
       <div class="note-pop" hidden role="dialog" aria-label="Library note">
         <textarea class="note-ta" rows="4" placeholder="Your notes..."></textarea>
         <div class="note-pop-actions"><button type="button" class="note-save" onclick="event.preventDefault();event.stopPropagation();saveNotePop(this)">Save</button><button type="button" class="note-cancel" onclick="event.preventDefault();event.stopPropagation();cancelNotePop(this)">Cancel</button></div>
@@ -6408,7 +6427,7 @@ body:not(.catalog-portable):not(.cat-fouc-fail){visibility:hidden!important}
     <h3 class="lib-name" onclick="event.preventDefault();event.stopPropagation();if(typeof openCardFromName==='function')openCardFromName(this.closest('.entry'))">Cloud Supply</h3>
     <div class="lib-notes">
       <p class="note-text" hidden></p>
-      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)"><span class="note-balloon-ic">&#x270F;&#xFE0F;</span></button>
+      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)">&#x1F4AC;</button>
       <div class="note-pop" hidden role="dialog" aria-label="Library note">
         <textarea class="note-ta" rows="4" placeholder="Your notes..."></textarea>
         <div class="note-pop-actions"><button type="button" class="note-save" onclick="event.preventDefault();event.stopPropagation();saveNotePop(this)">Save</button><button type="button" class="note-cancel" onclick="event.preventDefault();event.stopPropagation();cancelNotePop(this)">Cancel</button></div>
@@ -6443,7 +6462,7 @@ body:not(.catalog-portable):not(.cat-fouc-fail){visibility:hidden!important}
     <h3 class="lib-name" onclick="event.preventDefault();event.stopPropagation();if(typeof openCardFromName==='function')openCardFromName(this.closest('.entry'))">Drumforge Ultimate</h3>
     <div class="lib-notes">
       <p class="note-text" hidden></p>
-      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)"><span class="note-balloon-ic">&#x270F;&#xFE0F;</span></button>
+      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)">&#x1F4AC;</button>
       <div class="note-pop" hidden role="dialog" aria-label="Library note">
         <textarea class="note-ta" rows="4" placeholder="Your notes..."></textarea>
         <div class="note-pop-actions"><button type="button" class="note-save" onclick="event.preventDefault();event.stopPropagation();saveNotePop(this)">Save</button><button type="button" class="note-cancel" onclick="event.preventDefault();event.stopPropagation();cancelNotePop(this)">Cancel</button></div>
@@ -6618,7 +6637,7 @@ body:not(.catalog-portable):not(.cat-fouc-fail){visibility:hidden!important}
     <h3 class="lib-name" onclick="event.preventDefault();event.stopPropagation();if(typeof openCardFromName==='function')openCardFromName(this.closest('.entry'))">East Asia</h3>
     <div class="lib-notes">
       <p class="note-text" hidden></p>
-      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)"><span class="note-balloon-ic">&#x270F;&#xFE0F;</span></button>
+      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)">&#x1F4AC;</button>
       <div class="note-pop" hidden role="dialog" aria-label="Library note">
         <textarea class="note-ta" rows="4" placeholder="Your notes..."></textarea>
         <div class="note-pop-actions"><button type="button" class="note-save" onclick="event.preventDefault();event.stopPropagation();saveNotePop(this)">Save</button><button type="button" class="note-cancel" onclick="event.preventDefault();event.stopPropagation();cancelNotePop(this)">Cancel</button></div>
@@ -6720,7 +6739,7 @@ body:not(.catalog-portable):not(.cat-fouc-fail){visibility:hidden!important}
     <h3 class="lib-name" onclick="event.preventDefault();event.stopPropagation();if(typeof openCardFromName==='function')openCardFromName(this.closest('.entry'))">Ethereal Earth</h3>
     <div class="lib-notes">
       <p class="note-text" hidden></p>
-      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)"><span class="note-balloon-ic">&#x270F;&#xFE0F;</span></button>
+      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)">&#x1F4AC;</button>
       <div class="note-pop" hidden role="dialog" aria-label="Library note">
         <textarea class="note-ta" rows="4" placeholder="Your notes..."></textarea>
         <div class="note-pop-actions"><button type="button" class="note-save" onclick="event.preventDefault();event.stopPropagation();saveNotePop(this)">Save</button><button type="button" class="note-cancel" onclick="event.preventDefault();event.stopPropagation();cancelNotePop(this)">Cancel</button></div>
@@ -6756,7 +6775,7 @@ body:not(.catalog-portable):not(.cat-fouc-fail){visibility:hidden!important}
     <h3 class="lib-name" onclick="event.preventDefault();event.stopPropagation();if(typeof openCardFromName==='function')openCardFromName(this.closest('.entry'))">Exhale</h3>
     <div class="lib-notes">
       <p class="note-text" hidden></p>
-      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)"><span class="note-balloon-ic">&#x270F;&#xFE0F;</span></button>
+      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)">&#x1F4AC;</button>
       <div class="note-pop" hidden role="dialog" aria-label="Library note">
         <textarea class="note-ta" rows="4" placeholder="Your notes..."></textarea>
         <div class="note-pop-actions"><button type="button" class="note-save" onclick="event.preventDefault();event.stopPropagation();saveNotePop(this)">Save</button><button type="button" class="note-cancel" onclick="event.preventDefault();event.stopPropagation();cancelNotePop(this)">Cancel</button></div>
@@ -6792,7 +6811,7 @@ body:not(.catalog-portable):not(.cat-fouc-fail){visibility:hidden!important}
     <h3 class="lib-name" onclick="event.preventDefault();event.stopPropagation();if(typeof openCardFromName==='function')openCardFromName(this.closest('.entry'))">Grove Bass</h3>
     <div class="lib-notes">
       <p class="note-text" hidden></p>
-      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)"><span class="note-balloon-ic">&#x270F;&#xFE0F;</span></button>
+      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)">&#x1F4AC;</button>
       <div class="note-pop" hidden role="dialog" aria-label="Library note">
         <textarea class="note-ta" rows="4" placeholder="Your notes..."></textarea>
         <div class="note-pop-actions"><button type="button" class="note-save" onclick="event.preventDefault();event.stopPropagation();saveNotePop(this)">Save</button><button type="button" class="note-cancel" onclick="event.preventDefault();event.stopPropagation();cancelNotePop(this)">Cancel</button></div>
@@ -6827,7 +6846,7 @@ body:not(.catalog-portable):not(.cat-fouc-fail){visibility:hidden!important}
     <h3 class="lib-name" onclick="event.preventDefault();event.stopPropagation();if(typeof openCardFromName==='function')openCardFromName(this.closest('.entry'))">Guarneri Violin</h3>
     <div class="lib-notes">
       <p class="note-text" hidden></p>
-      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)"><span class="note-balloon-ic">&#x270F;&#xFE0F;</span></button>
+      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)">&#x1F4AC;</button>
       <div class="note-pop" hidden role="dialog" aria-label="Library note">
         <textarea class="note-ta" rows="4" placeholder="Your notes..."></textarea>
         <div class="note-pop-actions"><button type="button" class="note-save" onclick="event.preventDefault();event.stopPropagation();saveNotePop(this)">Save</button><button type="button" class="note-cancel" onclick="event.preventDefault();event.stopPropagation();cancelNotePop(this)">Cancel</button></div>
@@ -6863,7 +6882,7 @@ body:not(.catalog-portable):not(.cat-fouc-fail){visibility:hidden!important}
     <h3 class="lib-name" onclick="event.preventDefault();event.stopPropagation();if(typeof openCardFromName==='function')openCardFromName(this.closest('.entry'))">Hybrid Keys</h3>
     <div class="lib-notes">
       <p class="note-text" hidden></p>
-      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)"><span class="note-balloon-ic">&#x270F;&#xFE0F;</span></button>
+      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)">&#x1F4AC;</button>
       <div class="note-pop" hidden role="dialog" aria-label="Library note">
         <textarea class="note-ta" rows="4" placeholder="Your notes..."></textarea>
         <div class="note-pop-actions"><button type="button" class="note-save" onclick="event.preventDefault();event.stopPropagation();saveNotePop(this)">Save</button><button type="button" class="note-cancel" onclick="event.preventDefault();event.stopPropagation();cancelNotePop(this)">Cancel</button></div>
@@ -6899,7 +6918,7 @@ body:not(.catalog-portable):not(.cat-fouc-fail){visibility:hidden!important}
     <h3 class="lib-name" onclick="event.preventDefault();event.stopPropagation();if(typeof openCardFromName==='function')openCardFromName(this.closest('.entry'))">Iconic Violin</h3>
     <div class="lib-notes">
       <p class="note-text" hidden></p>
-      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)"><span class="note-balloon-ic">&#x270F;&#xFE0F;</span></button>
+      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)">&#x1F4AC;</button>
       <div class="note-pop" hidden role="dialog" aria-label="Library note">
         <textarea class="note-ta" rows="4" placeholder="Your notes..."></textarea>
         <div class="note-pop-actions"><button type="button" class="note-save" onclick="event.preventDefault();event.stopPropagation();saveNotePop(this)">Save</button><button type="button" class="note-cancel" onclick="event.preventDefault();event.stopPropagation();cancelNotePop(this)">Cancel</button></div>
@@ -6941,7 +6960,7 @@ body:not(.catalog-portable):not(.cat-fouc-fail){visibility:hidden!important}
     <h3 class="lib-name" onclick="event.preventDefault();event.stopPropagation();if(typeof openCardFromName==='function')openCardFromName(this.closest('.entry'))">India</h3>
     <div class="lib-notes">
       <p class="note-text" hidden></p>
-      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)"><span class="note-balloon-ic">&#x270F;&#xFE0F;</span></button>
+      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)">&#x1F4AC;</button>
       <div class="note-pop" hidden role="dialog" aria-label="Library note">
         <textarea class="note-ta" rows="4" placeholder="Your notes..."></textarea>
         <div class="note-pop-actions"><button type="button" class="note-save" onclick="event.preventDefault();event.stopPropagation();saveNotePop(this)">Save</button><button type="button" class="note-cancel" onclick="event.preventDefault();event.stopPropagation();cancelNotePop(this)">Cancel</button></div>
@@ -7001,7 +7020,7 @@ body:not(.catalog-portable):not(.cat-fouc-fail){visibility:hidden!important}
     <h3 class="lib-name" onclick="event.preventDefault();event.stopPropagation();if(typeof openCardFromName==='function')openCardFromName(this.closest('.entry'))">Mass</h3>
     <div class="lib-notes">
       <p class="note-text" hidden></p>
-      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)"><span class="note-balloon-ic">&#x270F;&#xFE0F;</span></button>
+      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)">&#x1F4AC;</button>
       <div class="note-pop" hidden role="dialog" aria-label="Library note">
         <textarea class="note-ta" rows="4" placeholder="Your notes..."></textarea>
         <div class="note-pop-actions"><button type="button" class="note-save" onclick="event.preventDefault();event.stopPropagation();saveNotePop(this)">Save</button><button type="button" class="note-cancel" onclick="event.preventDefault();event.stopPropagation();cancelNotePop(this)">Cancel</button></div>
@@ -7036,7 +7055,7 @@ body:not(.catalog-portable):not(.cat-fouc-fail){visibility:hidden!important}
     <h3 class="lib-name" onclick="event.preventDefault();event.stopPropagation();if(typeof openCardFromName==='function')openCardFromName(this.closest('.entry'))">Melodies</h3>
     <div class="lib-notes">
       <p class="note-text" hidden></p>
-      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)"><span class="note-balloon-ic">&#x270F;&#xFE0F;</span></button>
+      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)">&#x1F4AC;</button>
       <div class="note-pop" hidden role="dialog" aria-label="Library note">
         <textarea class="note-ta" rows="4" placeholder="Your notes..."></textarea>
         <div class="note-pop-actions"><button type="button" class="note-save" onclick="event.preventDefault();event.stopPropagation();saveNotePop(this)">Save</button><button type="button" class="note-cancel" onclick="event.preventDefault();event.stopPropagation();cancelNotePop(this)">Cancel</button></div>
@@ -7071,7 +7090,7 @@ body:not(.catalog-portable):not(.cat-fouc-fail){visibility:hidden!important}
     <h3 class="lib-name" onclick="event.preventDefault();event.stopPropagation();if(typeof openCardFromName==='function')openCardFromName(this.closest('.entry'))">Middle East</h3>
     <div class="lib-notes">
       <p class="note-text" hidden></p>
-      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)"><span class="note-balloon-ic">&#x270F;&#xFE0F;</span></button>
+      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)">&#x1F4AC;</button>
       <div class="note-pop" hidden role="dialog" aria-label="Library note">
         <textarea class="note-ta" rows="4" placeholder="Your notes..."></textarea>
         <div class="note-pop-actions"><button type="button" class="note-save" onclick="event.preventDefault();event.stopPropagation();saveNotePop(this)">Save</button><button type="button" class="note-cancel" onclick="event.preventDefault();event.stopPropagation();cancelNotePop(this)">Cancel</button></div>
@@ -7182,7 +7201,7 @@ body:not(.catalog-portable):not(.cat-fouc-fail){visibility:hidden!important}
     <h3 class="lib-name" onclick="event.preventDefault();event.stopPropagation();if(typeof openCardFromName==='function')openCardFromName(this.closest('.entry'))">Pharlight</h3>
     <div class="lib-notes">
       <p class="note-text" hidden></p>
-      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)"><span class="note-balloon-ic">&#x270F;&#xFE0F;</span></button>
+      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)">&#x1F4AC;</button>
       <div class="note-pop" hidden role="dialog" aria-label="Library note">
         <textarea class="note-ta" rows="4" placeholder="Your notes..."></textarea>
         <div class="note-pop-actions"><button type="button" class="note-save" onclick="event.preventDefault();event.stopPropagation();saveNotePop(this)">Save</button><button type="button" class="note-cancel" onclick="event.preventDefault();event.stopPropagation();cancelNotePop(this)">Cancel</button></div>
@@ -7217,7 +7236,7 @@ body:not(.catalog-portable):not(.cat-fouc-fail){visibility:hidden!important}
     <h3 class="lib-name" onclick="event.preventDefault();event.stopPropagation();if(typeof openCardFromName==='function')openCardFromName(this.closest('.entry'))">Piano Colors</h3>
     <div class="lib-notes">
       <p class="note-text" hidden></p>
-      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)"><span class="note-balloon-ic">&#x270F;&#xFE0F;</span></button>
+      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)">&#x1F4AC;</button>
       <div class="note-pop" hidden role="dialog" aria-label="Library note">
         <textarea class="note-ta" rows="4" placeholder="Your notes..."></textarea>
         <div class="note-pop-actions"><button type="button" class="note-save" onclick="event.preventDefault();event.stopPropagation();saveNotePop(this)">Save</button><button type="button" class="note-cancel" onclick="event.preventDefault();event.stopPropagation();cancelNotePop(this)">Cancel</button></div>
@@ -7252,7 +7271,7 @@ body:not(.catalog-portable):not(.cat-fouc-fail){visibility:hidden!important}
     <h3 class="lib-name" onclick="event.preventDefault();event.stopPropagation();if(typeof openCardFromName==='function')openCardFromName(this.closest('.entry'))">Play Series Selection</h3>
     <div class="lib-notes">
       <p class="note-text" hidden></p>
-      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)"><span class="note-balloon-ic">&#x270F;&#xFE0F;</span></button>
+      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)">&#x1F4AC;</button>
       <div class="note-pop" hidden role="dialog" aria-label="Library note">
         <textarea class="note-ta" rows="4" placeholder="Your notes..."></textarea>
         <div class="note-pop-actions"><button type="button" class="note-save" onclick="event.preventDefault();event.stopPropagation();saveNotePop(this)">Save</button><button type="button" class="note-cancel" onclick="event.preventDefault();event.stopPropagation();cancelNotePop(this)">Cancel</button></div>
@@ -7289,7 +7308,7 @@ body:not(.catalog-portable):not(.cat-fouc-fail){visibility:hidden!important}
     <h3 class="lib-name" onclick="event.preventDefault();event.stopPropagation();if(typeof openCardFromName==='function')openCardFromName(this.closest('.entry'))">Session Guitarist - Electric Vintage</h3>
     <div class="lib-notes">
       <p class="note-text" hidden></p>
-      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)"><span class="note-balloon-ic">&#x270F;&#xFE0F;</span></button>
+      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)">&#x1F4AC;</button>
       <div class="note-pop" hidden role="dialog" aria-label="Library note">
         <textarea class="note-ta" rows="4" placeholder="Your notes..."></textarea>
         <div class="note-pop-actions"><button type="button" class="note-save" onclick="event.preventDefault();event.stopPropagation();saveNotePop(this)">Save</button><button type="button" class="note-cancel" onclick="event.preventDefault();event.stopPropagation();cancelNotePop(this)">Cancel</button></div>
@@ -7325,7 +7344,7 @@ body:not(.catalog-portable):not(.cat-fouc-fail){visibility:hidden!important}
     <h3 class="lib-name" onclick="event.preventDefault();event.stopPropagation();if(typeof openCardFromName==='function')openCardFromName(this.closest('.entry'))">Session Guitarist - Picked Acoustic</h3>
     <div class="lib-notes">
       <p class="note-text" hidden></p>
-      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)"><span class="note-balloon-ic">&#x270F;&#xFE0F;</span></button>
+      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)">&#x1F4AC;</button>
       <div class="note-pop" hidden role="dialog" aria-label="Library note">
         <textarea class="note-ta" rows="4" placeholder="Your notes..."></textarea>
         <div class="note-pop-actions"><button type="button" class="note-save" onclick="event.preventDefault();event.stopPropagation();saveNotePop(this)">Save</button><button type="button" class="note-cancel" onclick="event.preventDefault();event.stopPropagation();cancelNotePop(this)">Cancel</button></div>
@@ -7361,7 +7380,7 @@ body:not(.catalog-portable):not(.cat-fouc-fail){visibility:hidden!important}
     <h3 class="lib-name" onclick="event.preventDefault();event.stopPropagation();if(typeof openCardFromName==='function')openCardFromName(this.closest('.entry'))">Soul Sessions</h3>
     <div class="lib-notes">
       <p class="note-text" hidden></p>
-      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)"><span class="note-balloon-ic">&#x270F;&#xFE0F;</span></button>
+      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)">&#x1F4AC;</button>
       <div class="note-pop" hidden role="dialog" aria-label="Library note">
         <textarea class="note-ta" rows="4" placeholder="Your notes..."></textarea>
         <div class="note-pop-actions"><button type="button" class="note-save" onclick="event.preventDefault();event.stopPropagation();saveNotePop(this)">Save</button><button type="button" class="note-cancel" onclick="event.preventDefault();event.stopPropagation();cancelNotePop(this)">Cancel</button></div>
@@ -7396,7 +7415,7 @@ body:not(.catalog-portable):not(.cat-fouc-fail){visibility:hidden!important}
     <h3 class="lib-name" onclick="event.preventDefault();event.stopPropagation();if(typeof openCardFromName==='function')openCardFromName(this.closest('.entry'))">Stradivari Cello</h3>
     <div class="lib-notes">
       <p class="note-text" hidden></p>
-      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)"><span class="note-balloon-ic">&#x270F;&#xFE0F;</span></button>
+      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)">&#x1F4AC;</button>
       <div class="note-pop" hidden role="dialog" aria-label="Library note">
         <textarea class="note-ta" rows="4" placeholder="Your notes..."></textarea>
         <div class="note-pop-actions"><button type="button" class="note-save" onclick="event.preventDefault();event.stopPropagation();saveNotePop(this)">Save</button><button type="button" class="note-cancel" onclick="event.preventDefault();event.stopPropagation();cancelNotePop(this)">Cancel</button></div>
@@ -7432,7 +7451,7 @@ body:not(.catalog-portable):not(.cat-fouc-fail){visibility:hidden!important}
     <h3 class="lib-name" onclick="event.preventDefault();event.stopPropagation();if(typeof openCardFromName==='function')openCardFromName(this.closest('.entry'))">Stradivari Violin</h3>
     <div class="lib-notes">
       <p class="note-text" hidden></p>
-      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)"><span class="note-balloon-ic">&#x270F;&#xFE0F;</span></button>
+      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)">&#x1F4AC;</button>
       <div class="note-pop" hidden role="dialog" aria-label="Library note">
         <textarea class="note-ta" rows="4" placeholder="Your notes..."></textarea>
         <div class="note-pop-actions"><button type="button" class="note-save" onclick="event.preventDefault();event.stopPropagation();saveNotePop(this)">Save</button><button type="button" class="note-cancel" onclick="event.preventDefault();event.stopPropagation();cancelNotePop(this)">Cancel</button></div>
@@ -7468,7 +7487,7 @@ body:not(.catalog-portable):not(.cat-fouc-fail){visibility:hidden!important}
     <h3 class="lib-name" onclick="event.preventDefault();event.stopPropagation();if(typeof openCardFromName==='function')openCardFromName(this.closest('.entry'))">Straylight</h3>
     <div class="lib-notes">
       <p class="note-text" hidden></p>
-      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)"><span class="note-balloon-ic">&#x270F;&#xFE0F;</span></button>
+      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)">&#x1F4AC;</button>
       <div class="note-pop" hidden role="dialog" aria-label="Library note">
         <textarea class="note-ta" rows="4" placeholder="Your notes..."></textarea>
         <div class="note-pop-actions"><button type="button" class="note-save" onclick="event.preventDefault();event.stopPropagation();saveNotePop(this)">Save</button><button type="button" class="note-cancel" onclick="event.preventDefault();event.stopPropagation();cancelNotePop(this)">Cancel</button></div>
@@ -7503,7 +7522,7 @@ body:not(.catalog-portable):not(.cat-fouc-fail){visibility:hidden!important}
     <h3 class="lib-name" onclick="event.preventDefault();event.stopPropagation();if(typeof openCardFromName==='function')openCardFromName(this.closest('.entry'))">Tablas</h3>
     <div class="lib-notes">
       <p class="note-text" hidden></p>
-      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)"><span class="note-balloon-ic">&#x270F;&#xFE0F;</span></button>
+      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)">&#x1F4AC;</button>
       <div class="note-pop" hidden role="dialog" aria-label="Library note">
         <textarea class="note-ta" rows="4" placeholder="Your notes..."></textarea>
         <div class="note-pop-actions"><button type="button" class="note-save" onclick="event.preventDefault();event.stopPropagation();saveNotePop(this)">Save</button><button type="button" class="note-cancel" onclick="event.preventDefault();event.stopPropagation();cancelNotePop(this)">Cancel</button></div>
@@ -7663,7 +7682,7 @@ body:not(.catalog-portable):not(.cat-fouc-fail){visibility:hidden!important}
     <h3 class="lib-name" onclick="event.preventDefault();event.stopPropagation();if(typeof openCardFromName==='function')openCardFromName(this.closest('.entry'))">Ultimate Pro Oriental Strings</h3>
     <div class="lib-notes">
       <p class="note-text" hidden></p>
-      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)"><span class="note-balloon-ic">&#x270F;&#xFE0F;</span></button>
+      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)">&#x1F4AC;</button>
       <div class="note-pop" hidden role="dialog" aria-label="Library note">
         <textarea class="note-ta" rows="4" placeholder="Your notes..."></textarea>
         <div class="note-pop-actions"><button type="button" class="note-save" onclick="event.preventDefault();event.stopPropagation();saveNotePop(this)">Save</button><button type="button" class="note-cancel" onclick="event.preventDefault();event.stopPropagation();cancelNotePop(this)">Cancel</button></div>
@@ -7725,7 +7744,7 @@ body:not(.catalog-portable):not(.cat-fouc-fail){visibility:hidden!important}
     <h3 class="lib-name" onclick="event.preventDefault();event.stopPropagation();if(typeof openCardFromName==='function')openCardFromName(this.closest('.entry'))">West Africa</h3>
     <div class="lib-notes">
       <p class="note-text" hidden></p>
-      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)"><span class="note-balloon-ic">&#x270F;&#xFE0F;</span></button>
+      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)">&#x1F4AC;</button>
       <div class="note-pop" hidden role="dialog" aria-label="Library note">
         <textarea class="note-ta" rows="4" placeholder="Your notes..."></textarea>
         <div class="note-pop-actions"><button type="button" class="note-save" onclick="event.preventDefault();event.stopPropagation();saveNotePop(this)">Save</button><button type="button" class="note-cancel" onclick="event.preventDefault();event.stopPropagation();cancelNotePop(this)">Cancel</button></div>
@@ -7855,7 +7874,7 @@ body:not(.catalog-portable):not(.cat-fouc-fail){visibility:hidden!important}
     <h3 class="lib-name" onclick="event.preventDefault();event.stopPropagation();if(typeof openCardFromName==='function')openCardFromName(this.closest('.entry'))">Analog Strings</h3>
     <div class="lib-notes">
       <p class="note-text" hidden></p>
-      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)"><span class="note-balloon-ic">&#x270F;&#xFE0F;</span></button>
+      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)">&#x1F4AC;</button>
       <div class="note-pop" hidden role="dialog" aria-label="Library note">
         <textarea class="note-ta" rows="4" placeholder="Your notes..."></textarea>
         <div class="note-pop-actions"><button type="button" class="note-save" onclick="event.preventDefault();event.stopPropagation();saveNotePop(this)">Save</button><button type="button" class="note-cancel" onclick="event.preventDefault();event.stopPropagation();cancelNotePop(this)">Cancel</button></div>
@@ -7890,7 +7909,7 @@ body:not(.catalog-portable):not(.cat-fouc-fail){visibility:hidden!important}
     <h3 class="lib-name" onclick="event.preventDefault();event.stopPropagation();if(typeof openCardFromName==='function')openCardFromName(this.closest('.entry'))">GetGood Drums - Modern and Massive Pack</h3>
     <div class="lib-notes">
       <p class="note-text" hidden></p>
-      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)"><span class="note-balloon-ic">&#x270F;&#xFE0F;</span></button>
+      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)">&#x1F4AC;</button>
       <div class="note-pop" hidden role="dialog" aria-label="Library note">
         <textarea class="note-ta" rows="4" placeholder="Your notes..."></textarea>
         <div class="note-pop-actions"><button type="button" class="note-save" onclick="event.preventDefault();event.stopPropagation();saveNotePop(this)">Save</button><button type="button" class="note-cancel" onclick="event.preventDefault();event.stopPropagation();cancelNotePop(this)">Cancel</button></div>
@@ -7925,7 +7944,7 @@ body:not(.catalog-portable):not(.cat-fouc-fail){visibility:hidden!important}
     <h3 class="lib-name" onclick="event.preventDefault();event.stopPropagation();if(typeof openCardFromName==='function')openCardFromName(this.closest('.entry'))">Mysteria</h3>
     <div class="lib-notes">
       <p class="note-text" hidden></p>
-      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)"><span class="note-balloon-ic">&#x270F;&#xFE0F;</span></button>
+      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)">&#x1F4AC;</button>
       <div class="note-pop" hidden role="dialog" aria-label="Library note">
         <textarea class="note-ta" rows="4" placeholder="Your notes..."></textarea>
         <div class="note-pop-actions"><button type="button" class="note-save" onclick="event.preventDefault();event.stopPropagation();saveNotePop(this)">Save</button><button type="button" class="note-cancel" onclick="event.preventDefault();event.stopPropagation();cancelNotePop(this)">Cancel</button></div>
@@ -7960,7 +7979,7 @@ body:not(.catalog-portable):not(.cat-fouc-fail){visibility:hidden!important}
     <h3 class="lib-name" onclick="event.preventDefault();event.stopPropagation();if(typeof openCardFromName==='function')openCardFromName(this.closest('.entry'))">Palette</h3>
     <div class="lib-notes">
       <p class="note-text" hidden></p>
-      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)"><span class="note-balloon-ic">&#x270F;&#xFE0F;</span></button>
+      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)">&#x1F4AC;</button>
       <div class="note-pop" hidden role="dialog" aria-label="Library note">
         <textarea class="note-ta" rows="4" placeholder="Your notes..."></textarea>
         <div class="note-pop-actions"><button type="button" class="note-save" onclick="event.preventDefault();event.stopPropagation();saveNotePop(this)">Save</button><button type="button" class="note-cancel" onclick="event.preventDefault();event.stopPropagation();cancelNotePop(this)">Cancel</button></div>
@@ -8014,7 +8033,7 @@ body:not(.catalog-portable):not(.cat-fouc-fail){visibility:hidden!important}
     <h3 class="lib-name" onclick="event.preventDefault();event.stopPropagation();if(typeof openCardFromName==='function')openCardFromName(this.closest('.entry'))">The Orchestra Complete</h3>
     <div class="lib-notes">
       <p class="note-text" hidden></p>
-      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)"><span class="note-balloon-ic">&#x270F;&#xFE0F;</span></button>
+      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)">&#x1F4AC;</button>
       <div class="note-pop" hidden role="dialog" aria-label="Library note">
         <textarea class="note-ta" rows="4" placeholder="Your notes..."></textarea>
         <div class="note-pop-actions"><button type="button" class="note-save" onclick="event.preventDefault();event.stopPropagation();saveNotePop(this)">Save</button><button type="button" class="note-cancel" onclick="event.preventDefault();event.stopPropagation();cancelNotePop(this)">Cancel</button></div>
@@ -8285,7 +8304,7 @@ body:not(.catalog-portable):not(.cat-fouc-fail){visibility:hidden!important}
     <h3 class="lib-name" onclick="event.preventDefault();event.stopPropagation();if(typeof openCardFromName==='function')openCardFromName(this.closest('.entry'))">World Percussion</h3>
     <div class="lib-notes">
       <p class="note-text" hidden></p>
-      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)"><span class="note-balloon-ic">&#x270F;&#xFE0F;</span></button>
+      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)">&#x1F4AC;</button>
       <div class="note-pop" hidden role="dialog" aria-label="Library note">
         <textarea class="note-ta" rows="4" placeholder="Your notes..."></textarea>
         <div class="note-pop-actions"><button type="button" class="note-save" onclick="event.preventDefault();event.stopPropagation();saveNotePop(this)">Save</button><button type="button" class="note-cancel" onclick="event.preventDefault();event.stopPropagation();cancelNotePop(this)">Cancel</button></div>
@@ -8442,7 +8461,7 @@ body:not(.catalog-portable):not(.cat-fouc-fail){visibility:hidden!important}
     <h3 class="lib-name" onclick="event.preventDefault();event.stopPropagation();if(typeof openCardFromName==='function')openCardFromName(this.closest('.entry'))">Cinebrass</h3>
     <div class="lib-notes">
       <p class="note-text" hidden></p>
-      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)"><span class="note-balloon-ic">&#x270F;&#xFE0F;</span></button>
+      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)">&#x1F4AC;</button>
       <div class="note-pop" hidden role="dialog" aria-label="Library note">
         <textarea class="note-ta" rows="4" placeholder="Your notes..."></textarea>
         <div class="note-pop-actions"><button type="button" class="note-save" onclick="event.preventDefault();event.stopPropagation();saveNotePop(this)">Save</button><button type="button" class="note-cancel" onclick="event.preventDefault();event.stopPropagation();cancelNotePop(this)">Cancel</button></div>
@@ -8479,7 +8498,7 @@ body:not(.catalog-portable):not(.cat-fouc-fail){visibility:hidden!important}
     <h3 class="lib-name" onclick="event.preventDefault();event.stopPropagation();if(typeof openCardFromName==='function')openCardFromName(this.closest('.entry'))">Damage</h3>
     <div class="lib-notes">
       <p class="note-text" hidden></p>
-      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)"><span class="note-balloon-ic">&#x270F;&#xFE0F;</span></button>
+      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)">&#x1F4AC;</button>
       <div class="note-pop" hidden role="dialog" aria-label="Library note">
         <textarea class="note-ta" rows="4" placeholder="Your notes..."></textarea>
         <div class="note-pop-actions"><button type="button" class="note-save" onclick="event.preventDefault();event.stopPropagation();saveNotePop(this)">Save</button><button type="button" class="note-cancel" onclick="event.preventDefault();event.stopPropagation();cancelNotePop(this)">Cancel</button></div>
@@ -8515,7 +8534,7 @@ body:not(.catalog-portable):not(.cat-fouc-fail){visibility:hidden!important}
     <h3 class="lib-name" onclick="event.preventDefault();event.stopPropagation();if(typeof openCardFromName==='function')openCardFromName(this.closest('.entry'))">Elite Orchestral Percussion</h3>
     <div class="lib-notes">
       <p class="note-text" hidden></p>
-      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)"><span class="note-balloon-ic">&#x270F;&#xFE0F;</span></button>
+      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)">&#x1F4AC;</button>
       <div class="note-pop" hidden role="dialog" aria-label="Library note">
         <textarea class="note-ta" rows="4" placeholder="Your notes..."></textarea>
         <div class="note-pop-actions"><button type="button" class="note-save" onclick="event.preventDefault();event.stopPropagation();saveNotePop(this)">Save</button><button type="button" class="note-cancel" onclick="event.preventDefault();event.stopPropagation();cancelNotePop(this)">Cancel</button></div>
@@ -8550,7 +8569,7 @@ body:not(.catalog-portable):not(.cat-fouc-fail){visibility:hidden!important}
     <h3 class="lib-name" onclick="event.preventDefault();event.stopPropagation();if(typeof openCardFromName==='function')openCardFromName(this.closest('.entry'))">Evolve Mutations 2</h3>
     <div class="lib-notes">
       <p class="note-text" hidden></p>
-      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)"><span class="note-balloon-ic">&#x270F;&#xFE0F;</span></button>
+      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)">&#x1F4AC;</button>
       <div class="note-pop" hidden role="dialog" aria-label="Library note">
         <textarea class="note-ta" rows="4" placeholder="Your notes..."></textarea>
         <div class="note-pop-actions"><button type="button" class="note-save" onclick="event.preventDefault();event.stopPropagation();saveNotePop(this)">Save</button><button type="button" class="note-cancel" onclick="event.preventDefault();event.stopPropagation();cancelNotePop(this)">Cancel</button></div>
@@ -8585,7 +8604,7 @@ body:not(.catalog-portable):not(.cat-fouc-fail){visibility:hidden!important}
     <h3 class="lib-name" onclick="event.preventDefault();event.stopPropagation();if(typeof openCardFromName==='function')openCardFromName(this.closest('.entry'))">LA Scoring Strings</h3>
     <div class="lib-notes">
       <p class="note-text" hidden></p>
-      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)"><span class="note-balloon-ic">&#x270F;&#xFE0F;</span></button>
+      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)">&#x1F4AC;</button>
       <div class="note-pop" hidden role="dialog" aria-label="Library note">
         <textarea class="note-ta" rows="4" placeholder="Your notes..."></textarea>
         <div class="note-pop-actions"><button type="button" class="note-save" onclick="event.preventDefault();event.stopPropagation();saveNotePop(this)">Save</button><button type="button" class="note-cancel" onclick="event.preventDefault();event.stopPropagation();cancelNotePop(this)">Cancel</button></div>
@@ -8621,7 +8640,7 @@ body:not(.catalog-portable):not(.cat-fouc-fail){visibility:hidden!important}
     <h3 class="lib-name" onclick="event.preventDefault();event.stopPropagation();if(typeof openCardFromName==='function')openCardFromName(this.closest('.entry'))">Orchestral Brass Classic</h3>
     <div class="lib-notes">
       <p class="note-text" hidden></p>
-      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)"><span class="note-balloon-ic">&#x270F;&#xFE0F;</span></button>
+      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)">&#x1F4AC;</button>
       <div class="note-pop" hidden role="dialog" aria-label="Library note">
         <textarea class="note-ta" rows="4" placeholder="Your notes..."></textarea>
         <div class="note-pop-actions"><button type="button" class="note-save" onclick="event.preventDefault();event.stopPropagation();saveNotePop(this)">Save</button><button type="button" class="note-cancel" onclick="event.preventDefault();event.stopPropagation();cancelNotePop(this)">Cancel</button></div>
@@ -8657,7 +8676,7 @@ body:not(.catalog-portable):not(.cat-fouc-fail){visibility:hidden!important}
     <h3 class="lib-name" onclick="event.preventDefault();event.stopPropagation();if(typeof openCardFromName==='function')openCardFromName(this.closest('.entry'))">Orchestral String Runs</h3>
     <div class="lib-notes">
       <p class="note-text" hidden></p>
-      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)"><span class="note-balloon-ic">&#x270F;&#xFE0F;</span></button>
+      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)">&#x1F4AC;</button>
       <div class="note-pop" hidden role="dialog" aria-label="Library note">
         <textarea class="note-ta" rows="4" placeholder="Your notes..."></textarea>
         <div class="note-pop-actions"><button type="button" class="note-save" onclick="event.preventDefault();event.stopPropagation();saveNotePop(this)">Save</button><button type="button" class="note-cancel" onclick="event.preventDefault();event.stopPropagation();cancelNotePop(this)">Cancel</button></div>
@@ -8696,7 +8715,7 @@ body:not(.catalog-portable):not(.cat-fouc-fail){visibility:hidden!important}
     <h3 class="lib-name" onclick="event.preventDefault();event.stopPropagation();if(typeof openCardFromName==='function')openCardFromName(this.closest('.entry'))">Symphobia</h3>
     <div class="lib-notes">
       <p class="note-text" hidden></p>
-      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)"><span class="note-balloon-ic">&#x270F;&#xFE0F;</span></button>
+      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)">&#x1F4AC;</button>
       <div class="note-pop" hidden role="dialog" aria-label="Library note">
         <textarea class="note-ta" rows="4" placeholder="Your notes..."></textarea>
         <div class="note-pop-actions"><button type="button" class="note-save" onclick="event.preventDefault();event.stopPropagation();saveNotePop(this)">Save</button><button type="button" class="note-cancel" onclick="event.preventDefault();event.stopPropagation();cancelNotePop(this)">Cancel</button></div>
@@ -8736,7 +8755,7 @@ body:not(.catalog-portable):not(.cat-fouc-fail){visibility:hidden!important}
     <h3 class="lib-name" onclick="event.preventDefault();event.stopPropagation();if(typeof openCardFromName==='function')openCardFromName(this.closest('.entry'))">Symphobia 2</h3>
     <div class="lib-notes">
       <p class="note-text" hidden></p>
-      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)"><span class="note-balloon-ic">&#x270F;&#xFE0F;</span></button>
+      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)">&#x1F4AC;</button>
       <div class="note-pop" hidden role="dialog" aria-label="Library note">
         <textarea class="note-ta" rows="4" placeholder="Your notes..."></textarea>
         <div class="note-pop-actions"><button type="button" class="note-save" onclick="event.preventDefault();event.stopPropagation();saveNotePop(this)">Save</button><button type="button" class="note-cancel" onclick="event.preventDefault();event.stopPropagation();cancelNotePop(this)">Cancel</button></div>
@@ -8776,7 +8795,7 @@ body:not(.catalog-portable):not(.cat-fouc-fail){visibility:hidden!important}
     <h3 class="lib-name" onclick="event.preventDefault();event.stopPropagation();if(typeof openCardFromName==='function')openCardFromName(this.closest('.entry'))">Voxos</h3>
     <div class="lib-notes">
       <p class="note-text" hidden></p>
-      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)"><span class="note-balloon-ic">&#x270F;&#xFE0F;</span></button>
+      <button type="button" class="note-balloon" aria-label="Edit note" onclick="event.preventDefault();event.stopPropagation();openNotePop(this)">&#x1F4AC;</button>
       <div class="note-pop" hidden role="dialog" aria-label="Library note">
         <textarea class="note-ta" rows="4" placeholder="Your notes..."></textarea>
         <div class="note-pop-actions"><button type="button" class="note-save" onclick="event.preventDefault();event.stopPropagation();saveNotePop(this)">Save</button><button type="button" class="note-cancel" onclick="event.preventDefault();event.stopPropagation();cancelNotePop(this)">Cancel</button></div>
@@ -22855,7 +22874,25 @@ function displayPickKey(orient){
   if(orient)return 'catalog-display-pick-'+ns+'-'+orient;
   return 'catalog-display-pick-'+ns;
 }
+/* fix-PORTABLE-ORIENT-PRIORITY-v1: matchMedia('(orientation:...)') now
+   comes FIRST - it is guaranteed by spec to track the actual CSS viewport
+   (the same thing every layout rule in this file keys off), unlike
+   screen.orientation.type/window.orientation/screen.width-height, which
+   can lag or disagree with the viewport right after a rotation, in
+   split-screen/foldable/desktop-site modes, or in some WebViews - all
+   cases real users hit but headless testing can't reproduce. The old
+   screen.width/height comparison is dropped entirely: it was the least
+   reliable check (compares physical device screen, not the viewport) and
+   sat ahead of matchMedia, so it could silently force the wrong
+   portable-portrait/portable-landscape class - and everything gated on
+   that class - for an arbitrarily long time. */
 function portableScreenOrient(){
+  try{
+    if(window.matchMedia){
+      if(window.matchMedia('(orientation:portrait)').matches)return 'portrait';
+      if(window.matchMedia('(orientation:landscape)').matches)return 'landscape';
+    }
+  }catch(errMq){}
   try{
     var t=screen&&screen.orientation&&screen.orientation.type;
     if(t)return String(t).indexOf('portrait')===0?'portrait':'landscape';
@@ -22865,12 +22902,6 @@ function portableScreenOrient(){
     if(ang===90||ang===-90)return 'landscape';
     if(ang===0||ang===180)return 'portrait';
   }catch(errAng){}
-  try{
-    if(screen&&screen.width&&screen.height)return screen.width>=screen.height?'landscape':'portrait';
-  }catch(errSc){}
-  try{
-    if(window.matchMedia&&window.matchMedia('(orientation:portrait)').matches)return 'portrait';
-  }catch(errMq){}
   return (window.innerWidth||0)>=(window.innerHeight||0)?'landscape':'portrait';
 }
 function portableKeyboardOpen(){

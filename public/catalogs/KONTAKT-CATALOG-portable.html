@@ -584,7 +584,17 @@ body.catalog-help-kind-guide .catalog-help-title{display:none}
   body.search-mode .catalog-body,body.search-mode .loc-group{--cat-cols:repeat(var(--cat-land-cols,3),minmax(0,1fr));grid-template-columns:repeat(var(--cat-land-cols,3),minmax(0,1fr))}
  }
  body.chosen-preview-open .entry.selected.is-hidden:not(.highlight){display:flex!important}
- body.chosen-preview-open .entry.selected:not(.highlight){display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:10px;max-height:min(92dvh,100%);height:auto;overflow-x:hidden;overflow-y:auto;-webkit-overflow-scrolling:touch;grid-template-columns:none}
+ /* fix-EXPANDED-CARD-SCROLL-ANCHOR-v1: this card grows taller when the
+    patches list is expanded (details toggle) while the user may already
+    be scrolled partway down it. Per-spec scroll anchoring then tries to
+    keep whichever element it picked as the "anchor" in the same
+    on-screen spot across that reflow - on some engines it picks the
+    wrong anchor for this kind of grow-from-inside-plus-user-scroll
+    change, so the view snaps to an unrelated scroll position instead of
+    keeping what the user was actually looking at. Opt this container out
+    of scroll anchoring entirely so toggling patches never causes an
+    unexpected jump. */
+ body.chosen-preview-open .entry.selected:not(.highlight){display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:10px;max-height:min(92dvh,100%);height:auto;overflow-x:hidden;overflow-y:auto;-webkit-overflow-scrolling:touch;grid-template-columns:none;overflow-anchor:none}
  body.chosen-preview-open .entry.selected:not(.highlight) .hl-body{display:flex;flex-direction:column;align-items:stretch;gap:10px;min-width:0;overflow:visible;flex:0 0 auto}
  body.chosen-preview-open .entry.selected:not(.highlight) .cover,body.chosen-preview-open .entry.selected:not(.highlight) .lib-name,body.chosen-preview-open .entry.selected:not(.highlight) .note-text,body.chosen-preview-open .entry.selected:not(.highlight) .noart,body.chosen-preview-open .entry.selected:not(.highlight) .summary-panel,body.chosen-preview-open .entry.selected:not(.highlight) .path,body.chosen-preview-open .entry.selected:not(.highlight) details.patches,body.chosen-preview-open .entry.selected:not(.highlight) .patches,body.chosen-preview-open .entry.selected:not(.highlight) .card-actions{position:static}
  body.chosen-preview-open .entry.selected:not(.highlight) .cover{flex:none;align-self:center;justify-self:center;justify-content:center;display:flex;align-items:center;width:auto;height:auto;max-height:min(28vh,200px);max-width:min(86vw,360px);min-height:0;margin:0 auto;margin-inline:auto;overflow:hidden;float:none}

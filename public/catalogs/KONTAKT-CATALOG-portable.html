@@ -3931,9 +3931,16 @@ body.chosen-preview-open .entry.selected:not(.highlight) .path.is-expanded{
   body.catalog-portable.portable-landscape.chosen-preview-open .entry.selected:not(.highlight){
     width:min(92svh,36rem)!important;max-width:min(92svh,36rem)!important
   }
+  /* EMBED-CARD-SVH-v1: same dvh->svh correction LANDSCAPE-PREVIEW-WIDTH-v3
+     made on the plain expanded card above. dvh is the toolbar-hidden basis,
+     so with the mobile address bar visible this embed-open card (Card Search /
+     YouTube) was still taller than the actually-visible area and bled past
+     the top and bottom edges - and unlike the plain card it sets a fixed
+     height and overflow:hidden, so the excess could not even be scrolled to.
+     svh is the toolbar-visible basis, so the card always fits. */
   body.catalog-portable.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed){
-    height:min(86dvh,calc(100dvh - 2.5rem))!important;
-    max-height:min(86dvh,calc(100dvh - 2.5rem))!important;
+    height:min(86svh,calc(100svh - 2.5rem))!important;
+    max-height:min(86svh,calc(100svh - 2.5rem))!important;
     overflow:hidden!important;
     display:flex!important;flex-direction:column!important
   }
@@ -4721,8 +4728,8 @@ body.catalog-portable.chosen-preview-open .entry.selected:not(.highlight){
 }
 body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed),
 body.catalog-portable.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed){
-  height:calc(100dvh - var(--cat-header-h,0px) - 1.25rem)!important;
-  max-height:calc(100dvh - var(--cat-header-h,0px) - 1.25rem)!important
+  height:calc(100svh - var(--cat-header-h,0px) - 1.25rem)!important;
+  max-height:calc(100svh - var(--cat-header-h,0px) - 1.25rem)!important
 }
 /* fix-EMBED-IFRAME-BACK-HIDE: main embed back owns in-embed history */
 #cardSearchEmbed .card-search-iframe-back{display:none!important}

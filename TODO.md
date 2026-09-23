@@ -67,3 +67,16 @@ Applies to all four catalogs in `public/catalogs/` (DS / Kontakt, desktop + port
   the full stage height there). Confirmed with a headless screenshot (served
   over http://, since YouTube embeds need an http(s) referrer — file://
   always shows the "video not available" fallback, unrelated to this bug).
+- ~~Expanded card with the search/video embed open still sized with `dvh`.~~ done
+  (`EMBED-CARD-SVH-v1`) — follow-up to `f55ecc4`, which switched the plain
+  expanded card from `dvh` to `svh` but left the `card-embed-open`
+  (`:has(#cardSearchEmbed)`) variant of the same card on `dvh` in the two
+  portable catalogs (`fix-PORTABLE-PREVIEW-CENTER` and `fix-PREVIEW-BELOW-HDR`).
+  `dvh` is the toolbar-hidden basis, so with the address bar visible that card
+  was taller than the visible area and bled past the top/bottom edges — worse
+  than the plain card, since the embed variant sets a fixed `height` plus
+  `overflow:hidden`, so the excess could not be scrolled to. Landscape was
+  already correct (`fix-LANDSCAPE-PREVIEW-FULLSCREEN-v2` makes that case
+  `inset:0` / `100svh`). Verified headless at 390×844 and 844×390 on both
+  portable catalogs: card contained in both orientations. Needs a manual
+  real-device check with the browser toolbar visible.

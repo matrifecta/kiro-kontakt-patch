@@ -39,6 +39,35 @@ pip install -r requirements-midi.txt   # python-osc, python-rtmidi
 
 `kontakt_scan.py` uses the Python standard library only.
 
+## Catalogs on GitHub Pages
+
+The four HTML catalogs in `public/catalogs/` are self-contained static pages with
+no build step. `.github/workflows/pages.yml` publishes `public/` to GitHub Pages
+so they can be opened on a real phone or tablet — which matters because several
+card behaviours (YouTube embeds, and the viewport-unit sizing the expanded card
+depends on) only reproduce correctly over `http(s)`, not `file://`.
+
+One-time setup, in the repository's **Settings → Pages**: set **Source** to
+**GitHub Actions**. The workflow then runs on pushes that touch `public/`, and
+can also be started by hand from the **Actions** tab (*Run workflow*).
+
+The deployed URL is `https://<owner>.github.io/<repo>/`, which forwards to
+`/catalogs/` — a short list linking to all four catalogs. Note that Pages
+requires the repository to be public, unless the account's plan allows private
+Pages sites.
+
+Append `?dvhdebug=1` to a portable catalog URL to show the on-page viewport
+debug overlay (live `innerWidth/Height`, `visualViewport`, resolved `100dvh` in
+px, orientation, and the expanded card's rect). It persists in `localStorage`;
+`?dvhdebug=0` turns it back off.
+
+To serve the same files locally instead — for example over the LAN from the
+studio machine:
+
+```bash
+python3 -m http.server 8080 --directory public
+```
+
 ## What was cohesive enough to continue
 
 | Project | In the archive | Can start? |

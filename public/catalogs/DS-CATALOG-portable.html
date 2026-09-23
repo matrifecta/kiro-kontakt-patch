@@ -3934,6 +3934,17 @@ body.chosen-preview-open .entry.selected:not(.highlight) .path.is-expanded{
     margin:0!important;
     width:min(92vw,36rem)!important;max-width:min(92vw,36rem)!important;
     max-height:min(86svh,calc(100svh - 2.5rem))!important;
+    /* fix-PREVIEW-MINHEIGHT-LEAK-v1: cards that share a grid ROW get an inline
+       min-height:<row-height>px from equalizeCatalogCardRows (Phase 2) so the
+       row's cards are all equal height in the grid. A card alone in its row
+       never gets one. That inline min-height stays on the element when it
+       opens as this fixed, centered preview - and per CSS min-height beats
+       max-height, so the leaked value forced the card taller than the svh
+       clamp above and it stretched past the top/bottom edges. Only cards with
+       a "side card" in their row were affected, exactly the reported symptom.
+       Reset it here (a stylesheet !important beats the inline non-important
+       min-height) so the card always sizes purely to the svh clamp + content. */
+    min-height:0!important;
     padding-top:3.5rem!important
   }
   /* LANDSCAPE-PREVIEW-WIDTH-v3: the base rule above sizes the portrait card
@@ -29846,6 +29857,12 @@ function openChosenPreview(el){
   closeOverlay({skipScroll:true});
   rememberViewed(el);
   pinSelectedForPreview(el);
+  /* fix-PREVIEW-MINHEIGHT-LEAK-v1 (JS half): the placeholder above has already
+     captured the card's grid-slot size, so it is safe to drop the inline
+     min-height equalizeCatalogCardRows put on this card when it shared a grid
+     row. The CSS rule resets it too, but clearing it here keeps the element's
+     own inline state honest and defends against any later reflow that reads it. */
+  if(el&&el.style)el.style.minHeight='';
   document.body.classList.add('chosen-preview-open');
   setOverlayFocus('preview');
   if(typeof cardChromeApplyViewState==='function')cardChromeApplyViewState();

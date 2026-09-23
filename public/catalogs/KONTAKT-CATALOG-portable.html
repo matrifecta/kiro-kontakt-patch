@@ -190,12 +190,13 @@ body.chosen-preview-open .entry.selected:not(.highlight) .note-view-btn{display:
    precede it in the highlight card's start toolbar now, so it sits after
    both (same double-button offset as the embedded card). Applies in both
    orientations. */
- .entry.highlight .lib-notes{display:contents}
- .entry.highlight .note-balloon{
-  position:absolute;z-index:841;margin:0;
+ .entry.highlight .lib-notes{
+  position:absolute;z-index:841;margin:0;display:block;
   top:max(.5rem,env(safe-area-inset-top));right:auto;bottom:auto;
-  left:calc(max(.5rem,env(safe-area-inset-left)) + var(--card-chrome-btn) + var(--card-chrome-gap) + var(--card-chrome-btn) + var(--card-chrome-gap))
+  left:calc(max(.5rem,env(safe-area-inset-left)) + var(--card-chrome-btn) + var(--card-chrome-gap) + var(--card-chrome-btn) + var(--card-chrome-gap));
+  width:var(--card-chrome-btn);height:var(--card-chrome-btn)
  }
+ .entry.highlight .note-balloon{position:static;margin:0;width:100%;height:100%;min-width:0;min-height:0}
 /* fix-HL-PORTRAIT-NOTES-PENCIL-v1: fullscreen card, portrait only - swap the
    speech-balloon emoji for a themed (currentColor-mask) pencil icon, shrunk
    to half the normal toolbar-button size so it sits centered in the row
@@ -205,12 +206,11 @@ body.chosen-preview-open .entry.selected:not(.highlight) .note-view-btn{display:
    other .note-balloon (grid card, expanded/preview card, landscape
    fullscreen) is untouched - still the plain speech-balloon glyph. */
 @media (orientation:portrait){
- .entry.highlight .note-balloon{
+ .entry.highlight .lib-notes{
   width:calc(var(--card-chrome-btn) / 2)!important;height:calc(var(--card-chrome-btn) / 2)!important;
-  min-width:calc(var(--card-chrome-btn) / 2)!important;min-height:calc(var(--card-chrome-btn) / 2)!important;
-  top:calc(max(.5rem,env(safe-area-inset-top)) + var(--card-chrome-btn) / 4)!important;
-  font-size:0
+  top:calc(max(.5rem,env(safe-area-inset-top)) + var(--card-chrome-btn) / 4)!important
  }
+ .entry.highlight .note-balloon{font-size:0}
  .entry.highlight .note-balloon::before{
   content:"";position:absolute;inset:0;
   background-color:var(--text-muted);
@@ -506,42 +506,64 @@ body.catalog-help-kind-guide .catalog-help-title{display:none}
   body.chosen-preview-open .entry.selected:not(.highlight) .cover{flex:none;align-self:center;justify-self:center;justify-content:center;display:flex;align-items:center;width:auto;height:auto;max-height:min(28vh,200px);max-width:min(86vw,360px);min-height:0;margin:0 auto;margin-inline:auto;overflow:hidden;float:none}
   body.chosen-preview-open .entry.selected:not(.highlight) .cover img{max-height:min(28vh,200px);max-width:100%;object-position:center center}
   body.chosen-preview-open .entry.selected:not(.highlight) .lib-name{align-self:stretch;width:100%;max-width:100%;margin:0;padding-inline:12px;box-sizing:border-box;text-align:center;overflow-wrap:break-word;word-break:break-word;white-space:normal;overflow:visible}
-  body.chosen-preview-open .entry.selected:not(.highlight) .lib-notes{display:contents}
-  body.chosen-preview-open .entry.selected:not(.highlight) .note-balloon{position:absolute;top:var(--card-chrome-inset);left:calc(var(--card-chrome-inset) + var(--card-chrome-btn) + var(--card-chrome-gap) + var(--card-chrome-btn) + var(--card-chrome-gap));right:auto;bottom:auto;z-index:841;margin:0}
+  body.chosen-preview-open .entry.selected:not(.highlight) .lib-notes{position:absolute;display:block;margin:0;top:var(--card-chrome-inset);left:calc(var(--card-chrome-inset) + var(--card-chrome-btn) + var(--card-chrome-gap) + var(--card-chrome-btn) + var(--card-chrome-gap));right:auto;bottom:auto;z-index:841;width:var(--card-chrome-btn);height:var(--card-chrome-btn)}
+  body.chosen-preview-open .entry.selected:not(.highlight) .note-balloon{position:static;margin:0;width:100%;height:100%;min-width:0;min-height:0}
   body.chosen-preview-open .entry.selected:not(.highlight) .note-text.has-note{display:block;margin:0;max-height:none;overflow:visible;flex-shrink:0}
   body.chosen-preview-open .entry.selected:not(.highlight) .note-pop{position:absolute;left:var(--card-chrome-inset);right:auto;top:calc(var(--card-chrome-inset) + var(--card-chrome-btn) + var(--card-chrome-gap))}
   body.chosen-preview-open .entry.selected:not(.highlight) .noart{margin:0;overflow:visible;flex-shrink:0}
   body.chosen-preview-open .entry.selected:not(.highlight) .summary-panel{float:none;flex:none;flex-shrink:0;margin:0;max-height:none;min-height:calc(1.65em * 3 + 1.6em);overflow:visible}
   body.chosen-preview-open .entry.selected:not(.highlight) .summary-panel .desc,body.chosen-preview-open .entry.selected:not(.highlight) .desc{float:none;margin:0;max-height:none;min-height:calc(1.65em * 3);line-height:1.65;overflow:visible;white-space:normal;overflow-wrap:break-word;word-break:normal;hyphens:none}
   body.chosen-preview-open .entry.selected:not(.highlight) .path{float:none;flex:none;flex-shrink:0;margin:0;min-height:0;max-height:none;overflow:visible;white-space:normal;overflow-wrap:break-word;word-break:break-word}
-  body.chosen-preview-open .entry.selected:not(.highlight) details.patches,body.chosen-preview-open .entry.selected:not(.highlight) .patches{flex:none;flex-shrink:0;max-height:none;overflow:visible;margin:0}
+  body.chosen-preview-open .entry.selected:not(.highlight) details.patches,body.chosen-preview-open .entry.selected:not(.highlight) .patches{flex:none;flex-shrink:0;max-height:min(30vh,20em);overflow-y:auto;overflow-x:hidden;margin:0}
   body.chosen-preview-open .entry.selected:not(.highlight) .card-actions{z-index:auto;flex:none;flex-shrink:0;margin:0;overflow:visible;padding-top:0;padding-bottom:0}
  }
- /* Phone/portable: momentum-scroll compositing can paint the fixed preview over #searchModal. */
+ /* fix-EXPANDED-CARD-DEAD-CODE-v1: the block below used to be @media all
+   (i.e. unconditional) and re-declared width/height/layout for
+   .entry.selected:not(.highlight) with DIFFERENT numbers than the
+   orientation/aspect-ratio-specific rules above. Because it had identical
+   selector specificity and came later in the stylesheet, it silently WON
+   over every one of those rules in both orientations - the landscape
+   aspect-ratio sizing (16:9/16:10/4:3, up to 1120px wide) and the portrait
+   block right above this one were both dead code. This is the root cause
+   of the persistent "expanded card breaks/won't center/margins hug the
+   screen edge" reports: nothing that touched those other rules could ever
+   have had any visible effect. Trimmed to keep only what its comment says
+   it's actually for (compositing/stacking so the fixed preview paints
+   correctly over #searchModal during momentum-scroll) - the width/height/
+   child-layout duplication is removed so the real per-orientation rules
+   (portrait above, new landscape counterpart below) take effect again. */
  @media all{
-  body.chosen-preview-open .entry.selected.is-hidden:not(.highlight){display:flex!important}
-  body.chosen-preview-open .entry.selected:not(.highlight){left:50%;right:auto;top:50%;bottom:auto;transform:translate(-50%,-50%);margin:0;display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:10px;width:min(92vw,36rem);max-width:min(92vw,36rem);max-height:min(86dvh,calc(100dvh - 2.5rem));height:auto;overflow-x:hidden;overflow-y:auto;-webkit-overflow-scrolling:touch;grid-template-columns:none}
-  body.chosen-preview-open.search-modal-open .entry.selected:not(.highlight){left:50%;top:50%;right:auto;bottom:auto;transform:translate(-50%,-50%);margin:0;max-height:min(86dvh,calc(100dvh - 2.5rem))}
-  body.chosen-preview-open .entry.selected:not(.highlight) .hl-body{display:flex;flex-direction:column;align-items:stretch;gap:10px;min-width:0;overflow:visible;flex:0 0 auto}
-  body.chosen-preview-open .entry.selected:not(.highlight) .cover{flex:none;align-self:center;justify-self:center;justify-content:center;display:flex;align-items:center;width:auto;height:auto;max-height:min(28vh,200px);max-width:min(86vw,360px);min-height:0;margin:0 auto;margin-inline:auto;overflow:hidden;float:none}
-  body.chosen-preview-open .entry.selected:not(.highlight) .cover img{max-height:min(28vh,200px);max-width:100%;object-position:center center}
-  body.chosen-preview-open .entry.selected:not(.highlight) .lib-name{align-self:stretch;width:100%;max-width:100%;margin:0;padding-inline:12px;box-sizing:border-box;text-align:center;overflow-wrap:break-word;word-break:break-word;white-space:normal;overflow:visible}
-  body.chosen-preview-open .entry.selected:not(.highlight) .lib-notes{display:contents}
-  body.chosen-preview-open .entry.selected:not(.highlight) .note-balloon{position:absolute;top:var(--card-chrome-inset);left:calc(var(--card-chrome-inset) + var(--card-chrome-btn) + var(--card-chrome-gap) + var(--card-chrome-btn) + var(--card-chrome-gap));right:auto;bottom:auto;z-index:841;margin:0}
-  body.chosen-preview-open .entry.selected:not(.highlight) .note-text.has-note{display:block;margin:0;max-height:none;overflow:visible;flex-shrink:0}
-  body.chosen-preview-open .entry.selected:not(.highlight) .note-pop{position:absolute;left:var(--card-chrome-inset);right:auto;top:calc(var(--card-chrome-inset) + var(--card-chrome-btn) + var(--card-chrome-gap))}
-  body.chosen-preview-open .entry.selected:not(.highlight) .noart{margin:0;overflow:visible;flex-shrink:0}
-  body.chosen-preview-open .entry.selected:not(.highlight) .summary-panel{float:none;flex:none;flex-shrink:0;margin:0;max-height:none;min-height:calc(1.65em * 3 + 1.6em);overflow:visible}
-  body.chosen-preview-open .entry.selected:not(.highlight) .summary-panel .desc,body.chosen-preview-open .entry.selected:not(.highlight) .desc{float:none;margin:0;max-height:none;min-height:calc(1.65em * 3);line-height:1.65;overflow:visible;white-space:normal;overflow-wrap:break-word;word-break:normal;hyphens:none}
-  body.chosen-preview-open .entry.selected:not(.highlight) .path{float:none;flex:none;flex-shrink:0;margin:0;min-height:0;max-height:none;overflow:visible;white-space:normal;overflow-wrap:break-word;word-break:break-word}
-  body.chosen-preview-open .entry.selected:not(.highlight) details.patches,body.chosen-preview-open .entry.selected:not(.highlight) .patches{flex:none;flex-shrink:0;max-height:none;overflow:visible;margin:0}
-  body.chosen-preview-open .entry.selected:not(.highlight) .card-actions{z-index:auto;flex:none;flex-shrink:0;margin:0;overflow:visible;padding-top:0;padding-bottom:0}
   body.chosen-preview-open:not([data-focus="search"]) .entry.selected:not(.highlight){z-index:10000}
   body.search-modal-open[data-focus="search"] #searchModal{z-index:10000;isolation:isolate;transform:translate3d(0,0,0);-webkit-transform:translate3d(0,0,0)}
   body.search-modal-open[data-focus="search"] .search-modal{z-index:10001;pointer-events:auto;isolation:isolate;transform:translate3d(0,0,0);-webkit-transform:translate3d(0,0,0)}
   body.search-modal-open[data-focus="search"].chosen-preview-open .entry.selected:not(.highlight){z-index:100;-webkit-overflow-scrolling:touch}
   body.search-modal-open[data-focus="preview"] #searchModal{z-index:500;transform:none;-webkit-transform:none}
   body.search-modal-open[data-focus="preview"].chosen-preview-open .entry.selected:not(.highlight){z-index:10000;isolation:isolate}
+ }
+ /* fix-EXPANDED-CARD-LANDSCAPE-NARROW-v1: landscape counterpart to the
+    portrait block above - same stacked layout, but width keys off the same
+    JS-measured --hl-narrow-dim used by the fullscreen card's own landscape
+    spacer (fix-HL-LANDSCAPE-NARROW-v2), so the expanded/preview card leaves
+    the SAME left/right margin the fullscreen card does, instead of
+    stretching almost edge-to-edge. */
+ @media (orientation:landscape) and (min-aspect-ratio:1/1){
+  body.chosen-preview-open .entry.selected.is-hidden:not(.highlight){display:flex!important}
+  body.chosen-preview-open .entry.selected:not(.highlight){left:50%;right:auto;top:50%;bottom:auto;transform:translate(-50%,-50%);margin:0;display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:10px;width:var(--hl-narrow-dim,min(94vw,560px));max-width:var(--hl-narrow-dim,min(94vw,560px));max-height:min(92dvh,100%);height:auto;overflow-x:hidden;overflow-y:auto;-webkit-overflow-scrolling:touch;grid-template-columns:none}
+  body.chosen-preview-open.search-modal-open .entry.selected:not(.highlight){top:50%}
+  body.chosen-preview-open .entry.selected:not(.highlight) .hl-body{display:flex;flex-direction:column;align-items:stretch;gap:10px;min-width:0;overflow:visible;flex:0 0 auto}
+  body.chosen-preview-open .entry.selected:not(.highlight) .cover{flex:none;align-self:center;justify-self:center;justify-content:center;display:flex;align-items:center;width:auto;height:auto;max-height:min(28vh,200px);max-width:min(86vw,360px);min-height:0;margin:0 auto;margin-inline:auto;overflow:hidden;float:none}
+  body.chosen-preview-open .entry.selected:not(.highlight) .cover img{max-height:min(28vh,200px);max-width:100%;object-position:center center}
+  body.chosen-preview-open .entry.selected:not(.highlight) .lib-name{align-self:stretch;width:100%;max-width:100%;margin:0;padding-inline:12px;box-sizing:border-box;text-align:center;overflow-wrap:break-word;word-break:break-word;white-space:normal;overflow:visible}
+  body.chosen-preview-open .entry.selected:not(.highlight) .lib-notes{position:absolute;top:var(--card-chrome-inset);left:calc(var(--card-chrome-inset) + var(--card-chrome-btn) + var(--card-chrome-gap) + var(--card-chrome-btn) + var(--card-chrome-gap));right:auto;bottom:auto;z-index:841;margin:0;display:block;width:var(--card-chrome-btn);height:var(--card-chrome-btn)}
+  body.chosen-preview-open .entry.selected:not(.highlight) .note-balloon{position:static;margin:0;width:100%;height:100%;min-width:0;min-height:0}
+  body.chosen-preview-open .entry.selected:not(.highlight) .note-text.has-note{display:block;margin:0;max-height:none;overflow:visible;flex-shrink:0}
+  body.chosen-preview-open .entry.selected:not(.highlight) .note-pop{position:absolute;left:var(--card-chrome-inset);right:auto;top:calc(var(--card-chrome-inset) + var(--card-chrome-btn) + var(--card-chrome-gap))}
+  body.chosen-preview-open .entry.selected:not(.highlight) .noart{margin:0;overflow:visible;flex-shrink:0}
+  body.chosen-preview-open .entry.selected:not(.highlight) .summary-panel{float:none;flex:none;flex-shrink:0;margin:0;max-height:none;min-height:calc(1.65em * 3 + 1.6em);overflow:visible}
+  body.chosen-preview-open .entry.selected:not(.highlight) .summary-panel .desc,body.chosen-preview-open .entry.selected:not(.highlight) .desc{float:none;margin:0;max-height:none;min-height:calc(1.65em * 3);line-height:1.65;overflow:visible;white-space:normal;overflow-wrap:break-word;word-break:normal;hyphens:none}
+  body.chosen-preview-open .entry.selected:not(.highlight) .path{float:none;flex:none;flex-shrink:0;margin:0;min-height:0;max-height:none;overflow:visible;white-space:normal;overflow-wrap:break-word;word-break:break-word}
+  body.chosen-preview-open .entry.selected:not(.highlight) details.patches,body.chosen-preview-open .entry.selected:not(.highlight) .patches{flex:none;flex-shrink:0;max-height:min(30vh,20em);overflow-y:auto;overflow-x:hidden;margin:0}
+  body.chosen-preview-open .entry.selected:not(.highlight) .card-actions{z-index:auto;flex:none;flex-shrink:0;margin:0;overflow:visible;padding-top:0;padding-bottom:0}
  }
  body.chosen-preview-open.desc-reader-open .entry.selected:not(.highlight),
  body.chosen-preview-open.path-reader-open .entry.selected:not(.highlight),
@@ -562,21 +584,36 @@ body.catalog-help-kind-guide .catalog-help-title{display:none}
   body.search-mode .catalog-body,body.search-mode .loc-group{--cat-cols:repeat(var(--cat-land-cols,3),minmax(0,1fr));grid-template-columns:repeat(var(--cat-land-cols,3),minmax(0,1fr))}
  }
  body.chosen-preview-open .entry.selected.is-hidden:not(.highlight){display:flex!important}
- body.chosen-preview-open .entry.selected:not(.highlight){display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:10px;max-height:min(92dvh,100%);height:auto;overflow-x:hidden;overflow-y:auto;-webkit-overflow-scrolling:touch;grid-template-columns:none}
+ /* fix-EXPANDED-CARD-SCROLL-ANCHOR-v1: this card grows taller when the
+    patches list is expanded (details toggle) while the user may already
+    be scrolled partway down it. Per-spec scroll anchoring then tries to
+    keep whichever element it picked as the "anchor" in the same
+    on-screen spot across that reflow - on some engines it picks the
+    wrong anchor for this kind of grow-from-inside-plus-user-scroll
+    change, so the view snaps to an unrelated scroll position instead of
+    keeping what the user was actually looking at. Opt this container out
+    of scroll anchoring entirely so toggling patches never causes an
+    unexpected jump. */
+ body.chosen-preview-open .entry.selected:not(.highlight){display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:10px;max-height:min(92dvh,100%);height:auto;overflow-x:hidden;overflow-y:auto;-webkit-overflow-scrolling:touch;grid-template-columns:none;overflow-anchor:none}
  body.chosen-preview-open .entry.selected:not(.highlight) .hl-body{display:flex;flex-direction:column;align-items:stretch;gap:10px;min-width:0;overflow:visible;flex:0 0 auto}
  body.chosen-preview-open .entry.selected:not(.highlight) .cover,body.chosen-preview-open .entry.selected:not(.highlight) .lib-name,body.chosen-preview-open .entry.selected:not(.highlight) .note-text,body.chosen-preview-open .entry.selected:not(.highlight) .noart,body.chosen-preview-open .entry.selected:not(.highlight) .summary-panel,body.chosen-preview-open .entry.selected:not(.highlight) .path,body.chosen-preview-open .entry.selected:not(.highlight) details.patches,body.chosen-preview-open .entry.selected:not(.highlight) .patches,body.chosen-preview-open .entry.selected:not(.highlight) .card-actions{position:static}
  body.chosen-preview-open .entry.selected:not(.highlight) .cover{flex:none;align-self:center;justify-self:center;justify-content:center;display:flex;align-items:center;width:auto;height:auto;max-height:min(28vh,200px);max-width:min(86vw,360px);min-height:0;margin:0 auto;margin-inline:auto;overflow:hidden;float:none}
  body.chosen-preview-open .entry.selected:not(.highlight) .cover img{max-height:min(28vh,200px);max-width:100%;object-position:center center}
  body.chosen-preview-open .entry.selected:not(.highlight) .lib-name{align-self:stretch;width:100%;max-width:100%;margin:0;padding-inline:12px;box-sizing:border-box;text-align:center;overflow-wrap:break-word;word-break:break-word;white-space:normal;overflow:visible}
- body.chosen-preview-open .entry.selected:not(.highlight) .lib-notes{display:contents}
- body.chosen-preview-open .entry.selected:not(.highlight) .note-balloon{position:absolute;top:var(--card-chrome-inset);left:calc(var(--card-chrome-inset) + var(--card-chrome-btn) + var(--card-chrome-gap) + var(--card-chrome-btn) + var(--card-chrome-gap));right:auto;bottom:auto;z-index:841;margin:0}
+ /* fix-EXPANDED-CARD-NOTES-CONTAINMENT-v1: same reasoning as
+    fix-HL-NOTE-BALLOON-CONTAINMENT-v1 above - display:contents on the
+    wrapper plus position:absolute on the button inside it is the
+    combination that real-device testing showed rendering detached/
+    out-of-flow. Make the wrapper itself the positioned box instead. */
+ body.chosen-preview-open .entry.selected:not(.highlight) .lib-notes{position:absolute;display:block;margin:0;top:var(--card-chrome-inset);left:calc(var(--card-chrome-inset) + var(--card-chrome-btn) + var(--card-chrome-gap) + var(--card-chrome-btn) + var(--card-chrome-gap));right:auto;bottom:auto;z-index:841;width:var(--card-chrome-btn);height:var(--card-chrome-btn)}
+ body.chosen-preview-open .entry.selected:not(.highlight) .note-balloon{position:static;margin:0;width:100%;height:100%;min-width:0;min-height:0}
  body.chosen-preview-open .entry.selected:not(.highlight) .note-text.has-note{display:block;margin:0;max-height:none;overflow:visible;flex-shrink:0}
  body.chosen-preview-open .entry.selected:not(.highlight) .note-pop{position:absolute;left:var(--card-chrome-inset);right:auto;top:calc(var(--card-chrome-inset) + var(--card-chrome-btn) + var(--card-chrome-gap))}
  body.chosen-preview-open .entry.selected:not(.highlight) .noart{margin:0;overflow:visible;flex-shrink:0}
  body.chosen-preview-open .entry.selected:not(.highlight) .summary-panel{float:none;flex:none;flex-shrink:0;margin:0;max-height:none;min-height:calc(1.65em * 3 + 1.6em);overflow:visible}
  body.chosen-preview-open .entry.selected:not(.highlight) .summary-panel .desc,body.chosen-preview-open .entry.selected:not(.highlight) .desc{float:none;margin:0;max-height:none;min-height:calc(1.65em * 3);line-height:1.65;overflow:visible;white-space:normal;overflow-wrap:break-word;word-break:normal;hyphens:none}
  body.chosen-preview-open .entry.selected:not(.highlight) .path{float:none;flex:none;flex-shrink:0;margin:0;min-height:0;max-height:none;overflow:visible;white-space:normal;overflow-wrap:break-word;word-break:break-word}
- body.chosen-preview-open .entry.selected:not(.highlight) details.patches,body.chosen-preview-open .entry.selected:not(.highlight) .patches{flex:none;flex-shrink:0;max-height:none;overflow:visible;margin:0}
+ body.chosen-preview-open .entry.selected:not(.highlight) details.patches,body.chosen-preview-open .entry.selected:not(.highlight) .patches{flex:none;flex-shrink:0;max-height:min(30vh,20em);overflow-y:auto;overflow-x:hidden;margin:0}
  body.chosen-preview-open .entry.selected:not(.highlight) .card-actions{z-index:auto;flex:none;flex-shrink:0;margin:0;overflow:visible;padding-top:0;padding-bottom:0}
  .search-modal{background:var(--bg-surface);border:1px solid var(--border);border-radius:10px;padding:clamp(16px,3vw,28px);max-width:min(640px,92vw);width:100%;position:relative;box-shadow:0 8px 32px rgba(0,0,0,0.5)}
  .search-modal-close{position:absolute;top:clamp(8px,1.5vw,12px);right:clamp(8px,1.5vw,12px);background:none;border:none;color:var(--text-muted);font-size:1.125rem;cursor:pointer;line-height:1;padding:4px 6px;border-radius:4px;touch-action:manipulation;min-width:2rem;min-height:2rem}
@@ -3877,15 +3914,22 @@ body.chosen-preview-open .entry.selected:not(.highlight) .path.is-expanded{
     transform:translate(-50%,-50%)!important;-webkit-transform:translate(-50%,-50%)!important;
     margin:0!important;
     width:min(92vw,36rem)!important;max-width:min(92vw,36rem)!important;
-    max-height:min(86dvh,calc(100dvh - 2.5rem))!important;
+    max-height:min(86svh,calc(100svh - 2.5rem))!important;
     padding-top:3.5rem!important
   }
-  /* LANDSCAPE-PREVIEW-WIDTH-v1: the 36rem cap above was clamping the dialog to a
-     narrow centered box with large empty side margins on wide landscape screens.
-     Widen it to use most of the available width there, matching the desktop
-     dialog's own 70rem cap. Vertical sizing/margins are unchanged. */
+  /* LANDSCAPE-PREVIEW-WIDTH-v3: the base rule above sizes the portrait card
+     to min(92vw,36rem) - i.e. 92% of the phone's SHORT dimension, capped.
+     In landscape the short dimension is the viewport HEIGHT, so mirror that
+     exactly with min(92svh,36rem): the landscape card is then physically the
+     same width the portrait card is, leaving identical left/right spacers,
+     with the content simply reflowed for the wider screen. This is pure CSS
+     (svh, not the JS-measured --hl-narrow-dim v2 used) so it can't fall back
+     to a too-wide value if that variable isn't set yet when the card opens
+     on a real device - which is what the wide landscape card in the reports
+     actually was. svh (small viewport) also means the width tracks the same
+     visible-area basis the svh-based height clamp below uses. */
   body.catalog-portable.portable-landscape.chosen-preview-open .entry.selected:not(.highlight){
-    width:min(92vw,70rem)!important;max-width:min(92vw,70rem)!important
+    width:min(92svh,36rem)!important;max-width:min(92svh,36rem)!important
   }
   body.catalog-portable.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed){
     height:min(86dvh,calc(100dvh - 2.5rem))!important;
@@ -4672,8 +4716,8 @@ body:is(.chosen-preview-open,.card-embed-open,.hl-open) #catalogIndex{
 /* fix-PREVIEW-BELOW-HDR: center extended card in the space under the document header */
 body.chosen-preview-open .entry.selected:not(.highlight),
 body.catalog-portable.chosen-preview-open .entry.selected:not(.highlight){
-  top:calc(var(--cat-header-h,0px) + (100dvh - var(--cat-header-h,0px))/2)!important;
-  max-height:calc(100dvh - var(--cat-header-h,0px) - 1.25rem)!important
+  top:calc(var(--cat-header-h,0px) + (100svh - var(--cat-header-h,0px))/2)!important;
+  max-height:calc(100svh - var(--cat-header-h,0px) - 1.25rem)!important
 }
 body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed),
 body.catalog-portable.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed){

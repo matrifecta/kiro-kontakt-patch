@@ -229,37 +229,45 @@ body.chosen-preview-open .entry.selected:not(.highlight) .note-view-btn{display:
  }
  .entry.highlight .note-balloon:hover::before{background-color:var(--accent-instrument)}
 }
-/* fix-HL-NOTE-BTN-TOOLBAR-CHILD-v1: the fullscreen card's notes button used
-   to be an absolutely-positioned overlay manually aligned next to Back/Fav.
-   On real devices that abspos resolved against the wrong containing block
-   (the scrolling .hl-body / notch safe-area got double-counted), so the
-   button dropped below the toolbar row and shrank. syncHlNoteBtnPlacement()
-   (JS) now physically moves the .note-balloon INTO the real toolbar row
-   (.card-chrome-start) while a card is fullscreen, so it becomes an ordinary
-   flex sibling of Back and Favorite - same box, same row, laid out by the
-   same proven-correct rule. As a flex child it can never drop below the row,
-   double-count the notch, or stretch the toolbar taller. These rules style
-   that relocated button; the absolute-overlay rules above stay as a no-JS
-   fallback. Portrait keeps the themed left-pointing pencil glyph; landscape
-   keeps the plain speech-balloon (matching every other card state). */
- .entry.highlight .card-chrome-start>.note-balloon{
-  position:relative!important;flex:0 0 auto;align-self:center;margin:0!important;
-  top:auto!important;left:auto!important;right:auto!important;bottom:auto!important;
+/* fix-HL-NOTE-BTN-DIRECT-CHILD-v2: the fullscreen card's notes button used to
+   live inside .lib-notes inside the scrolling .hl-body; on real devices its
+   absolute position resolved against the wrong containing block (scroll
+   container / display:contents / notch safe-area double-counted) so it
+   dropped below the toolbar row and shrank. syncHlNoteBtnPlacement() (JS) now
+   physically moves the .note-balloon to be a DIRECT child of the fixed
+   .entry.highlight card, so its absolute position resolves against the card
+   itself with no scrolling ancestor in between. As an out-of-flow overlay it
+   never adds toolbar height. Landscape: full-size speech-balloon in the third
+   toolbar slot (next to Back/Favorite) - matches every other card state.
+   Portrait: half-size themed pencil, tip pointing left, centered horizontally
+   on the card and vertically on the toolbar row. */
+ .entry.highlight>.note-balloon{
+  position:absolute!important;z-index:842;margin:0!important;
+  display:flex!important;align-items:center;justify-content:center;box-sizing:border-box;
+  top:max(var(--card-chrome-inset),env(safe-area-inset-top))!important;
+  left:calc(max(var(--card-chrome-inset),env(safe-area-inset-left)) + (var(--card-chrome-btn) + var(--card-chrome-gap)) * 2)!important;
+  right:auto!important;bottom:auto!important;
   width:var(--card-chrome-btn)!important;height:var(--card-chrome-btn)!important;
   min-width:var(--card-chrome-btn)!important;min-height:var(--card-chrome-btn)!important;
   color:var(--text)
  }
 @media (orientation:portrait){
- .entry.highlight .card-chrome-start>.note-balloon{font-size:0}
- .entry.highlight .card-chrome-start>.note-balloon::before{
+ .entry.highlight>.note-balloon{
+  left:50%!important;right:auto!important;transform:translateX(-50%);
+  top:calc(max(var(--card-chrome-inset),env(safe-area-inset-top)) + var(--card-chrome-btn) / 4)!important;
+  width:calc(var(--card-chrome-btn) / 2)!important;height:calc(var(--card-chrome-btn) / 2)!important;
+  min-width:calc(var(--card-chrome-btn) / 2)!important;min-height:calc(var(--card-chrome-btn) / 2)!important;
+  font-size:0
+ }
+ .entry.highlight>.note-balloon::before{
   content:"";position:absolute;inset:0;
   background-color:var(--text);
-  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z'/%3E%3C/svg%3E") center/66% no-repeat;
-  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z'/%3E%3C/svg%3E") center/66% no-repeat;
-  transform:rotate(-45deg) scaleX(-1)
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z'/%3E%3C/svg%3E") center/80% no-repeat;
+  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z'/%3E%3C/svg%3E") center/80% no-repeat;
+  transform:rotate(135deg) scaleX(-1)
  }
- .entry.highlight .card-chrome-start>.note-balloon:hover::before,
- .entry.highlight .card-chrome-start>.note-balloon:active::before{background-color:var(--accent-instrument)}
+ .entry.highlight>.note-balloon:hover::before,
+ .entry.highlight>.note-balloon:active::before{background-color:var(--accent-instrument)}
 }
  .entry.highlight .note-pop{
   position:absolute;left:max(.5rem,env(safe-area-inset-left));right:auto;
@@ -3991,19 +3999,19 @@ body.chosen-preview-open .entry.selected:not(.highlight) .path.is-expanded{
     min-height:0!important;
     padding-top:3.5rem!important
   }
-  /* LANDSCAPE-PREVIEW-WIDTH-v3: the base rule above sizes the portrait card
-     to min(92vw,36rem) - i.e. 92% of the phone's SHORT dimension, capped.
-     In landscape the short dimension is the viewport HEIGHT, so mirror that
-     exactly with min(92svh,36rem): the landscape card is then physically the
-     same width the portrait card is, leaving identical left/right spacers,
-     with the content simply reflowed for the wider screen. This is pure CSS
-     (svh, not the JS-measured --hl-narrow-dim v2 used) so it can't fall back
-     to a too-wide value if that variable isn't set yet when the card opens
-     on a real device - which is what the wide landscape card in the reports
-     actually was. svh (small viewport) also means the width tracks the same
-     visible-area basis the svh-based height clamp below uses. */
+  /* LANDSCAPE-PREVIEW-WIDTH-v4: earlier (v3) the landscape card was forced to
+     min(92svh,36rem) so it was physically the SAME width as the portrait card
+     (tall-narrow rotated to short-narrow). The user instead wants the
+     landscape card to be the portrait rectangle turned on its side: its
+     HORIZONTAL span should equal the portrait card's VERTICAL span. The
+     portrait card's height tops out at the 36rem clamp (~560-576px), so
+     sizing the landscape WIDTH to min(92vw,36rem) makes the landscape width
+     match that vertical span, producing a centered wide rectangle with equal
+     left/right spacers. This is just the base rule's own value, so we let it
+     through unchanged (svh height clamp below still bounds the height so it
+     can't bleed off the top/bottom edges). */
   body.catalog-portable.portable-landscape.chosen-preview-open .entry.selected:not(.highlight){
-    width:min(92svh,36rem)!important;max-width:min(92svh,36rem)!important
+    width:min(92vw,36rem)!important;max-width:min(92vw,36rem)!important
   }
   /* EMBED-CARD-SVH-v1: same dvh->svh correction LANDSCAPE-PREVIEW-WIDTH-v3
      made on the plain expanded card above. dvh is the toolbar-hidden basis,
@@ -30009,8 +30017,7 @@ function syncHlNoteBtnPlacement(el){
   var btn=el.querySelector('.note-balloon');
   if(!btn)return;
   if(el.classList.contains('highlight')){
-    var start=el.querySelector('.card-chrome-start');
-    if(start&&btn.parentNode!==start)start.appendChild(btn);
+    if(btn.parentNode!==el)el.appendChild(btn);
   }else{
     var wrap=el.querySelector('.lib-notes');
     if(wrap&&btn.parentNode!==wrap){

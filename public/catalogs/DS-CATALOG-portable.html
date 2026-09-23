@@ -229,9 +229,53 @@ body.chosen-preview-open .entry.selected:not(.highlight) .note-view-btn{display:
  }
  .entry.highlight .note-balloon:hover::before{background-color:var(--accent-instrument)}
 }
+/* fix-HL-NOTE-BTN-TOOLBAR-CHILD-v1: the fullscreen card's notes button used
+   to be an absolutely-positioned overlay manually aligned next to Back/Fav.
+   On real devices that abspos resolved against the wrong containing block
+   (the scrolling .hl-body / notch safe-area got double-counted), so the
+   button dropped below the toolbar row and shrank. syncHlNoteBtnPlacement()
+   (JS) now physically moves the .note-balloon INTO the real toolbar row
+   (.card-chrome-start) while a card is fullscreen, so it becomes an ordinary
+   flex sibling of Back and Favorite - same box, same row, laid out by the
+   same proven-correct rule. As a flex child it can never drop below the row,
+   double-count the notch, or stretch the toolbar taller. These rules style
+   that relocated button; the absolute-overlay rules above stay as a no-JS
+   fallback. Portrait keeps the themed left-pointing pencil glyph; landscape
+   keeps the plain speech-balloon (matching every other card state). */
+ .entry.highlight .card-chrome-start>.note-balloon{
+  position:relative!important;flex:0 0 auto;align-self:center;margin:0!important;
+  top:auto!important;left:auto!important;right:auto!important;bottom:auto!important;
+  width:var(--card-chrome-btn)!important;height:var(--card-chrome-btn)!important;
+  min-width:var(--card-chrome-btn)!important;min-height:var(--card-chrome-btn)!important;
+  color:var(--text)
+ }
+@media (orientation:portrait){
+ .entry.highlight .card-chrome-start>.note-balloon{font-size:0}
+ .entry.highlight .card-chrome-start>.note-balloon::before{
+  content:"";position:absolute;inset:0;
+  background-color:var(--text);
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z'/%3E%3C/svg%3E") center/66% no-repeat;
+  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z'/%3E%3C/svg%3E") center/66% no-repeat;
+  transform:rotate(-45deg) scaleX(-1)
+ }
+ .entry.highlight .card-chrome-start>.note-balloon:hover::before,
+ .entry.highlight .card-chrome-start>.note-balloon:active::before{background-color:var(--accent-instrument)}
+}
  .entry.highlight .note-pop{
   position:absolute;left:max(.5rem,env(safe-area-inset-left));right:auto;
   top:calc(max(.5rem,env(safe-area-inset-top)) + var(--card-chrome-btn) + var(--card-chrome-gap))
+ }
+/* fix-HL-NOTE-POP-CENTER-v1: the notes editor popup descends from .lib-notes,
+   which in the fullscreen card is a toolbar-sized absolute box tucked in the
+   top-left. Anchored there the popup overflowed the right screen edge in
+   portrait (and now that the button itself moved into the toolbar, .lib-notes
+   is just an empty positioning stub). Pin the OPEN editor to the viewport
+   centre instead so it is always fully on-screen and scrollable, in both
+   orientations. Only affects the editor while open. */
+ .entry.highlight .note-pop.open{
+  position:fixed!important;left:50%!important;top:50%!important;right:auto!important;bottom:auto!important;
+  transform:translate(-50%,-50%)!important;z-index:905!important;
+  width:min(92vw,360px)!important;max-width:min(92vw,360px)!important;max-height:80vh!important;overflow:auto!important
  }
  .note-pop{display:none;position:absolute;z-index:6;left:0;top:48px;width:min(90vw,360px);max-width:min(90vw,360px);background:var(--bg-card);color:var(--text);border:1px solid var(--border);border-radius:8px;padding:10px;box-shadow:var(--hl-shadow)}
  .note-pop.open{display:block}
@@ -25521,8 +25565,8 @@ function restoreNotePopHome(pop){
   }
 }
 window.openNotePop=function(btn){
-  var wrap=btn&&btn.closest?btn.closest('.lib-notes'):null;
   var el=btn&&btn.closest?btn.closest('.entry'):null;
+  var wrap=(btn&&btn.closest?btn.closest('.lib-notes'):null)||(el&&el.querySelector?el.querySelector('.lib-notes'):null);
   if(!wrap)return;
   window.closeAllNotePops();
   var pop=wrap.querySelector('.note-pop');
@@ -29916,7 +29960,7 @@ function overlayHoldsGridSlot(el){
 }
 function placeHighlight(el){
   document.querySelectorAll('.hl-ph').forEach(function(ph){if(ph.parentNode)ph.parentNode.removeChild(ph);});
-  document.querySelectorAll('.entry.highlight').forEach(function(e){if(e!==el)e.classList.remove('highlight');});
+  document.querySelectorAll('.entry.highlight').forEach(function(e){if(e!==el){e.classList.remove('highlight');syncHlNoteBtnPlacement(e);}});
   if(overlayHoldsGridSlot(el)&&el.parentNode){
     var ph=document.createElement('div');
     ph.className='hl-ph';
@@ -29941,6 +29985,7 @@ function placeHighlight(el){
      way of opening a card starts fullscreen from a clean size.  */
   clearHighlightStaleSizing(el);
   el.classList.add('highlight');
+  syncHlNoteBtnPlacement(el);
 }
 function clearHighlightStaleSizing(el){
   if(!el)return;
@@ -29953,6 +29998,28 @@ function clearHighlightStaleSizing(el){
   if(_hlHb){_hlHb.style.paddingTop='';_hlHb.style.minHeight='';}
 }
 window.clearHighlightStaleSizing=clearHighlightStaleSizing;
+/* fix-HL-NOTE-BTN-TOOLBAR-CHILD-v1 (JS half): relocate the notes button into
+   the real fullscreen toolbar row so it lays out as a plain flex sibling of
+   Back/Favorite instead of a fragile absolute overlay (see the matching CSS
+   comment). When the card is fullscreen (.highlight) the .note-balloon is
+   moved into .card-chrome-start; otherwise it is restored to its .lib-notes
+   home just before the note popup. Idempotent and safe to call repeatedly. */
+function syncHlNoteBtnPlacement(el){
+  if(!el||!el.querySelector)return;
+  var btn=el.querySelector('.note-balloon');
+  if(!btn)return;
+  if(el.classList.contains('highlight')){
+    var start=el.querySelector('.card-chrome-start');
+    if(start&&btn.parentNode!==start)start.appendChild(btn);
+  }else{
+    var wrap=el.querySelector('.lib-notes');
+    if(wrap&&btn.parentNode!==wrap){
+      var pop=wrap.querySelector('.note-pop');
+      if(pop)wrap.insertBefore(btn,pop);else wrap.appendChild(btn);
+    }
+  }
+}
+window.syncHlNoteBtnPlacement=syncHlNoteBtnPlacement;
 
 function cardFsEmbedScrollEl(){
   if(document.body.classList.contains('card-embed-open')){
@@ -30027,6 +30094,7 @@ function openOverlay(el){
     var bd=document.getElementById('hlBackdrop');
     if(bd)bd.classList.add('open');
     document.body.classList.add('hl-open');
+    syncHlNoteBtnPlacement(el);
     syncViewportLock();
     if(typeof cardChromeApplyViewState==='function')cardChromeApplyViewState();
     if(typeof logCardFsEmbedScroll==='function')logCardFsEmbedScroll('overlay-already');
@@ -30125,7 +30193,7 @@ function closeOverlay(opts){
   closePathFocus(true);
   if(wasOpen&&!opts.skipScroll&&typeof window.consumeGallerySearchExit==='function')window.consumeGallerySearchExit(last);
   document.querySelectorAll('.hl-ph').forEach(function(ph){if(ph.parentNode)ph.parentNode.removeChild(ph);});
-  document.querySelectorAll('.entry.highlight').forEach(function(e){e.classList.remove('highlight');});
+  document.querySelectorAll('.entry.highlight').forEach(function(e){e.classList.remove('highlight');syncHlNoteBtnPlacement(e);});
   collapseOversizedGridPatches();
   var bd=document.getElementById('hlBackdrop');
   if(bd)bd.classList.remove('open');
@@ -31779,6 +31847,7 @@ function syncHighlight(){
     hl.classList.remove('hit','dim');
     if(!bannerOn){
       hl.classList.remove('highlight');
+      syncHlNoteBtnPlacement(hl);
       hl.style.display='none';
     }
   }

@@ -166,9 +166,14 @@
    (.note-view-btn) was hidden entirely in the .highlight (fullscreen)
    and chosen-preview-open (expanded) views. Users need it there too
    whenever a user note exists, so keep hiding the empty button but
-   surface it (bottom-right, out of the way of the .note-balloon editor
-   entry point) as soon as .has-note is present. */
+   surface it as soon as .has-note is present.
+   fix-HL-NOTE-VIEW-BTN-ACTIONSROW-v1: rather than the top toolbar (where a
+   portrait notch can cover it) or an orphaned bottom-right float, JS docks
+   the surfaced button into the .card-actions row next to the Search button;
+   these rules make it flow at the OPPOSITE (right) end of that row, matching
+   the other action controls. */
  .entry.highlight .note-view-btn.has-note{display:inline-flex!important}
+ .card-actions .note-view-btn{position:static!important;top:auto!important;right:auto!important;bottom:auto!important;left:auto!important;margin-left:auto!important;align-self:center!important;flex:0 0 auto!important}
 /* fix-NOTE-VIEW-BTN-HIDE-EMBEDDED-v1: the description-switch toggle
    (.note-view-btn) is meant only for the plain grid card - it was
    already hidden in the full .highlight overlay but had no rule for
@@ -25552,6 +25557,7 @@ function syncEntryMeta(el){
   }
   var nt=el.querySelector('.note-text');
   if(nt){nt.hidden=true;nt.classList.remove('has-note');nt.textContent='';}
+  if(typeof placeNoteViewBtn==='function')placeNoteViewBtn(el);
   var dsc=el.querySelector('.desc');
   if(dsc){
     if(dsc.dataset.orig===undefined)dsc.dataset.orig=dsc.textContent;
@@ -29970,6 +29976,7 @@ function openChosenPreview(el){
      own inline state honest and defends against any later reflow that reads it. */
   if(el&&el.style)el.style.minHeight='';
   document.body.classList.add('chosen-preview-open');
+  if(typeof placeNoteViewBtn==='function')placeNoteViewBtn(el);
   setOverlayFocus('preview');
   if(typeof cardChromeApplyViewState==='function')cardChromeApplyViewState();
   if(typeof logCardFsEmbedScroll==='function')logCardFsEmbedScroll('preview-open');
@@ -29996,6 +30003,7 @@ function closeChosenPreview(opts){
   if(!keepMedia&&typeof closeCardSearchEmbed==='function')closeCardSearchEmbed();
   document.body.classList.remove('chosen-preview-open');
   setOverlayFocus(null);
+  if(typeof placeNoteViewBtn==='function'&&last)placeNoteViewBtn(last);
   unpinSelectedForPreview();
   collapseOversizedGridPatches();
   /* fix-PREVIEW-CARD-v1: the card returns to its row; re-equalize so it picks up the row heights */
@@ -30068,6 +30076,7 @@ window.clearHighlightStaleSizing=clearHighlightStaleSizing;
    home just before the note popup. Idempotent and safe to call repeatedly. */
 function syncHlNoteBtnPlacement(el){
   if(!el||!el.querySelector)return;
+  if(typeof placeNoteViewBtn==='function')placeNoteViewBtn(el);
   var btn=el.querySelector('.note-balloon');
   if(!btn)return;
   if(el.classList.contains('highlight')){
@@ -30081,6 +30090,25 @@ function syncHlNoteBtnPlacement(el){
   }
 }
 window.syncHlNoteBtnPlacement=syncHlNoteBtnPlacement;
+/* fix-HL-NOTE-VIEW-BTN-ACTIONSROW-v1: dock the description-switch toggle into
+   the .card-actions row (opposite end from the Search button) for the big
+   fullscreen/expanded card views, and return it to its grid-card home (a
+   direct child of .entry, absolute bottom-right) otherwise. Kept out of the
+   top toolbar so a portrait notch can never cover it. */
+function placeNoteViewBtn(el){
+  if(!el||!el.querySelector)return;
+  var nvBtn=el.querySelector('.note-view-btn');
+  if(!nvBtn)return;
+  var expanded=el.classList.contains('selected')&&document.body.classList.contains('chosen-preview-open')&&!el.classList.contains('highlight');
+  var bigCard=el.classList.contains('highlight')||expanded;
+  var actions=el.querySelector('.card-actions');
+  if(bigCard&&actions&&nvBtn.classList.contains('has-note')){
+    if(nvBtn.parentNode!==actions)actions.appendChild(nvBtn);
+  }else if(nvBtn.parentNode!==el){
+    el.appendChild(nvBtn);
+  }
+}
+window.placeNoteViewBtn=placeNoteViewBtn;
 
 function cardFsEmbedScrollEl(){
   if(document.body.classList.contains('card-embed-open')){

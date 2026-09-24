@@ -164,7 +164,10 @@ html[data-ui-scale="133"] .index,html[data-ui-scale="140"] .index,html[data-ui-s
  .note-view-btn.has-note{display:inline-flex}
  .note-view-btn.has-note:hover{color:var(--accent-instrument);border-color:var(--accent-instrument)}
  .note-view-btn.is-active{background:var(--accent-note);color:#fff;border-color:var(--accent-note)}
- .entry.highlight .note-view-btn{display:none!important}
+ .entry.highlight .note-view-btn:not(.has-note){display:none!important}
+/* fix-NOTE-VIEW-BTN-SHOW-EXPANDED-v1: surface the description-switch toggle in
+   the fullscreen/expanded views whenever a user note exists. */
+ .entry.highlight .note-view-btn.has-note{display:inline-flex!important}
 /* fix-NOTE-VIEW-BTN-HIDE-EMBEDDED-v1: the description-switch toggle
    (.note-view-btn) is meant only for the plain grid card - it was
    already hidden in the full .highlight overlay but had no rule for
@@ -173,7 +176,8 @@ html[data-ui-scale="133"] .index,html[data-ui-scale="140"] .index,html[data-ui-s
    entry point next to Favorite, which is unaffected and still
    shown). Hide it in that state too, including while a Card Search
    embed is additionally open on top of it. */
-body.chosen-preview-open .entry.selected:not(.highlight) .note-view-btn{display:none!important}
+body.chosen-preview-open .entry.selected:not(.highlight) .note-view-btn:not(.has-note){display:none!important}
+body.chosen-preview-open .entry.selected:not(.highlight) .note-view-btn.has-note{display:inline-flex!important}
  .lib-notes{position:relative;margin:.15rem 0 .35rem}
  .note-text{display:none;margin:.25rem 0;padding:.5rem .7rem;background:var(--bg-surface);border:1px dashed var(--border);border-radius:6px;color:var(--text);font-size:.9375rem;white-space:pre-wrap;overflow-wrap:anywhere}
  .entry.highlight .note-text.has-note{display:block}
@@ -510,7 +514,9 @@ body.catalog-help-kind-guide .catalog-help-title{display:none}
  body.chosen-preview-open .entry.selected:not(.highlight) .note-balloon{grid-column:2;grid-row:1;align-self:center;justify-self:end;display:inline-flex;align-items:center;justify-content:center;width:2.75rem;height:2.75rem;min-width:2.75rem;min-height:2.75rem;background:var(--bg-surface);color:var(--text-muted);border:1px solid var(--border);border-radius:8px;cursor:pointer;touch-action:manipulation;font-size:1.125rem;line-height:1}
  body.chosen-preview-open .entry.selected:not(.highlight) .note-text.has-note{display:block;grid-column:1/-1;position:static;min-height:3.2em;max-height:none;overflow:visible;overflow-x:hidden;white-space:pre-wrap;overflow-wrap:break-word;word-break:normal}
  body.chosen-preview-open .entry.selected:not(.highlight) .note-pop{position:absolute;left:auto;right:calc(var(--card-chrome-inset) + var(--card-chrome-btn) + var(--card-chrome-gap));top:calc(var(--card-chrome-inset) + var(--card-chrome-btn) + var(--card-chrome-gap));z-index:845}
- body.chosen-preview-open .entry.selected:not(.highlight) .noart{grid-column:1/-1;position:static}
+/* fix-EXPANDED-NOTE-POP-CENTER-v1: pin the OPEN expanded-card notes editor to
+   the viewport centre so it is always fully visible in both orientations. */
+ body.chosen-preview-open .entry.selected:not(.highlight) .note-pop.open{position:fixed!important;left:50%!important;top:50%!important;right:auto!important;bottom:auto!important;transform:translate(-50%,-50%)!important;z-index:905!important;width:min(92vw,360px)!important;max-width:min(92vw,360px)!important;max-height:80vh!important;overflow:auto!important}
  body.chosen-preview-open .entry.selected:not(.highlight) .summary-panel{grid-column:1/-1;position:static;z-index:auto;float:none;flex:1 1 auto;flex-shrink:1;margin:10px 0 0;padding:clamp(8px,1.1vw,14px) clamp(10px,1.2vw,16px);min-height:calc(1.65em * 3 + 1.6em);max-height:min(14em,calc(36vh - 2.5em));overflow:hidden;overflow-x:hidden;overflow-y:hidden}
  body.chosen-preview-open .entry.selected:not(.highlight) .summary-panel .desc,body.chosen-preview-open .entry.selected:not(.highlight) .desc{position:static;z-index:auto;float:none;margin:0;max-height:100%;min-height:calc(1.65em * 3);line-height:1.65;overflow:visible;overflow-x:hidden;overflow-y:auto;-webkit-overflow-scrolling:touch;white-space:normal;overflow-wrap:break-word;word-break:normal;hyphens:none}
  body.chosen-preview-open .entry.selected:not(.highlight) .path{grid-column:1/-1;position:static;z-index:auto;float:none;flex:0 0 auto;flex-shrink:0;margin:10px 0 0;min-height:2.5em;max-height:none;overflow:visible;overflow-x:hidden;overflow-y:visible;white-space:normal;overflow-wrap:break-word;word-break:break-word}

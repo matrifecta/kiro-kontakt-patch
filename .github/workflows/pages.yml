@@ -1,0 +1,58 @@
+# Publishes the static HTML catalogs in public/ to GitHub Pages so they can be
+# opened on a real phone/tablet. The catalogs are self-contained HTML with no
+# build step, and several features (YouTube embeds in the expanded card) only
+# behave correctly when served over http(s) rather than file://.
+name: Deploy catalogs to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+      - copilot/pull1
+    paths:
+      - 'public/**'
+      - '.github/workflows/pages.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Let a running deploy finish rather than cancelling it mid-publish, but only
+# keep one queued behind it.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/configure-pages@v5
+
+      - name: Assemble site
+        run: |
+          mkdir -p _site
+          cp -R public/. _site/
+          # Site root just forwards to the catalog list in public/catalogs/.
+          printf '%s\n' \
+            '<!DOCTYPE html><meta charset="utf-8">' \
+            '<meta http-equiv="refresh" content="0; url=./catalogs/">' \
+            '<title>Catalogs</title><a href="./catalogs/">Catalogs</a>' \
+            > _site/index.html
+          # Pages serves the artifact as-is; .nojekyll keeps files and folders
+          # beginning with _ or . from being dropped by Jekyll post-processing.
+          touch _site/.nojekyll
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - id: deployment
+        uses: actions/deploy-pages@v4

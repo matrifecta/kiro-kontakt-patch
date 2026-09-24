@@ -161,7 +161,19 @@
  .note-view-btn.has-note{display:inline-flex}
  .note-view-btn.has-note:hover{color:var(--accent-instrument);border-color:var(--accent-instrument)}
  .note-view-btn.is-active{background:var(--accent-note);color:#fff;border-color:var(--accent-note)}
- .entry.highlight .note-view-btn{display:none!important}
+ .entry.highlight .note-view-btn:not(.has-note){display:none!important}
+/* fix-NOTE-VIEW-BTN-SHOW-EXPANDED-v1: the description-switch toggle
+   (.note-view-btn) was hidden entirely in the .highlight (fullscreen)
+   and chosen-preview-open (expanded) views. Users need it there too
+   whenever a user note exists, so keep hiding the empty button but
+   surface it as soon as .has-note is present.
+   fix-HL-NOTE-VIEW-BTN-ACTIONSROW-v1: rather than the top toolbar (where a
+   portrait notch can cover it) or an orphaned bottom-right float, JS docks
+   the surfaced button into the .card-actions row next to the Search button;
+   these rules make it flow at the OPPOSITE (right) end of that row, matching
+   the other action controls. */
+ .entry.highlight .note-view-btn.has-note{display:inline-flex!important}
+ .card-actions .note-view-btn{position:static!important;top:auto!important;right:auto!important;bottom:auto!important;left:auto!important;margin-left:auto!important;align-self:center!important;flex:0 0 auto!important}
 /* fix-NOTE-VIEW-BTN-HIDE-EMBEDDED-v1: the description-switch toggle
    (.note-view-btn) is meant only for the plain grid card - it was
    already hidden in the full .highlight overlay but had no rule for
@@ -170,7 +182,8 @@
    entry point next to Favorite, which is unaffected and still
    shown). Hide it in that state too, including while a Card Search
    embed is additionally open on top of it. */
-body.chosen-preview-open .entry.selected:not(.highlight) .note-view-btn{display:none!important}
+body.chosen-preview-open .entry.selected:not(.highlight) .note-view-btn:not(.has-note){display:none!important}
+body.chosen-preview-open .entry.selected:not(.highlight) .note-view-btn.has-note{display:inline-flex!important}
  .lib-notes{position:relative;margin:.15rem 0 .35rem}
  .note-text{display:none;margin:.25rem 0;padding:.5rem .7rem;background:var(--bg-surface);border:1px dashed var(--border);border-radius:6px;color:var(--text);font-size:.9375rem;white-space:pre-wrap;overflow-wrap:anywhere}
  .entry.highlight .note-text.has-note{display:block}
@@ -229,9 +242,61 @@ body.chosen-preview-open .entry.selected:not(.highlight) .note-view-btn{display:
  }
  .entry.highlight .note-balloon:hover::before{background-color:var(--accent-instrument)}
 }
+/* fix-HL-NOTE-BTN-DIRECT-CHILD-v2: the fullscreen card's notes button used to
+   live inside .lib-notes inside the scrolling .hl-body; on real devices its
+   absolute position resolved against the wrong containing block (scroll
+   container / display:contents / notch safe-area double-counted) so it
+   dropped below the toolbar row and shrank. syncHlNoteBtnPlacement() (JS) now
+   physically moves the .note-balloon to be a DIRECT child of the fixed
+   .entry.highlight card, so its absolute position resolves against the card
+   itself with no scrolling ancestor in between. As an out-of-flow overlay it
+   never adds toolbar height. Landscape: full-size speech-balloon in the third
+   toolbar slot (next to Back/Favorite) - matches every other card state.
+   Portrait: half-size themed pencil, tip pointing left, centered horizontally
+   on the card and vertically on the toolbar row. */
+ .entry.highlight>.note-balloon{
+  position:absolute!important;z-index:842;margin:0!important;
+  display:flex!important;align-items:center;justify-content:center;box-sizing:border-box;
+  top:max(var(--card-chrome-inset),env(safe-area-inset-top))!important;
+  left:calc(max(var(--card-chrome-inset),env(safe-area-inset-left)) + (var(--card-chrome-btn) + var(--card-chrome-gap)) * 2)!important;
+  right:auto!important;bottom:auto!important;
+  width:var(--card-chrome-btn)!important;height:var(--card-chrome-btn)!important;
+  min-width:var(--card-chrome-btn)!important;min-height:var(--card-chrome-btn)!important;
+  color:var(--text)
+ }
+@media (orientation:portrait){
+ .entry.highlight>.note-balloon{
+  left:50%!important;right:auto!important;transform:translateX(-50%);
+  top:calc(max(var(--card-chrome-inset),env(safe-area-inset-top)) + var(--card-chrome-btn) / 4)!important;
+  width:calc(var(--card-chrome-btn) / 2)!important;height:calc(var(--card-chrome-btn) / 2)!important;
+  min-width:calc(var(--card-chrome-btn) / 2)!important;min-height:calc(var(--card-chrome-btn) / 2)!important;
+  font-size:0
+ }
+ .entry.highlight>.note-balloon::before{
+  content:"";position:absolute;inset:0;
+  background-color:var(--text);
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z'/%3E%3C/svg%3E") center/80% no-repeat;
+  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z'/%3E%3C/svg%3E") center/80% no-repeat;
+  transform:rotate(135deg) scaleX(-1)
+ }
+ .entry.highlight>.note-balloon:hover::before,
+ .entry.highlight>.note-balloon:active::before{background-color:var(--accent-instrument)}
+}
  .entry.highlight .note-pop{
   position:absolute;left:max(.5rem,env(safe-area-inset-left));right:auto;
   top:calc(max(.5rem,env(safe-area-inset-top)) + var(--card-chrome-btn) + var(--card-chrome-gap))
+ }
+/* fix-HL-NOTE-POP-CENTER-v1: the notes editor popup descends from .lib-notes,
+   which in the fullscreen card is a toolbar-sized absolute box tucked in the
+   top-left. Anchored there the popup overflowed the right screen edge in
+   portrait (and now that the button itself moved into the toolbar, .lib-notes
+   is just an empty positioning stub). Pin the OPEN editor to the viewport
+   centre instead so it is always fully on-screen and scrollable, in both
+   orientations. Only affects the editor while open. */
+ .entry.highlight .note-pop.open{
+  position:fixed!important;left:50%!important;top:50%!important;right:auto!important;bottom:auto!important;
+  transform:translate(-50%,-50%)!important;z-index:905!important;
+  width:min(92vw,360px)!important;max-width:min(92vw,360px)!important;max-height:80vh!important;overflow:auto!important
  }
  .note-pop{display:none;position:absolute;z-index:6;left:0;top:48px;width:min(90vw,360px);max-width:min(90vw,360px);background:var(--bg-card);color:var(--text);border:1px solid var(--border);border-radius:8px;padding:10px;box-shadow:var(--hl-shadow)}
  .note-pop.open{display:block}
@@ -416,6 +481,10 @@ body.catalog-help-kind-guide .catalog-help-title{display:none}
  .kw.patch,.kw[data-cat="patch"]{border-color:var(--accent-patch-bg);background:var(--accent-patch-bg);color:var(--accent-patch)}
  .kw.patch:hover,.kw[data-cat="patch"]:hover{border-color:var(--accent-patch)}
  .kw.patch.active,.kw[data-cat="patch"].active{background:var(--accent-patch-active);color:#082422;border-color:var(--accent-patch)}
+ /* fix-NOTE-HASHTAG-KW-v1: user-defined #keyword pills get their own accent-note tint */
+ .kw.user,.kw[data-cat="user"]{border-color:var(--accent-note);background:transparent;color:var(--accent-note)}
+ .kw.user:hover,.kw[data-cat="user"]:hover{border-color:var(--accent-note);background:rgba(127,179,224,0.14)}
+ .kw.user.active,.kw[data-cat="user"].active{background:var(--accent-note);color:#04121f;border-color:var(--accent-note)}
  .noart{font-size:.85rem;color:var(--text-muted);margin:.2rem 0} .viewart{color:var(--accent-gear);text-decoration:underline;font-weight:600}
  .top,.bottom{background:var(--accent-instrument);color:#1a1008;padding:0;width:2.125rem;height:2.125rem;min-width:32px;min-height:32px;box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;border-radius:4px;text-decoration:none;border:1px solid var(--accent-instrument);line-height:0;font-size:0}.top .catalog-jump-ico,.bottom .catalog-jump-ico{display:block;width:1.2rem;height:1.2rem;flex:0 0 auto;pointer-events:none}
  .top{position:fixed;bottom:1rem;right:1rem}
@@ -462,7 +531,13 @@ body.catalog-help-kind-guide .catalog-help-title{display:none}
  body.chosen-preview-open .entry.selected:not(.highlight) .note-balloon{grid-column:2;grid-row:1;align-self:center;justify-self:end;display:inline-flex;align-items:center;justify-content:center;width:2.75rem;height:2.75rem;min-width:2.75rem;min-height:2.75rem;background:var(--bg-surface);color:var(--text-muted);border:1px solid var(--border);border-radius:8px;cursor:pointer;touch-action:manipulation;font-size:1.125rem;line-height:1}
  body.chosen-preview-open .entry.selected:not(.highlight) .note-text.has-note{display:block;grid-column:1/-1;position:static;min-height:3.2em;max-height:none;overflow:visible;overflow-x:hidden;white-space:pre-wrap;overflow-wrap:break-word;word-break:normal}
  body.chosen-preview-open .entry.selected:not(.highlight) .note-pop{position:absolute;left:auto;right:calc(var(--card-chrome-inset) + var(--card-chrome-btn) + var(--card-chrome-gap));top:calc(var(--card-chrome-inset) + var(--card-chrome-btn) + var(--card-chrome-gap));z-index:845}
- body.chosen-preview-open .entry.selected:not(.highlight) .noart{grid-column:1/-1;position:static}
+/* fix-EXPANDED-NOTE-POP-CENTER-v1: like the fullscreen card, the expanded
+   (chosen-preview-open) card anchored its notes editor to a top-left/right
+   toolbar stub, so the open popup drifted off-centre / off-screen (notably in
+   portrait). Pin the OPEN editor to the viewport centre so it is always fully
+   visible and scrollable in both orientations. The extra .open class keeps this
+   ahead of the per-orientation anchor rules. Only affects the editor while open. */
+ body.chosen-preview-open .entry.selected:not(.highlight) .note-pop.open{position:fixed!important;left:50%!important;top:50%!important;right:auto!important;bottom:auto!important;transform:translate(-50%,-50%)!important;z-index:905!important;width:min(92vw,360px)!important;max-width:min(92vw,360px)!important;max-height:80vh!important;overflow:auto!important}
  body.chosen-preview-open .entry.selected:not(.highlight) .summary-panel{grid-column:1/-1;position:static;z-index:auto;float:none;flex:1 1 auto;flex-shrink:1;margin:10px 0 0;padding:clamp(8px,1.1vw,14px) clamp(10px,1.2vw,16px);min-height:calc(1.65em * 3 + 1.6em);max-height:min(14em,calc(36vh - 2.5em));overflow:hidden;overflow-x:hidden;overflow-y:hidden}
  body.chosen-preview-open .entry.selected:not(.highlight) .summary-panel .desc,body.chosen-preview-open .entry.selected:not(.highlight) .desc{position:static;z-index:auto;float:none;margin:0;max-height:100%;min-height:calc(1.65em * 3);line-height:1.65;overflow:visible;overflow-x:hidden;overflow-y:auto;-webkit-overflow-scrolling:touch;white-space:normal;overflow-wrap:break-word;word-break:normal;hyphens:none}
  body.chosen-preview-open .entry.selected:not(.highlight) .path{grid-column:1/-1;position:static;z-index:auto;float:none;flex:0 0 auto;flex-shrink:0;margin:10px 0 0;min-height:2.5em;max-height:none;overflow:visible;overflow-x:hidden;overflow-y:visible;white-space:normal;overflow-wrap:break-word;word-break:break-word}
@@ -721,6 +796,16 @@ body.catalog-help-kind-guide .catalog-help-title{display:none}
  .card-img-exit{display:none;position:absolute;right:10px;bottom:10px;z-index:4;box-sizing:border-box;min-width:2.75rem;min-height:2.75rem;padding:0 14px;border:1px solid var(--border);border-radius:8px;background:var(--bg-surface);color:var(--text);font:inherit;cursor:pointer;touch-action:manipulation;box-shadow:0 4px 16px rgba(0,0,0,.35)}
  .card-search-img-view.open ~ .card-img-exit{display:flex;align-items:center;justify-content:center}
  .card-img-exit:hover{border-color:var(--accent-instrument);color:var(--accent-instrument);background:var(--accent-instrument-bg)}
+/* fix-YT-FS-EXIT-OVERLAY-v1: controls for exiting a video fullscreen that the
+   app has redirected onto the embed HOST (so YouTube's own cross-origin
+   fullscreen can't trap the user). Hidden until the host is the fullscreen
+   element; the exit button additionally reveals only once armed by an
+   upward swipe from the bottom edge, so it never blocks the video and works
+   the same in portrait and landscape (always bottom-centred). */
+ .card-yt-fs-exit{display:none;position:fixed;left:50%;transform:translateX(-50%);bottom:calc(env(safe-area-inset-bottom,0px) + 1.1rem);z-index:2147483000;box-sizing:border-box;min-height:2.75rem;padding:0 20px;border:1px solid rgba(255,255,255,.35);border-radius:999px;background:rgba(18,18,20,.86);color:#fff;font:inherit;font-weight:600;cursor:pointer;touch-action:manipulation;align-items:center;justify-content:center;box-shadow:0 6px 22px rgba(0,0,0,.5);opacity:0;transition:opacity .18s ease}
+ .card-yt-fs-swipe-catch{display:none}
+ #cardSearchEmbed:fullscreen .card-yt-fs-exit.yt-fs-exit-armed,#cardSearchEmbed:-webkit-full-screen .card-yt-fs-exit.yt-fs-exit-armed{display:inline-flex;opacity:1}
+ #cardSearchEmbed:fullscreen .card-yt-fs-swipe-catch,#cardSearchEmbed:-webkit-full-screen .card-yt-fs-swipe-catch{display:block;position:fixed;left:0;right:0;bottom:0;height:28px;z-index:2147482900;background:transparent;touch-action:none}
  .card-search-img-view{display:none;position:absolute;inset:0;z-index:3;align-items:center;justify-content:center;background:var(--bg)}
  .card-search-img-view.open{display:flex}
  .card-search-img-view img{max-width:100%;max-height:100%;object-fit:contain;cursor:pointer}
@@ -1087,6 +1172,7 @@ body.display-sides #catalogMain,body.display-sides #catalogIndex{position:relati
  @media(min-width:900px){.entry.highlight .cover,.entry.highlight .cover img{max-width:100%;max-height:min(70dvh,calc(100dvh - 12em));width:auto;height:auto;object-fit:contain;object-position:center center}.entry.highlight .cover img{width:auto;height:auto;max-width:100%;max-height:min(70dvh,calc(100dvh - 12em));object-fit:contain}.entry.highlight .summary-panel .desc{font-size:1.125rem}}
  .search-autocomplete .ac-group-label{padding:4px clamp(8px,2vw,20px) 2px;font-size:.75em;font-weight:700;color:var(--accent-gear);text-transform:uppercase;letter-spacing:.05em}
  .search-autocomplete .ac-group-label[data-cat="patch"]{color:var(--accent-patch)}
+ .search-autocomplete .ac-group-label[data-cat="user"]{color:var(--accent-note)}
  .search-autocomplete .ac-item[data-cat="patch"] .ac-label{color:var(--accent-patch)}
  .search-autocomplete .ac-group-label.ac-fav-label{color:var(--accent-instrument)}
  .search-autocomplete .ac-item.fav-rec{opacity:.72;filter:saturate(.75);background:rgba(0,0,0,.12);box-shadow:inset 0 0 24px rgba(0,0,0,.16);border-left:3px dashed var(--accent-gear)}
@@ -3934,25 +4020,43 @@ body.chosen-preview-open .entry.selected:not(.highlight) .path.is-expanded{
     margin:0!important;
     width:min(92vw,36rem)!important;max-width:min(92vw,36rem)!important;
     max-height:min(86svh,calc(100svh - 2.5rem))!important;
+    /* fix-PREVIEW-MINHEIGHT-LEAK-v1: cards that share a grid ROW get an inline
+       min-height:<row-height>px from equalizeCatalogCardRows (Phase 2) so the
+       row's cards are all equal height in the grid. A card alone in its row
+       never gets one. That inline min-height stays on the element when it
+       opens as this fixed, centered preview - and per CSS min-height beats
+       max-height, so the leaked value forced the card taller than the svh
+       clamp above and it stretched past the top/bottom edges. Only cards with
+       a "side card" in their row were affected, exactly the reported symptom.
+       Reset it here (a stylesheet !important beats the inline non-important
+       min-height) so the card always sizes purely to the svh clamp + content. */
+    min-height:0!important;
     padding-top:3.5rem!important
   }
-  /* LANDSCAPE-PREVIEW-WIDTH-v3: the base rule above sizes the portrait card
-     to min(92vw,36rem) - i.e. 92% of the phone's SHORT dimension, capped.
-     In landscape the short dimension is the viewport HEIGHT, so mirror that
-     exactly with min(92svh,36rem): the landscape card is then physically the
-     same width the portrait card is, leaving identical left/right spacers,
-     with the content simply reflowed for the wider screen. This is pure CSS
-     (svh, not the JS-measured --hl-narrow-dim v2 used) so it can't fall back
-     to a too-wide value if that variable isn't set yet when the card opens
-     on a real device - which is what the wide landscape card in the reports
-     actually was. svh (small viewport) also means the width tracks the same
-     visible-area basis the svh-based height clamp below uses. */
+  /* LANDSCAPE-PREVIEW-WIDTH-v4: earlier (v3) the landscape card was forced to
+     min(92svh,36rem) so it was physically the SAME width as the portrait card
+     (tall-narrow rotated to short-narrow). The user instead wants the
+     landscape card to be the portrait rectangle turned on its side: its
+     HORIZONTAL span should equal the portrait card's VERTICAL span. The
+     portrait card's height tops out at the 36rem clamp (~560-576px), so
+     sizing the landscape WIDTH to min(92vw,36rem) makes the landscape width
+     match that vertical span, producing a centered wide rectangle with equal
+     left/right spacers. This is just the base rule's own value, so we let it
+     through unchanged (svh height clamp below still bounds the height so it
+     can't bleed off the top/bottom edges). */
   body.catalog-portable.portable-landscape.chosen-preview-open .entry.selected:not(.highlight){
-    width:min(92svh,36rem)!important;max-width:min(92svh,36rem)!important
+    width:min(92vw,36rem)!important;max-width:min(92vw,36rem)!important
   }
+  /* EMBED-CARD-SVH-v1: same dvh->svh correction LANDSCAPE-PREVIEW-WIDTH-v3
+     made on the plain expanded card above. dvh is the toolbar-hidden basis,
+     so with the mobile address bar visible this embed-open card (Card Search /
+     YouTube) was still taller than the actually-visible area and bled past
+     the top and bottom edges - and unlike the plain card it sets a fixed
+     height and overflow:hidden, so the excess could not even be scrolled to.
+     svh is the toolbar-visible basis, so the card always fits. */
   body.catalog-portable.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed){
-    height:min(86dvh,calc(100dvh - 2.5rem))!important;
-    max-height:min(86dvh,calc(100dvh - 2.5rem))!important;
+    height:min(86svh,calc(100svh - 2.5rem))!important;
+    max-height:min(86svh,calc(100svh - 2.5rem))!important;
     overflow:hidden!important;
     display:flex!important;flex-direction:column!important
   }
@@ -4740,8 +4844,8 @@ body.catalog-portable.chosen-preview-open .entry.selected:not(.highlight){
 }
 body.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed),
 body.catalog-portable.card-embed-open.chosen-preview-open .entry.selected:not(.highlight):has(#cardSearchEmbed){
-  height:calc(100dvh - var(--cat-header-h,0px) - 1.25rem)!important;
-  max-height:calc(100dvh - var(--cat-header-h,0px) - 1.25rem)!important
+  height:calc(100svh - var(--cat-header-h,0px) - 1.25rem)!important;
+  max-height:calc(100svh - var(--cat-header-h,0px) - 1.25rem)!important
 }
 /* fix-EMBED-IFRAME-BACK-HIDE: main embed back owns in-embed history */
 #cardSearchEmbed .card-search-iframe-back{display:none!important}
@@ -6222,7 +6326,7 @@ body:not(.catalog-portable):not(.cat-fouc-fail){visibility:hidden!important}
 <div class="search-chrome" id="searchChrome"><div class="search-col" id="searchCol"><div class="search-strip-anchor"><div class="search-strip" id="searchStrip"><input id="searchInput" type="text" placeholder="Search…" autocomplete="off"><button type="button" class="search-strip-hide" onclick="toggleSearchChrome()" aria-expanded="true">Hide</button><button type="button" class="search-strip-clear" onclick="clearAllFilters()" aria-label="Clear" title="Clear"><svg class="clear-sweep-ico" viewBox="0 0 24 24" width="1.2em" height="1.2em" aria-hidden="true" focusable="false"><path fill="currentColor" fill-rule="evenodd" d="M9.2 2.2h5.6v3.4h6.1c.42 0 .7.42.58.82L18.5 20.2c-.09.4-.45.7-.86.7H6.36c-.41 0-.77-.3-.86-.7L2.52 6.42c-.12-.4.16-.82.58-.82H9.2V2.2zm1.7 1.7v3.2H4.72L7.22 18.9h9.56l2.5-11.8h-6.38V3.9h-1.7zM7.85 14.4h1.55v3.5H7.85v-3.5z"/></svg></button><button type="button" class="search-strip-fs" id="searchStripFs" onclick="toggleAcFullscreen()" aria-pressed="false" aria-label="Fullscreen Search" title="Fullscreen Search">&#x26F6;</button><div class="ui-scale search-only-scale" id="searchOnlyScale"><button type="button" class="ui-scale-step" id="searchOnlyScaleDown" aria-label="Smaller Search">−</button><button type="button" class="ui-scale-readout" id="searchOnlyScaleReadout" aria-expanded="false" aria-haspopup="true" title="Search scale">100%</button><button type="button" class="ui-scale-step" id="searchOnlyScaleUp" aria-label="Larger Search">+</button><div class="ui-scale-pop" id="searchOnlyScalePop" hidden></div></div></div><div class="search-ac-shell" id="acShell"><div class="ac-fs-bar" id="acFsBar"><button type="button" class="ac-fs-back" id="acFsBack" aria-label="Exit fullscreen" title="Exit fullscreen" onclick="event.preventDefault();event.stopPropagation();setAcFullscreen(false)">&#x2190;</button><div class="fs-mode-nav" id="acFsModeNav" role="navigation" aria-label="Mode"><button type="button" class="mode-btn" data-mode="pick" onclick="event.preventDefault();event.stopPropagation();setMode(&#x27;pick&#x27;)">Pick</button><button type="button" class="mode-btn" data-mode="search" onclick="event.preventDefault();event.stopPropagation();setMode(&#x27;search&#x27;)">Search</button></div><button type="button" class="kw-companion-btn" id="kwCompanionBtn" aria-label="Keywords side-by-side" aria-pressed="false" title="Keywords" onclick="event.preventDefault();event.stopPropagation();toggleKwFsCompanion()">K</button><div class="fs-stripe-wrap"><button type="button" class="fs-stripe-trigger" id="acStripeTrigger" aria-label="Expand controls" title="Expand controls" onclick="event.preventDefault();event.stopPropagation();toggleFsStripe(&#x27;ac&#x27;)">&#x203a;</button><div class="fs-stripe-panel" id="acFsStripePanel"><button type="button" class="fs-snap-btn" id="acSnapBtn" style="display:none" aria-label="Snap 50/50" title="Snap 50/50" onclick="event.preventDefault();event.stopPropagation();snapDualFsTo50()">&#x229e; 50/50</button><button type="button" class="fs-pin-btn" id="fsSepPinBtn" style="display:none" aria-label="Lock separator" aria-pressed="false" title="Lock separator" onclick="event.preventDefault();event.stopPropagation();toggleDualFsPin()">&#x1F4CC;</button><div class="ac-history-wrap" id="searchHistoryWrap"><button type="button" class="ac-history-btn" id="searchHistory" aria-haspopup="dialog" aria-expanded="false" aria-controls="historyCloud" title="History" aria-label="History">History</button><div class="ac-history-cloud" id="historyCloud" hidden role="dialog" aria-label="Erase history"><p class="ac-history-ask">Erase history</p><div class="ac-history-picks" id="historyPicks"></div><div class="ac-history-actions"><button type="button" class="ac-history-search" id="historySearchAll" title="Select all search history (not saved sessions or saved combinations)">All search</button><button type="button" class="ac-history-all" id="historyAll" title="Select all, including saved sessions and saved combinations">All</button><button type="button" class="ac-history-yes" id="historyYes" aria-label="Erase selected" title="Erase">&#x2713;</button><button type="button" class="ac-history-no" id="historyNo" aria-label="Cancel" title="Keep">&#x2715;</button></div></div></div><div class="fs-stripe-scale for-ac" aria-label="Scale"><button type="button" class="fs-stripe-scale-btn" aria-label="Smaller search" title="Smaller search" onclick="event.preventDefault();event.stopPropagation();if(typeof stepSearchOnlyUiScale===&#x27;function&#x27;)stepSearchOnlyUiScale(-1)">&#x2212;</button><button type="button" class="fs-stripe-scale-btn" aria-label="Larger search" title="Larger search" onclick="event.preventDefault();event.stopPropagation();if(typeof stepSearchOnlyUiScale===&#x27;function&#x27;)stepSearchOnlyUiScale(1)">+</button></div></div></div></div><div class="ac-ctx-bar" id="acCtxBar"></div><div class="search-autocomplete" id="acList"></div><div class="ac-scroll-stripe" id="acScrollStripe" hidden><div class="ac-scroll-thumb" id="acScrollThumb"></div></div><button type="button" class="ac-height" id="acHeight" aria-label="Resize search suggestions" aria-orientation="horizontal" tabindex="-1"></button><button type="button" class="ac-width" id="acWidth" aria-label="Resize search suggestions width" aria-orientation="vertical" tabindex="-1"></button></div></div><div class="search-active-pills" id="searchPills"></div></div>
 <button type="button" class="search-split" id="searchSplit" aria-label="Resize Search and Keywords" aria-orientation="vertical" tabindex="-1"></button>
 <div class="dual-fs-sep" id="dualFsSep" role="separator" aria-label="Drag to resize panels"><button type="button" class="dual-fs-sep-pin" id="dualFsSepPin" aria-label="Lock separator" aria-pressed="false" title="Lock separator" onclick="event.preventDefault();event.stopPropagation();toggleDualFsPin()">&#x1F4CC;</button></div>
-<div class="filter-wrap" id="filterWrap"><div class="filter-top" id="filterTop"><button type="button" class="kw-fs-back" id="kwFsBack" aria-label="Exit fullscreen Keywords" title="Exit fullscreen" onclick="event.preventDefault();event.stopPropagation();toggleKwFullscreen()">&#x2190;</button><button class="filter-toggle" id="filterToggle" onclick="if(window.CATALOG_PORTABLE){event.preventDefault();return;}toggleFilter()" aria-expanded="false"><span class="toggle-arrow">&#9660;</span> Keywords</button><button type="button" class="kw-strip-hide" id="kwStripHide" onclick="event.preventDefault();event.stopPropagation();toggleKwChrome()" aria-expanded="true">Hide</button><div class="fs-mode-nav" id="kwFsModeNav" role="navigation" aria-label="Mode"><button type="button" class="mode-btn" data-mode="pick" onclick="event.preventDefault();event.stopPropagation();setMode(&#x27;pick&#x27;)">Pick</button><button type="button" class="mode-btn" data-mode="search" onclick="event.preventDefault();event.stopPropagation();setMode(&#x27;search&#x27;)">Search</button></div><button type="button" class="ac-companion-btn" id="acCompanionBtn" aria-label="Search side-by-side" aria-pressed="false" title="Search" onclick="event.preventDefault();event.stopPropagation();toggleAcFsCompanion()">&#x1F50D;</button><button type="button" class="kw-strip-clear" id="kwStripClear" onclick="event.preventDefault();event.stopPropagation();clearAllFilters()" aria-label="Clear" title="Clear"><svg class="clear-sweep-ico" viewBox="0 0 24 24" width="1.2em" height="1.2em" aria-hidden="true" focusable="false"><path fill="currentColor" fill-rule="evenodd" d="M9.2 2.2h5.6v3.4h6.1c.42 0 .7.42.58.82L18.5 20.2c-.09.4-.45.7-.86.7H6.36c-.41 0-.77-.3-.86-.7L2.52 6.42c-.12-.4.16-.82.58-.82H9.2V2.2zm1.7 1.7v3.2H4.72L7.22 18.9h9.56l2.5-11.8h-6.38V3.9h-1.7zM7.85 14.4h1.55v3.5H7.85v-3.5z"/></svg></button><button type="button" class="kw-strip-more" id="kwStripMore" aria-expanded="false" aria-haspopup="true" title="More keyword controls" onclick="event.preventDefault();event.stopPropagation();toggleKwStripMore()">&#x22EF;</button><div class="kw-strip-more-pop" id="kwStripMorePop" hidden></div><button type="button" class="kw-fs-btn" id="kwStripFs" aria-pressed="false" aria-label="Fullscreen Keywords" title="Fullscreen Keywords" onclick="event.preventDefault();event.stopPropagation();toggleKwFullscreen()">&#x26F6;</button><div class="fs-stripe-wrap"><button type="button" class="fs-stripe-trigger" id="kwStripeTrigger" aria-label="Expand controls" title="Expand controls" onclick="event.preventDefault();event.stopPropagation();toggleFsStripe(&#x27;kw&#x27;)">&#x203a;</button><div class="fs-stripe-panel" id="kwFsStripePanel"><button type="button" class="fs-snap-btn" id="kwSnapBtn" style="display:none" aria-label="Snap 50/50" title="Snap 50/50" onclick="event.preventDefault();event.stopPropagation();snapDualFsTo50()">&#x229e; 50/50</button><div class="fs-stripe-scale for-kw" aria-label="Scale"><button type="button" class="fs-stripe-scale-btn" aria-label="Smaller UI" title="Smaller UI" onclick="event.preventDefault();event.stopPropagation();if(typeof stepUiScale===&#x27;function&#x27;)stepUiScale(-1)">&#x2212;</button><button type="button" class="fs-stripe-scale-btn" aria-label="Larger UI" title="Larger UI" onclick="event.preventDefault();event.stopPropagation();if(typeof stepUiScale===&#x27;function&#x27;)stepUiScale(1)">+</button></div></div></div></div><div class="filter-panel" id="filterPanel"><div class="filter-kw-tools" id="filterKwTools"><button type="button" class="collapse-cards-btn" id="collapseCardsBtn" title="Collapse open patch lists and even card sizes" onclick="event.preventDefault();event.stopPropagation();if(typeof collapseAllPatchTrees==='function')collapseAllPatchTrees()">Collapse</button><button type="button" class="layout-edit-btn" id="layoutEditBtn" aria-pressed="false" title="Show drag edges to resize Search, Keywords, Index, and menu height" onclick="event.preventDefault();event.stopPropagation();toggleLayoutEdit()">Customize</button><button type="button" class="layout-default-btn" id="layoutDefaultBtn" title="Reset layout sizes to defaults." onclick="event.preventDefault();event.stopPropagation();resetLayoutDefaults()">Default</button><div class="layout-presets" id="layoutPresets"><button type="button" class="layout-presets-btn" id="layoutPresetsBtn" aria-expanded="false" aria-haspopup="true" title="Save and apply named menu layouts">Layouts</button><div class="layout-presets-pop" id="layoutPresetsPop" hidden><div class="layout-presets-tabs" role="tablist" aria-label="Layout store"><button type="button" class="layout-presets-tab" id="layoutTabKeywords" data-layout-scope="keywords" role="tab" aria-selected="true">Search + Keywords</button><button type="button" class="layout-presets-tab" id="layoutTabSearch" data-layout-scope="search" role="tab" aria-selected="false">Search</button></div><p class="layout-presets-store" id="layoutPresetsStoreLabel">Search + Keywords</p><div class="layout-presets-list" id="layoutPresetsList"></div><div class="layout-presets-save"><input id="layoutPresetsName" type="text" maxlength="40" placeholder="Name (e.g. Studio)" autocomplete="off"><button type="button" id="layoutPresetsSave">Save Keywords layout</button><button type="button" id="layoutPresetsUpdate">Update Keywords layout</button><p class="layout-presets-flash" id="layoutPresetsFlash" aria-live="polite"></p></div></div><div class="ui-scale" id="uiScale"><button type="button" class="ui-scale-step" id="uiScaleDown" aria-label="Smaller UI">−</button><button type="button" class="ui-scale-readout" id="uiScaleReadout" aria-expanded="false" aria-haspopup="true" title="Interface scale">100%</button><button type="button" class="ui-scale-step" id="uiScaleUp" aria-label="Larger UI">+</button><div class="ui-scale-pop" id="uiScalePop" hidden></div></div></div></div><div class="mode-switch"><button class="mode-btn" data-mode="pick" onclick="setMode(this.dataset.mode)">Pick</button><button class="mode-btn active" data-mode="search" onclick="setMode(this.dataset.mode)">Search</button></div><div class="cat-switch" id="catSwitch"><button class="cat-btn active" data-cat="all" onclick="setCat(this.dataset.cat)">All</button><button class="cat-btn" data-cat="instrument" onclick="setCat(this.dataset.cat)">Instrument</button><button class="cat-btn" data-cat="brand" onclick="setCat(this.dataset.cat)">Brand</button><button class="cat-btn" data-cat="model" onclick="setCat(this.dataset.cat)">Model</button><button class="cat-btn" data-cat="vibe" onclick="setCat(this.dataset.cat)">Vibe</button><button class="cat-btn" data-cat="patch" onclick="setCat(this.dataset.cat)">Patch</button></div><div id="kwbar" lang="en"></div><p id="kwstatus" class="kwstatus"></p></div><button type="button" class="kw-shade-height" id="kwShadeHeight" aria-label="Resize Keywords height" aria-orientation="horizontal" tabindex="-1"></button></div><button type="button" class="search-height" id="searchHeight" aria-label="Resize Search height" aria-orientation="horizontal" tabindex="-1"></button></div>
+<div class="filter-wrap" id="filterWrap"><div class="filter-top" id="filterTop"><button type="button" class="kw-fs-back" id="kwFsBack" aria-label="Exit fullscreen Keywords" title="Exit fullscreen" onclick="event.preventDefault();event.stopPropagation();toggleKwFullscreen()">&#x2190;</button><button class="filter-toggle" id="filterToggle" onclick="if(window.CATALOG_PORTABLE){event.preventDefault();return;}toggleFilter()" aria-expanded="false"><span class="toggle-arrow">&#9660;</span> Keywords</button><button type="button" class="kw-strip-hide" id="kwStripHide" onclick="event.preventDefault();event.stopPropagation();toggleKwChrome()" aria-expanded="true">Hide</button><div class="fs-mode-nav" id="kwFsModeNav" role="navigation" aria-label="Mode"><button type="button" class="mode-btn" data-mode="pick" onclick="event.preventDefault();event.stopPropagation();setMode(&#x27;pick&#x27;)">Pick</button><button type="button" class="mode-btn" data-mode="search" onclick="event.preventDefault();event.stopPropagation();setMode(&#x27;search&#x27;)">Search</button></div><button type="button" class="ac-companion-btn" id="acCompanionBtn" aria-label="Search side-by-side" aria-pressed="false" title="Search" onclick="event.preventDefault();event.stopPropagation();toggleAcFsCompanion()">&#x1F50D;</button><button type="button" class="kw-strip-clear" id="kwStripClear" onclick="event.preventDefault();event.stopPropagation();clearAllFilters()" aria-label="Clear" title="Clear"><svg class="clear-sweep-ico" viewBox="0 0 24 24" width="1.2em" height="1.2em" aria-hidden="true" focusable="false"><path fill="currentColor" fill-rule="evenodd" d="M9.2 2.2h5.6v3.4h6.1c.42 0 .7.42.58.82L18.5 20.2c-.09.4-.45.7-.86.7H6.36c-.41 0-.77-.3-.86-.7L2.52 6.42c-.12-.4.16-.82.58-.82H9.2V2.2zm1.7 1.7v3.2H4.72L7.22 18.9h9.56l2.5-11.8h-6.38V3.9h-1.7zM7.85 14.4h1.55v3.5H7.85v-3.5z"/></svg></button><button type="button" class="kw-strip-more" id="kwStripMore" aria-expanded="false" aria-haspopup="true" title="More keyword controls" onclick="event.preventDefault();event.stopPropagation();toggleKwStripMore()">&#x22EF;</button><div class="kw-strip-more-pop" id="kwStripMorePop" hidden></div><button type="button" class="kw-fs-btn" id="kwStripFs" aria-pressed="false" aria-label="Fullscreen Keywords" title="Fullscreen Keywords" onclick="event.preventDefault();event.stopPropagation();toggleKwFullscreen()">&#x26F6;</button><div class="fs-stripe-wrap"><button type="button" class="fs-stripe-trigger" id="kwStripeTrigger" aria-label="Expand controls" title="Expand controls" onclick="event.preventDefault();event.stopPropagation();toggleFsStripe(&#x27;kw&#x27;)">&#x203a;</button><div class="fs-stripe-panel" id="kwFsStripePanel"><button type="button" class="fs-snap-btn" id="kwSnapBtn" style="display:none" aria-label="Snap 50/50" title="Snap 50/50" onclick="event.preventDefault();event.stopPropagation();snapDualFsTo50()">&#x229e; 50/50</button><div class="fs-stripe-scale for-kw" aria-label="Scale"><button type="button" class="fs-stripe-scale-btn" aria-label="Smaller UI" title="Smaller UI" onclick="event.preventDefault();event.stopPropagation();if(typeof stepUiScale===&#x27;function&#x27;)stepUiScale(-1)">&#x2212;</button><button type="button" class="fs-stripe-scale-btn" aria-label="Larger UI" title="Larger UI" onclick="event.preventDefault();event.stopPropagation();if(typeof stepUiScale===&#x27;function&#x27;)stepUiScale(1)">+</button></div></div></div></div><div class="filter-panel" id="filterPanel"><div class="filter-kw-tools" id="filterKwTools"><button type="button" class="collapse-cards-btn" id="collapseCardsBtn" title="Collapse open patch lists and even card sizes" onclick="event.preventDefault();event.stopPropagation();if(typeof collapseAllPatchTrees==='function')collapseAllPatchTrees()">Collapse</button><button type="button" class="layout-edit-btn" id="layoutEditBtn" aria-pressed="false" title="Show drag edges to resize Search, Keywords, Index, and menu height" onclick="event.preventDefault();event.stopPropagation();toggleLayoutEdit()">Customize</button><button type="button" class="layout-default-btn" id="layoutDefaultBtn" title="Reset layout sizes to defaults." onclick="event.preventDefault();event.stopPropagation();resetLayoutDefaults()">Default</button><div class="layout-presets" id="layoutPresets"><button type="button" class="layout-presets-btn" id="layoutPresetsBtn" aria-expanded="false" aria-haspopup="true" title="Save and apply named menu layouts">Layouts</button><div class="layout-presets-pop" id="layoutPresetsPop" hidden><div class="layout-presets-tabs" role="tablist" aria-label="Layout store"><button type="button" class="layout-presets-tab" id="layoutTabKeywords" data-layout-scope="keywords" role="tab" aria-selected="true">Search + Keywords</button><button type="button" class="layout-presets-tab" id="layoutTabSearch" data-layout-scope="search" role="tab" aria-selected="false">Search</button></div><p class="layout-presets-store" id="layoutPresetsStoreLabel">Search + Keywords</p><div class="layout-presets-list" id="layoutPresetsList"></div><div class="layout-presets-save"><input id="layoutPresetsName" type="text" maxlength="40" placeholder="Name (e.g. Studio)" autocomplete="off"><button type="button" id="layoutPresetsSave">Save Keywords layout</button><button type="button" id="layoutPresetsUpdate">Update Keywords layout</button><p class="layout-presets-flash" id="layoutPresetsFlash" aria-live="polite"></p></div></div><div class="ui-scale" id="uiScale"><button type="button" class="ui-scale-step" id="uiScaleDown" aria-label="Smaller UI">−</button><button type="button" class="ui-scale-readout" id="uiScaleReadout" aria-expanded="false" aria-haspopup="true" title="Interface scale">100%</button><button type="button" class="ui-scale-step" id="uiScaleUp" aria-label="Larger UI">+</button><div class="ui-scale-pop" id="uiScalePop" hidden></div></div></div></div><div class="mode-switch"><button class="mode-btn" data-mode="pick" onclick="setMode(this.dataset.mode)">Pick</button><button class="mode-btn active" data-mode="search" onclick="setMode(this.dataset.mode)">Search</button></div><div class="cat-switch" id="catSwitch"><button class="cat-btn active" data-cat="all" onclick="setCat(this.dataset.cat)">All</button><button class="cat-btn" data-cat="instrument" onclick="setCat(this.dataset.cat)">Instrument</button><button class="cat-btn" data-cat="brand" onclick="setCat(this.dataset.cat)">Brand</button><button class="cat-btn" data-cat="model" onclick="setCat(this.dataset.cat)">Model</button><button class="cat-btn" data-cat="vibe" onclick="setCat(this.dataset.cat)">Vibe</button><button class="cat-btn" data-cat="patch" onclick="setCat(this.dataset.cat)">Patch</button><button class="cat-btn" data-cat="user" onclick="setCat(this.dataset.cat)">User Keywords</button></div><div id="kwbar" lang="en"></div><p id="kwstatus" class="kwstatus"></p></div><button type="button" class="kw-shade-height" id="kwShadeHeight" aria-label="Resize Keywords height" aria-orientation="horizontal" tabindex="-1"></button></div><button type="button" class="search-height" id="searchHeight" aria-label="Resize Search height" aria-orientation="horizontal" tabindex="-1"></button></div>
 <div class="catalog-index is-collapsed" id="catalogIndex"><div class="catalog-index-head"><button type="button" class="catalog-index-toggle" id="catalogIndexToggle" aria-label="Expand index" aria-expanded="false" title="Expand index" onclick="event.preventDefault();event.stopPropagation();toggleCatalogIndex()"><span class="toggle-arrow">&#9660;</span></button><h2 class="catalog-index-title">Index (alphabetical)</h2><button type="button" class="catalog-index-embed" id="catalogIndexEmbed" aria-pressed="false" title="Embed index above the catalog cards" onclick="event.preventDefault();event.stopPropagation();toggleIndexEmbed()">Embed</button></div><ul class="index" id="catalogIndexList">
 <li data-kw="drone"><a href="#item-8">12 Oscillator Doom Drone</a></li>
 <li data-kw="string"><a href="#item-6">12 String Acoustic</a></li>
@@ -20328,6 +20432,12 @@ body:not(.catalog-portable):not(.cat-fouc-fail){visibility:hidden!important}
       <img id="cardSearchImgFit" alt="" onclick="event.preventDefault();event.stopPropagation();cardSearchExitImage()">
     </div>
     <button type="button" class="card-img-exit" id="cardSearchImgExit" onclick="event.preventDefault();event.stopPropagation();cardSearchExitImage()">Exit</button>
+    <!-- fix-YT-FS-EXIT-OVERLAY-v1: bottom-centred exit control + a bottom-edge
+         swipe-catch strip, both children of the fullscreen host so they paint
+         over the video iframe. Only active while the host is the fullscreen
+         element (see the :fullscreen CSS). -->
+    <button type="button" class="card-yt-fs-exit" id="cardYtFsExit" aria-label="Exit video fullscreen" title="Exit video fullscreen" onclick="event.preventDefault();event.stopPropagation();cardSearchExitVideoFs()">&#x2715;&nbsp;Exit fullscreen</button>
+    <div class="card-yt-fs-swipe-catch" id="cardYtFsSwipeCatch" aria-hidden="true"></div>
     <div class="card-search-fallback" id="cardSearchFallback">
       <p>This search cannot be embedded here.</p>
       <button type="button" onclick="event.preventDefault();event.stopPropagation();cardSearchOpenPopup()">Open in popup</button>
@@ -20426,6 +20536,7 @@ cardSearchApplyPopupLabels();
   if(window.visualViewport)window.visualViewport.addEventListener('resize',_sched,{passive:true});
 })();
 document.addEventListener('fullscreenchange',function(){
+  if(typeof cardSearchMaybeRedirectYtFs==='function')cardSearchMaybeRedirectYtFs();
   if(!window.CATALOG_PORTABLE)return;
   var inFs=!!(document.fullscreenElement||document.webkitFullscreenElement);
   if(!inFs&&portableWantBrowserFs())portableApplyFsClass(true);
@@ -20433,6 +20544,7 @@ document.addEventListener('fullscreenchange',function(){
   if(typeof portableRelayoutChrome==='function')portableRelayoutChrome('fullscreenchange');
 });
 document.addEventListener('webkitfullscreenchange',function(){
+  if(typeof cardSearchMaybeRedirectYtFs==='function')cardSearchMaybeRedirectYtFs();
   if(!window.CATALOG_PORTABLE)return;
   var inFs=!!(document.fullscreenElement||document.webkitFullscreenElement);
   if(!inFs&&portableWantBrowserFs())portableApplyFsClass(true);
@@ -24884,6 +24996,82 @@ window.cardSearchToggleFullscreen=function(){
   }
 };
 
+/* fix-YT-FS-EXIT-OVERLAY-v1: When a cross-origin YouTube player takes the raw
+   <iframe> (#cardSearchFrame) fullscreen, it is promoted to the browser's top
+   layer and nothing in our page can paint over it or exit it reliably (the
+   reported trap). As soon as we see that happen, re-request fullscreen on the
+   embed HOST (#cardSearchEmbed) instead. The host replaces the iframe as the
+   single fullscreen element (no new user gesture is required while already
+   fullscreen), the video keeps filling the host, and our own exit chrome can
+   sit on top. A guard flag avoids re-entrancy within one transition. */
+window.__cardYtFsRedirecting=false;
+window.cardSearchMaybeRedirectYtFs=function(){
+  var iframe=document.getElementById('cardSearchFrame');
+  var host=document.getElementById('cardSearchEmbed');
+  if(!iframe||!host)return;
+  var fsEl=document.fullscreenElement||document.webkitFullscreenElement||null;
+  if(fsEl===iframe&&!window.__cardYtFsRedirecting){
+    window.__cardYtFsRedirecting=true;
+    try{
+      var req=host.requestFullscreen?host.requestFullscreen():(host.webkitRequestFullscreen?host.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT||1):null);
+      if(req&&req.then)req.then(function(){window.__cardYtFsRedirecting=false;},function(){window.__cardYtFsRedirecting=false;});
+      else window.__cardYtFsRedirecting=false;
+    }catch(e){window.__cardYtFsRedirecting=false;}
+  }
+};
+/* Exit whatever video fullscreen is active WITHOUT touching the app's separate
+   toolbar-hiding "browser-fs" CSS state (that is not the Fullscreen API). */
+window.cardSearchExitVideoFs=function(){
+  try{
+    var r=null;
+    if(document.exitFullscreen)r=document.exitFullscreen();
+    else if(document.webkitExitFullscreen)r=document.webkitExitFullscreen();
+    if(r&&r.catch)r.catch(function(){});
+  }catch(e){}
+};
+(function(){
+  var armTimer=null;
+  function embedHost(){return document.getElementById('cardSearchEmbed');}
+  function exitBtn(){return document.getElementById('cardYtFsExit');}
+  function hostIsFs(){var h=embedHost();return !!h&&(document.fullscreenElement===h||document.webkitFullscreenElement===h);}
+  function arm(){
+    var b=exitBtn();if(!b)return;
+    b.classList.add('yt-fs-exit-armed');
+    if(armTimer)clearTimeout(armTimer);
+    armTimer=setTimeout(function(){var bb=exitBtn();if(bb)bb.classList.remove('yt-fs-exit-armed');armTimer=null;},4200);
+  }
+  function disarm(){var b=exitBtn();if(b)b.classList.remove('yt-fs-exit-armed');if(armTimer){clearTimeout(armTimer);armTimer=null;}}
+  window.__cardYtFsArm=arm;
+  /* The swipe-catch strip owns the gesture: because touch events for one
+     finger keep dispatching to the element that received touchstart, the
+     upward swipe is tracked even once the finger passes over the video. */
+  var sy=null,sx=null;
+  function onStart(e){
+    if(!hostIsFs()){sy=null;return;}
+    var t=e.touches&&e.touches[0];if(!t){sy=null;return;}
+    sy=t.clientY;sx=t.clientX;
+  }
+  function onMove(e){
+    if(sy==null)return;
+    var t=e.touches&&e.touches[0];if(!t)return;
+    var dy=sy-t.clientY,dx=Math.abs(t.clientX-sx);
+    if(dy>44&&dy>dx){arm();sy=null;}
+  }
+  function onEnd(){sy=null;}
+  function bind(){
+    var strip=document.getElementById('cardYtFsSwipeCatch');
+    if(!strip||strip.__ytSwipeBound)return;
+    strip.__ytSwipeBound=true;
+    strip.addEventListener('touchstart',onStart,{passive:true});
+    strip.addEventListener('touchmove',onMove,{passive:true});
+    strip.addEventListener('touchend',onEnd,{passive:true});
+    strip.addEventListener('touchcancel',onEnd,{passive:true});
+  }
+  if(document.readyState!=='loading')bind();else document.addEventListener('DOMContentLoaded',bind);
+  document.addEventListener('fullscreenchange',function(){if(hostIsFs())arm();else disarm();});
+  document.addEventListener('webkitfullscreenchange',function(){if(hostIsFs())arm();else disarm();});
+})();
+
 window.syncCardSearchTheme=function(){
   if(!document.body.classList.contains('card-embed-open')||!cardSearchState.popupUrl)return;
   if(cardSearchState.type==='yt'){
@@ -25398,17 +25586,40 @@ function noteKeywordsFor(text){
   });
   return out.slice(0,15);
 }
+/* fix-NOTE-HASHTAG-KW-v1: alongside the vocab-only guessing above, let the
+   user explicitly define searchable keywords by prefixing any word in a note
+   with '#'. Every #token becomes a keyword for that card regardless of the
+   catalog vocabulary, so free ideas like #extreme #soulful #upbeat finally
+   register. The bare word (without the #) is what enters the index; these are
+   tracked separately (data-userkw + USER_KW_SET) so they can be grouped under
+   their own "User Keywords" pill/search group. */
+function noteHashtagsFor(text){
+  var seen={}, out=[], m, re=/#([a-z0-9][a-z0-9_'-]*)/gi;
+  String(text||'').toLowerCase().replace(/[\u2018\u2019]/g,"'");
+  while((m=re.exec(String(text||'').toLowerCase()))){
+    var w=m[1].replace(/^['-]+|['-]+$/g,'');
+    if(!w||w.length<2||seen[w])continue;
+    seen[w]=1;out.push(w);
+  }
+  return out.slice(0,30);
+}
 function syncNoteKw(el,note){
   if(!el)return false;
   if(el.dataset.baseKw===undefined)el.dataset.baseKw=el.getAttribute('data-kw')||'';
   var base=el.dataset.baseKw.split(/\s+/).filter(Boolean);
   var noteKw=note?noteKeywordsFor(note):[];
+  var noteTags=note?noteHashtagsFor(note):[];
   var merged=base.slice();
-  var added=false;
-  noteKw.forEach(function(k){if(merged.indexOf(k)<0){merged.push(k);added=true;}});
+  noteKw.forEach(function(k){if(merged.indexOf(k)<0)merged.push(k);});
+  noteTags.forEach(function(k){if(merged.indexOf(k)<0)merged.push(k);});
   var next=merged.join(' ');
   var changed=(next!==(el.getAttribute('data-kw')||''));
   if(changed)el.setAttribute('data-kw',next);
+  var nextTags=noteTags.join(' ');
+  if(nextTags!==(el.getAttribute('data-userkw')||'')){
+    if(nextTags)el.setAttribute('data-userkw',nextTags);else el.removeAttribute('data-userkw');
+    changed=true;
+  }
   return changed;
 }
 window.toggleNoteView=function(btn){
@@ -25440,6 +25651,7 @@ function syncEntryMeta(el){
   }
   var nt=el.querySelector('.note-text');
   if(nt){nt.hidden=true;nt.classList.remove('has-note');nt.textContent='';}
+  if(typeof placeNoteViewBtn==='function')placeNoteViewBtn(el);
   var dsc=el.querySelector('.desc');
   if(dsc){
     if(dsc.dataset.orig===undefined)dsc.dataset.orig=dsc.textContent;
@@ -25503,8 +25715,8 @@ function restoreNotePopHome(pop){
   }
 }
 window.openNotePop=function(btn){
-  var wrap=btn&&btn.closest?btn.closest('.lib-notes'):null;
   var el=btn&&btn.closest?btn.closest('.entry'):null;
+  var wrap=(btn&&btn.closest?btn.closest('.lib-notes'):null)||(el&&el.querySelector?el.querySelector('.lib-notes'):null);
   if(!wrap)return;
   window.closeAllNotePops();
   var pop=wrap.querySelector('.note-pop');
@@ -25564,28 +25776,38 @@ return true;
 }
 var PATCH_SET={},patchCounts={};
 entries.forEach(function(el){patches(el).forEach(function(k){if(!usefulPatchToken(k))return;PATCH_SET[k]=1;patchCounts[k]=(patchCounts[k]||0)+1;});});
+/* fix-NOTE-HASHTAG-KW-v1: USER_KW_SET tracks every user-defined #keyword
+   (mirror of the data-userkw attributes syncNoteKw writes). Rebuilt whenever
+   notes change so brand-new tags render as pills and route to the User
+   Keywords group. A #tag that happens to also be a vocab/patch word keeps its
+   original category (it already worked); only genuinely new words go to 'user'. */
+function userKws(el){return (el.getAttribute('data-userkw')||'').split(/\s+/).filter(Boolean);}
+var USER_KW_SET={};
+function rebuildUserKwSet(){USER_KW_SET={};entries.forEach(function(el){userKws(el).forEach(function(k){USER_KW_SET[k]=1;});});}
+rebuildUserKwSet();
 var ALL=(function(){var s={};entries.forEach(function(el){kws(el).forEach(function(k){s[k]=1;});});return Object.keys(s).sort();})();
 function ms(el){return sel.length>0&&sel.every(function(k){return pillMatch(el,k);});}
 function matching(){return entries.filter(ms);}
 /* --- category filter --- */
 var activeCat='all';
-function kwCat(k){if(KW_CATS[k])return KW_CATS[k];if(PATCH_SET[k])return 'patch';return 'other';}
+function kwCat(k){if(KW_CATS[k])return KW_CATS[k];if(PATCH_SET[k])return 'patch';if(USER_KW_SET[k])return 'user';return 'other';}
 function isPatchKw(k){
 k=String(k||'').toLowerCase();
 if(kwCounts[k])return false;
 if(PATCH_SET[k])return true;
 return entries.some(function(el){return patchNames(el).indexOf(k)>=0;});
 }
-function kwTone(k,asPatch){if(asPatch||isPatchKw(k))return ' patch';if(GEAR[k])return ' gear';return '';}
+function kwTone(k,asPatch){if(asPatch||isPatchKw(k))return ' patch';if(USER_KW_SET[k]&&!KW_CATS[k]&&!PATCH_SET[k])return ' user';if(GEAR[k])return ' gear';return '';}
 function catTokens(el){return kws(el).concat(others(el));}
 function catMatch(el){
 var ks=catTokens(el);
 if(activeCat==='all'||activeCat==='other')return true;
 if(activeCat==='patch')return parseInt(el.getAttribute('data-patch-count')||'0',10)>0||patches(el).length>0;
+if(activeCat==='user')return userKws(el).length>0;
 return ks.some(function(k){return KW_CATS[k]===activeCat;});
 }
-var CAT_ORDER=['instrument','brand','model','vibe','patch'];
-var CAT_LABEL={instrument:'Instrument',brand:'Brand',model:'Model',vibe:'Vibe',patch:'Patch'};
+var CAT_ORDER=['instrument','brand','model','vibe','patch','user'];
+var CAT_LABEL={instrument:'Instrument',brand:'Brand',model:'Model',vibe:'Vibe',patch:'Patch',user:'User Keywords'};
 var PATCH_BAR_CAP=30;
 window.setCat=function(cat){if(cat==='other')cat='all';activeCat=cat;document.querySelectorAll('.cat-btn').forEach(function(b){b.classList.toggle('active',b.dataset.cat===cat);});if(currentMode==='search')applySearch();else render();if(typeof renderKwBar==='function')renderKwBar();requestAnimationFrame(function(){requestAnimationFrame(function(){if(typeof jumpAcList==='function')jumpAcList(typeof typedQuery==='function'?typedQuery():((typeof searchInput!=='undefined'&&searchInput&&searchInput.value)||'').trim().toLowerCase(),{jumpCat:cat});});});};
 /* --- mode switcher --- */
@@ -25753,7 +25975,9 @@ list.push({k:k,c:patchCounts[k],untagged:0,isLibName:0,label:k,cat:'patch'});
 return list.sort(function(a,b){return b.c-a.c||(a.k<b.k?-1:a.k>b.k?1:0);});
 })();
 window.refreshKwCaches=function(){
+rebuildUserKwSet();
 kwCounts={};entries.forEach(function(el){kws(el).forEach(function(k){kwCounts[k]=(kwCounts[k]||0)+1;});});
+ALL=(function(){var s={};entries.forEach(function(el){kws(el).forEach(function(k){s[k]=1;});});return Object.keys(s).sort();})();
 allKws=(function(){
 var seen={},list=[];
 Object.keys(kwCounts).forEach(function(k){seen[k]=1;list.push({k:k,c:kwCounts[k],untagged:0,isLibName:0,label:k,cat:kwCat(k)});});
@@ -28685,11 +28909,49 @@ document.body.classList.remove('search-empty-recs');
 syncHighlight();
 renderKwBar();
 syncLocGroups();
+syncDocNoteSearchMode();
 if((typeof searchListShouldStay==='function'&&searchListShouldStay())||(!document.body.classList.contains('search-extras-collapsed')&&acList&&(acList.classList.contains('open')||(searchInput&&document.activeElement===searchInput)))){
 showAc(searchInput?searchInput.value.trim().toLowerCase():'');
 }
 }
 window.applySearch=applySearch;
+/* fix-DOCNOTE-SEARCH-WINDOW-v1: when the About/Document bar (#catalogDocNote)
+   is in embedded mode, an active search that yields ZERO matches collapses the
+   card grid and drags the embedded bar (and the jump stack) through a reflow -
+   the reported search "jump". While a search is active AND nothing matches,
+   force the bar into its docked WINDOW mode so it no longer participates in the
+   grid reflow; restore the user's saved embed/window preference as soon as
+   there is a match again or the search is cleared. The user's pref is never
+   overwritten - this is a transient view override only. */
+function syncDocNoteSearchMode(){
+  var note=document.getElementById('catalogDocNote');
+  if(!note)return;
+  var typed=searchInput?searchInput.value.trim():'';
+  var activeSearch=(typeof searchKeywords!=='undefined'&&searchKeywords&&searchKeywords.length>0)||!!typed;
+  var hasMatch=!!document.querySelector('.catalog-body .entry.hit');
+  var pref=(typeof readDocNoteEmbedPref==='function')?(readDocNoteEmbedPref()===true):false;
+  var forceWindow=activeSearch&&!hasMatch;
+  var wantEmbedded=pref&&!forceWindow;
+  if(wantEmbedded===note.classList.contains('is-embedded'))return;
+  note.classList.toggle('is-embedded',wantEmbedded);
+  /* Reparent directly rather than via parkCatalogDocNote(): that path re-runs
+     applyDocNoteEmbedPref() and would immediately re-apply the SAVED pref,
+     undoing this transient search override. */
+  var w=document.getElementById('catalogMain');
+  var cb=w&&(w.querySelector(':scope > .catalog-body')||w.querySelector('.catalog-body'));
+  document.body.classList.toggle('doc-note-window-open',!wantEmbedded);
+  document.body.classList.toggle('doc-note-embedded',wantEmbedded);
+  if(wantEmbedded&&cb){
+    if(note.parentNode!==cb||cb.lastElementChild!==note)cb.appendChild(note);
+  }else if(w){
+    if(note.parentNode!==w||w.lastElementChild!==note)w.appendChild(note);
+  }
+  if(typeof applyIndexFillDocStyles==='function')applyIndexFillDocStyles();
+  if(typeof syncIndexWindowDock==='function')syncIndexWindowDock();
+  if(typeof placeCatalogJumpStack==='function')placeCatalogJumpStack();
+  if(typeof syncDocNoteEmbedBtn==='function')syncDocNoteEmbedBtn();
+}
+window.syncDocNoteSearchMode=syncDocNoteSearchMode;
 function closeSearchExtras(){
 if(acList){acList.classList.remove('open');acList.innerHTML='';}
 document.body.classList.add('search-extras-collapsed','search-chrome-collapsed');
@@ -29839,7 +30101,14 @@ function openChosenPreview(el){
   closeOverlay({skipScroll:true});
   rememberViewed(el);
   pinSelectedForPreview(el);
+  /* fix-PREVIEW-MINHEIGHT-LEAK-v1 (JS half): the placeholder above has already
+     captured the card's grid-slot size, so it is safe to drop the inline
+     min-height equalizeCatalogCardRows put on this card when it shared a grid
+     row. The CSS rule resets it too, but clearing it here keeps the element's
+     own inline state honest and defends against any later reflow that reads it. */
+  if(el&&el.style)el.style.minHeight='';
   document.body.classList.add('chosen-preview-open');
+  if(typeof placeNoteViewBtn==='function')placeNoteViewBtn(el);
   setOverlayFocus('preview');
   if(typeof cardChromeApplyViewState==='function')cardChromeApplyViewState();
   if(typeof logCardFsEmbedScroll==='function')logCardFsEmbedScroll('preview-open');
@@ -29866,6 +30135,7 @@ function closeChosenPreview(opts){
   if(!keepMedia&&typeof closeCardSearchEmbed==='function')closeCardSearchEmbed();
   document.body.classList.remove('chosen-preview-open');
   setOverlayFocus(null);
+  if(typeof placeNoteViewBtn==='function'&&last)placeNoteViewBtn(last);
   unpinSelectedForPreview();
   collapseOversizedGridPatches();
   /* fix-PREVIEW-CARD-v1: the card returns to its row; re-equalize so it picks up the row heights */
@@ -29892,7 +30162,7 @@ function overlayHoldsGridSlot(el){
 }
 function placeHighlight(el){
   document.querySelectorAll('.hl-ph').forEach(function(ph){if(ph.parentNode)ph.parentNode.removeChild(ph);});
-  document.querySelectorAll('.entry.highlight').forEach(function(e){if(e!==el)e.classList.remove('highlight');});
+  document.querySelectorAll('.entry.highlight').forEach(function(e){if(e!==el){e.classList.remove('highlight');syncHlNoteBtnPlacement(e);}});
   if(overlayHoldsGridSlot(el)&&el.parentNode){
     var ph=document.createElement('div');
     ph.className='hl-ph';
@@ -29917,6 +30187,7 @@ function placeHighlight(el){
      way of opening a card starts fullscreen from a clean size.  */
   clearHighlightStaleSizing(el);
   el.classList.add('highlight');
+  syncHlNoteBtnPlacement(el);
 }
 function clearHighlightStaleSizing(el){
   if(!el)return;
@@ -29929,6 +30200,47 @@ function clearHighlightStaleSizing(el){
   if(_hlHb){_hlHb.style.paddingTop='';_hlHb.style.minHeight='';}
 }
 window.clearHighlightStaleSizing=clearHighlightStaleSizing;
+/* fix-HL-NOTE-BTN-TOOLBAR-CHILD-v1 (JS half): relocate the notes button into
+   the real fullscreen toolbar row so it lays out as a plain flex sibling of
+   Back/Favorite instead of a fragile absolute overlay (see the matching CSS
+   comment). When the card is fullscreen (.highlight) the .note-balloon is
+   moved into .card-chrome-start; otherwise it is restored to its .lib-notes
+   home just before the note popup. Idempotent and safe to call repeatedly. */
+function syncHlNoteBtnPlacement(el){
+  if(!el||!el.querySelector)return;
+  if(typeof placeNoteViewBtn==='function')placeNoteViewBtn(el);
+  var btn=el.querySelector('.note-balloon');
+  if(!btn)return;
+  if(el.classList.contains('highlight')){
+    if(btn.parentNode!==el)el.appendChild(btn);
+  }else{
+    var wrap=el.querySelector('.lib-notes');
+    if(wrap&&btn.parentNode!==wrap){
+      var pop=wrap.querySelector('.note-pop');
+      if(pop)wrap.insertBefore(btn,pop);else wrap.appendChild(btn);
+    }
+  }
+}
+window.syncHlNoteBtnPlacement=syncHlNoteBtnPlacement;
+/* fix-HL-NOTE-VIEW-BTN-ACTIONSROW-v1: dock the description-switch toggle into
+   the .card-actions row (opposite end from the Search button) for the big
+   fullscreen/expanded card views, and return it to its grid-card home (a
+   direct child of .entry, absolute bottom-right) otherwise. Kept out of the
+   top toolbar so a portrait notch can never cover it. */
+function placeNoteViewBtn(el){
+  if(!el||!el.querySelector)return;
+  var nvBtn=el.querySelector('.note-view-btn');
+  if(!nvBtn)return;
+  var expanded=el.classList.contains('selected')&&document.body.classList.contains('chosen-preview-open')&&!el.classList.contains('highlight');
+  var bigCard=el.classList.contains('highlight')||expanded;
+  var actions=el.querySelector('.card-actions');
+  if(bigCard&&actions&&nvBtn.classList.contains('has-note')){
+    if(nvBtn.parentNode!==actions)actions.appendChild(nvBtn);
+  }else if(nvBtn.parentNode!==el){
+    el.appendChild(nvBtn);
+  }
+}
+window.placeNoteViewBtn=placeNoteViewBtn;
 
 function cardFsEmbedScrollEl(){
   if(document.body.classList.contains('card-embed-open')){
@@ -30003,6 +30315,7 @@ function openOverlay(el){
     var bd=document.getElementById('hlBackdrop');
     if(bd)bd.classList.add('open');
     document.body.classList.add('hl-open');
+    syncHlNoteBtnPlacement(el);
     syncViewportLock();
     if(typeof cardChromeApplyViewState==='function')cardChromeApplyViewState();
     if(typeof logCardFsEmbedScroll==='function')logCardFsEmbedScroll('overlay-already');
@@ -30101,7 +30414,7 @@ function closeOverlay(opts){
   closePathFocus(true);
   if(wasOpen&&!opts.skipScroll&&typeof window.consumeGallerySearchExit==='function')window.consumeGallerySearchExit(last);
   document.querySelectorAll('.hl-ph').forEach(function(ph){if(ph.parentNode)ph.parentNode.removeChild(ph);});
-  document.querySelectorAll('.entry.highlight').forEach(function(e){e.classList.remove('highlight');});
+  document.querySelectorAll('.entry.highlight').forEach(function(e){e.classList.remove('highlight');syncHlNoteBtnPlacement(e);});
   collapseOversizedGridPatches();
   var bd=document.getElementById('hlBackdrop');
   if(bd)bd.classList.remove('open');
@@ -31755,6 +32068,7 @@ function syncHighlight(){
     hl.classList.remove('hit','dim');
     if(!bannerOn){
       hl.classList.remove('highlight');
+      syncHlNoteBtnPlacement(hl);
       hl.style.display='none';
     }
   }

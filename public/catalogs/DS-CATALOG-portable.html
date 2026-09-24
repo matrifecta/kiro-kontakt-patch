@@ -28909,11 +28909,49 @@ document.body.classList.remove('search-empty-recs');
 syncHighlight();
 renderKwBar();
 syncLocGroups();
+syncDocNoteSearchMode();
 if((typeof searchListShouldStay==='function'&&searchListShouldStay())||(!document.body.classList.contains('search-extras-collapsed')&&acList&&(acList.classList.contains('open')||(searchInput&&document.activeElement===searchInput)))){
 showAc(searchInput?searchInput.value.trim().toLowerCase():'');
 }
 }
 window.applySearch=applySearch;
+/* fix-DOCNOTE-SEARCH-WINDOW-v1: when the About/Document bar (#catalogDocNote)
+   is in embedded mode, an active search that yields ZERO matches collapses the
+   card grid and drags the embedded bar (and the jump stack) through a reflow -
+   the reported search "jump". While a search is active AND nothing matches,
+   force the bar into its docked WINDOW mode so it no longer participates in the
+   grid reflow; restore the user's saved embed/window preference as soon as
+   there is a match again or the search is cleared. The user's pref is never
+   overwritten - this is a transient view override only. */
+function syncDocNoteSearchMode(){
+  var note=document.getElementById('catalogDocNote');
+  if(!note)return;
+  var typed=searchInput?searchInput.value.trim():'';
+  var activeSearch=(typeof searchKeywords!=='undefined'&&searchKeywords&&searchKeywords.length>0)||!!typed;
+  var hasMatch=!!document.querySelector('.catalog-body .entry.hit');
+  var pref=(typeof readDocNoteEmbedPref==='function')?(readDocNoteEmbedPref()===true):false;
+  var forceWindow=activeSearch&&!hasMatch;
+  var wantEmbedded=pref&&!forceWindow;
+  if(wantEmbedded===note.classList.contains('is-embedded'))return;
+  note.classList.toggle('is-embedded',wantEmbedded);
+  /* Reparent directly rather than via parkCatalogDocNote(): that path re-runs
+     applyDocNoteEmbedPref() and would immediately re-apply the SAVED pref,
+     undoing this transient search override. */
+  var w=document.getElementById('catalogMain');
+  var cb=w&&(w.querySelector(':scope > .catalog-body')||w.querySelector('.catalog-body'));
+  document.body.classList.toggle('doc-note-window-open',!wantEmbedded);
+  document.body.classList.toggle('doc-note-embedded',wantEmbedded);
+  if(wantEmbedded&&cb){
+    if(note.parentNode!==cb||cb.lastElementChild!==note)cb.appendChild(note);
+  }else if(w){
+    if(note.parentNode!==w||w.lastElementChild!==note)w.appendChild(note);
+  }
+  if(typeof applyIndexFillDocStyles==='function')applyIndexFillDocStyles();
+  if(typeof syncIndexWindowDock==='function')syncIndexWindowDock();
+  if(typeof placeCatalogJumpStack==='function')placeCatalogJumpStack();
+  if(typeof syncDocNoteEmbedBtn==='function')syncDocNoteEmbedBtn();
+}
+window.syncDocNoteSearchMode=syncDocNoteSearchMode;
 function closeSearchExtras(){
 if(acList){acList.classList.remove('open');acList.innerHTML='';}
 document.body.classList.add('search-extras-collapsed','search-chrome-collapsed');

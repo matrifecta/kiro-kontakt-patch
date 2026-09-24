@@ -796,6 +796,16 @@ body.catalog-help-kind-guide .catalog-help-title{display:none}
  .card-img-exit{display:none;position:absolute;right:10px;bottom:10px;z-index:4;box-sizing:border-box;min-width:2.75rem;min-height:2.75rem;padding:0 14px;border:1px solid var(--border);border-radius:8px;background:var(--bg-surface);color:var(--text);font:inherit;cursor:pointer;touch-action:manipulation;box-shadow:0 4px 16px rgba(0,0,0,.35)}
  .card-search-img-view.open ~ .card-img-exit{display:flex;align-items:center;justify-content:center}
  .card-img-exit:hover{border-color:var(--accent-instrument);color:var(--accent-instrument);background:var(--accent-instrument-bg)}
+/* fix-YT-FS-EXIT-OVERLAY-v1: controls for exiting a video fullscreen that the
+   app has redirected onto the embed HOST (so YouTube's own cross-origin
+   fullscreen can't trap the user). Hidden until the host is the fullscreen
+   element; the exit button additionally reveals only once armed by an
+   upward swipe from the bottom edge, so it never blocks the video and works
+   the same in portrait and landscape (always bottom-centred). */
+ .card-yt-fs-exit{display:none;position:fixed;left:50%;transform:translateX(-50%);bottom:calc(env(safe-area-inset-bottom,0px) + 1.1rem);z-index:2147483000;box-sizing:border-box;min-height:2.75rem;padding:0 20px;border:1px solid rgba(255,255,255,.35);border-radius:999px;background:rgba(18,18,20,.86);color:#fff;font:inherit;font-weight:600;cursor:pointer;touch-action:manipulation;align-items:center;justify-content:center;box-shadow:0 6px 22px rgba(0,0,0,.5);opacity:0;transition:opacity .18s ease}
+ .card-yt-fs-swipe-catch{display:none}
+ #cardSearchEmbed:fullscreen .card-yt-fs-exit.yt-fs-exit-armed,#cardSearchEmbed:-webkit-full-screen .card-yt-fs-exit.yt-fs-exit-armed{display:inline-flex;opacity:1}
+ #cardSearchEmbed:fullscreen .card-yt-fs-swipe-catch,#cardSearchEmbed:-webkit-full-screen .card-yt-fs-swipe-catch{display:block;position:fixed;left:0;right:0;bottom:0;height:28px;z-index:2147482900;background:transparent;touch-action:none}
  .card-search-img-view{display:none;position:absolute;inset:0;z-index:3;align-items:center;justify-content:center;background:var(--bg)}
  .card-search-img-view.open{display:flex}
  .card-search-img-view img{max-width:100%;max-height:100%;object-fit:contain;cursor:pointer}
@@ -20422,6 +20432,12 @@ body:not(.catalog-portable):not(.cat-fouc-fail){visibility:hidden!important}
       <img id="cardSearchImgFit" alt="" onclick="event.preventDefault();event.stopPropagation();cardSearchExitImage()">
     </div>
     <button type="button" class="card-img-exit" id="cardSearchImgExit" onclick="event.preventDefault();event.stopPropagation();cardSearchExitImage()">Exit</button>
+    <!-- fix-YT-FS-EXIT-OVERLAY-v1: bottom-centred exit control + a bottom-edge
+         swipe-catch strip, both children of the fullscreen host so they paint
+         over the video iframe. Only active while the host is the fullscreen
+         element (see the :fullscreen CSS). -->
+    <button type="button" class="card-yt-fs-exit" id="cardYtFsExit" aria-label="Exit video fullscreen" title="Exit video fullscreen" onclick="event.preventDefault();event.stopPropagation();cardSearchExitVideoFs()">&#x2715;&nbsp;Exit fullscreen</button>
+    <div class="card-yt-fs-swipe-catch" id="cardYtFsSwipeCatch" aria-hidden="true"></div>
     <div class="card-search-fallback" id="cardSearchFallback">
       <p>This search cannot be embedded here.</p>
       <button type="button" onclick="event.preventDefault();event.stopPropagation();cardSearchOpenPopup()">Open in popup</button>
@@ -20520,6 +20536,7 @@ cardSearchApplyPopupLabels();
   if(window.visualViewport)window.visualViewport.addEventListener('resize',_sched,{passive:true});
 })();
 document.addEventListener('fullscreenchange',function(){
+  if(typeof cardSearchMaybeRedirectYtFs==='function')cardSearchMaybeRedirectYtFs();
   if(!window.CATALOG_PORTABLE)return;
   var inFs=!!(document.fullscreenElement||document.webkitFullscreenElement);
   if(!inFs&&portableWantBrowserFs())portableApplyFsClass(true);
@@ -20527,6 +20544,7 @@ document.addEventListener('fullscreenchange',function(){
   if(typeof portableRelayoutChrome==='function')portableRelayoutChrome('fullscreenchange');
 });
 document.addEventListener('webkitfullscreenchange',function(){
+  if(typeof cardSearchMaybeRedirectYtFs==='function')cardSearchMaybeRedirectYtFs();
   if(!window.CATALOG_PORTABLE)return;
   var inFs=!!(document.fullscreenElement||document.webkitFullscreenElement);
   if(!inFs&&portableWantBrowserFs())portableApplyFsClass(true);
@@ -24977,6 +24995,82 @@ window.cardSearchToggleFullscreen=function(){
     else if(host.webkitRequestFullscreen)host.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT||1);
   }
 };
+
+/* fix-YT-FS-EXIT-OVERLAY-v1: When a cross-origin YouTube player takes the raw
+   <iframe> (#cardSearchFrame) fullscreen, it is promoted to the browser's top
+   layer and nothing in our page can paint over it or exit it reliably (the
+   reported trap). As soon as we see that happen, re-request fullscreen on the
+   embed HOST (#cardSearchEmbed) instead. The host replaces the iframe as the
+   single fullscreen element (no new user gesture is required while already
+   fullscreen), the video keeps filling the host, and our own exit chrome can
+   sit on top. A guard flag avoids re-entrancy within one transition. */
+window.__cardYtFsRedirecting=false;
+window.cardSearchMaybeRedirectYtFs=function(){
+  var iframe=document.getElementById('cardSearchFrame');
+  var host=document.getElementById('cardSearchEmbed');
+  if(!iframe||!host)return;
+  var fsEl=document.fullscreenElement||document.webkitFullscreenElement||null;
+  if(fsEl===iframe&&!window.__cardYtFsRedirecting){
+    window.__cardYtFsRedirecting=true;
+    try{
+      var req=host.requestFullscreen?host.requestFullscreen():(host.webkitRequestFullscreen?host.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT||1):null);
+      if(req&&req.then)req.then(function(){window.__cardYtFsRedirecting=false;},function(){window.__cardYtFsRedirecting=false;});
+      else window.__cardYtFsRedirecting=false;
+    }catch(e){window.__cardYtFsRedirecting=false;}
+  }
+};
+/* Exit whatever video fullscreen is active WITHOUT touching the app's separate
+   toolbar-hiding "browser-fs" CSS state (that is not the Fullscreen API). */
+window.cardSearchExitVideoFs=function(){
+  try{
+    var r=null;
+    if(document.exitFullscreen)r=document.exitFullscreen();
+    else if(document.webkitExitFullscreen)r=document.webkitExitFullscreen();
+    if(r&&r.catch)r.catch(function(){});
+  }catch(e){}
+};
+(function(){
+  var armTimer=null;
+  function embedHost(){return document.getElementById('cardSearchEmbed');}
+  function exitBtn(){return document.getElementById('cardYtFsExit');}
+  function hostIsFs(){var h=embedHost();return !!h&&(document.fullscreenElement===h||document.webkitFullscreenElement===h);}
+  function arm(){
+    var b=exitBtn();if(!b)return;
+    b.classList.add('yt-fs-exit-armed');
+    if(armTimer)clearTimeout(armTimer);
+    armTimer=setTimeout(function(){var bb=exitBtn();if(bb)bb.classList.remove('yt-fs-exit-armed');armTimer=null;},4200);
+  }
+  function disarm(){var b=exitBtn();if(b)b.classList.remove('yt-fs-exit-armed');if(armTimer){clearTimeout(armTimer);armTimer=null;}}
+  window.__cardYtFsArm=arm;
+  /* The swipe-catch strip owns the gesture: because touch events for one
+     finger keep dispatching to the element that received touchstart, the
+     upward swipe is tracked even once the finger passes over the video. */
+  var sy=null,sx=null;
+  function onStart(e){
+    if(!hostIsFs()){sy=null;return;}
+    var t=e.touches&&e.touches[0];if(!t){sy=null;return;}
+    sy=t.clientY;sx=t.clientX;
+  }
+  function onMove(e){
+    if(sy==null)return;
+    var t=e.touches&&e.touches[0];if(!t)return;
+    var dy=sy-t.clientY,dx=Math.abs(t.clientX-sx);
+    if(dy>44&&dy>dx){arm();sy=null;}
+  }
+  function onEnd(){sy=null;}
+  function bind(){
+    var strip=document.getElementById('cardYtFsSwipeCatch');
+    if(!strip||strip.__ytSwipeBound)return;
+    strip.__ytSwipeBound=true;
+    strip.addEventListener('touchstart',onStart,{passive:true});
+    strip.addEventListener('touchmove',onMove,{passive:true});
+    strip.addEventListener('touchend',onEnd,{passive:true});
+    strip.addEventListener('touchcancel',onEnd,{passive:true});
+  }
+  if(document.readyState!=='loading')bind();else document.addEventListener('DOMContentLoaded',bind);
+  document.addEventListener('fullscreenchange',function(){if(hostIsFs())arm();else disarm();});
+  document.addEventListener('webkitfullscreenchange',function(){if(hostIsFs())arm();else disarm();});
+})();
 
 window.syncCardSearchTheme=function(){
   if(!document.body.classList.contains('card-embed-open')||!cardSearchState.popupUrl)return;
